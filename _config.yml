@@ -1,1 +1,5 @@
 theme: jekyll-theme-slate
+name: lls
+markdown: kramdown
+permalink: /blog/:year/:month/:day/:title
+highlighter: rouge
