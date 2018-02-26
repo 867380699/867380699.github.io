@@ -1,0 +1,67 @@
+---
+
+layout: post
+title: "使用Github Page搭建简易博客"
+date: 2018-02-26
+
+---
+
+# Github部分
+在github新建一个新的repository。
+
+repository命名格式为 `<username>.github.io`
+
+在根目录下添加 **index.html** 就可以有一个主页了。
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+    Hello world!
+</body>
+</html>
+```
+直接访问 `<username>.github.io` 即可看到我们的主页了。
+
+在根目录下再添加一个 **about.html**。
+
+可以通过 `<username>.github.io/about.html` 来访问。
+
+> 参考链接   
+> [https://pages.github.com/](https://pages.github.com/)
+
+# Jekyll部分
+```bash
+# Install Jekyll and Bundler gems through RubyGems
+gem install jekyll bundler
+```
+接着在根目录新建一个 **Gemfile**, 内容如下
+
+```
+source 'https://rubygems.org'
+gem 'github-pages', group: :jekyll_plugins
+```
+
+```bash
+# Build the site on the preview server
+bundle exec jekyll serve
+```
+
+这样就在本地启动了一个服务，可以通过 `127.0.0.1:4000` 来访问你的博客了。
+
+同时jekyll会自动生成页面并放在 `_site` 目录下，所以我们要把它加入`.gitignore`
+
+**.gitignore**
+```gitignore
+_site/
+```
+
+> 参考链接   
+> [https://jekyllrb.com/docs/quickstart/](https://jekyllrb.com/docs/quickstart/)
+
+> [https://jekyllrb.com/docs/pages/](https://jekyllrb.com/docs/pages/)
+
+> [http://jmcglone.com/guides/github-pages/](http://jmcglone.com/guides/github-pages/)
