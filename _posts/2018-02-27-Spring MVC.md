@@ -91,7 +91,7 @@ public class GreetingController {
 }
 ```
 然后创建一个模板
-src/main/resources/templates/greeting.html
+`src/main/resources/templates/greeting.html`
 ```html
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
@@ -106,7 +106,7 @@ src/main/resources/templates/greeting.html
 ```
 
 接着还要创建一个入口
-src/main/java/hello/Application.java
+`src/main/java/hello/Application.java`
 ```java
 @SpringBootApplication
 public class Application {
@@ -122,7 +122,7 @@ public class Application {
 ```
 mvn spring-boot:run
 ```
-访问 `localhost:8080/greeting`就可以看见 HelloWorld 了。
+访问 `localhost:8080/greeting` 就可以看见 HelloWorld 了。
 # 简易分析
 我们简单的看一下代码
 
@@ -153,7 +153,7 @@ pom.xml
 这里的th:text就是一个thymeleaf模板引擎的应用。
 
 我们再看下GreetingController
-src/main/java/hello/GreetingController.java
+`src/main/java/hello/GreetingController.java`
 ```java
 @Controller
 public class GreetingController {
@@ -173,6 +173,7 @@ public class GreetingController {
 `@RequestParam` 把一个query String中的值传给参数。
 方法的内容只有两行，第一行`model.addAttribute("name", name);` 把name放进Model。
 最后返回了一个字符串`greeting`，这个字符串就是`View`的名字。
+
 在Spring中，Controller负责处理HTTP请求，View负责渲染HTML页面。
 
 
