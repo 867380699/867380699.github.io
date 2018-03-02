@@ -6,6 +6,7 @@ date: 2018-02-27
 
 ---
 
+
 # 使用Maven开始一个SpringMVC项目
 首先我们新建一个目录,在里面新建一个 `pom.xml`
 复制以下内容
@@ -40,7 +41,6 @@ date: 2018-02-27
     <properties>
         <java.version>1.8</java.version>
     </properties>
-
 
     <build>
         <plugins>
@@ -126,15 +126,15 @@ mvn spring-boot:run
 # 简易分析
 我们简单的看一下代码
 
-pom.xml
+`pom.xml`
 ```xml
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-thymeleaf</artifactId>
-        </dependency>
-        ...
-    </dependencies>
+<dependencies>
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-thymeleaf</artifactId>
+    </dependency>
+    ...
+</dependencies>
 ```
 这里 thymeleaf 是一个模板引擎
 
@@ -163,23 +163,26 @@ public class GreetingController {
         model.addAttribute("name", name);
         return "greeting";
     }
-
 }
 ```
-这段代码就充满了魔法，只是一个普通的JAVA类，既没有继承抽象类也没有实现特定的接口。仅仅是加了`@Controller`这个注解。
-再看greeting这个方法，只是可普通的方法。加上了`@RequestMapping("/greeting")`就表示`/greeting`这个请求是由这个方法来处理的。
-参数有两个`String name, Model model`
-`name`这个参数前面有个很长的注解 `@RequestParam(value="name", required=false, defaultValue="World")`
+这段代码就充满了魔法，只是一个普通的JAVA类，既没有继承抽象类也没有实现特定的接口。仅仅是加了 `@Controller` 这个注解。
+再看greeting这个方法，只是个普通的方法。加上了 `@RequestMapping("/greeting")` 就表示 `/greeting` 这个请求是由这个方法来处理的。
+参数有两个 `String name, Model model`
+`name` 这个参数前面有个很长的注解 `@RequestParam(value="name", required=false, defaultValue="World")`
 `@RequestParam` 把一个query String中的值传给参数。
-方法的内容只有两行，第一行`model.addAttribute("name", name);` 把name放进Model。
-最后返回了一个字符串`greeting`，这个字符串就是`View`的名字。
+方法的内容只有两行，第一行 `model.addAttribute("name", name);` 把name放进Model。
+最后返回了一个字符串 `greeting`，这个字符串就是 `View` 的名字。
 
-在Spring中，Controller负责处理HTTP请求，View负责渲染HTML页面。
+在SpringMVC中，Controller负责处理HTTP请求，View负责渲染HTML页面，Model则是连接Controller和View的桥梁。
 
 
 
 # 小结
 几个复制粘贴网站就跑起来了，非常方便。
-而且非常的简洁，几乎么有多余的代码。
+非常的简洁，几乎没有多余的代码。
+但是简洁的外表下隐藏了许多复杂的工作，想要研究它的实现原理并不容易。
+所以目前只要记住格式就好了。
+
 # 参考资料
 > [Spring官方教程](https://spring.io/guides/gs/serving-web-content/)
+> [理解模板引擎 - spring.io](https://spring.io/understanding/view-templates)

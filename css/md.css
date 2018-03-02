@@ -1,0 +1,52 @@
+h1 {
+  font-size: 2em;
+  font-family: "Helvetica", "Arial", "Sans-Serif";
+}
+
+h2 {
+  font-size: 1.75em;
+}
+
+p {
+  font-size: 1.2em;
+  line-height: 1.4em;
+  color: #333;
+  font-family: 'monospace';
+}
+
+pre {
+  padding: 16px;
+  border: 1px solid #dedede;
+  background-color: beige;
+  font-family: 'monospace',Menlo Regular, Inconsolata, Consolas, "DEJA VU SANS MONO",
+    "DROID SANS MONO", Proggy;
+}
+
+p code {
+    color: #bb0033;
+}
+
+table{
+    min-width: 30%;
+    max-width: 65em;
+    border: 1px solid #dedede;
+    border-collapse: collapse;
+    margin: 15px;
+}
+table th {
+    white-space: nowrap;
+}
+table th,
+table td{
+    height: 35px;
+    border: 1px solid #dedede;
+    padding: 0 10px;
+    font-family: 'monospace'
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #f8f8f8;
+}
+/* table tbody tr:hover{
+    background-color: #fcf8f4
+} */
