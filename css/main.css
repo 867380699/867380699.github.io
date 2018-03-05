@@ -7,9 +7,12 @@ body {
 .nav {
     background-color: #eeeeee;
     position: fixed;
-    width: 1343px;
+    width: 70%;
     top: 0;
     z-index: 9999;
+    min-width: 1200px;
+    margin: 60px 0px 60px 0px auto;
+
 }
 
 .nav a {
@@ -47,7 +50,7 @@ ul.posts li {
 
 .toc {
     float: left;
-    width: 200px;
+    width: 20%;
     max-height: 600px;
     position: fixed;
     overflow-y: scroll;
@@ -63,10 +66,10 @@ ul.posts li {
 }
 
 .main {
-    margin-left: 220px;
-    padding-left: 20px;
+    margin-left: 20%;
+    padding-left: 30px;
     border-left: 1px solid #dedede;
-    width: 1102px;
+    width: 76%;
 }
 
 a {
