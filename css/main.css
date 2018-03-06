@@ -58,18 +58,11 @@ ul.posts li {
 }
 
 .main {
-<<<<<<< HEAD
     float: left;
     padding-left: 20px;
     border-left: 1px solid #dedede;
     width: 50%;
     margin-top: 50px;
-=======
-    margin-left: 20%;
-    padding-left: 30px;
-    border-left: 1px solid #dedede;
-    width: 76%;
->>>>>>> 1a8ce868d6ace86a993f92e7be8593e7a55c6f4a
 }
 
 a {
