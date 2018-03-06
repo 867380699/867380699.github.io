@@ -12,10 +12,10 @@
             var x = document.getElementsByClassName("toc");
             if (x.length > 0){
                 x = x[0];
-                if (x.className === "toc") {
-                    x.className += " responsive";
-                } else {
-                    x.className = "toc";
+                if (x.style.display === "" || x.style.display === 'none'){
+                    x.style.display = 'block'
+                }else{
+                    x.style.display = 'none'
                 }
             }
         }
@@ -24,10 +24,11 @@
 
 <body>
     <div class="nav">
+        <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="toggleTOC()">☰</a>
         <a href="/">Home</a>
         <a href="/blog">Blog</a>
         <a href="/about">About</a>
-        <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="toggleTOC()">☰</a>
+        <a href="/tag">Tag</a>
     </div>
 
     {{ content }}

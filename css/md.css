@@ -50,3 +50,18 @@ table tbody tr:nth-child(even) {
 /* table tbody tr:hover{
     background-color: #fcf8f4
 } */
+@media (max-width:800px) {
+  p {
+    font-size: 1em;
+    line-height: 1.6em;
+    color: #5E5E5E;
+    font-family: San Francisco,Segoe UI,Roboto,;
+  }
+  pre {
+    padding: 4px;
+    border: 1px solid #dedede;
+    background-color: beige;
+    overflow-y: scroll;
+    width: 100%;
+  }
+}
