@@ -28,6 +28,7 @@ body h1{
 ul.posts {
     margin: 20px auto 40px;
     font-size: 1.5em;
+    padding: 8px;
 }
 
 ul.posts li {
@@ -45,6 +46,7 @@ ul.posts li {
     padding-left: 20px;
     margin-top: 30px;
     background: #ffffff;
+    z-index: 8888;
 }
 
 .toc>ul {
@@ -100,7 +102,13 @@ a:hover {
     .footer {
         width: 100%;
         padding-left: 8px;
+        padding-right: 8px; 
         border: none;
+        box-sizing: border-box;
+    }
+    .main{
+        left: 0px;
+        min-width: 320px;
     }
     .nav .icon {
         display: block;
@@ -108,12 +116,17 @@ a:hover {
     }
     .toc{
         right: 0px;
-        margin-top: 50px;
+        margin-top: 30px;
         height: 100%;
         width: 60%;
         position: fixed;
         background: #000000;
         opacity: 0.8;
         display: none;
+    }
+    ul.posts {
+        margin: 0px;
+        font-size: 1.3em;
+        line-height: 1.6em;
     }
 }

@@ -23,6 +23,7 @@ pre {
   background-color: beige;
   font-size: 0.8em;
   overflow-y: auto;
+  box-sizing: border-box;
   font-family: 'monospace',Menlo Regular, Inconsolata, Consolas, "DEJA VU SANS MONO",
     "DROID SANS MONO", Proggy;
 }
