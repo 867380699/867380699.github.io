@@ -21,6 +21,8 @@ pre {
   padding: 16px;
   border: 1px solid #dedede;
   background-color: beige;
+  font-size: 0.8em;
+  overflow-y: auto;
   font-family: 'monospace',Menlo Regular, Inconsolata, Consolas, "DEJA VU SANS MONO",
     "DROID SANS MONO", Proggy;
 }
@@ -64,7 +66,6 @@ table tbody tr:nth-child(even) {
     padding: 4px;
     border: 1px solid #dedede;
     background-color: beige;
-    overflow-y: scroll;
     width: 100%;
   }
 }
