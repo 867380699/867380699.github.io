@@ -1,6 +1,9 @@
-h1 {
+.main h1 {
   font-size: 2em;
   font-family: "Helvetica", "Arial", "Sans-Serif";
+  margin-top: 0px;
+  padding-top: 50px;
+  margin-top: 0px;
 }
 
 h2 {
