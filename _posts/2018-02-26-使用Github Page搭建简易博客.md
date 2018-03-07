@@ -58,8 +58,51 @@ bundle exec jekyll serve
 ```gitignore
 _site/
 ```
+## TOC生成
 
-> 参考链接   
+在 Layout 中添加 TOC 的方法
+
+> [一种不使用插件或JS的实现](https://allejo.io/blog/a-jekyll-toc-without-plugins-or-javascript/)
+
+## Tag 生成
+> [github-jekyll-tag](http://longqian.me/2017/02/09/github-jekyll-tag/)
+
+## Liquid
+{% raw %}
+Liquid 代码可以分为三类，对象（Object），标签（tags），过滤器（filters）。
+
+对象告诉Liquid在哪放置页面内容。对象和变量名使用 `{{` 和 `}}` 包围 
+```liquid
+{{ page.title }}
+```
+
+标签为模板提供了逻辑和控制流，使用 `{%` 和 `%}`包围
+标签标记不会产生任何可见文本，因此你可以分配变量，使用条件和循环，而不用担心在页面上显示任何Liquid逻辑。
+
+```liquid
+{% if user %}
+    Hello {{ user.name }}!
+{% endif %}
+```
+
+标签可以分为三类：控制流，迭代，变量分配。
+
+过滤器可以改变Liquid对象的输出，他们在输出中使用，使用 `|` 分割。
+```liquid
+{{ "/my/fancy/url" | append: ".html" }}
+```
+
+可以同时使用多个过滤器
+```liquid
+{{ "adam!" | capitalize | prepend: "Hello " }}
+```
+
+{% endraw %}
+
+
+> [Liquid官方文档](http://shopify.github.io/liquid/basics/introduction/)
+
+# 参考链接   
 > [https://jekyllrb.com/docs/quickstart/](https://jekyllrb.com/docs/quickstart/)
 
 > [https://jekyllrb.com/docs/pages/](https://jekyllrb.com/docs/pages/)
