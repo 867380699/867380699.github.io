@@ -102,6 +102,16 @@ Liquid 代码可以分为三类，对象（Object），标签（tags），过滤
 
 > [Liquid官方文档](http://shopify.github.io/liquid/basics/introduction/)
 
+# 样式
+>[表格样式-moxfive.xyz](http://moxfive.xyz/2016/03/04/markdown-table-style/)
+
+# 其它
+
+```bash
+# 可以在局域网访问
+bundler exec jekyll serve --host=0.0.0.0
+```
+
 # 参考链接   
 > [https://jekyllrb.com/docs/quickstart/](https://jekyllrb.com/docs/quickstart/)
 
