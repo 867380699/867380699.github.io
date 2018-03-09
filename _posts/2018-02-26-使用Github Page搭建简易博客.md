@@ -1,7 +1,7 @@
 ---
 
 layout: post
-title: "使用Github Page搭建简易博客"
+title: "使用 Github Page 搭建简易博客"
 date: 2018-02-26
 
 ---
@@ -66,6 +66,10 @@ _site/
 
 ## Tag 生成
 > [github-jekyll-tag](http://longqian.me/2017/02/09/github-jekyll-tag/)
+
+## 基础搜索
+> [instant-jekyll-search - blog.webjeda.com](https://blog.webjeda.com/instant-jekyll-search/)
+> [Simple-Jekyll-Search - github.com](https://github.com/christian-fei/Simple-Jekyll-Search)
 
 ## Liquid
 {% raw %}

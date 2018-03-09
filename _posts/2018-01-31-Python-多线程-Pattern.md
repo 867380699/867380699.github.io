@@ -1,3 +1,11 @@
+---
+layout: post
+title:  "Python多线程Pattern"
+date:   2018-01-12
+tags: python
+
+---
+
 ```python
 from queue import Queue
 
