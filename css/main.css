@@ -140,4 +140,7 @@ a:hover {
         font-size: 1.3em;
         line-height: 1.6em;
     }
+    img {
+        width: 100%;
+    }
 }
