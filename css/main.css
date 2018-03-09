@@ -96,6 +96,17 @@ a:hover {
     font-size: 0.8em;
 }
 
+#search-input {
+    width: 100%;
+    padding-top: 4px;
+    border: 1px solid #888888;
+    font-size: 1.2em;
+}
+
+#results-container {
+    margin-top: 16px;
+} 
+
 @media (max-width:800px) {
     .toc,
     .main,
