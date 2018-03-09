@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=utf-8>
+    <title>Load Models</title>
+    <style>
+    body {
+        margin: 0;
+    }
+
+    canvas {
+        width: 100%;
+        height: 100%
+    }
+    </style>
+</head>
+
+<body>
+    <script src="js/three.min.js"></script>
+    <script type="text/javascript" src="js/OBJLoader.js"></script>
+    <script type="text/javascript" src="js/MTLLoader.js"></script>
+    <script type="text/javascript" src="js/OrbitControls.js"></script>
+    <script>
+    var scene = new THREE.Scene();
+    var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    var controls = new THREE.OrbitControls( camera );
+    controls.zoomSpeed = 0.5;
+    var renderer = new THREE.WebGLRenderer();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setClearColor(0x888888);
+
+    var m_obj;
+
+    var mtlLoader = new THREE.MTLLoader();
+    mtlLoader.load( 'models/BrickRound.mtl', function( materials ) {
+        materials.preload();
+
+        var objLoader = new THREE.OBJLoader();
+        objLoader.setMaterials( materials );
+        objLoader.load( 'models/BrickRound.obj', function ( object ) {
+            object.scale.set(2, 2, 2);
+            scene.add( object );
+            m_obj = object;
+        });
+    });
+    var bump_map = new THREE.TextureLoader().load( "models/BrickRound0105_5_S_BUMP.png" );
+    var ground_texture = new THREE.TextureLoader().load( "models/BrickRound0105_5_SPEC.png" );
+
+    var ground = new THREE.Mesh(new THREE.PlaneGeometry(50, 50),
+        new THREE.MeshPhongMaterial({ color: 0xffeecc, side: THREE.DoubleSide, bumpMap: bump_map, map: ground_texture}));
+    ground.rotation.x = Math.PI / 2;;
+    scene.add(ground);
+
+    var pointLight = new THREE.PointLight(0xffeedd, 1, 100);
+    pointLight.position.set(0, 20, 0);
+    scene.add(pointLight);
+
+    var directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
+    directionalLight.position.set(-10, 10, 10);
+    scene.add(directionalLight);
+
+    var hemisphereLight = new THREE.HemisphereLight( 0xffffbb, 0x080820, 0.3);
+    scene.add( hemisphereLight );
+
+    camera.position.set(0, 15, 5);
+    document.body.appendChild(renderer.domElement);
+
+    var step = 0;
+
+    function animate() {
+        requestAnimationFrame(animate);
+        controls.update();
+        renderer.render(scene, camera);
+        step +=0.005;
+        pointLight.position.x = 25 * Math.sin(step);
+        pointLight.position.z = 25 * Math.cos(step);
+    }
+    animate();
+    </script>
+</body>
+
+</html>
