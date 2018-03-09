@@ -21,7 +21,7 @@ pre {
   padding: 16px;
   border: 1px solid #dedede;
   background-color: beige;
-  font-size: 0.8em;
+  font-size: 1em;
   overflow-y: auto;
   box-sizing: border-box;
   font-family: 'monospace',Menlo Regular, Inconsolata, Consolas, "DEJA VU SANS MONO",
@@ -67,6 +67,7 @@ table tbody tr:nth-child(even) {
     padding: 4px;
     border: 1px solid #dedede;
     background-color: beige;
+    font-size: 0.8em;
     width: 100%;
   }
 }
