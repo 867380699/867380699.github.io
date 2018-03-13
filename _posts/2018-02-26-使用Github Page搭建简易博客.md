@@ -1,7 +1,7 @@
 ---
 
 layout: post
-title: "使用 Github Page 搭建简易博客"
+title: "Github Page 简易博客搭建"
 date: 2018-02-26
 
 ---
@@ -51,13 +51,44 @@ bundle exec jekyll serve
 ```
 
 这样就在本地启动了一个服务，可以通过 `127.0.0.1:4000` 来访问你的博客了。
+使用参数`--host=0.0.0.0` 可以实现局域网内访问，方便调试移动端
+```bash
+bundle exec jekyll serve --host=0.0.0.0
+```
 
 同时jekyll会自动生成页面并放在 `_site` 目录下，所以我们要把它加入`.gitignore`
 
-**.gitignore**
-```gitignore
-_site/
+## 代码高亮
+Jekyll大概是默认支持代码高亮的。
+我们只需要添加一份上色的CSS即可。
+```html
+<link rel="stylesheet" type="text/css" href="/css/pastie.css">
+
 ```
+这是我目前正在使用的上色CSS: [pastie.css](/css/pastie.css)
+
+
+## 数学公式支持
+使用MathJax可以很方便的在页面上显示数学公式。
+在页面上添加如下代码即可。
+```html
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+</script>
+```
+MathJax默认不开启单个 `$` 的行内公式，在页面中添加下面的配置即可开启。
+```html
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+      }
+    });
+</script>
+```
+
+> [Getting Started - docs.mathjax.org](http://docs.mathjax.org/en/latest/start.html)
+
 ## TOC生成
 
 在 Layout 中添加 TOC 的方法
