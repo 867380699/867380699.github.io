@@ -4,6 +4,7 @@
   margin-top: 0px;
   padding-top: 50px;
   margin-top: 0px;
+  color: #3399cc;
 }
 
 h2 {
@@ -21,7 +22,7 @@ pre {
   padding: 16px;
   border: 1px solid #dedede;
   background-color: beige;
-  font-size: 1em;
+  font-size: 1.1em;
   overflow-y: auto;
   box-sizing: border-box;
   font-family: 'monospace',Menlo Regular, Inconsolata, Consolas, "DEJA VU SANS MONO",
@@ -29,7 +30,8 @@ pre {
 }
 
 p code {
-    color: #bb0033;
+  font-family: 'monospace';
+  color: #bb0033;
 }
 
 table{
