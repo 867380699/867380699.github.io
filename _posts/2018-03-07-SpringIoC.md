@@ -1,7 +1,7 @@
 ---
 
 layout: post
-title: "SpringIoC"
+title: "Spring IoC"
 date: 2018-03-07
 
 ---
@@ -15,13 +15,14 @@ IoC容器负责配置和实例化 `Bean`
 
 `org.springframework.context.ApplicationContext` 就是一个 Ioc容器 接口
 
-## 容器简介
+# 容器简介
 
 使用容器需要我们提供配置元数据(Configuration metadata)，它告诉Spring如何实配置，组装，实例化 应用中的对象。
 
 Spring 提供了许多方式来为程序提供配置元数据，如XML，注解，Java代码。
 
 使用XML进行配置时，根节点为`beans`，里面包含了许多的`bean`节点。
+使用注解进行配置时，通常使用 `@Component` `@Repository` `@Service` `@Controller`。
 使用 Java 配置通常在 `@Configuration` 类中使用 `@Bean` 注解。
 另外还可以是用 Spring’s Groovy Bean Definition DSL 来提供配置元数据。
 
@@ -41,7 +42,7 @@ PetStoreService service = context.getBean("petStore", PetStoreService.class);
 List<String> userList = service.getUsernameList();
 ```
 
-## Bean 简介
+# Bean 简介
 
 容器自身使用 `BeanDefinition` 类来表述 Bean 的定义，它包含了以下元数据：
 - 一个带包名的完整类名 - 通常是bean的实现类
@@ -72,7 +73,7 @@ List<String> userList = service.getUsernameList();
 **Bean 的实例化**
 通常是使用构造函数，也可以通过静态工厂方法和实例工厂方法
 
-## 依赖
+# 依赖
 
 容器会在创建Bean时注入它们的依赖。
 
@@ -86,17 +87,16 @@ DI一般分为两类，一种是基于构造方法的，另一种则是基于Set
 
 Spring的团队更加提倡使用构造方法的方式，因为使用这种方式可以确保依赖完整，依赖的所有者始终能得到一个完全初始化的Bean。
 
-Setter的实现方式主要用于依赖可以有合理默认值的情况，否则，在代码的各个地方都要判断依赖是否为空。
+使用Setter的实现方式主要用于依赖可以有合理默认值的情况，否则，在代码的各个地方都要判断依赖是否为空。
 
 如果 Bean 的作用域是 `Singleton`，那么它将在container创建时被创建，其他情况下 Bean 只在被需要用到时被创建。
 
-循环依赖
-当我们大量使用构造函数来完成依赖注入时，可能会产生循环依赖，如果Spring在运行时发现循环依赖，就会抛出`BeanCurrentlyInCreationException`,
-解决办法就是修改源码，对一些Bean使用Setter处理依赖。
+**循环依赖**
+当我们大量使用构造函数来完成依赖注入时，可能会产生循环依赖，如果Spring在运行时发现循环依赖，就会抛出`BeanCurrentlyInCreationException`，解决办法就是修改源码，对一些Bean使用Setter处理依赖。
 
 Spring会在container加载时检测配置是否有问题，比如依赖的Bean不存在或是存在循环依赖。
 
-### 简单类型
+## 简单类型
 基本类型，String 之类的。
 Spring’s `conversion service` is used to convert these values from a String to the actual type of the property or argument.
 ```xml
@@ -112,11 +112,11 @@ Spring’s `conversion service` is used to convert these values from a String to
 
 然后还有好几种配置方法。
 
-### 引用其他的Bean
+## 引用其他的Bean
 ```xml
 <ref bean="someBean"/>
 ```
-### Inner Beans
+## Inner Beans
 Inner Beans 不需要id或是name，如果有，容器也不会使用这个值。
 Inner Beans 也会忽略Scope，Inner Beans是匿名的且由外部Bean来创建。
 ```xml
@@ -130,7 +130,7 @@ Inner Beans 也会忽略Scope，Inner Beans是匿名的且由外部Bean来创建
     </property>
 </bean>
 ```
-### 集合
+## 集合
 `<list/>, <set/>, <map/>, <props/>` 这些XML元素用来设置 `List, Set, Map, Properties` 类型的属性和参数。
 
 ```xml
@@ -156,7 +156,7 @@ Map的键值和Set的值可以是以下类型
 
 Spring 也支持集合合并。
 
-### null 及 空字符串
+## null 及 空字符串
 ```xml
 <bean class="ExampleBean">
     <property name="email" value=""/>
@@ -169,7 +169,7 @@ Spring 也支持集合合并。
     </property>
 </bean>
 ```
-## 自动装配依赖
+# 自动装配依赖
 自动装配（ autowire ）可以极大的减少 属性 和 构造函数参数 的配置。
 自动装配可以自动更新配置，当你添加一个依赖时，不必修改配置文件。
 
@@ -185,7 +185,7 @@ Spring 也支持集合合并。
 显式声明的依赖会覆盖自动装配的依赖。
 简单类型的属性不能自动装配。
 
-## Bean的域
+# Bean的域
 Spring支持6种scope
 
 | scope | 描述 |
@@ -199,8 +199,8 @@ Spring支持6种scope
 
 另外还有 `SimpleThreadScope`，但是需要额外的配置才可以使用。
 
-## 基于注解的容器配置
-### @Required
+# 基于注解的容器配置
+## @Required
 用于Bean的setter方法，标记这个Setter的Bean必须在配置时期就设置好。
 ```java
 public class SimpleMovieLister {
@@ -247,13 +247,13 @@ public class SimpleMovieLister {
     }
 }
 ```
-## Classpath扫描及组件管理
+# Classpath扫描及组件管理
 前面提到的注解注入，Bean都是在XML中显示声明的，这节将会讨论通过Classpath扫描隐式检测候选组件。
 候选组件 (Candidate components) 是容器中满足一定筛选标准且有对应Bean定义的一些类。
 
 我们也可以通过注解而不是XML来注册Bean。
 
-### @Component 及其他模板注解
+## @Component 及其他模板注解
 `@Component` 是一个通用模板标记，用于标记受Spring管理的组件的。
 
 `@Repository` `@Service` `@Controller` 是特定场景下的 `@Component`。
@@ -266,7 +266,7 @@ public class SimpleMovieLister {
 
 @Repository is already supported as a marker for automatic exception translation in your persistence layer.
 
-### 元注解
+## 元注解
 元注解就是可以应用在注解之上的注解。比如@Service的元注解有@Component
 ```java
 @Target(ElementType.TYPE)
@@ -281,7 +281,7 @@ public @interface Service {
 
 元注解也可以用来创建复合注解，比如 `RestController` 就是由 `@Controller` 和 `@ResponseBody` 复合而成。
 
-### 自动探测Java类及注册Bean定义
+## 自动探测Java类及注册Bean定义
 需要在@Configuration类上添加`@ComponentScan`
 ```java
 @Configuration
@@ -291,12 +291,70 @@ public class AppConfig  {
 }
 ```
 
-### 使用过滤器定制扫描
+## 使用过滤器定制扫描
 
-## 使用 JSR 330 标准注解
+使用 `@ComponentScan` 
 
-## 基于Java的容器配置
-### @Bean 及 @Configuration
+## 自动检测组件的命名
+@Component 的 name 参数 就是 组件的名字，如果没有指明，默认为首字母小写的类目，如 MovieFinderImpl 的默认名字为 movieFinderImpl
+```java
+@Service("myMovieLister")
+public class SimpleMovieLister {
+    // ...
+}
+```
+
+## 自动检测组件的作用域
+
+```java
+@Scope("prototype")
+@Repository
+public class MovieFinderImpl implements MovieFinder {
+    // ...
+}
+```
+
+## 生成索引
+虽然扫描十分迅速，我们仍然可以优化启动速度。
+
+
+# 使用 JSR 330 标准注解
+
+```xml
+<dependency>
+    <groupId>javax.inject</groupId>
+    <artifactId>javax.inject</artifactId>
+    <version>1</version>
+</dependency>
+```
+
+使用 `@Inject` 取代 `@Autowired`
+
+使用 `@Named("movieListener")` 取代 `@Component("movieListener")`
+
+
+# 基于Java的容器配置
+## @Bean 及 @Configuration
+`@Bean` 注解 用于标记一个方法 来为容器实例化，初始化对象。
+
+`@Configuration` 用来标记一个主要功能是为容器提供 Bean 定义的类。
+
+```java
+@Configuration
+public class AppConfig {
+
+    @Bean
+    public MyService myService() {
+        return new MyServiceImpl();
+    }
+}
+```
+# ApplicationContext 的其他能力
+
+## 使用MessageSource实现国际化
+
+## 标准及自定义事件
+
 
 # 疑问
 
