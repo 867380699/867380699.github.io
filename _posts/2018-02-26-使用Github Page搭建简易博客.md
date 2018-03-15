@@ -34,9 +34,12 @@ repository命名格式为 `<username>.github.io`
 > [https://pages.github.com/](https://pages.github.com/)
 
 # Jekyll部分
+
 ```bash
+# 一些可能没安装的依赖
+sudo apt install zlib1g zlib1g-dev ruby-dev
 # Install Jekyll and Bundler gems through RubyGems
-gem install jekyll bundler
+gem install jekyll bundler github-pages
 ```
 接着在根目录新建一个 **Gemfile**, 内容如下
 
@@ -137,6 +140,28 @@ Liquid 代码可以分为三类，对象（Object），标签（tags），过滤
 
 > [Liquid官方文档](http://shopify.github.io/liquid/basics/introduction/)
 
+# Nginx部署
+Jekyll也可以使用Nginx在自己的服务器上进行部署
+
+默认配文件 `/etc/nginx/sites-enabled/default`
+
+修改try_files 添加 `$uri.html`。
+```nginx
+try_files $uri.html $uri $uri/ =404;
+```
+修改root，大致修改如下
+```
+# root /var/www/html;
+root /home/ubuntu/jekyll-site/_site;
+```
+也可以使用jekyll的build参数 `--destination`
+```bash
+jekyll build --source /root/myblog --destination /home/wwwroot/example.com --incremental --watch&
+```
+
+> [Jekyll + Nginx 配置指南](https://www.bennythink.com/jekyll-nginx.html)
+> [用 Jekyll/Nginx/Let'sEncrypt 搭建一个博客站点](https://tomisacat.xyz/tech/2017/02/27/Deploy-a-blog-site-with-Jekyll-and-Nginx.html)
+
 # 样式
 >[表格样式-moxfive.xyz](http://moxfive.xyz/2016/03/04/markdown-table-style/)
 
@@ -147,3 +172,5 @@ Liquid 代码可以分为三类，对象（Object），标签（tags），过滤
 > [https://jekyllrb.com/docs/pages/](https://jekyllrb.com/docs/pages/)
 
 > [http://jmcglone.com/guides/github-pages/](http://jmcglone.com/guides/github-pages/)
+
+> [bundle卡住的问题](https://ruby-china.org/topics/8578)
