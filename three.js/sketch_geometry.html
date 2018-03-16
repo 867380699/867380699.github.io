@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Geometry</title>
+    <script type="text/javascript" src="js/three.min.js"></script>
+    <script src="js/OrbitControls.js"></script>
+    <script src="js/ThreeCSG.js"></script>
+
+    <style>
+        body {
+            /* set margin to 0 and overflow to hidden, to go fullscreen */
+            margin: 0;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+
+<div id="WebGL-output">
+</div>
+
+<script type="text/javascript">
+    function init() {
+        var scene = new THREE.Scene();
+
+        var camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
+
+        controls = new THREE.OrbitControls( camera );
+        controls.target.set( 0, 0, 0 );
+        controls.update();
+
+        var renderer = new THREE.WebGLRenderer();
+        renderer.setClearColor(new THREE.Color(0xEEEEEE));
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.shadowMap.enabled = true;
+
+        var planeGeometry = new THREE.PlaneGeometry( 1000, 1000 );
+        planeGeometry.rotateX( - Math.PI / 2 );
+        var planeMaterial = new THREE.ShadowMaterial( { opacity: 0.2 } );
+        var plane = new THREE.Mesh( planeGeometry, planeMaterial );
+        plane.receiveShadow = true;
+        scene.add( plane );
+        var helper = new THREE.GridHelper( 200, 50 );
+        helper.material.opacity = 0.25;
+        helper.material.transparent = true;
+        scene.add( helper );
+
+        var material = new THREE.MeshLambertMaterial({color: 0x156289, wireframe: false,emissive: 0x072534,side: THREE.DoubleSide});
+
+        var meshList2 = [];
+        var meshList3 = [];
+
+
+        meshList2.push(new THREE.Mesh(new THREE.BoxGeometry(6, 12, 6), material));
+        meshList2.push(new THREE.Mesh(new THREE.BoxGeometry(6, 6, 6), material));
+        meshList2.push(new THREE.Mesh(new THREE.SphereGeometry(5, 24, 24), material));
+        meshList2.push(new THREE.Mesh(new THREE.CylinderGeometry( 4, 4, 12, 36 ), material));
+        meshList2.push(new THREE.Mesh(new THREE.CylinderGeometry( 4, 4, 12, 6 ), material));
+
+        meshList2.push(new THREE.Mesh(new THREE.ConeGeometry( 4, 12, 32 ), material));
+        meshList2.push(new THREE.Mesh(new THREE.ConeGeometry( 4, 12, 6 ), material));
+        meshList2.push(new THREE.Mesh(new THREE.ConeGeometry( 4, 12, 4 ), material));
+
+        meshList3.push(new THREE.Mesh(new THREE.ConeGeometry( 6, 8, 3 ), material));
+        meshList3.push(new THREE.Mesh(new THREE.OctahedronGeometry(5), material));
+        meshList3.push(new THREE.Mesh(new THREE.DodecahedronGeometry(5), material));
+        meshList3.push(new THREE.Mesh(new THREE.IcosahedronGeometry(5), material));
+
+
+        function addCross(){
+            m1 = new THREE.Mesh(new THREE.BoxGeometry(9, 3, 3), material);
+            m1.rotation.set(Math.PI / 4,0,0);
+            m2 = new THREE.Mesh(new THREE.BoxGeometry(9, 3, 3), material);
+            m2.rotation.set(0,Math.PI / 4,Math.PI / 2);
+            m1.castShadow = true;
+            m2.castShadow = true;
+            var g = new THREE.Group();
+            g.add(m1);
+            g.add(m2);
+            meshList3.push(g);
+        }        
+        addCross();
+
+        function addCrossCone(){
+            m1 = new THREE.Mesh(new THREE.BoxGeometry(9, 3, 3), material);
+            m1.rotation.set(Math.PI / 4,0,0);
+            m2 = new THREE.Mesh(new THREE.ConeGeometry( 4, 10, 4 ), material);
+            m1.castShadow = true;
+            m2.castShadow = true;
+            var g = new THREE.Group();
+            g.add(m1);
+            g.add(m2);
+            meshList3.push(g);
+        }        
+        addCrossCone();
+
+        function addCrossCone2(){
+            m1 = new THREE.Mesh(new THREE.CylinderGeometry( 2, 2, 8, 36 ), material);
+            m1.rotation.set(0,0,Math.PI / 2);
+            m2 = new THREE.Mesh(new THREE.ConeGeometry( 4, 10, 36 ), material);
+            scene.add(m1);
+            scene.add(m2);
+            m1.castShadow = true;
+            m2.castShadow = true;
+            var g = new THREE.Group();
+            g.add(m1);
+            g.add(m2);
+            meshList3.push(g);
+        }        
+        addCrossCone2();
+
+        function addCylinder2(){
+            var cubeMesh = new THREE.Mesh( new THREE.BoxGeometry( 12, 12, 12 ), material );
+            cubeMesh.position.set(0,8,2);
+            cubeMesh.rotation.set(Math.PI / 8,0,0);
+            var cube_bsp = new ThreeBSP(cubeMesh);
+            var cylinderMesh   = new THREE.Mesh( new THREE.CylinderGeometry(3, 3, 12, 48), material );
+            cylinderMesh.position.set(0,0,-2);
+            var cylinder_bsp = new ThreeBSP(cylinderMesh);
+            var subtract_bsp = cylinder_bsp.subtract( cube_bsp );
+            var result = subtract_bsp.toMesh( material );
+            result.geometry.computeVertexNormals();
+            meshList3.push(result);
+        }
+        addCylinder2()
+
+        meshList2.forEach(function(m,i){
+            m.position.set(-25 + 10 * i, 6, -5);
+            m.castShadow = true;
+            scene.add(m);
+        });
+        meshList3.forEach(function(m,i){
+            m.position.set(-25 + 10 * i, 6, 12);
+            m.castShadow = true;
+            scene.add(m);
+        });
+
+        var lights = [];
+        lights[ 0 ] = new THREE.PointLight( 0xffffff, 1, 0 );
+        lights[ 1 ] = new THREE.PointLight( 0xffffff, 1, 0 );
+        lights[ 2 ] = new THREE.PointLight( 0xffffff, 1, 0 );
+
+        lights[ 0 ].position.set( 0, 200, 0 );
+        lights[ 1 ].position.set( 100, 200, 100 );
+        lights[ 2 ].position.set( - 100, - 200, - 100 );
+
+
+        var spotLight = new THREE.SpotLight( 0xffffff );
+        spotLight.castShadow = true;
+        spotLight.position.set( 20, 30, 30 );
+        spotLight.shadow.mapSize.width = 1024;
+        spotLight.shadow.mapSize.height = 1024;
+        scene.add( spotLight );
+
+        scene.add( lights[ 0 ] );
+        scene.add( lights[ 1 ] );
+        scene.add( lights[ 2 ] );
+
+        camera.position.set(0, 60, 30); 
+        camera.lookAt(scene.position);
+
+        document.getElementById("WebGL-output").appendChild(renderer.domElement);
+        step = 0.00;
+        function animate() {
+            requestAnimationFrame(animate);
+            renderer.render(scene, camera);
+
+            meshList2.forEach(function(m){
+                m.rotation.x += step;
+                m.rotation.y += step/3;
+            });
+            meshList3.forEach(function(m){
+                m.rotation.x += step;
+                m.rotation.y += step/3;
+            });
+        }
+        animate();
+    }
+    window.onload = init;
+
+</script>
+</body>
+</html>
