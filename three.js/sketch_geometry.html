@@ -61,26 +61,27 @@
         var meshList2 = [];
 
 
-        meshList2.push(new THREE.Mesh(new THREE.BoxGeometry(6, 12, 6), material));
-        meshList2.push(new THREE.Mesh(new THREE.BoxGeometry(6, 6, 6), material));
-        meshList2.push(new THREE.Mesh(new THREE.SphereGeometry(5, 24, 24), material));
-        meshList2.push(new THREE.Mesh(new THREE.CylinderGeometry( 4, 4, 12, 36 ), material));
-        meshList2.push(new THREE.Mesh(new THREE.CylinderGeometry( 4, 4, 12, 6 ), material));
+        meshList2.push(new THREE.Mesh(new THREE.BoxGeometry(6, 12, 6), material.clone()));
+        meshList2.push(new THREE.Mesh(new THREE.BoxGeometry(6, 6, 6), material.clone()));
+        meshList2.push(new THREE.Mesh(new THREE.SphereGeometry(5, 24, 24), material.clone()));
+        meshList2.push(new THREE.Mesh(new THREE.CylinderGeometry( 4, 4, 12, 36 ), material.clone()));
+        meshList2.push(new THREE.Mesh(new THREE.CylinderGeometry( 4, 4, 12, 6 ), material.clone()));
 
-        meshList2.push(new THREE.Mesh(new THREE.ConeGeometry( 4, 12, 32 ), material));
-        meshList2.push(new THREE.Mesh(new THREE.ConeGeometry( 4, 12, 6 ), material));
-        meshList2.push(new THREE.Mesh(new THREE.ConeGeometry( 4, 12, 4 ), material));
+        meshList2.push(new THREE.Mesh(new THREE.ConeGeometry( 4, 12, 32 ), material.clone()));
+        meshList2.push(new THREE.Mesh(new THREE.ConeGeometry( 4, 12, 6 ), material.clone()));
+        meshList2.push(new THREE.Mesh(new THREE.ConeGeometry( 4, 12, 4 ), material.clone()));
 
-        meshList2.push(new THREE.Mesh(new THREE.ConeGeometry( 6, 8, 3 ), material));
-        meshList2.push(new THREE.Mesh(new THREE.OctahedronGeometry(5), material));
-        meshList2.push(new THREE.Mesh(new THREE.DodecahedronGeometry(5), material));
-        meshList2.push(new THREE.Mesh(new THREE.IcosahedronGeometry(5), material));
+        meshList2.push(new THREE.Mesh(new THREE.ConeGeometry( 6, 8, 3 ), material.clone()));
+        meshList2.push(new THREE.Mesh(new THREE.OctahedronGeometry(5), material.clone()));
+        meshList2.push(new THREE.Mesh(new THREE.DodecahedronGeometry(5), material.clone()));
+        meshList2.push(new THREE.Mesh(new THREE.IcosahedronGeometry(5), material.clone()));
 
 
         function addCross(){
-            m1 = new THREE.Mesh(new THREE.BoxGeometry(9, 3, 3), material);
+            var m_material = material.clone();
+            m1 = new THREE.Mesh(new THREE.BoxGeometry(9, 3, 3), m_material);
             m1.rotation.set(Math.PI / 4,0,0);
-            m2 = new THREE.Mesh(new THREE.BoxGeometry(9, 3, 3), material);
+            m2 = new THREE.Mesh(new THREE.BoxGeometry(9, 3, 3), m_material);
             m2.rotation.set(0,Math.PI / 4,Math.PI / 2);
             m1.castShadow = true;
             m2.castShadow = true;
@@ -92,9 +93,10 @@
         addCross();
 
         function addCrossCone(){
-            m1 = new THREE.Mesh(new THREE.BoxGeometry(9, 3, 3), material);
+            var m_material = material.clone();
+            m1 = new THREE.Mesh(new THREE.BoxGeometry(9, 3, 3), m_material);
             m1.rotation.set(Math.PI / 4,0,0);
-            m2 = new THREE.Mesh(new THREE.ConeGeometry( 4, 10, 4 ), material);
+            m2 = new THREE.Mesh(new THREE.ConeGeometry( 4, 10, 4 ), m_material);
             m1.castShadow = true;
             m2.castShadow = true;
             var g = new THREE.Group();
@@ -105,9 +107,10 @@
         addCrossCone();
 
         function addCrossCone2(){
-            m1 = new THREE.Mesh(new THREE.CylinderGeometry( 2, 2, 8, 36 ), material);
+            var m_material = material.clone();
+            m1 = new THREE.Mesh(new THREE.CylinderGeometry( 2, 2, 8, 36 ), m_material);
             m1.rotation.set(0,0,Math.PI / 2);
-            m2 = new THREE.Mesh(new THREE.ConeGeometry( 4, 10, 36 ), material);
+            m2 = new THREE.Mesh(new THREE.ConeGeometry( 4, 10, 36 ), m_material);
             scene.add(m1);
             scene.add(m2);
             m1.castShadow = true;
@@ -120,11 +123,12 @@
         addCrossCone2();
 
         function addCylinder2(){
-            var cubeMesh = new THREE.Mesh( new THREE.BoxGeometry( 12, 12, 12 ), material );
+            var m_material = material.clone();
+            var cubeMesh = new THREE.Mesh( new THREE.BoxGeometry( 12, 12, 12 ), m_material );
             cubeMesh.position.set(0,8,2);
             cubeMesh.rotation.set(Math.PI / 8,0,0);
             var cube_bsp = new ThreeBSP(cubeMesh);
-            var cylinderMesh   = new THREE.Mesh( new THREE.CylinderGeometry(3, 3, 12, 48), material );
+            var cylinderMesh   = new THREE.Mesh( new THREE.CylinderGeometry(3, 3, 12, 48), m_material );
             cylinderMesh.position.set(0,0,-2);
             var cylinder_bsp = new ThreeBSP(cylinderMesh);
             var subtract_bsp = cylinder_bsp.subtract( cube_bsp );
@@ -164,7 +168,7 @@
         scene.add( lights[ 1 ] );
         scene.add( lights[ 2 ] );
 
-        camera.position.set(0, 60, 30); 
+        camera.position.set(0, 20, 80); 
         camera.lookAt(scene.position);
 
         document.getElementById("WebGL-output").appendChild(renderer.domElement);
@@ -183,17 +187,22 @@
             });
             raycaster.setFromCamera( mouse, camera );
 
-            var intersects = raycaster.intersectObjects( scene.children );
+            var intersects = raycaster.intersectObjects( scene.children, true );
             if ( intersects.length > 0 ) {
-                if ( INTERSECTED != intersects[ 0 ].object ) {
-                    if (INTERSECTED){
-                        INTERSECTED.material.color.set(0x156289)
+                if ( INTERSECTED != intersects[ 0 ].object) {
+                    if (INTERSECTED ){
+                        if (INTERSECTED.material instanceof THREE.MeshLambertMaterial){
+                            INTERSECTED.material.color.set(0x156289);
+                            INTERSECTED.material.emissive.set(0x072534);
+                        }
+
                     }
-                    INTERSECTED = intersects[ 0 ].object;
-                    INTERSECTED.material.color.set(0xff6666)
+                    if (intersects[ 0 ].object.material instanceof THREE.MeshLambertMaterial){
+                        INTERSECTED = intersects[ 0 ].object;
+                        INTERSECTED.material.color.set(0x983515);
+                        INTERSECTED.material.emissive.set(0x983512);
+                    }
                 }
-            } else {
-                INTERSECTED = null;
             }
         }
         animate();
