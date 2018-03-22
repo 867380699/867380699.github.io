@@ -13,7 +13,7 @@ date: 2018-03-07
 
 IoC容器负责配置和实例化 `Bean`
 
-`org.springframework.context.ApplicationContext` 就是一个 Ioc容器 接口
+`org.springframework.context.ApplicationContext`{: style="font-size:0.7em"} 就是一个 Ioc容器 接口
 
 # 容器简介
 
@@ -22,8 +22,11 @@ IoC容器负责配置和实例化 `Bean`
 Spring 提供了许多方式来为程序提供配置元数据，如XML，注解，Java代码。
 
 使用XML进行配置时，根节点为`beans`，里面包含了许多的`bean`节点。
+
 使用注解进行配置时，通常使用 `@Component` `@Repository` `@Service` `@Controller`。
+
 使用 Java 配置通常在 `@Configuration` 类中使用 `@Bean` 注解。
+
 另外还可以是用 Spring’s Groovy Bean Definition DSL 来提供配置元数据。
 
 这些 Bean 对应了真实应用中的对象，比如典型的 服务层类，持久层类，DAOs，Hibernate SessionFactories，JMS Queues 等等。
