@@ -62,7 +62,7 @@
 
 
         meshList2.push(new THREE.Mesh(new THREE.BoxGeometry(6, 12, 6), material.clone()));
-        meshList2.push(new THREE.Mesh(new THREE.BoxGeometry(6, 6, 6), material.clone()));
+        meshList2.push(new THREE.Mesh(new THREE.BoxGeometry(8, 8, 8), material.clone()));
         meshList2.push(new THREE.Mesh(new THREE.SphereGeometry(5, 24, 24), material.clone()));
         meshList2.push(new THREE.Mesh(new THREE.CylinderGeometry( 4, 4, 12, 36 ), material.clone()));
         meshList2.push(new THREE.Mesh(new THREE.CylinderGeometry( 4, 4, 12, 6 ), material.clone()));
@@ -108,9 +108,9 @@
 
         function addCrossCone2(){
             var m_material = material.clone();
-            m1 = new THREE.Mesh(new THREE.CylinderGeometry( 2, 2, 8, 36 ), m_material);
+            m1 = new THREE.Mesh(new THREE.CylinderGeometry( 2, 2, 9, 36 ), m_material);
             m1.rotation.set(0,0,Math.PI / 2);
-            m2 = new THREE.Mesh(new THREE.ConeGeometry( 4, 10, 36 ), m_material);
+            m2 = new THREE.Mesh(new THREE.ConeGeometry( 4, 12, 36 ), m_material);
             scene.add(m1);
             scene.add(m2);
             m1.castShadow = true;
@@ -125,10 +125,10 @@
         function addCylinder2(){
             var m_material = material.clone();
             var cubeMesh = new THREE.Mesh( new THREE.BoxGeometry( 12, 12, 12 ), m_material );
-            cubeMesh.position.set(0,8,2);
+            cubeMesh.position.set(0,10,2);
             cubeMesh.rotation.set(Math.PI / 8,0,0);
             var cube_bsp = new ThreeBSP(cubeMesh);
-            var cylinderMesh   = new THREE.Mesh( new THREE.CylinderGeometry(3, 3, 12, 48), m_material );
+            var cylinderMesh   = new THREE.Mesh( new THREE.CylinderGeometry(3, 3, 14, 48), m_material );
             cylinderMesh.position.set(0,0,-2);
             var cylinder_bsp = new ThreeBSP(cylinderMesh);
             var subtract_bsp = cylinder_bsp.subtract( cube_bsp );
@@ -207,7 +207,7 @@
         }
         animate();
     }
-
+    
     window.onload = init;
 
 </script>
