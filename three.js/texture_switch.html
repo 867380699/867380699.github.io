@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Geometry</title>
+    <script type="text/javascript" src="js/three.min.js"></script>
+    <script src="js/OrbitControls.js"></script>
+    <script type="text/javascript" src="js/OBJLoader.js"></script>
+    <script type="text/javascript" src="js/MTLLoader.js"></script>
+    <style>
+        body {
+            /* set margin to 0 and overflow to hidden, to go fullscreen */
+            margin: 0;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+
+<div id="WebGL-output">
+</div>
+
+<script type="text/javascript">
+    var mouse = new THREE.Vector2();
+    var INTERSECTED;
+    function onDocumentMouseMove( event ) {
+        event.preventDefault();
+        mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
+        mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
+    }
+
+    function init() {
+        var scene = new THREE.Scene();
+
+        var camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
+
+        controls = new THREE.OrbitControls( camera );
+        controls.target.set( 0, 0, 0 );
+        controls.update();
+        var raycaster = new THREE.Raycaster();
+        var renderer = new THREE.WebGLRenderer();
+        renderer.setClearColor(new THREE.Color(0xEEEEEE));
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.shadowMap.enabled = true;
+
+        var planeGeometry = new THREE.PlaneGeometry( 300, 300 );
+        planeGeometry.rotateX( - Math.PI / 2 );
+        var planeMaterial = new THREE.ShadowMaterial( { opacity: 0.2 } );
+        var plane = new THREE.Mesh( planeGeometry, planeMaterial );
+        plane.receiveShadow = true;
+        scene.add( plane );
+        var helper = new THREE.GridHelper( 300, 50 );
+        helper.material.opacity = 0.25;
+        helper.material.transparent = true;
+        scene.add( helper );
+
+       var chair;
+
+        var mtlLoader = new THREE.MTLLoader();
+        mtlLoader.load( 'models/chair/chair.mtl', function( materials ) {
+            materials.preload();
+
+            var objLoader = new THREE.OBJLoader();
+            objLoader.setMaterials( materials );
+            objLoader.load( 'models/chair/chair.obj', function ( object ) {
+                object.scale.set(6, 6, 6);
+                scene.add( object );
+                chair = object;
+            });
+        });
+
+        var textured_ball_list = [];
+        for(var i=0; i<5; i++){
+            var material = new THREE.MeshLambertMaterial({color: 0xffffff, emissive: 0x072534,side: THREE.DoubleSide});
+            var ball = new THREE.Mesh(new THREE.BoxGeometry(2, 2, 2), material);
+            textured_ball_list.push(ball);
+            ball.position.set(-10+5*i,0,10);
+            scene.add(ball);
+
+        }
+
+        var texture_list = ['textures/wood.jpg','textures/cloth.jpg','textures/stone.jpg','textures/metal.jpg','textures/leather.jpg'];
+        var loader = new THREE.TextureLoader();
+        texture_list.forEach(function(texture,i){
+            loader.load(texture, function (t) {
+                t.wrapS = texture.wrapT = THREE.RepeatWrapping; 
+                textured_ball_list[i].material.map=t;
+                textured_ball_list[i].material.needsUpdate = true;
+            });
+        });
+
+        var lights = [];
+        lights[ 0 ] = new THREE.PointLight( 0xffffff, 1, 0 );
+        lights[ 1 ] = new THREE.PointLight( 0xffffff, 1, 0 );
+        lights[ 2 ] = new THREE.PointLight( 0xffffff, 1, 0 );
+
+        lights[ 0 ].position.set( 0, 200, 0 );
+        lights[ 1 ].position.set( 100, 200, 100 );
+        lights[ 2 ].position.set( - 100, - 200, - 100 );
+
+
+        var spotLight = new THREE.SpotLight( 0xffffff );
+        spotLight.castShadow = true;
+        spotLight.position.set( 0, 50, 0 );
+        spotLight.shadow.mapSize.width = 1024;
+        spotLight.shadow.mapSize.height = 1024;
+        // scene.add( spotLight );
+
+        scene.add( lights[ 0 ] );
+        scene.add( lights[ 1 ] );
+        scene.add( lights[ 2 ] );
+
+        camera.position.set(0, 20, 20); 
+        camera.lookAt(scene.position);
+
+        document.getElementById("WebGL-output").appendChild(renderer.domElement);
+        document.addEventListener( 'mousemove', onDocumentMouseMove, false );
+        function animate() {
+            requestAnimationFrame(animate);
+            renderer.render(scene, camera);
+            textured_ball_list.forEach(function(m){
+                m.rotation.y += 0.01;
+            });
+        }
+        animate();
+    }
+    
+    window.onload = init;
+
+</script>
+</body>
+</html>
