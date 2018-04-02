@@ -183,6 +183,22 @@ public class GreetingController {
 但是简洁的外表下隐藏了许多复杂的工作，想要研究它的实现原理并不容易。
 所以目前只要记住格式就好了。
 
+
+# DispatcherServlet
+Spring MVC 围绕着`DispatcherServlet`实现了前端控制器设计模式，DispatcherServlet 提供了共享的请求处理算法。
+
+
+## 前端控制器模式
+前端控制器模式(front controller pattern) 提供了一个集中的请求处理机制，所有的请求都将由同一个handler处理，这个handler可以用来认证、授权、记录日志或者跟踪请求，然后把请求交给相应的程序处理。
+
+前端控制器模式有以下几个实体：
+前端控制器(Front Controller) - 处理所有请求
+调度器(Dispatcher) - 将请求调度给相应的程序
+视图(View) - 处理请求
+
+
+![front-controller-pattern](/assets/front-controller-pattern.png)
+
 # 参考资料
 > [Spring官方教程](https://spring.io/guides/gs/serving-web-content/)
 > [理解模板引擎 - spring.io](https://spring.io/understanding/view-templates)
