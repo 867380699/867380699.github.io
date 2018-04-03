@@ -284,8 +284,8 @@ public @interface Service {
 
 元注解也可以用来创建复合注解，比如 `RestController` 就是由 `@Controller` 和 `@ResponseBody` 复合而成。
 
-## 自动探测Java类及注册Bean定义
-需要在@Configuration类上添加`@ComponentScan`
+## 自动扫描Java类及注册Bean定义
+需要在@Configuration类上添加`@ComponentScan`，`@ComponentScan`告诉Spring去哪搜索Bean。
 ```java
 @Configuration
 @ComponentScan(basePackages = "org.example")
