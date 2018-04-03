@@ -59,6 +59,49 @@ OAuth 2.0 支持
 
 > [Reference - docs.spring.io](https://docs.spring.io/spring-security/site/docs/5.0.3.RELEASE/reference/htmlsingle/#modules)
 
+
+# Hello World
+
+首先添加相关的依赖,然后添加配置即可。
+
+```java
+@EnableWebSecurity
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
+
+	@Override
+	protected void configure(HttpSecurity http) throws Exception {
+		http
+			.authorizeRequests()
+				.antMatchers("/css/**", "/index").permitAll()		
+				.antMatchers("/user/**").hasRole("USER")			
+				.and()
+			.formLogin()
+				.loginPage("/login").failureUrl("/login-error");	
+	}
+
+	@Autowired
+	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+		auth
+			.inMemoryAuthentication()
+				.withUser("user").password("password").roles("USER");
+	}
+}
+```
+
+` SecurityConfig` 做了非常多的事情：
+
+- 对访问`/user/**`的请求要求认证
+- 指定了登陆页面
+- 创建了一个用户
+- 提供了登出功能
+- CSRF攻击保护
+- Session Fixation 保护
+- Security Header integration
+- 集成了许多 Servlet API 
+
+> [hello world - spring.io](https://docs.spring.io/spring-security/site/docs/5.0.3.RELEASE/guides/html5/helloworld-boot.html)
+
+
 # 附录
 ## HTTP基本认证
 
