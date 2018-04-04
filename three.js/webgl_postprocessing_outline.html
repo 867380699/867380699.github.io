@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>three.js webgl - post processing - Outline Pass</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<style>
+			body {
+				background-color: #000000;
+				margin: 0px;
+				overflow: hidden;
+				font-family:Monospace;
+				font-size:13px;
+				text-align:center;
+				font-weight: bold;
+			}
+
+			a {
+				color:#00ff78;
+			}
+
+			#info {
+				color: #fff;
+				position: absolute;
+				top: 10px;
+				width: 100%;
+				text-align: center;
+				display:block;
+			}
+			.dg.ac {
+				z-index: 1 !important; /* FIX DAT.GUI */
+			}
+		</style>
+	</head>
+	<body>
+		<script src="js/three.min.js"></script>
+		<script src="js/OrbitControls.js"></script>
+		<script src="js/OBJLoader.js"></script>
+
+
+		<script src="js/CopyShader.js"></script>
+		<script src="js/FXAAShader.js"></script>
+		<script src="js/postprocessing/EffectComposer.js"></script>
+		<script src="js/postprocessing/RenderPass.js"></script>
+		<script src="js/postprocessing/ShaderPass.js"></script>
+		<script src="js/postprocessing/OutlinePass.js"></script>
+
+
+		<script>
+
+			var container, stats;
+			var camera, scene, renderer, controls;
+
+			var selectedObjects = [];
+
+			var composer, effectFXAA, outlinePass;
+			var obj3d = new THREE.Object3D();
+
+			init();
+			animate();
+
+			function init() {
+
+				container = document.createElement( 'div' );
+				document.body.appendChild( container );
+
+				var width = window.innerWidth;
+				var height = window.innerHeight;
+
+				renderer = new THREE.WebGLRenderer();
+				// renderer.shadowMap.enabled = true;
+				// todo - support pixelRatio in this demo
+				renderer.setSize( width, height );
+				document.body.appendChild( renderer.domElement );
+
+				scene = new THREE.Scene();
+
+				camera = new THREE.PerspectiveCamera( 45, width / height, 0.1, 100 );
+				camera.position.set( 0, 0, 8 );
+
+				controls = new THREE.OrbitControls( camera, renderer.domElement );
+
+				// scene.add( new THREE.AmbientLight( 0xaaaaaa, 0.2 ) );
+
+
+				var loader = new THREE.OBJLoader();
+				loader.load( 'models/chair/chair.obj', function ( object ) {
+
+					var scale = 6.0;
+
+					object.traverse( function ( child,i ) {
+
+						if ( child instanceof THREE.Mesh ) {
+
+							child.geometry.center();
+							child.geometry.computeBoundingSphere();
+							scale = 0.2 * child.geometry.boundingSphere.radius;
+						}
+
+					} );
+
+					object.position.y = 1;
+					object.scale.divideScalar( scale );
+					obj3d.add( object );
+
+				} );
+
+				scene.add( obj3d );
+
+
+				// postprocessing
+
+				composer = new THREE.EffectComposer( renderer );
+
+				var renderPass = new THREE.RenderPass( scene, camera );
+				composer.addPass( renderPass );
+
+				outlinePass = new THREE.OutlinePass( new THREE.Vector2( window.innerWidth, window.innerHeight ), scene, camera );
+				composer.addPass( outlinePass );
+
+				effectFXAA = new THREE.ShaderPass( THREE.FXAAShader );
+				effectFXAA.uniforms[ 'resolution' ].value.set( 1 / window.innerWidth, 1 / window.innerHeight );
+				effectFXAA.renderToScreen = true;
+				composer.addPass( effectFXAA );
+
+				selectedObjects = [];
+				selectedObjects.push( obj3d );
+				outlinePass.selectedObjects = selectedObjects;
+			}
+
+			function animate() {
+				requestAnimationFrame( animate );
+				composer.render();
+			}
+
+		</script>
+	</body>
+</html>
