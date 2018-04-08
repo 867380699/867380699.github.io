@@ -3,6 +3,7 @@
 layout: post
 title: "Spring IoC"
 date: 2018-03-07
+tag: [java, spring]
 
 ---
 
@@ -293,6 +294,8 @@ public class AppConfig  {
     ...
 }
 ```
+
+如果 `@ComponentScan` 没有指定包名，默认使用此注解所在类的包名。
 
 ## 使用过滤器定制扫描
 
