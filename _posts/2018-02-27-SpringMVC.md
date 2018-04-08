@@ -3,13 +3,17 @@
 layout: post
 title: "Spring MVC"
 date: 2018-02-27
+tag: [java, spring]
 
 ---
 
+# 简介
+Spring MVC 基于 Servlet API 和 Spring Framework。 
 
-# 使用Maven开始一个SpringMVC项目
+# HelloWorld
+## 使用Maven
 首先我们新建一个目录,在里面新建一个 `pom.xml`
-复制以下内容
+复制以下内容：
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -57,12 +61,12 @@ date: 2018-02-27
 选择我们的项目 -> Finish
 稍等片刻就导入成功了。
 
-接下来新建代码目录和模板目录
+接下来新建代码目录和模板目录：
 ```bash
 mkdir -p src/main/java/hello
 mkdir -p src/main/resources/templates/
 ```
-此时的目录结构如下
+此时的目录结构如下：
 ```
 .
 ├── pom.xml
@@ -77,7 +81,7 @@ mkdir -p src/main/resources/templates/
 ```
 
 接着创建一个Controller
-src/main/java/hello/GreetingController.java
+`src/main/java/hello/GreetingController.java`
 ```java
 @Controller
 public class GreetingController {
@@ -105,7 +109,7 @@ public class GreetingController {
 </html>
 ```
 
-接着还要创建一个入口
+接着还要创建一个入口类
 `src/main/java/hello/Application.java`
 ```java
 @SpringBootApplication
@@ -123,7 +127,8 @@ public class Application {
 mvn spring-boot:run
 ```
 访问 `localhost:8080/greeting` 就可以看见 HelloWorld 了。
-# 简易分析
+
+## 简易分析
 我们简单的看一下代码
 
 `pom.xml`
@@ -177,7 +182,7 @@ public class GreetingController {
 
 
 
-# 小结
+## 小结
 几个复制粘贴网站就跑起来了，非常方便。
 非常的简洁，几乎没有多余的代码。
 但是简洁的外表下隐藏了许多复杂的工作，想要研究它的实现原理并不容易。
@@ -185,7 +190,7 @@ public class GreetingController {
 
 
 # DispatcherServlet
-Spring MVC 围绕着`DispatcherServlet`实现了前端控制器设计模式，DispatcherServlet 提供了共享的请求处理算法。
+Spring MVC 围绕着`DispatcherServlet`实现了前端控制器设计模式，DispatcherServlet 提供了公用的请求处理算法。
 
 
 ## 前端控制器模式
@@ -196,9 +201,22 @@ Spring MVC 围绕着`DispatcherServlet`实现了前端控制器设计模式，Di
 调度器(Dispatcher) - 将请求调度给相应的程序
 视图(View) - 处理请求
 
-
 ![front-controller-pattern](/assets/front-controller-pattern.png)
+
+# URI
+```java
+@Controller
+@RequestMapping("/hotels/{hotel}")
+public class BookingController {
+
+    @GetMapping("/bookings/{booking}")
+    public String getBooking(@PathVariable Long booking) {
+        // ...
+    }
+}
+```
 
 # 参考资料
 > [Spring官方教程](https://spring.io/guides/gs/serving-web-content/)
 > [理解模板引擎 - spring.io](https://spring.io/understanding/view-templates)
+> [Reference - spring.io](https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html)
