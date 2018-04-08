@@ -3,6 +3,7 @@
 layout: post
 title: "Spring-Boot笔记"
 date: 2018-03-30
+tag: [java, spring]
 
 ---
 
@@ -48,6 +49,24 @@ public class Application {
 	}
 }
 ```
+# Starters
+`Starters` 是一些快捷的依赖配置。
+
+比如要使用 `FreeMarker`，只需添加：
+```xml
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-freemarker</artifactId>
+</dependency>
+```
+
+*许多 Starter 都有一个 **spring.provides** 文件，这个文件只是给工具使用的，比如用于实现AutoComplete。*
+
+> [Reference - spring.io](https://docs.spring.io/spring-boot/docs/current/reference/html/using-boot-build-systems.html#using-boot-starter) 
+
+# @EnableAutoConfiguration
+这个注解告诉 Spring Boot 通过依赖来猜测配置。比如依赖了一个 `spring-boot-starter-web`，auto-configuration 就会猜测我们是在开发一个web应用，并依此做出相应的配置。
+
 
 # 运行
 ## Maven
@@ -57,4 +76,18 @@ mvn spring-boot:run
 ## Gradle
 ```bash
 gradle bootRun
+```
+
+# 打包
+## Maven
+添加`spring-boot-maven-plugin`，然后使用 `mvn package` 打包，打好的jar包会在 `target` 目录下，使用 `java -jar` 即可运行。
+```xml
+<build>
+    <plugins>
+        <plugin>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+        </plugin>
+    </plugins>
+</build>
 ```
