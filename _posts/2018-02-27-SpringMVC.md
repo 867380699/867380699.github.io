@@ -203,7 +203,28 @@ Spring MVC 围绕着`DispatcherServlet`实现了前端控制器设计模式，Di
 
 ![front-controller-pattern](/assets/front-controller-pattern.png)
 
-# URI
+## Annotated Controllers
+Spring MVC 为 `@Controller` 和 `@RestController` 提供了一套基于注解的编程模型来处理请求映射，请求输入，异常处理等工作。
+
+Annotated controllers 既不必继承与某类也不必实现特定接口，同时也可以使用灵活的函数签名。
+
+### @RequestMapping
+`@RequestMapping` 用于将请求映射给对应的方法。`@RequestMapping` 可以通过许多属性来配配请求，如 URL，HTTP method，请求参数，请求头，media types 。
+
+可以对Class添加`@RequestMapping`注解。
+
+Spring MVC 也提供了一些快捷注解, 如 `@GetMapping` `@PostMapping` `@PutMapping` `@DeleteMapping` `@PatchMapping` 
+
+#### URI
+我们可以使用通配符 
+`?` - 匹配一个字符
+`*` - 匹配零个或一个字符
+`**` - 匹配零个或多个字符
+
+也可以定义路径变量`{var}`，使用 `@PathVariable` 来获取，路径变量会转换为对应的类型。
+
+`@PathVariable` 默认取和参数同名的路径变量，当然也可以指明变量名：`@PathVariable("customId")`。
+
 ```java
 @Controller
 @RequestMapping("/hotels/{hotel}")
@@ -215,6 +236,172 @@ public class BookingController {
     }
 }
 ```
+
+`{varName:regex}` 
+```java
+@GetMapping("/{name:[a-z-]+}-{version:\\d\\.\\d\\.\\d}{ext:\\.[a-z]+}")
+public void handle(@PathVariable String version, @PathVariable String ext) {
+    // ...
+}
+```
+
+#### media types
+```java
+@PostMapping(path = "/pets", consumes = "application/json")
+public void addPet(@RequestBody Pet pet) {
+    // ...
+}
+```
+#### Parameters
+
+```java
+@GetMapping(path = "/pets/{petId}", params = "myParam=myValue")
+public void findPet(@PathVariable String petId) {
+    // ...
+}
+```
+
+#### Headers
+```java
+@GetMapping(path = "/pets", headers = "myHeader=myValue")
+public void findPet(@PathVariable String petId) {
+    // ...
+}
+```
+
+### 参数
+`@RequestMapping` 的方法可以选择各种各样的参数。
+
+| 参数类型 | 描述|
+| -- | -- |
+| WebRequest, NativeWebRequest | 通用参数，可以获取request参数，request属性，session属性。|
+| ServletRequest，ServletResponse | Servlet参数 |
+| @RequestParam | Servlet request parameters |
+| InputStream，Reader | 获取raw request body |
+| OutputStream，Writer | 获取 Servlet API 提供的 raw response body |
+| HttpSession |  |
+| Principal | 当前授权用户，可以使用实现类 |
+| Locale | |
+| @PathVariable | 路径参数 |
+| @RequestHeader | 请求头 |
+| @CookieValue | Cookie |
+| @RequestBody | 请求体 |
+| HttpEntity<B> | 请求头 + 请求体 |
+| Map，Model，ModelMap | 交给模板用于渲染页面 |
+| @ModelAttribute | |
+| Errors, BindingResult | errors from validation and data binding |
+| @SessionAttribute | |
+
+......
+
+> [arguments Reference](https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html#mvc-ann-arguments)
+
+### 返回值
+
+| 返回值类型 | 描述|
+| -- | -- |
+| @ResponseBody | 使用 HttpMessageConverter处理结果 |
+| String | 一个view的名字，会被ViewResolver处理 |
+| ModelAndView | The view and model attributes to use |
+
+
+......
+
+> [return-types Reference](https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html#mvc-ann-return-types)
+
+
+### @RequestParam
+
+### @RequestHeader
+```java
+@GetMapping("/demo")
+public void handle(
+        @RequestHeader("Accept-Encoding") String encoding,
+        @RequestHeader("Keep-Alive") long keepAlive) {
+    //...
+}
+```
+### @CookieValue
+```java
+@GetMapping("/demo")
+public void handle(@CookieValue("JSESSIONID") String cookie) {
+    //...
+}
+```
+
+### BindingResult
+
+```java
+public interface BindingResult extends Errors {
+    Map<String, Object> getModel();
+    // ......
+}
+```
+
+
+# 参数校验
+使用 `@Valid` 标记需要校验的参数,可以使用 `BindingResult` 或 `Errors` 来获取校验异常。
+注意参数的位置 `BindingResult` 要紧跟 `@Valid` 标注的参数。
+```java
+@PostMapping(value = "/signup")
+public String signup(@ModelAttribute("user") @Valid UserDto userDto, BindingResult result, Model model){
+    Map<String,String> errors = new HashMap<>();
+    if (result.hasErrors()) {
+        result.getFieldErrors().forEach(e ->{
+            errors.put(e.getField(),e.getDefaultMessage());
+        });
+    }
+    model.addAttribute("errors",errors);
+    model.addAttribute("user", userDto);
+    return "signup";
+}
+```
+在需要校验的类中添加校验注解
+```java
+public class UserDto {
+    @Pattern(regexp = "^[a-zA-Z][0-9a-zA-Z_]{5,63}$",message = "用户名格式不正确")
+    @NotEmpty(message = "用户名不能为空")
+    private String username;
+
+    @Size(min=6, max=127,message = "密码格式不正确")
+    @NotEmpty(message = "密码不能为空")
+    private String password;
+
+    @Size(min=6, max=127,message = "密码格式不正确")
+    @NotEmpty
+    private String confirmPass;
+
+    @Pattern(regexp = "^\\d{5,15}@qq\\.com$",message = "邮箱格式不正确，当前只能使用QQ邮箱")
+    @NotEmpty(message = "邮箱不能为空")
+    private String email;
+}
+```
+简易的异常处理
+```html
+<form action="/user/signup" method="POST">
+    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+    用户名：<input type="text" name="username" id="username" autofocus="autofocus" value="${(user.username)!""}"/> ${(errors.username)!}<br/>
+    Email：<input type="text" name="email" id="email" value="${(user.email)!""}"/> ${(errors.email)!}<br/>
+    密码：<input type="password" name="password" id="password" value="${(user.password)!""}"> ${(errors.password)!}<br/>
+    再次输入密码：<input type="password" name="confirmPass" id="confirmPass" value="${(user.confirmPass)!""}"> ${(errors.confirmPass)!}<br/>
+    <input type="submit" value="注册" />
+</form>
+```
+
+# 跳转
+在View的名字前加上特殊前缀 `redirect:`
+`forward:` 会调用 `RequestDispatcher.forward()`
+
+```java
+@RequestMapping(value = "/add", method = RequestMethod.POST)
+public String addBookmark(Principal principal,@ModelAttribute Bookmark bookmark){
+    User user = userRepository.findByUsername(principal.getName());
+    bookmark.setUserId(user.getId());
+    bookmarkRepository.save(bookmark);
+    return "redirect:/bookmark/all";
+}
+```
+
 
 # 参考资料
 > [Spring官方教程](https://spring.io/guides/gs/serving-web-content/)
