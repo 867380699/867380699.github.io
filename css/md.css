@@ -61,6 +61,17 @@ table tbody tr:nth-child(even) {
 /* table tbody tr:hover{
     background-color: #fcf8f4
 } */
+
+blockquote {
+    background-color: #f8f8f8;
+    margin: 0px;
+    padding: 2px 20px;
+}
+
+blockquote p {
+  color: #666;
+}
+
 @media (max-width:800px) {
   p {
     font-size: 1em;
