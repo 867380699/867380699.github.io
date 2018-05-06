@@ -72,6 +72,14 @@ blockquote p {
   color: #666;
 }
 
+hr {
+  color: #bbb;
+  background: #bbb;
+  height: 1px;
+  border: none 0;
+  font-size: 0px;
+}
+
 @media (max-width:800px) {
   p {
     font-size: 1em;
