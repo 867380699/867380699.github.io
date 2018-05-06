@@ -10,40 +10,120 @@
     <script type="text/javascript" src="js/OBJLoader.js"></script>
     <script type="text/javascript" src="js/MTLLoader.js"></script>
     <style>
-        body {
+        html,body {
             /* set margin to 0 and overflow to hidden, to go fullscreen */
             margin: 0;
             overflow: hidden;
+            height: 100%;
+            width: 100%;
+        }
+        #panel {
+            position: relative;
+            height: 30%;
+            width: 100%;
+            z-index: 1;
+            border-top: 1px solid black;
+        }
+        #main {
+            position: relative;
+            height: 70%;
+            width: 100%;
+            z-index: 1;
+        }
+        #WebGL-output{
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            left: 0;
         }
     </style>
 </head>
 <body>
-
-<div id="WebGL-output">
+<canvas id="WebGL-output">
+</canvas>
+<div style="width:100%;height:100%">
+    <div id="main"></div>
+    <div id="panel"></div>
 </div>
 
+
 <script type="text/javascript">
-    var mouse = new THREE.Vector2();
-    var INTERSECTED;
-    function onDocumentMouseMove( event ) {
-        event.preventDefault();
-        mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
-        mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
-    }
 
-    function init() {
+    function initPanelScene(){
         var scene = new THREE.Scene();
+        scene.userData.element = document.getElementById('panel');
+        var rect = scene.userData.element.getBoundingClientRect();
+        var camera = new THREE.PerspectiveCamera(45, rect.width / rect.height, 0.1, 1000);
+        camera.position.set(0,0,20);
+        scene.userData.camera = camera;
+        var controls = new THREE.OrbitControls( camera, scene.userData.element );
+        controls.enabled = false;
+        var textured_ball_list = [];
+        for(var i=0; i<5; i++){
+            var material = new THREE.MeshLambertMaterial({color: 0xffffff, emissive: 0x072534,side: THREE.DoubleSide});
+            var ball = new THREE.Mesh(new THREE.BoxGeometry(2, 2, 2), material);
+            textured_ball_list.push(ball);
+            ball.position.set(-10+5*i,0,10);
+            scene.add(ball);
+        }
 
-        var camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
+        var texture_list = ['textures/wood.jpg','textures/cloth.jpg','textures/stone.jpg','textures/metal.jpg','textures/leather.jpg'];
+        var loader = new THREE.TextureLoader();
+        texture_list.forEach(function(texture,i){
+            loader.load(texture, function (t) {
+                t.wrapS = t.wrapT = THREE.RepeatWrapping; 
+                textured_ball_list[i].material.map=t;
+                textured_ball_list[i].material.needsUpdate = true;
+            });
+        });
+        scene.add(new THREE.HemisphereLight( 0xffffbb, 0x080820, 1 ));
 
-        controls = new THREE.OrbitControls( camera );
-        controls.target.set( 0, 0, 0 );
-        controls.update();
+        var mouse = new THREE.Vector2();
+        var INTERSECTED;
+        function onDocumentMouseMove( event ) {
+            event.preventDefault();
+            mouse.x = ( event.layerX / rect.width ) * 2 - 1;
+            mouse.y = - ( event.layerY / rect.height ) * 2 + 1;
+        }
+        scene.userData.element.addEventListener( 'mousemove', onDocumentMouseMove, false );
         var raycaster = new THREE.Raycaster();
-        var renderer = new THREE.WebGLRenderer();
-        renderer.setClearColor(new THREE.Color(0xEEEEEE));
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        renderer.shadowMap.enabled = true;
+
+        var update = function(delta){
+            textured_ball_list.forEach(function(mesh){
+                mesh.rotation.y += delta;
+            })
+            raycaster.setFromCamera( mouse, camera );
+
+            var intersects = raycaster.intersectObjects( scene.children );
+            if ( intersects.length > 0 ) {
+                if ( INTERSECTED != intersects[ 0 ].object) {
+                    if (INTERSECTED ){
+                        if (INTERSECTED.material instanceof THREE.MeshLambertMaterial){
+                            INTERSECTED.material.color.set(0x156289);
+                            INTERSECTED.material.emissive.set(0x000000);
+                        }
+
+                    }
+                    if (intersects[ 0 ].object.material instanceof THREE.MeshLambertMaterial){
+                        INTERSECTED = intersects[ 0 ].object;
+                        INTERSECTED.material.color.set(0x983515);
+                        INTERSECTED.material.emissive.set(0x983512);
+                        scene.userData.map = INTERSECTED.material.map;
+
+                    }
+                }
+            }
+        }
+        scene.userData.update = update;
+        return scene;
+    }
+    function initMainScene(){
+        var scene = new THREE.Scene();
+        scene.userData.element = document.getElementById("main");
+        var rect = scene.userData.element.getBoundingClientRect();
+        var camera = new THREE.PerspectiveCamera(45, rect.width / rect.height, 0.1, 1000);        scene.userData.camera = camera;
+        var controls = new THREE.OrbitControls( camera, scene.userData.element);
+        scene.userData.camera = camera;
 
         var planeGeometry = new THREE.PlaneGeometry( 300, 300 );
         planeGeometry.rotateX( - Math.PI / 2 );
@@ -55,8 +135,7 @@
         helper.material.opacity = 0.25;
         helper.material.transparent = true;
         scene.add( helper );
-
-       var chair;
+        var chair;
 
         var mtlLoader = new THREE.MTLLoader();
         mtlLoader.load( 'models/chair/chair.mtl', function( materials ) {
@@ -68,28 +147,11 @@
                 object.scale.set(6, 6, 6);
                 scene.add( object );
                 chair = object;
+                scene.userData.chair=chair;
             });
         });
 
-        var textured_ball_list = [];
-        for(var i=0; i<5; i++){
-            var material = new THREE.MeshLambertMaterial({color: 0xffffff, emissive: 0x072534,side: THREE.DoubleSide});
-            var ball = new THREE.Mesh(new THREE.BoxGeometry(2, 2, 2), material);
-            textured_ball_list.push(ball);
-            ball.position.set(-10+5*i,0,10);
-            scene.add(ball);
 
-        }
-
-        var texture_list = ['textures/wood.jpg','textures/cloth.jpg','textures/stone.jpg','textures/metal.jpg','textures/leather.jpg'];
-        var loader = new THREE.TextureLoader();
-        texture_list.forEach(function(texture,i){
-            loader.load(texture, function (t) {
-                t.wrapS = texture.wrapT = THREE.RepeatWrapping; 
-                textured_ball_list[i].material.map=t;
-                textured_ball_list[i].material.needsUpdate = true;
-            });
-        });
 
         var lights = [];
         lights[ 0 ] = new THREE.PointLight( 0xffffff, 1, 0 );
@@ -114,15 +176,56 @@
 
         camera.position.set(0, 20, 20); 
         camera.lookAt(scene.position);
-
-        document.getElementById("WebGL-output").appendChild(renderer.domElement);
-        document.addEventListener( 'mousemove', onDocumentMouseMove, false );
+        return scene;
+    }
+    function init() {
+        var canvas = document.getElementById("WebGL-output");
+        var renderer = new THREE.WebGLRenderer({canvas:canvas, antialias:true});
+        renderer.setClearColor(new THREE.Color(0xEEEEEE));
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.shadowMap.enabled = true;
+        var delta = 0.01;
+        var map;
+        var scene_list = [];
+        scene_list.push(initMainScene());
+        scene_list.push(initPanelScene());
         function animate() {
             requestAnimationFrame(animate);
-            renderer.render(scene, camera);
-            textured_ball_list.forEach(function(m){
-                m.rotation.y += 0.01;
+            renderer.setClearColor( 0xffffff );
+            renderer.setScissorTest( false );
+            renderer.clear();
+            renderer.setClearColor( 0xe0e0e0 );
+            renderer.setScissorTest( true );
+            scene_list.forEach(function(scene){
+                var element = scene.userData.element;
+                var rect = element.getBoundingClientRect();
+                if ( rect.bottom < 0 || rect.top  > renderer.domElement.clientHeight || rect.right  < 0 || rect.left > renderer.domElement.clientWidth ) {
+						return;  // it's off screen
+				}
+                var width  = rect.right - rect.left;
+                var height = rect.bottom - rect.top;
+                var left   = rect.left;
+                var top    = rect.top;
+                renderer.setViewport( left, top, width, height );
+                renderer.setScissor( left, top, width, height );
+                var camera = scene.userData.camera;
+                var update = scene.userData.update;
+                if (update !=null && update instanceof Function){
+                    update(delta);
+                }
+                renderer.render( scene, camera );
             });
+            var pmap = scene_list[1].userData.map;
+            if(pmap != null && pmap != map){
+                map = pmap;
+                var chair = scene_list[0].userData.chair;
+                chair.traverse( function(child) {
+                    if (child instanceof THREE.Mesh) {
+                        child.material.map = pmap;
+                        child.material.needsUpdate = true; 
+                    }
+                });
+            }
         }
         animate();
     }
