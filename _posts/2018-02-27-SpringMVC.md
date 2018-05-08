@@ -294,6 +294,47 @@ public void findPet(@PathVariable String petId) {
 
 ......
 
+#### @RequestParam
+从QueryString中获取一个参数
+```java
+public String confirmRegistration(HttpServletRequest request, Model model, @RequestParam("token") String token) {
+    //...
+}
+```
+#### @RequestBody
+可以把请求体映射为实体类
+```java
+@PostMapping("password")
+public RestResult setPayPassword(@Valid @RequestBody SetPasswordRequest request) {
+    //...
+}
+```
+#### @RequestHeader
+```java
+@GetMapping("/demo")
+public void handle(
+        @RequestHeader("Accept-Encoding") String encoding,
+        @RequestHeader("Keep-Alive") long keepAlive) {
+    //...
+}
+```
+#### @CookieValue
+```java
+@GetMapping("/demo")
+public void handle(@CookieValue("JSESSIONID") String cookie) {
+    //...
+}
+```
+
+#### BindingResult
+
+```java
+public interface BindingResult extends Errors {
+    Map<String, Object> getModel();
+    // ......
+}
+```
+
 > [arguments Reference](https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html#mvc-ann-arguments)
 
 ### 返回值
@@ -304,39 +345,12 @@ public void findPet(@PathVariable String petId) {
 | String | 一个view的名字，会被ViewResolver处理 |
 | ModelAndView | The view and model attributes to use |
 
-
 ......
 
 > [return-types Reference](https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html#mvc-ann-return-types)
 
 
-### @RequestParam
 
-### @RequestHeader
-```java
-@GetMapping("/demo")
-public void handle(
-        @RequestHeader("Accept-Encoding") String encoding,
-        @RequestHeader("Keep-Alive") long keepAlive) {
-    //...
-}
-```
-### @CookieValue
-```java
-@GetMapping("/demo")
-public void handle(@CookieValue("JSESSIONID") String cookie) {
-    //...
-}
-```
-
-### BindingResult
-
-```java
-public interface BindingResult extends Errors {
-    Map<String, Object> getModel();
-    // ......
-}
-```
 
 
 # 参数校验
@@ -356,23 +370,29 @@ public String signup(@ModelAttribute("user") @Valid UserDto userDto, BindingResu
     return "signup";
 }
 ```
-在需要校验的类中添加校验注解
+在需要校验的类中添加校验注解，注解有很多。
+> `@Max` `@Min` `@Negative` `@NegativeOrZero` `@Positive` `@PositiveOrZero`
+`@NotBlank` `@NotEmpty` `@NotNull` `@Null`
+`@Pattern`
+`@Past` `@Future` `@PastOrPresent` `@FutureOrPresent` -- 约束时间是过去还是未来
+`@DecimalMax` `@DecimalMin` `@Digits` `@Email`
+
 ```java
 public class UserDto {
     @Pattern(regexp = "^[a-zA-Z][0-9a-zA-Z_]{5,63}$",message = "用户名格式不正确")
-    @NotEmpty(message = "用户名不能为空")
+    @NotBlank(message = "用户名不能为空")
     private String username;
 
     @Size(min=6, max=127,message = "密码格式不正确")
-    @NotEmpty(message = "密码不能为空")
+    @NotBlank(message = "密码不能为空")
     private String password;
 
     @Size(min=6, max=127,message = "密码格式不正确")
-    @NotEmpty
+    @NotBlank
     private String confirmPass;
 
     @Pattern(regexp = "^\\d{5,15}@qq\\.com$",message = "邮箱格式不正确，当前只能使用QQ邮箱")
-    @NotEmpty(message = "邮箱不能为空")
+    @NotBlank(message = "邮箱不能为空")
     private String email;
 }
 ```
@@ -387,6 +407,22 @@ public class UserDto {
     <input type="submit" value="注册" />
 </form>
 ```
+值得注意的是，使用 @Valid 注解，在校验失败时会抛出 `MethodArgumentNotValidException`。
+>[validation - dzone.com](https://dzone.com/articles/implementing-validation-for-restful-services-with)
+
+## @Validated
+`@Valid` 不能用于校验 `RequestParam` 和 `path variables`，这时我们可以使用 `@Validated` 来应用校验。
+```java
+@Validated
+public class RegistrationController {
+    @GetMapping
+    public Map search(@Email @RequestParam("email") String email) {
+        return emailMessage(email);
+    }
+}
+```
+注意 `@Validated` 抛出的是 `ConstraintViolationException`。
+>[validating-requestparams-and-pathvariables - sdqali.in](https://sdqali.in/blog/2015/12/04/validating-requestparams-and-pathvariables-in-spring-mvc/)
 
 # 跳转
 在View的名字前加上特殊前缀 `redirect:`
@@ -402,6 +438,51 @@ public String addBookmark(Principal principal,@ModelAttribute Bookmark bookmark)
 }
 ```
 
+# 异常处理
+该抛异常的地方直接抛出异常。
+
+```java
+@Service
+public class UserServiceImpl implements UserService {
+    @Override
+    public User getUserByUserId(final String userId) {
+        User user = userMapper.selectByUserId(userId);
+        if (user == null) {
+            throw new UserNotFoundException();
+        } else {
+            return user;
+        }
+    }
+}
+```
+
+注册一个 `@ControllerAdvice` 的 Spring Bean 来处理异常。
+```java
+@ControllerAdvice
+@RestController
+public class ExceptionHandler {
+
+    @ExceptionHandler(value = UserNotFoundException.class)
+    public RestResult unknownUserException(UserNotFoundException ex) {
+        return RestResult.NOT_FOUNT().message("用户不存在").build();
+    }
+
+    // 此处统一处理 @Valid 产生的异常
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public RestResult paramValidException(MethodArgumentNotValidException ex){
+        Errors errors = ex.getBindingResult();
+        Map<String,String> returnErrors = new HashMap<>();
+        if(errors.hasFieldErrors()){
+            errors.getFieldErrors().forEach(e -> returnErrors.put(e.getField(),e.getDefaultMessage()));
+            return RestResult.ERROR_PARAMS().data(returnErrors).message("参数不正确").build();
+        }
+        return RestResult.ERROR_PARAMS().message("参数不正确").build();
+    }
+}
+```
+
+>[异常处理 - spring.io](https://spring.io/blog/2013/11/01/exception-handling-in-spring-mvc)
+>[rest异常处理 - baeldung.com](http://www.baeldung.com/exception-handling-for-rest-with-spring)
 
 # 参考资料
 > [Spring官方教程](https://spring.io/guides/gs/serving-web-content/)
