@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Geometry</title>
+    <title>Texture Switch</title>
     <script type="text/javascript" src="js/three.min.js"></script>
     <script src="js/OrbitControls.js"></script>
     <script type="text/javascript" src="js/OBJLoader.js"></script>
@@ -99,8 +99,8 @@
                 if ( INTERSECTED != intersects[ 0 ].object) {
                     if (INTERSECTED ){
                         if (INTERSECTED.material instanceof THREE.MeshLambertMaterial){
-                            INTERSECTED.material.color.set(0x156289);
-                            INTERSECTED.material.emissive.set(0x000000);
+                            INTERSECTED.material.color.set(0xffffff);
+                            INTERSECTED.material.emissive.set(0x072534);
                         }
 
                     }
