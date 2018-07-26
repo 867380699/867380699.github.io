@@ -100,6 +100,10 @@ animal.protected?string("Y", "N")
 ```
 对于长链使用`(...)`,如 `(animals.python.price)!0` ， `(animals.python.price)??`，
 
+# 在线调试
+可以使用下面这个项目
+[freemarker-online-tester - github.com](https://github.com/apache/freemarker-online-tester)
 
 # 参考资料
 > [freemarker 官网](https://freemarker.apache.org/)
+> [Manual - apache.org](https://freemarker.apache.org/docs/index.html)
