@@ -7,7 +7,7 @@ tag: [java, spring]
 
 ---
 
-
+# 简介
 目的是减少模板代码。
 
 核心接口是 `Repository`
@@ -65,7 +65,9 @@ public class Bookmark {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
+    @Column(nullable = false)
     private String title;
+    @Column(nullable = false,length=1024)
     private String url;
     private Date updateTime;
     private Boolean isDelete;
@@ -83,6 +85,24 @@ interface BookmarkRepository extends CrudRepository<Bookmark, Long> {
 Iterable<Bookmark> bookmarks = bookmarkRepository.findAll();
 ```
 
+数据库授权
+```sql
+mysql> create database db_example; -- Create the new database
+mysql> create user 'springuser'@'localhost' identified by 'ThePassword'; -- Creates the user
+mysql> grant all on db_example.* to 'springuser'@'localhost'; -- Gives all the privileges to the new user on the newly created database
+
+```
+
+
+# 调试
+在 `application.properties` 中添加下面配置可以在日志中输出SQL。
+```
+logging.level.org.hibernate.SQL=DEBUG
+```
+
+
+
+# 参考资料
 > [reference - spring.io](https://docs.spring.io/spring-data/jpa/docs/current/reference/html/)
 > [accessing-data-jpa - spring.io](https://spring.io/guides/gs/accessing-data-jpa/)
 > [accessing-data-mysql - spring.io](https://spring.io/guides/gs/accessing-data-mysql/)
