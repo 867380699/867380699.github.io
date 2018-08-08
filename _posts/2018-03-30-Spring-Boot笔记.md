@@ -68,6 +68,26 @@ public class Application {
 这个注解告诉 Spring Boot 通过依赖来猜测配置。比如依赖了一个 `spring-boot-starter-web`，auto-configuration 就会猜测我们是在开发一个web应用，并依此做出相应的配置。
 
 
+# 常见属性值
+> [Common application properties - spring.io](https://docs.spring.io/spring-boot/docs/1.4.x/reference/html/common-application-properties.html)
+
+# 测试
+
+# 测试Controller
+一个可行的测试，使用 `MockMvc`
+```java
+@RunWith(SpringJUnit4ClassRunner.class)
+@SpringBootTest(classes = TestApp.class)
+@AutoConfigureMockMvc
+public class UserControllerTest {
+    @Test
+    public void generateNewCode() throws Exception {
+        mockMvc.perform(MockMvcRequestBuilders.get("/user/code").param("userId","user1")).andDo(print());
+    }
+}
+```
+>[测试 Controller](https://spring.io/guides/gs/testing-web/)
+
 # 运行
 ## Maven
 ```bash
@@ -91,3 +111,7 @@ gradle bootRun
     </plugins>
 </build>
 ```
+
+# 参考资料
+> [Reference - spring.io](https://docs.spring.io/spring-boot/docs/current/reference/html/index.html)
+> [spring-boot-custom-starter - baeldung.com](http://www.baeldung.com/spring-boot-custom-starter)
