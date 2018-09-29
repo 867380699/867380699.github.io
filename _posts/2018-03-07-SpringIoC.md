@@ -16,6 +16,11 @@ IoC容器负责配置和实例化 `Bean`
 
 `org.springframework.context.ApplicationContext`{: style="font-size:0.7em"} 就是一个 Ioc容器 接口
 
+> **区别于 Java Beans**
+>JavaBeans是Java中一种特殊的类，可以将多个对象封装到一个对象（bean）中。特点是可序列化，提供无参构造器，提供getter方法和setter方法访问对象的属性。名称中的“Bean”是用于Java的可重用软件组件的惯用叫法。
+>>[JavaBeans - wikipedia.org](https://zh.wikipedia.org/wiki/JavaBeans)
+
+
 # 容器简介
 
 使用容器需要我们提供配置元数据(Configuration metadata)，它告诉Spring如何实配置，组装，实例化 应用中的对象。
@@ -345,6 +350,8 @@ public class MovieFinderImpl implements MovieFinder {
 
 `@Configuration` 用来标记一个主要功能是为容器提供 Bean 定义的类。
 
+`@Configuration` is meta-annotated with `@Component`, therefore `@Configuration` classes are candidates for component scanning 
+
 ```java
 @Configuration
 public class AppConfig {
@@ -358,6 +365,15 @@ public class AppConfig {
 # ApplicationContext 的其他能力
 
 ## 使用MessageSource实现国际化
+ApplicationContext 继承了 `MessageSource` 接口，因此也提供了国际化的功能。
+
+```java
+public interface MessageSource {
+    String getMessage(String code, Object[] args, String defaultMessage, Locale locale);
+    String getMessage(String code, Object[] args, Locale locale) throws NoSuchMessageException;
+    String getMessage(MessageSourceResolvable resolvable, Locale locale) throws NoSuchMessageException;
+}
+```
 
 ## 标准及自定义事件
 
