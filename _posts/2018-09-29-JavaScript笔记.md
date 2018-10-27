@@ -6,15 +6,22 @@ date: 2018-09-29
 tags: [ javascript ]
 ---
 
+ `first-class functions` 意思是说 JavaScript中函数和其他变量一样，可以作为参数，返回值，也可以直接赋值给变量。
+
+ `prototype-based` 一种面向对象的实现方式，通过对实例添加原型和函数实现面向对象，创建对象时不必指明类型。
+
+
 
 # 浏览器对象
 `window` 对象不但表示浏览器窗口, 而且充当全局作用域
-`window.innerWidth`,`window.innerHeight` - 网页的净宽高
-`navigator` 对象表示浏览器的信息
+    `window.innerWidth`,`window.innerHeight` - 网页的净宽高
 `screen` 对象表示屏幕信息
 `location` 对象表示当前页面的URL信息
+`navigator` 对象表示浏览器的信息
 `document` 对象表示当前页
 `history` 对象保存了浏览器的历史记录
+
+
 
 ## DOM
 ```js
@@ -61,6 +68,71 @@ web的运作原理:一次HTTP请求对应一个页面
 3. JSONP
 JSONP只能使用GET请求,并且要求返回JavaScript,这种方式实际上是利用了浏览器允许跨域引用JavaScript资源.
 
+# 内置对象
+
+## 数据类型
+Number Boolean String Object Function NaN 
+
+## 集合
+Array Map Set
+
+## Date
+``` js
+// 获取当前时间
+var now = new Date()
+```
+
+## JSON
+支持筛选需要序列化的键,也支持传入函数预处理内容
+```js
+JSON.stringify(obj)
+JSON.parse(string)
+```
+
+## Math
+```js
+// 0-1之间的随机数
+Math.random()
+```
+
+abs pow exp sqrt
+round floor ceil
+max min
+sin cos ...
+
+
+## RegExp
+```js
+var re = /\d+/
+re.test('232432')    //true
+re.test('ascddf')    //false
+'a   b   c   de f'.split(/\s+/)    //["a","b","c","de","f"]
+re = /.*共(\d+)页.*/
+//返回group
+re.exec('balalab共50页balabala')    //["balalab共50页balabala", "50"]
+```
+
+## Promise
+在JavaScript的世界中，所有代码都是单线程执行的。
+因此JavaScript的所有网络操作，浏览器事件，都必须是异步执行。
+promise 可以简化异步
+
+```js
+new Promise(function(resolve, reject) { ... } );
+```
+![Promise](/assets/promises.png)
+
+## 内置函数
+decodeURI() encodeURI()
+
+
+# Canvas
+
+```js
+//得到一个CanvasRenderingContext2D对象,所有的绘图操作都需要通过这个对象完成
+var ctx = canvas.getContext('2d');
+```
+
 # 自执行函数(IIFE)
 形式如下 `;(function(){}());`
 方法里的变量不会污染外部的变量,在引用多个JS文件时不会相互覆盖.
@@ -96,40 +168,6 @@ function Person(name, age){
 }
 
 var worker = new Person('smith', 21);
-```
-
-# Canvas
-
-```js
-//得到一个CanvasRenderingContext2D对象,所有的绘图操作都需要通过这个对象完成
-var ctx = canvas.getContext('2d');
-```
-
-# 内置对象
-
-## JSON
-支持筛选需要序列化的键,也支持传入函数预处理内容
-
-```js
-JSON.stringify(obj)
-JSON.parse(string)
-```
-
-## Date
-``` js
-// 获取当前时间
-var now = new Date()
-```
-
-## RegExp
-```js
-var re = /\d+/
-re.test('232432')    //true
-re.test('ascddf')    //false
-'a   b   c   de f'.split(/\s+/)    //["a","b","c","de","f"]
-re = /.*共(\d+)页.*/
-//返回group
-re.exec('balalab共50页balabala')    //["balalab共50页balabala", "50"]
 ```
 
 # Tips
@@ -212,10 +250,7 @@ var x = i || 0;
 ##class
 和Java类似
 
-## promise
-在JavaScript的世界中,所有代码都是单线程执行的.
-因此JavaScript的所有网络操作,浏览器事件,都必须是异步执行.
-promise 可以简化异步
+
 
 ## 默认参数
 ```js
