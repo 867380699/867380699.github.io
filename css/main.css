@@ -47,6 +47,7 @@ ul.posts li {
     background: #ffffff;
     z-index: 8888;
     box-sizing: border-box;
+    border-right: 1px solid #dedede;
 }
 
 .toc>ul {
@@ -65,9 +66,11 @@ ul.posts li {
     box-sizing: border-box;
     min-width: 400px;
     padding-left: 20px;
-    border-left: 1px solid #dedede;
 }
-
+.content-area h2,h3 {
+    padding-top: 50px; 
+    margin-top: -40px;
+}
 .main {
     max-width: 800px;
     margin: 0 auto;
