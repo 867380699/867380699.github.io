@@ -323,4 +323,5 @@ Authorization: Digest username="Mufasa",
 
 
 # 参考资料
-[表单配置 - spring.io](https://docs.spring.io/spring-security/site/docs/current/guides/html5/form-javaconfig.html)
+> [表单配置 - spring.io](https://docs.spring.io/spring-security/site/docs/current/guides/html5/form-javaconfig.html)
+> [Spring Security Architecture](https://spring.io/guides/topicals/spring-security-architecture/)
