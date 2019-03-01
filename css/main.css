@@ -12,6 +12,8 @@ body h1{
     top: 0;
     z-index: 9999;
     height: 50px;
+    display: flex;
+    overflow-x: auto;
 }
 
 .nav a {
