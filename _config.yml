@@ -2,12 +2,12 @@ name: lls
 markdown: kramdown
 kramdown:
   hard_wrap: true
-  # syntax_highlighter: rouge
-  # syntax_highlighter_opts:
+  highlighter: rouge
+  syntax_highlighter_opts:
+      block:
+          line_numbers: true
   #   css_class: 'highlight'
   #   span:
   #     line_numbers: false
-  #   block:
-  #     line_numbers: true
 permalink: /blog/:year/:month/:day/:title
 highlighter: rouge

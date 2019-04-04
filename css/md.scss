@@ -1,0 +1,156 @@
+--- 
+--- 
+
+.post {
+
+  p {
+    font-size: 1.2em;
+    line-height: 1.4em;
+    color: #333;
+    text-align: justify;
+  }
+
+  p>em {
+    color: #999;
+  }
+
+  pre.highlight {
+    padding: 16px 16px 0px;
+    border: 1px solid #dedede;
+    background-color: #f8f9fa;
+    font-size: 1.1em;
+    box-sizing: border-box;
+    overflow: initial;
+
+    .rouge-table {
+      display: block;
+
+      tbody {
+        display: block;
+
+        tr {
+          display: flex;
+          overflow: hidden;
+
+          .rouge-code {
+            display: block;
+            overflow: auto;
+            padding-left: 8px;
+
+            pre {
+              overflow: initial;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  code {
+    line-height: 1.5rem;
+    font-size: 1rem;
+  }
+
+  p code {
+    color: #bb0033;
+  }
+
+  &>table {
+    display: block;
+    overflow-x: auto;
+    min-width: 30%;
+    max-width: 65em;
+    border-collapse: collapse;
+    margin: 15px;
+    th {
+      white-space: nowrap;
+    }
+    th, td {
+      height: 35px;
+      border: 1px solid #dedede;
+      padding: 0 10px;
+    }
+    tbody tr:nth-child(even) {
+      background-color: #f8f8f8;
+    }
+  }
+
+  /* table tbody tr:hover{
+      background-color: #fcf8f4
+  } */
+
+  blockquote {
+    background-color: #f8f8f8;
+    margin: 0px;
+    padding: 10px 20px;
+    p {
+      color: #666;
+      overflow-x: auto;
+      margin-bottom: 0px;
+    }
+  }
+  hr {
+    color: #bbb;
+    background: #bbb;
+    height: 1px;
+    border: none 0;
+    font-size: 0px;
+  }
+
+  h1 {
+    font-size: 2em;
+    margin-top: -30px;
+    padding-top: 50px;
+    margin-left: 0px;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+    code {
+      font-size: 1.75rem;
+    }
+  }
+
+  h2,
+  h3 {
+    padding-top: 50px;
+    margin-top: -40px;
+  }
+
+  .lineno {
+    color: #ccc;
+    padding-right: 8px;
+    padding-right: 1px solid #ccc;
+    text-align: right;
+    border-right: 1px solid #ccc;
+  }
+  img {
+    max-width: 100%;
+  }
+  
+}
+
+
+
+@media (max-width:800px) {
+  .post {
+    p {
+      font-size: 1em;
+      line-height: 1.6em;
+      color: #5E5E5E;
+    }
+  
+    .highlight {
+      padding: 4px;
+      font-size: 0.8em;
+      width: 100%;
+    }
+  
+    p code {
+      word-break: break-all;
+    }
+  }
+  img {
+    width: 100%;
+  }
+}
