@@ -11,17 +11,14 @@ title: Search
   </div>
 </div>
 
-  <script src="js/simple-jekyll-search.js" type="text/javascript"></script>
+<script src="js/simple-jekyll-search.js" type="text/javascript"></script>
 
-  <script>
-    SimpleJekyllSearch({
-      searchInput: document.getElementById('search-input'),
-      resultsContainer: document.getElementById('results-container'),
-      json: 'search.json'
-    })
-  </script>
-  <script type="text/javascript">
-    var mNav = document.evaluate("//div[@class='nav']/a[text()='Search']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-    mNav.style.background = '#3399cc';
-    mNav.style.color = '#ffffff';
-  </script>
+<script>
+  SimpleJekyllSearch({
+    searchInput: document.getElementById('search-input'),
+    resultsContainer: document.getElementById('results-container'),
+    json: 'search.json',
+    searchResultTemplate: '<li><a href="{url}">{title}</a></li>',
+    excludeKeys: ['url']
+  })
+</script>
