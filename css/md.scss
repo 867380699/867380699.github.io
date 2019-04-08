@@ -105,9 +105,9 @@
   }
 
   h2 {
-    font-size: 1.75rem;
+    font-size: 1.65rem;
     code {
-      font-size: 1.75rem;
+      font-size: 1.65rem;
     }
   }
 
@@ -115,6 +115,16 @@
   h3 {
     padding-top: 50px;
     margin-top: -40px;
+  }
+
+  &>h1 {
+    color: #22222a;
+  }
+  &>h2 {
+    color: #55555a;
+  }
+  &>h3,h4,h5,h6 {
+    color: #99999a;
   }
 
   .lineno {
