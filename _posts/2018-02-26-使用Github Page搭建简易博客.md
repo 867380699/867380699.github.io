@@ -98,6 +98,13 @@ MathJax默认不开启单个 `$` 的行内公式，在页面中添加下面的�
 
 > [一种不使用插件或JS的实现](https://allejo.io/blog/a-jekyll-toc-without-plugins-or-javascript/)
 
+kramdowm 支持 TOC
+
+```
+- TOC
+{:toc}
+```
+
 ## Tag 生成
 > [github-jekyll-tag](http://longqian.me/2017/02/09/github-jekyll-tag/)
 
@@ -139,6 +146,83 @@ Liquid 代码可以分为三类，对象（Object），标签（tags），过滤
 
 
 > [Liquid官方文档](http://shopify.github.io/liquid/basics/introduction/)
+
+## scss
+当文件后缀为 `.scss` 且文件开头有两行三杠时，Jeyll 即可识别此文件。
+```scss
+--- 
+--- 
+
+.post {
+  p {
+    font-size: 1.2em;
+  }
+  //...
+}
+```
+
+## Data Files
+Jekyll supports loading data from `YAML`, `JSON`, and `CSV` files located in the  `_data` directory. 
+
+`_data/members.csv`:
+
+```
+name,github
+Eric Mill,konklone
+Parker Moore,parkr
+Liu Fengyun,liufengyun
+```
+This data can be accessed via `site.data.members` (notice that the filename determines the variable name).
+
+{% raw %}
+```liquid
+<ul>
+{% for member in site.data.members %}
+  <li>
+    <a href="https://github.com/{{ member.github }}">
+      {{ member.name }}
+    </a>
+  </li>
+{% endfor %}
+</ul>
+```
+{% endraw %}
+
+> <https://jekyllrb.com/docs/datafiles/>
+
+## kramdown
+
+### Applying classes
+
+```
+This is a paragraph that for some reason we want blue.
+{: .blue}
+```
+
+### Custom IDs
+
+```
+#### A blue heading
+{: .blue #blue-h}
+```
+
+### Custom Attributes
+
+```
+#### A simple example
+{: style="margin-top:0"}
+```
+
+### Styles
+One of the most useful features is the ability to add `<style>` tags to our markdown file too! We can do that for simply styling our web page without affecting the entire site.
+
+### Iframes
+
+We can embed anything within `<iframe>` tags, such as **YouTube** and **Vimeo** videos, Google and **OneDrive** documents and anything else available in iframes.
+
+> [markdown-kramdown-tips-and-tricks - gitlab.com](https://about.gitlab.com/2016/07/19/markdown-kramdown-tips-and-tricks/)
+
+
 
 # Nginx部署
 Jekyll也可以使用Nginx在自己的服务器上进行部署
