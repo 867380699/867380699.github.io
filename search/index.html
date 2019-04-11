@@ -18,7 +18,11 @@ title: Search
     searchInput: document.getElementById('search-input'),
     resultsContainer: document.getElementById('results-container'),
     json: 'search.json',
-    searchResultTemplate: '<li><a href="{url}">{title}</a></li>',
-    excludeKeys: ['url']
+    searchResultTemplate: '<li class="blog-item"><a href="{url}">{title}</a>&nbsp;<span class="blog-date">{date}</span>&nbsp;<span class="search-tags">{tags}</span></li>',
+    excludeKeys: ['url'],
+    limit: 15,
+    templateMiddleware: function(prop, value, template) {
+      return value || '';  
+    }
   })
 </script>
