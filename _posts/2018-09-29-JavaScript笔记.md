@@ -207,6 +207,12 @@ for循环,while循环和if语句和Java一致
 Map和Set (ES6)
 `for... of` 和 python的`for...in`类似
 
+```js
+for (let o of foo()) {
+    console.log(o);
+}
+```
+
 ---
 
 **JavaScript函数允许接收任意个参数!**
@@ -234,23 +240,91 @@ var x = i || 0;
 
 构造函数如果不加 `new` 会被当做普通函数使用.
 
+---
+获取计算后的属性
+```js
+getComputedStyle($0).position
+```
 
 # ES6
-`let` - 替代var可以生成一个块级作用域的变量
-`const` - 申明常量
+`let` - 替代 var 可以生成一个块级作用域的变量
+`const` - 声明常量，必须初始化且不可修改
 
 
 ## 箭头函数
-类似Lambda
-可以规避this指针的问题
 
-## generator
-和python类似
+箭头函数没有 `arguments` 没有 `prototype` 也没有自己的 `this`。
 
-##class
-和Java类似
+只有一个参数时 `()` 可省略。
 
+`(p1, p2) => expression` 等价于 `(p1, p2) => { return expression; }`
 
+返回一个对象可写作 `params => ({foo: bar})`
+
+```js
+let arr = [1,2,3];
+arr.filter(item => item === 2);
+arr.map(item => item * 2);
+arr.reduce((acc, cur) => acc + cur);
+```
+
+## 解构赋值
+
+```js
+let a = 1, b = 2;
+[a, b] = [b, a]
+```
+
+## 剩余/扩展运算符
+**扩展**
+```js
+let arr1 = [1, 2, 3];
+let arr2 = [...arr1, 4, 5, 6]; //[ 1, 2, 3, 4, 5, 6 ]
+```
+
+**剩余**
+```js
+function first(first, ...rest){
+    console.log(first);
+    console.log(rest);    
+};
+
+first(1,2,3,4,5,6);
+// 1
+// [ 2, 3, 4, 5, 6 ] // rest 是一个数组
+```
+
+## 对象属性/方法简写
+**属性简写**
+```js
+let a = 1;
+let obj = {
+    a
+};
+obj.a; // 1
+```
+
+与解构赋值一同使用：
+
+```js
+let f = () => ({a: 1, b: 2, c: 3});
+let {a, b, c} = f();
+```
+
+**方法简写**
+
+```js
+let objES5 = {
+    f1: function(){
+        // ...
+    }
+}
+let objES6 = {
+    f1(){
+        // ...
+    }
+}
+```
 
 ## 默认参数
 ```js
@@ -260,6 +334,17 @@ handlePageInfo ({count = 0, limit = 20, page = 1} = {}) {
     this.currentPage = page
 }
 ```
+
+## generator
+和python类似
+
+## class
+和Java类似
+
+## Module
+`export` `import`
+
+> [近一万字的ES6语法知识点补充 - juejin.im](https://juejin.im/post/5c6234f16fb9a049a81fcca5)
 
 # JQuery
 JQuery可以帮我们干这些事:
