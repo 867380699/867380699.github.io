@@ -68,13 +68,45 @@ web的运作原理:一次HTTP请求对应一个页面
 3. JSONP
 JSONP只能使用GET请求,并且要求返回JavaScript,这种方式实际上是利用了浏览器允许跨域引用JavaScript资源.
 
+## Element
+`Element` is the most general base class from which all objects in a `Document` inherit.
+
+```                                       
++-------------+      +-------------+      +-------------+
+| EventTarget | <--- |    Node     | <--- |   Element   |
++-------------+      +-------------+      +-------------+
+```
 # 内置对象
 
 ## 数据类型
 Number Boolean String Object Function NaN 
 
 ## 集合
-Array Map Set
+
+### Array
+
+```js
+arr = [1,2,3];
+arr.forEach(function(item, index, arr){
+    console.log(item, index, arr);
+});
+// 1 0 [ 1, 2, 3 ]
+// 2 1 [ 1, 2, 3 ]
+// 3 2 [ 1, 2, 3 ]
+```
+
+**prototype**
+
+`pop`, `push`, `splice`, `shift`, `unshift`, `slice`, `concat`, `fill`, `join`, `reverse`, 
+
+`find`, `findIndex`, `includes`, `indexOf`, `lastIndexOf`, `keys`, `values`,
+
+`map`, `reduce`, `filter`, `sort`, `flat`, `forEach`, `every`, `some`, ...
+
+
+### Map
+
+### Set
 
 ## Date
 ``` js
