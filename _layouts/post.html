@@ -53,6 +53,9 @@ layout: default
         menu.onclick = toggleTOC;
     }
     window.onhashchange = function ($event) {
-        hideTOC();
+        var elMenu =document.getElementById('menu');
+        if (elMenu && getComputedStyle(elMenu).display != 'none') {
+            hideTOC();
+        }
     }
 </script>
