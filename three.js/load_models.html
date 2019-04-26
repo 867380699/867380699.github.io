@@ -1,26 +1,12 @@
-<!DOCTYPE html>
-<html>
+---
+layout: threejs
+title: "Load Models"
+---
 
-<head>
-    <meta charset=utf-8>
-    <title>Load Models</title>
-    <style>
-    body {
-        margin: 0;
-    }
+<script type="text/javascript" src="js/OBJLoader.js"></script>
+<script type="text/javascript" src="js/OrbitControls.js"></script>
 
-    canvas {
-        width: 100%;
-        height: 100%
-    }
-    </style>
-</head>
-
-<body>
-    <script src="js/three.min.js"></script>
-    <script type="text/javascript" src="js/OBJLoader.js"></script>
-    <script type="text/javascript" src="js/OrbitControls.js"></script>
-    <script>
+<script>
     var scene = new THREE.Scene();
     var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     var controls = new THREE.OrbitControls( camera );
@@ -72,7 +58,4 @@
         pointLight.position.z = 30 * Math.cos(step);
     }
     animate();
-    </script>
-</body>
-
-</html>
+</script>

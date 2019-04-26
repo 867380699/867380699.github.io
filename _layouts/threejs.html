@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <title>{{ page.title }}</title>
+    <script type="text/javascript" src="js/three.min.js"></script>
+    <style>
+        body {
+            /* set margin to 0 and overflow to hidden, to go fullscreen */
+            margin: 0;
+            overflow: hidden;
+        }
+        canvas {
+            width: 100%;
+            height: 100%
+        }
+        .nav {
+            background: rgba(0, 0, 0, 0.5);
+            position: fixed;
+            height: 50px;
+            width: 100%;
+            font-size: 24px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            color: #fff;
+            display: flex;
+            align-items: center;
+        }
+        #back {
+            padding: 16px;
+        }
+        #back,#title {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <span id="back">&lt;</span>
+        <span id="title">{{ page.title }}</span>
+    </div>
+    {{ content }}
+</body>
+<script>
+        function back() {
+            history.go(-1);
+        }
+        document.getElementById('back').onclick = back;
+        document.getElementById('title').onclick = back;
+</script>
+</html>
