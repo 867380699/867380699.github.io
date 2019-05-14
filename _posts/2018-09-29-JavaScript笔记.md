@@ -76,11 +76,40 @@ JSONP只能使用GET请求,并且要求返回JavaScript,这种方式实际上是
 | EventTarget | <--- |    Node     | <--- |   Element   |
 +-------------+      +-------------+      +-------------+
 ```
+
+### HTMLElement
+```
++-----------+         +---------------+
+|  Element  | <------ |  HTMLElement  |
++-----------+         +---------------+
+```
+
+Inherits properties from its parent, `Element`, and implements those from `GlobalEventHandlers` and `TouchEventHandlers`.
+
+**GlobalEventHandlers**
+onblur, onfocus, onchange, onclick, onkeydown, onkeypress, onload, onwheel, onplay, onresize, onscroll, onselect, onsubmit, ...
+
 # 内置对象
 
 ## 数据类型
-Number Boolean String Object Function NaN 
+### Number
+### Boolean
+### String
+```js
+str.replace(regexp|substr, newSubStr|function)
+```
 
+```js
+s = '1a2b3c';
+s.replace(/\d/g, function(d){
+    return parseInt(d)+1;
+});
+// '2a3b4c'
+```
+
+### Object
+### Function
+### NaN
 ## 集合
 
 ### Array
