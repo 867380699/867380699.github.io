@@ -5,7 +5,6 @@
   font-size: 1.2rem;
 
   p {
-    line-height: 1.5rem;
     color: #333;
     text-align: justify;
   }
@@ -55,7 +54,7 @@
     color: #bb0033;
   }
 
-  &>table {
+  &>table, .table-container>table {
     display: block;
     overflow-x: auto;
     min-width: 30%;
@@ -153,8 +152,13 @@
       font-size: 1rem;
       line-height: 1.6rem;
       color: #5E5E5E;
+      > a {
+        word-break: break-all;
+      }
     }
-  
+    > a {
+      word-break: break-all;
+    }
     .highlight {
       padding: 4px;
       font-size: 0.8rem;
@@ -163,6 +167,22 @@
   
     p code {
       word-break: break-all;
+    }
+    blockquote {
+      padding: 10px 0px;
+      border-left: 12px solid #f8f8f8;
+      border-right: 12px solid #f8f8f8;
+      overflow-x: auto; 
+      p {
+        display: inline;
+        white-space: nowrap;
+      }
+      a {
+        white-space: nowrap;
+      }
+    }
+    table {
+      font-size: 1rem;
     }
   }
   img {
