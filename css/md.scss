@@ -142,6 +142,19 @@
     width: 100%;
     border: 1px solid #dedede;
   }
+
+  .demo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%; 
+    min-width:320px; 
+    margin: 8px auto; 
+    padding: 12px; 
+    background: #f8f8f8; 
+    border: 1px dashed #dedede;
+    overflow: auto
+  }
 }
 
 
