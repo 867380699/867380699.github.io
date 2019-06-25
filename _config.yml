@@ -1,4 +1,5 @@
 name: lls
+title: lls
 markdown: kramdown
 kramdown:
   hard_wrap: true

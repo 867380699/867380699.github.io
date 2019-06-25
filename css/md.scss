@@ -2,10 +2,9 @@
 --- 
 
 .post {
+  font-size: 1.2rem;
 
   p {
-    font-size: 1.2em;
-    line-height: 1.4em;
     color: #333;
     text-align: justify;
   }
@@ -18,7 +17,7 @@
     padding: 16px 16px 0px;
     border: 1px solid #dedede;
     background-color: #f8f9fa;
-    font-size: 1.1em;
+    font-size: 1.1rem;
     box-sizing: border-box;
     overflow: initial;
 
@@ -55,11 +54,11 @@
     color: #bb0033;
   }
 
-  &>table {
+  &>table, .table-container>table {
     display: block;
     overflow-x: auto;
     min-width: 30%;
-    max-width: 65em;
+    max-width: 65rem;
     border-collapse: collapse;
     margin: 15px;
     th {
@@ -100,7 +99,7 @@
   }
 
   h1 {
-    font-size: 2em;
+    font-size: 2rem;
     margin-top: -30px;
     padding-top: 50px;
     margin-left: 0px;
@@ -120,13 +119,13 @@
   }
 
   &>h1 {
-    color: #22222a;
+    color: #11111a;
   }
   &>h2 {
-    color: #55555a;
+    color: #33333a;
   }
   &>h3,h4,h5,h6 {
-    color: #99999a;
+    color: #55555a;
   }
 
   .lineno {
@@ -143,6 +142,19 @@
     width: 100%;
     border: 1px solid #dedede;
   }
+
+  .demo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%; 
+    min-width:320px; 
+    margin: 8px auto; 
+    padding: 12px; 
+    background: #f8f8f8; 
+    border: 1px dashed #dedede;
+    overflow: auto
+  }
 }
 
 
@@ -150,19 +162,40 @@
 @media (max-width:800px) {
   .post {
     p {
-      font-size: 1em;
-      line-height: 1.6em;
+      font-size: 1rem;
+      line-height: 1.6rem;
       color: #5E5E5E;
+      > a {
+        word-break: break-all;
+      }
     }
-  
+    > a {
+      word-break: break-all;
+    }
     .highlight {
       padding: 4px;
-      font-size: 0.8em;
+      font-size: 0.8rem;
       width: 100%;
     }
   
     p code {
       word-break: break-all;
+    }
+    blockquote {
+      padding: 10px 0px;
+      border-left: 12px solid #f8f8f8;
+      border-right: 12px solid #f8f8f8;
+      overflow-x: auto; 
+      p {
+        display: inline;
+        white-space: nowrap;
+      }
+      a {
+        white-space: nowrap;
+      }
+    }
+    table {
+      font-size: 1rem;
     }
   }
   img {
