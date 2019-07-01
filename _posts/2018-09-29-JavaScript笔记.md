@@ -89,6 +89,24 @@ Inherits properties from its parent, `Element`, and implements those from `Globa
 **GlobalEventHandlers**
 onblur, onfocus, onchange, onclick, onkeydown, onkeypress, onload, onwheel, onplay, onresize, onscroll, onselect, onsubmit, ...
 
+## Event
+```js
+var event = new Event('build');
+
+// Listen for the event.
+elem.addEventListener('build', function (e) { /* ... */ }, false);
+
+// Dispatch the event.
+elem.dispatchEvent(event);
+```
+
+**用于调试** *(比如触发弹窗控件)*:
+```js
+var evt = document.createEvent("MouseEvents"); 
+evt.initMouseEvent("mouseenter", true, true, window,0, 0, 0, 0, 0, false, false, false, false, 0, null); 
+$0.dispatchEvent(evt); 
+```
+
 # 内置对象
 
 ## 数据类型
