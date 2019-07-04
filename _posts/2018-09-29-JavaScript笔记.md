@@ -405,6 +405,23 @@ let objES6 = {
 }
 ```
 
+## 计算属性名
+```js
+let obj = {
+    foo: "bar",
+    [ "baz" + quux() ]: 42
+}
+```
+
+with ES5:
+
+```js
+var obj = {
+    foo: "bar"
+};
+obj[ "baz" + quux() ] = 42;
+```
+
 ## 默认参数
 ```js
 handlePageInfo ({count = 0, limit = 20, page = 1} = {}) {
@@ -422,6 +439,14 @@ handlePageInfo ({count = 0, limit = 20, page = 1} = {}) {
 
 ## Module
 `export` `import`
+
+## Symbol
+每个从 `Symbol()` 返回的`symbol`值都是唯一的。一个`symbol`值能作为对象属性的标识符；这是该数据类型仅有的目的。
+
+### Well-known symbols
+`Symbol.iterator`
+A method returning the default iterator for an object. Used by `for...of`.
+
 
 > [近一万字的ES6语法知识点补充 - juejin.im](https://juejin.im/post/5c6234f16fb9a049a81fcca5)
 
