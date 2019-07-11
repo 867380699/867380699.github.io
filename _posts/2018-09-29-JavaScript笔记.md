@@ -204,6 +204,67 @@ new Promise(function(resolve, reject) { ... } );
 ## 内置函数
 decodeURI() encodeURI()
 
+# Operators
+
+## Unary
+### delete
+
+### typeof
+possible return values:
+
+- `"undefined"`
+- `"boolean"`
+- `"number"`
+- `"bigint"`
+- `"string"`
+- `"function"`
+- `"object"`
+- `"symbol"`
+
+```js
+typeof /regex/ === 'object';
+typeof class C {} === 'function';
+// use Array.isArray or Object.prototype.toString.call
+// to differentiate regular objects from arrays
+typeof [1, 2, 4] === 'object';
+// This stands since the beginning of JavaScript
+typeof null === 'object';
+```
+
+```js
+// All constructor functions, with the exception of the Function constructor, will always be typeof 'object'
+var str = new String('String');
+var num = new Number(100);
+
+typeof str; // It will return 'object'
+typeof num; // It will return 'object'
+var func = new Function();
+typeof func; // It will return 'function'
+```
+
+### void
+The `void` operator specifies an expression to be evaluated without returning a value. 
+
+```js
+void (expression)
+void expression
+```
+
+```html
+<a href="javascript:void(0)">Click here to do nothing</a>
+```
+The following code creates a hypertext link that submits a form when the user clicks it.
+
+```html
+<a href="javascript:void(document.form.submit())">Click here to submit</a>
+```
+
+## Relational
+### in
+Returns true if the specified property is in the specified object.
+
+### instanceof
+
 
 # Canvas
 
