@@ -6,6 +6,9 @@ date: 2018-09-29
 tags: [ javascript ]
 ---
 
+<link href="/css/fa-solid.css" rel="stylesheet">
+<link href="/css/fontawesome.css" rel="stylesheet">
+
  `first-class functions` 意思是说 JavaScript中函数和其他变量一样，可以作为参数，返回值，也可以直接赋值给变量。
 
  `prototype-based` 一种面向对象的实现方式，通过对实例添加原型和函数实现面向对象，创建对象时不必指明类型。
@@ -21,28 +24,45 @@ tags: [ javascript ]
 `document` 对象表示当前页
 `history` 对象保存了浏览器的历史记录
 
+## navigator
+`userAgent` - Returns the user agent string for the current browser.
 
+`language` - the preferred language of the user. The null value is returned when this is unknown.
+
+`cookieEnabled` - Returns false if setting a cookie will be ignored and true otherwise.
+`onLine`
+`hardwareConcurrency`
+
+<i class="fas fa-exclamation-triangle"></i> `vendor` - Returns the vendor name of the current browser *(e.g., "Google Inc.", "Apple Computer, Inc.")*.
+
+<i class="fas fa-flask"></i> `connection`
+<i class="fas fa-flask"></i> `deviceMemory` 
+<i class="fas fa-flask"></i> `platform` 
 
 ## DOM
-```js
-document.getElementById()
-document.getElementsByTagName()
-document.getElementsByClassName()
-//CSS选择器
-document.querySelectorAll()
-```
-DOM节点对象的 `style` 属性对应节点的CSS
 
 ### CRUD
 ```js
+// read / query
+document.getElementById()
+document.getElementsByTagName()
+document.getElementsByClassName()
+// by CSS Selector
+document.querySelector();
+document.querySelectorAll()
+// update
 document.getElementById('su').text='Hello World!';
 document.getElementById('su').style.fontSize='100px';
+// create
 node = document.createElement('p');
 node.innerText = 'Java';
-document.getElementById('su').appendChild(java);
+document.getElementById('su').appendChild(node);
 parentElement.insertBefore(newElement, referenceElement);
+// delete
 parentElement.removeChild(element);
 ```
+
+DOM节点对象的 `style` 属性对应节点的CSS
 
 ### 表单操作
 
@@ -88,6 +108,9 @@ Inherits properties from its parent, `Element`, and implements those from `Globa
 
 **GlobalEventHandlers**
 onblur, onfocus, onchange, onclick, onkeydown, onkeypress, onload, onwheel, onplay, onresize, onscroll, onselect, onsubmit, ...
+
+**dataset**
+The dataset property on the `HTMLElement` interface provides read/write access to all the **custom data attributes** *(data-*)* set on the element.
 
 ## Event
 ```js
@@ -140,6 +163,19 @@ arr.forEach(function(item, index, arr){
 // 1 0 [ 1, 2, 3 ]
 // 2 1 [ 1, 2, 3 ]
 // 3 2 [ 1, 2, 3 ]
+```
+
+**clear**
+```js
+arr = [1, 2, 3];
+arr.length = 0;
+```
+**remove by value**
+```js
+arr = [1,2,3,4,7,8,9];
+const index = arr.indexOf(value);
+if (index) arr.splice(index, 1);
+// If the item doesn't exist in the list, splice removes the last item in the list
 ```
 
 **prototype**
