@@ -1,0 +1,16 @@
+---
+layout: default
+title: Blog
+---
+<div class="index">
+<ul class="posts">
+
+  {% for post in site.static_files %}
+    {% assign path_array = post.path | split: "/" %}
+
+    {% if path_array[1]=='rfc' %}
+      <li class="blog-item"><a class = "blog-link" href="{{ post.path }}" title="{{ post.name }}">{{ post.name }}</a></li>
+    {% endif %}
+  {% endfor %}
+</ul>
+</div>

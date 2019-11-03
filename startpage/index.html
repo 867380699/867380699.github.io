@@ -1,0 +1,12 @@
+---
+layout: nav
+title: StartPage
+---
+
+<div class="index">
+<ul class="posts">
+  {% for item in site.data.startpages %}
+    <li class="blog-item"><a class = "blog-link" href="{{ item.link }}">{{ item.title }}</a></li>
+  {% endfor %}
+</ul>
+</div>

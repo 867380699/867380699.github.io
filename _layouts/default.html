@@ -4,33 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <title>{{ page.title }}</title>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap-reboot.min.css">
     <link rel="stylesheet" type="text/css" href="/css/main.css">
     <link rel="stylesheet" type="text/css" href="/css/pastie.css">
     <link rel="stylesheet" type="text/css" href="/css/md.css">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+SC|Roboto" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script>
-        function toggleTOC() {
-            var x = document.getElementsByClassName("toc");
-            if (x.length > 0){
-                x = x[0];
-                if (x.style.display === "" || x.style.display === 'none'){
-                    x.style.display = 'block'
-                }else{
-                    x.style.display = 'none'
-                }
-            }
-        }
-</script>
 </head>
 
 <body>
     <div class="nav">
-        <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="toggleTOC()">☰</a>
+        <a href="javascript:void(0);" style="font-size:15px;" class="icon" id="menu">☰</a>
         <a href="/">Home</a>
         <a href="/blog">Blog</a>
         <!-- <a href="/about">About</a> -->
         <a href="/tag">Tag</a>
         <a href="/search">Search</a>
+        <a href="/startpage/">StartPage</a>
     </div>
 
     {{ content }}
@@ -41,5 +31,4 @@
         </ul>
     </div>
 </body>
-
 </html>

@@ -3,19 +3,59 @@ layout: default
 ---
 
 <div class="toc">
-    {% include toc.html html=content %}
+    {% include toc.html html=content item_class='toc-l%level%' %}
 </div>
 <div class="content-area">
 <div class="main">
-    <h1>{{ page.title }}</h1>
-    <p class="meta">{{ page.date | date_to_string }}</p>
-    {% for tag in page.tags %}
-        {% capture tag_name %}{{ tag }}{% endcapture %}
-            <a href="/tag/{{ tag_name }}"><code class="highligher-rouge"><nobr>{{ tag_name }}</nobr></code>&nbsp;</a>
-    {% endfor %}
+    <h1 class="title">{{ page.title }}</h1>
+    <p class="meta">
+        <span class="count">字数&nbsp;{{ page.content | number_of_words }}</span>
+        ·
+        <span class="date">{{ page.date | date: "%Y-%m-%d" }}</span>
+    </p>
+    <p class="blog-tags">
+        {% for tag in page.tags %}
+            {% capture tag_name %}#{{ tag }}{% endcapture %}
+            <a class="blog-tag" href="/tag/{{ tag_name }}">{{ tag_name }}</a>
+        {% endfor %}
+    </p>
+
     <div class="post">
 
         {{ content }}
     </div>
 </div>
 </div>
+
+<script>
+    function toggleTOC() {
+        var x = document.getElementsByClassName("toc");
+        if (x.length > 0){
+            x = x[0];
+            if (x.style.display === "" || x.style.display === 'none'){
+                x.style.display = 'block';
+            }else{
+                x.style.display = 'none';
+            }
+        }
+    }
+    function hideTOC() {
+        var x = document.getElementsByClassName("toc");
+        if (x.length > 0){
+            x = x[0];
+            if (x.style.display !== "none"){
+                x.style.display = 'none';
+            }
+        }
+    }
+    var menu = document.getElementById('menu');
+    if (menu) {
+        menu.onclick = toggleTOC;
+    }
+    window.onhashchange = function ($event) {
+        var elMenu =document.getElementById('menu');
+        if (elMenu && getComputedStyle(elMenu).display != 'none') {
+            hideTOC();
+        }
+    }
+</script>

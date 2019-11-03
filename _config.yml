@@ -1,13 +1,15 @@
 name: lls
+title: lls
 markdown: kramdown
 kramdown:
   hard_wrap: true
-  # syntax_highlighter: rouge
-  # syntax_highlighter_opts:
-  #   css_class: 'highlight'
-  #   span:
-  #     line_numbers: false
-  #   block:
-  #     line_numbers: true
+  highlighter: rouge
+  syntax_highlighter_opts:
+    default_lang: markdown
+    guess_lang: true
+    block:
+      line_numbers: true
+  # css_class: 'highlight'
+  # span:
+  #   line_numbers: false
 permalink: /blog/:year/:month/:day/:title
-highlighter: rouge

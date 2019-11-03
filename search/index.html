@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: nav
 title: Search
 ---
 
@@ -11,17 +11,18 @@ title: Search
   </div>
 </div>
 
-  <script src="js/simple-jekyll-search.js" type="text/javascript"></script>
+<script src="js/simple-jekyll-search.js" type="text/javascript"></script>
 
-  <script>
-    SimpleJekyllSearch({
-      searchInput: document.getElementById('search-input'),
-      resultsContainer: document.getElementById('results-container'),
-      json: 'search.json'
-    })
-  </script>
-  <script type="text/javascript">
-    var mNav = document.evaluate("//div[@class='nav']/a[text()='Search']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-    mNav.style.background = '#3399cc';
-    mNav.style.color = '#ffffff';
-  </script>
+<script>
+  SimpleJekyllSearch({
+    searchInput: document.getElementById('search-input'),
+    resultsContainer: document.getElementById('results-container'),
+    json: 'search.json',
+    searchResultTemplate: '<li class="blog-item"><a href="{url}">{title}</a>&nbsp;<span class="blog-date">{date}</span>&nbsp;<span class="search-tags">{tags}</span></li>',
+    excludeKeys: ['url'],
+    limit: 15,
+    templateMiddleware: function(prop, value, template) {
+      return value || '';  
+    }
+  })
+</script>

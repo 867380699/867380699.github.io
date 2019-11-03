@@ -6,6 +6,9 @@ date: 2018-09-29
 tags: [ javascript ]
 ---
 
+<link href="/css/fa-solid.css" rel="stylesheet">
+<link href="/css/fontawesome.css" rel="stylesheet">
+
  `first-class functions` 意思是说 JavaScript中函数和其他变量一样，可以作为参数，返回值，也可以直接赋值给变量。
 
  `prototype-based` 一种面向对象的实现方式，通过对实例添加原型和函数实现面向对象，创建对象时不必指明类型。
@@ -21,28 +24,45 @@ tags: [ javascript ]
 `document` 对象表示当前页
 `history` 对象保存了浏览器的历史记录
 
+## navigator
+`userAgent` - Returns the user agent string for the current browser.
 
+`language` - the preferred language of the user. The null value is returned when this is unknown.
+
+`cookieEnabled` - Returns false if setting a cookie will be ignored and true otherwise.
+`onLine`
+`hardwareConcurrency`
+
+<i class="fas fa-exclamation-triangle"></i> `vendor` - Returns the vendor name of the current browser *(e.g., "Google Inc.", "Apple Computer, Inc.")*.
+
+<i class="fas fa-flask"></i> `connection`
+<i class="fas fa-flask"></i> `deviceMemory` 
+<i class="fas fa-flask"></i> `platform` 
 
 ## DOM
-```js
-document.getElementById()
-document.getElementsByTagName()
-document.getElementsByClassName()
-//CSS选择器
-document.querySelectorAll()
-```
-DOM节点对象的 `style` 属性对应节点的CSS
 
 ### CRUD
 ```js
+// read / query
+document.getElementById()
+document.getElementsByTagName()
+document.getElementsByClassName()
+// by CSS Selector
+document.querySelector();
+document.querySelectorAll()
+// update
 document.getElementById('su').text='Hello World!';
 document.getElementById('su').style.fontSize='100px';
+// create
 node = document.createElement('p');
 node.innerText = 'Java';
-document.getElementById('su').appendChild(java);
+document.getElementById('su').appendChild(node);
 parentElement.insertBefore(newElement, referenceElement);
+// delete
 parentElement.removeChild(element);
 ```
+
+DOM节点对象的 `style` 属性对应节点的CSS
 
 ### 表单操作
 
@@ -68,13 +88,108 @@ web的运作原理:一次HTTP请求对应一个页面
 3. JSONP
 JSONP只能使用GET请求,并且要求返回JavaScript,这种方式实际上是利用了浏览器允许跨域引用JavaScript资源.
 
+## Element
+`Element` is the most general base class from which all objects in a `Document` inherit.
+
+```                                       
++-------------+      +-------------+      +-------------+
+| EventTarget | <--- |    Node     | <--- |   Element   |
++-------------+      +-------------+      +-------------+
+```
+
+### HTMLElement
+```
++-----------+         +---------------+
+|  Element  | <------ |  HTMLElement  |
++-----------+         +---------------+
+```
+
+Inherits properties from its parent, `Element`, and implements those from `GlobalEventHandlers` and `TouchEventHandlers`.
+
+**GlobalEventHandlers**
+onblur, onfocus, onchange, onclick, onkeydown, onkeypress, onload, onwheel, onplay, onresize, onscroll, onselect, onsubmit, ...
+
+**dataset**
+The dataset property on the `HTMLElement` interface provides read/write access to all the **custom data attributes** *(data-*)* set on the element.
+
+## Event
+```js
+var event = new Event('build');
+
+// Listen for the event.
+elem.addEventListener('build', function (e) { /* ... */ }, false);
+
+// Dispatch the event.
+elem.dispatchEvent(event);
+```
+
+**用于调试** *(比如触发弹窗控件)*:
+```js
+var evt = document.createEvent("MouseEvents"); 
+evt.initMouseEvent("mouseenter", true, true, window,0, 0, 0, 0, 0, false, false, false, false, 0, null); 
+$0.dispatchEvent(evt); 
+```
+
 # 内置对象
 
 ## 数据类型
-Number Boolean String Object Function NaN 
+### Number
+### Boolean
+### String
+```js
+str.replace(regexp|substr, newSubStr|function)
+```
 
+```js
+s = '1a2b3c';
+s.replace(/\d/g, function(d){
+    return parseInt(d)+1;
+});
+// '2a3b4c'
+```
+
+### Object
+### Function
+### NaN
 ## 集合
-Array Map Set
+
+### Array
+
+```js
+arr = [1,2,3];
+arr.forEach(function(item, index, arr){
+    console.log(item, index, arr);
+});
+// 1 0 [ 1, 2, 3 ]
+// 2 1 [ 1, 2, 3 ]
+// 3 2 [ 1, 2, 3 ]
+```
+
+**clear**
+```js
+arr = [1, 2, 3];
+arr.length = 0;
+```
+**remove by value**
+```js
+arr = [1,2,3,4,7,8,9];
+const index = arr.indexOf(value);
+if (index) arr.splice(index, 1);
+// If the item doesn't exist in the list, splice removes the last item in the list
+```
+
+**prototype**
+
+`pop`, `push`, `splice`, `shift`, `unshift`, `slice`, `concat`, `fill`, `join`, `reverse`, 
+
+`find`, `findIndex`, `includes`, `indexOf`, `lastIndexOf`, `keys`, `values`,
+
+`map`, `reduce`, `filter`, `sort`, `flat`, `forEach`, `every`, `some`, ...
+
+
+### Map
+
+### Set
 
 ## Date
 ``` js
@@ -124,6 +239,67 @@ new Promise(function(resolve, reject) { ... } );
 
 ## 内置函数
 decodeURI() encodeURI()
+
+# Operators
+
+## Unary
+### delete
+
+### typeof
+possible return values:
+
+- `"undefined"`
+- `"boolean"`
+- `"number"`
+- `"bigint"`
+- `"string"`
+- `"function"`
+- `"object"`
+- `"symbol"`
+
+```js
+typeof /regex/ === 'object';
+typeof class C {} === 'function';
+// use Array.isArray or Object.prototype.toString.call
+// to differentiate regular objects from arrays
+typeof [1, 2, 4] === 'object';
+// This stands since the beginning of JavaScript
+typeof null === 'object';
+```
+
+```js
+// All constructor functions, with the exception of the Function constructor, will always be typeof 'object'
+var str = new String('String');
+var num = new Number(100);
+
+typeof str; // It will return 'object'
+typeof num; // It will return 'object'
+var func = new Function();
+typeof func; // It will return 'function'
+```
+
+### void
+The `void` operator specifies an expression to be evaluated without returning a value. 
+
+```js
+void (expression)
+void expression
+```
+
+```html
+<a href="javascript:void(0)">Click here to do nothing</a>
+```
+The following code creates a hypertext link that submits a form when the user clicks it.
+
+```html
+<a href="javascript:void(document.form.submit())">Click here to submit</a>
+```
+
+## Relational
+### in
+Returns true if the specified property is in the specified object.
+
+### instanceof
 
 
 # Canvas
@@ -207,6 +383,12 @@ for循环,while循环和if语句和Java一致
 Map和Set (ES6)
 `for... of` 和 python的`for...in`类似
 
+```js
+for (let o of foo()) {
+    console.log(o);
+}
+```
+
 ---
 
 **JavaScript函数允许接收任意个参数!**
@@ -234,23 +416,108 @@ var x = i || 0;
 
 构造函数如果不加 `new` 会被当做普通函数使用.
 
+---
+获取计算后的属性
+```js
+getComputedStyle($0).position
+```
 
 # ES6
-`let` - 替代var可以生成一个块级作用域的变量
-`const` - 申明常量
+`let` - 替代 var 可以生成一个块级作用域的变量
+`const` - 声明常量，必须初始化且不可修改
 
 
 ## 箭头函数
-类似Lambda
-可以规避this指针的问题
 
-## generator
-和python类似
+箭头函数没有 `arguments` 没有 `prototype` 也没有自己的 `this`。
 
-##class
-和Java类似
+只有一个参数时 `()` 可省略。
 
+`(p1, p2) => expression` 等价于 `(p1, p2) => { return expression; }`
 
+返回一个对象可写作 `params => ({foo: bar})`
+
+```js
+let arr = [1,2,3];
+arr.filter(item => item === 2);
+arr.map(item => item * 2);
+arr.reduce((acc, cur) => acc + cur);
+```
+
+## 解构赋值
+
+```js
+let a = 1, b = 2;
+[a, b] = [b, a]
+```
+
+## 剩余/扩展运算符
+**扩展**
+```js
+let arr1 = [1, 2, 3];
+let arr2 = [...arr1, 4, 5, 6]; //[ 1, 2, 3, 4, 5, 6 ]
+```
+
+**剩余**
+```js
+function first(first, ...rest){
+    console.log(first);
+    console.log(rest);    
+};
+
+first(1,2,3,4,5,6);
+// 1
+// [ 2, 3, 4, 5, 6 ] // rest 是一个数组
+```
+
+## 对象属性/方法简写
+**属性简写**
+```js
+let a = 1;
+let obj = {
+    a
+};
+obj.a; // 1
+```
+
+与解构赋值一同使用：
+
+```js
+let f = () => ({a: 1, b: 2, c: 3});
+let {a, b, c} = f();
+```
+
+**方法简写**
+
+```js
+let objES5 = {
+    f1: function(){
+        // ...
+    }
+}
+let objES6 = {
+    f1(){
+        // ...
+    }
+}
+```
+
+## 计算属性名
+```js
+let obj = {
+    foo: "bar",
+    [ "baz" + quux() ]: 42
+}
+```
+
+with ES5:
+
+```js
+var obj = {
+    foo: "bar"
+};
+obj[ "baz" + quux() ] = 42;
+```
 
 ## 默认参数
 ```js
@@ -260,6 +527,25 @@ handlePageInfo ({count = 0, limit = 20, page = 1} = {}) {
     this.currentPage = page
 }
 ```
+
+## generator
+和python类似
+
+## class
+和Java类似
+
+## Module
+`export` `import`
+
+## Symbol
+每个从 `Symbol()` 返回的`symbol`值都是唯一的。一个`symbol`值能作为对象属性的标识符；这是该数据类型仅有的目的。
+
+### Well-known symbols
+`Symbol.iterator`
+A method returning the default iterator for an object. Used by `for...of`.
+
+
+> [近一万字的ES6语法知识点补充 - juejin.im](https://juejin.im/post/5c6234f16fb9a049a81fcca5)
 
 # JQuery
 JQuery可以帮我们干这些事:
