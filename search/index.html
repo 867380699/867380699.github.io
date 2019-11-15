@@ -4,9 +4,14 @@ title: Search
 ---
 
 <div class="index">
-
   <div id="search-container">
-    <input type="text" id="search-input" autocomplete="off" placeholder="搜索...">
+    <input
+      type="text"
+      id="search-input"
+      autocomplete="off"
+      placeholder="搜索..."
+      autofocus
+    />
     <ul id="results-container"></ul>
   </div>
 </div>
@@ -15,14 +20,45 @@ title: Search
 
 <script>
   SimpleJekyllSearch({
-    searchInput: document.getElementById('search-input'),
-    resultsContainer: document.getElementById('results-container'),
-    json: 'search.json',
-    searchResultTemplate: '<li class="blog-item"><a href="{url}">{title}</a>&nbsp;<span class="blog-date">{date}</span>&nbsp;<span class="search-tags">{tags}</span></li>',
-    excludeKeys: ['url'],
+    searchInput: document.getElementById("search-input"),
+    resultsContainer: document.getElementById("results-container"),
+    json: "search.json",
+    searchResultTemplate:
+      '<li class="blog-item"><a href="{url}">{title}&nbsp;<span class="blog-date">{date}</span>&nbsp;<span class="search-tags">{tags}</span></a></li>',
+    excludeKeys: ["url"],
     limit: 15,
     templateMiddleware: function(prop, value, template) {
-      return value || '';  
+      return value || "";
     }
-  })
+  });
+</script>
+<script>
+  var container = document.getElementById("search-container");
+
+  var focusOrReset = function(ele) {
+    if (ele) {
+      ele.querySelector("a").focus();
+    } else {
+      document.querySelector("#search-input").focus();
+    }
+  };
+  container.addEventListener("keydown", function(e) {
+    if (e.code == "ArrowDown") {
+      if (e.target.id === "search-input") {
+        var li = document.querySelector("li.blog-item a");
+        if (li) {
+          e.target.blur();
+          li.focus();
+        }
+      } else if (e.target.href && e.target.href.indexOf("/blog") >= 0) {
+        var next = e.target.parentElement.nextElementSibling;
+        focusOrReset(next);
+      }
+    } else if (e.code == "ArrowUp") {
+      if (e.target.href && e.target.href.indexOf("/blog") >= 0) {
+        var previous = e.target.parentElement.previousElementSibling;
+        focusOrReset(previous);
+      }
+    }
+  });
 </script>
