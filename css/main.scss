@@ -1,7 +1,18 @@
 --- 
 --- 
 
+@keyframes mainAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 $nav-height: 50px;
+
+$primary: #3399cc;
 
 body {
   font-family: 'Noto Sans SC', 'Roboto', -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -104,8 +115,9 @@ ul.posts li {
 }
 
 .main {
-  max-width: 800px;
+  max-width: 850px;
   margin: 0 auto;
+  animation: 250ms ease-out 0s 1 mainAnimation;
 }
 
 .footer ul {
@@ -135,21 +147,34 @@ ul.posts li {
   border: 1px solid #888888;
   font-size: 1.2em;
   box-sizing: border-box;
+  &:focus {
+    outline: none;
+    border-color: $primary;
+  }
 }
 
 #search-container {
   width: 100%;
   box-sizing: border-box;
-  padding: 4px;
-}
+  padding: 4px 8px;
+  
+  a:focus {
+    outline: none;
+  }
 
-#results-container {
-  margin-top: 16px;
-}
-
-.blog-item {
-  padding-top: 4px;
-  padding-bottom: 4px;
+  #results-container {
+    margin-top: 16px;
+    padding-inline-start: 0;
+    
+    li.blog-item {
+      list-style: none;
+      padding: 4px 8px;
+      &:focus-within {
+        box-shadow: inset 1px 1px $primary, inset -1px -1px $primary;
+        // border: 1px solid $primary;
+      }
+    }
+  }
 }
 
 .blog-date {
