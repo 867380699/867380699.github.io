@@ -161,6 +161,54 @@ During application bootstrap, before Angular goes off creating all services, it 
 
 Once the configuration phase is over, interaction with providers is disallowed and the process of creating services starts. We call this part of the application life-cycle the run phase.
 
+## $provide
+The `$provide` service has a number of methods for registering components with the `$injector`. Many of these functions are also exposed on `angular.Module`.
+
+### provider()
+
+`provider(name, provider);`
+
+Register a provider function with the `$injector`. Provider functions are constructor functions, whose instances are responsible for "providing" a factory for a service.
+
+- `name` 
+  - *string* - The name of **instance**.
+- `provider`
+  - *Object* - it should have a `$get` method. The `$get` will be invoked using `$injector.invoke()` when an instance needs to be created.
+  - *function()* - Constructor, a new instance  will be created using `$injector.instantiate()`, then treated as object.
+
+```js
+aModule.provider('foo', function() {
+  this.$get = function() {
+    return 1;
+  }
+});
+```
+
+```js
+// What this does, is inject into the controller what the $get returns.
+aModule.controller('BarCtrl', function(foo) { ... });
+```
+
+
+### factory()
+
+`factory(name, $getFn);`
+
+### service()
+
+### value()
+
+### constant()
+
+## $injector
+`invoke(fn, [self], [locals]);`
+Invoke the method and supply the method arguments from the `$injector`.
+
+`instantiate(Type, [locals]);`
+Create a new instance of JS type. The method takes a constructor function, invokes the new operator, and supplies all of the arguments to the constructor function as specified by the constructor annotation.
+
+- `Type` - Function - Annotated constructor function.
+
 # Directive
 
 ```js
@@ -212,6 +260,109 @@ myModule.directive('directiveName', function factory(injectables) {
 # Routing
 
 # $http
+
+The `$http` service is a function which takes a single argument — **a configuration object** — that is used to generate an HTTP request and returns a `promise`.
+
+```js
+// Simple GET request example:
+$http({
+  method: 'GET',
+  url: '/someUrl'
+}).then(function successCallback(response) {
+    // this callback will be called asynchronously
+    // when the response is available
+  }, function errorCallback(response) {
+    // called asynchronously if an error occurs
+    // or server returns response with an error status.
+  });
+```
+
+The `response` object has these properties:
+
+- data – {string|Object} – The response body transformed with the transform functions.
+- status – {number} – HTTP status code of the response.
+- headers – {function([headerName])} – Header getter function.
+- config – {Object} – The configuration object that was used to generate the request.
+- statusText – {string} – HTTP status text of the response.
+
+## Shortcut methods
+```js
+$http.get('/someUrl', config).then(successCallback, errorCallback);
+$http.post('/someUrl', data, config).then(successCallback, errorCallback);
+```
+
+# $resource
+A factory which creates a resource object that lets you interact with `RESTful` server-side data sources.
+
+Return a resource "class" object with methods for the default set of resource actions optionally extended with custom `actions`.
+
+The default set contains these actions:
+
+```js
+{ 'get':    {method:'GET'},
+  'save':   {method:'POST'},
+  'query':  {method:'GET', isArray:true},
+  'remove': {method:'DELETE'},
+  'delete': {method:'DELETE'} };
+```
+
+
+# $q
+A service that helps you run functions asynchronously, and use their return values (or exceptions) when they are done processing.
+
+
+`$q` can be used in two fashions --- one which is more similar to Kris Kowal's Q or jQuery's Deferred implementations, and the other which resembles ES6 (ES2015) promises to some degree.
+
+```js
+function asyncGreet(name) {
+  // perform some asynchronous operation, resolve or reject the promise when appropriate.
+  return $q(function(resolve, reject) {
+    setTimeout(function() {
+      if (okToGreet(name)) {
+        resolve('Hello, ' + name + '!');
+      } else {
+        reject('Greeting ' + name + ' is not allowed.');
+      }
+    }, 1000);
+  });
+}
+
+var promise = asyncGreet('Robin Hood');
+promise.then(function(greeting) {
+  alert('Success: ' + greeting);
+}, function(reason) {
+  alert('Failed: ' + reason);
+});
+```
+
+```js
+function asyncGreet(name) {
+  var deferred = $q.defer();
+
+  setTimeout(function() {
+    deferred.notify('About to greet ' + name + '.');
+
+    if (okToGreet(name)) {
+      deferred.resolve('Hello, ' + name + '!');
+    } else {
+      deferred.reject('Greeting ' + name + ' is not allowed.');
+    }
+  }, 1000);
+
+  return deferred.promise;
+}
+
+var promise = asyncGreet('Robin Hood');
+promise.then(function(greeting) {
+  alert('Success: ' + greeting);
+}, function(reason) {
+  alert('Failed: ' + reason);
+}, function(update) {
+  alert('Got notification: ' + update);
+});
+```
+
+> [q - A promise library for JavaScript](https://github.com/kriskowal/q)
 
 # Debug
 
