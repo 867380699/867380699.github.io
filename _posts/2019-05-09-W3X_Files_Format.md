@@ -2050,12 +2050,13 @@ Besides TGA files, Warcraft III uses mainly the BLP format for images. The forma
 
 The Warcraft III models are stored in MDX format.
 To convert an MDX file into readable MDL format and vice versa you can use Yobgul's file converter, which is available at <http://www.wc3sear.ch/files/downloads.php?ID=3&l=6>
-If Yobgul's does't work for you there's an alternative programmed by Guessed available at <http://www.wc3campaigns.net/tools/weu/MDXReader1.00b.zip>
-There are several spec files on both formats available:
 
-<http://kmkdesign.8m.com/downloads/> - Original specifications by KMK
-<http://www.wc3campaigns.net/tools/specs/NubMdxFormat.txt> - More recent version by Nub
-<http://magos.thejefffiles.com/War3ModelEditor/> - Latest specifications by Magos
+If Yobgul's does't work for you there's an alternative programmed by Guessed available at <http://www.wc3campaigns.net/tools/weu/MDXReader1.00b.zip>
+
+There are several spec files on both formats available:
+> <http://kmkdesign.8m.com/downloads/> - Original specifications by KMK
+> <http://www.wc3campaigns.net/tools/specs/NubMdxFormat.txt> - More recent version by Nub
+> <http://magos.thejefffiles.com/War3ModelEditor/> - Latest specifications by Magos
 
 # 27) Packed Files - W3V, W3Z, W3G (gamecache, savegame, replay files) (thanks to PitzerMike)
 

@@ -3,6 +3,7 @@
 layout: post
 title: "TypeScript 笔记"
 date: 2019-04-03
+tags: javascript
 
 ---
 
@@ -93,6 +94,16 @@ else {
 The presence of a `tsconfig.json` file in a directory indicates that the directory is the root of a TypeScript project.
 
 The `tsconfig.json` file specifies the root files and the compiler options required to compile the project. 
+
+`lib`
+List of library files to be included in the compilation.
+Possible values are: 
+`ES5`, `ES6`, `ES2015`, `ES7`, `ES2016`, `ES2017`, `ES2018`, `ESNext`, `DOM`, `DOM.Iterable`, `WebWorker`, `ScriptHost`, `ES2015.Core`, `ES2015.Collection`, `ES2015.Generator`, `ES2015.Iterable`, `ES2015.Promise`, `ES2015.Proxy`, `ES2015.Reflect`, `ES2015.Symbol`, `ES2015.Symbol.WellKnown`, `ES2016.Array.Include`, `ES2017.object`, `ES2017.Intl`, `ES2017.SharedMemory`, `ES2017.String`, `ES2017.TypedArrays`, `ES2018.Intl`, `ES2018.Promise`, `ES2018.RegExp`, `ESNext.AsyncIterable`, `ESNext.Array`, `ESNext.Intl`, `ESNext.Symbol`
+
+If `--lib` is not specified a default list of libraries are injected. The default libraries injected are: 
+- For `--target ES5`: `DOM`, `ES5`, `ScriptHost`
+- For `--target ES6`: `DOM`, `ES6`, `DOM.Iterable`, `ScriptHost`
+
 
 ## Path mapping 
 ```json
