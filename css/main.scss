@@ -11,8 +11,13 @@
 }
 
 $nav-height: 50px;
+$footer-height: 30px;
 
 $primary: #3399cc;
+
+html, body {
+  height: 100%;
+}
 
 body {
   font-family: 'Noto Sans SC', 'Roboto', -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -25,20 +30,14 @@ a:hover {
   text-decoration: none;
 }
 
-.hello {
-  margin-top: 50px;
-  margin-left: 8px;
-}
-
 .title {
-  margin-top: 50px;
+  margin-top: 20px;
   font-size: 2.5em;
   color: #3399cc;
 }
 
 .nav {
   background-color: #eeeeee;
-  position: fixed;
   width: 100%;
   top: 0;
   z-index: 9999;
@@ -61,7 +60,7 @@ a:hover {
 
 
 ul.posts {
-  margin: 20px auto 40px;
+  margin: 0 auto 40px;
   font-size: 1.5em;
   padding: 8px;
 }
@@ -71,9 +70,9 @@ ul.posts li {
 }
 
 .toc {
-  position: fixed;
   width: 20%;
-  height: calc(100% - #{$nav-height});
+  float: left;
+  height: calc(100% - #{$nav-height} - #{$footer-height});
   overflow: auto;
   padding-bottom: 20px;
   padding-left: 20px;
@@ -106,9 +105,9 @@ ul.posts li {
 
 .content-area {
   position: relative;
-  margin-top: 20px;
-  left: 20%;
   width: 80%;
+  height: calc(100% - #{$nav-height} - #{$footer-height});
+  overflow: scroll;
   box-sizing: border-box;
   min-width: 400px;
   padding: 0px 20px 20px;
@@ -120,23 +119,20 @@ ul.posts li {
   animation: 250ms ease-out 0s 1 mainAnimation;
 }
 
-.footer ul {
-  font-family: "Helvetica", "Arial", "Sans-Serif";
-  padding: 0px;
-  list-style: none;
-  font-weight: bold;
-  float: right;
-}
-
 .footer {
   clear: both;
   width: 100%;
+  height: $footer-height;
+  line-height: $footer-height;
+  padding: 0px 12px;
   border-top: 1px solid #d5d5d5;
   font-size: 0.8em;
+  text-align: right;
 
-  ul li {
-    display: inline;
-    margin-right: 20px;
+  a {
+    font-family: "Helvetica", "Arial", "Sans-Serif";
+    list-style: none;
+    font-weight: bold;
   }
 }
 
@@ -202,8 +198,9 @@ ul.posts li {
 }
 
 .index {
-  margin-top: 50px;
   padding-top: 8px;
+  overflow: auto;
+  height: calc(100% - #{$nav-height} - #{$footer-height});
 }
 
 .meta {
@@ -235,7 +232,6 @@ ul.posts li {
 
   .toc {
     right: 0px;
-    height: 100%;
     width: 60%;
     position: fixed;
     background: #000000;
