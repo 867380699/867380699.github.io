@@ -59,3 +59,41 @@ layout: default
         }
     }
 </script>
+
+<script>
+    function debounce(fn, delay) {
+        var timer;
+        return function() {
+            var context = this;
+            var args = arguments;
+            clearTimeout(timer);
+            timer = setTimeout(() => {
+                fn.apply(context, args);
+            }, delay);
+        }
+    }
+
+    var contentArea = document.querySelector('.content-area');
+    var headers = document.querySelectorAll('.content-area .post h1,h2,h3,h4,h5,h6');
+    var tocList = document.querySelectorAll('.toc a');
+
+    function highlightActiveToc() {
+        var activeIndex = 0;
+        for (let i=0; i<headers.length; i++) {
+            var offsetContainerTop = headers[i].offsetTop - contentArea.scrollTop >= 0
+            if (offsetContainerTop > 0) {
+                activeIndex = i;
+                break;
+            }
+        }
+        tocList.forEach(function(tocItem){
+            if (tocItem.getAttribute('href').substr(1) === headers[activeIndex].id) {
+                tocItem.classList.add('active');
+            } else {
+                tocItem.classList.remove('active');
+            }
+        })
+    }
+    highlightActiveToc();
+    contentArea.onscroll = debounce(highlightActiveToc, 15);
+</script>

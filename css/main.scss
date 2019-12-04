@@ -89,16 +89,31 @@ ul.posts li {
     padding-left: 20px;
   }
 
+  a {
+    display: inline-block;
+    width: 100%;
+    transition: color 30ms;
+
+    &.active {
+      color: $primary !important;
+      font-weight: 700;
+    }
+  }
+  
   .toc-l1 {
-    color: #262626;
     a {
       color: #262626;
     }
     .toc-l2 {
-      color: #595959;
       a {
         color: #595959;
       }
+    }
+  }
+
+  .toc-l1,.toc-l2{
+    a:hover {
+      color: lighten($primary, 20%)
     }
   }
 }
