@@ -73,6 +73,26 @@ layout: default
         }
     }
 
+    function throttle(fn, delay) {
+        var timer;
+        var isFirst = true;
+        return function() {
+            var context = this;
+            var args = arguments;
+            if (isFirst) {
+                fn.apply(context, args);
+                isFirst = false;
+            }
+            if (timer) {
+                return;
+            }
+            timer = setTimeout(() => {
+                timer = null;
+                fn.apply(context, args);
+            }, delay);
+        }
+    }
+
     var contentArea = document.querySelector('.content-area');
     var headers = document.querySelectorAll('.content-area .post h1,h2,h3,h4,h5,h6');
     var tocList = document.querySelectorAll('.toc a');
@@ -95,5 +115,5 @@ layout: default
         })
     }
     highlightActiveToc();
-    contentArea.onscroll = debounce(highlightActiveToc, 15);
+    contentArea.onscroll = throttle(highlightActiveToc, 15);
 </script>
