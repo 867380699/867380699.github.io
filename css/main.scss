@@ -60,13 +60,29 @@ a:hover {
 
 
 ul.posts {
-  margin: 0 auto 40px;
+  margin: 0 auto 20px;
   font-size: 1.5em;
   padding: 8px;
-}
+  line-height: 1;
 
-ul.posts li {
-  list-style: none;
+  li {
+    list-style: none;
+
+  }
+  .dot {
+    font-weight: 700;
+    margin-right: 4px;
+  }
+  .post-item {
+    .date, .tags {
+      color: #ccc;
+      font-size: 0.6em;
+    }
+  }
+
+  .post-item + .post-item {
+    margin-top: 16px;
+  }
 }
 
 .toc {
