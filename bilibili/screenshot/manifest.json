@@ -1,0 +1,33 @@
+{
+  "name": "Bilibili screenshot",
+  "version": "0.01",
+  "description": "Easily taking screenshot when watching videos on bilibili.",
+  "manifest_version": 2,
+  "permissions": ["declarativeContent", "activeTab"],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "options_page": "options.html",
+  "page_action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "32": "images/favicon32.png",
+      "48": "images/favicon48.png",
+      "128": "images/favicon128.png"
+    }
+  },
+  "commands": {
+    "screenshot": {
+      "suggested_key": {
+        "default": "Alt+Shift+S"
+      },
+      "description": "Take screenshot"
+    }
+  },
+  "icons": {
+    "32": "images/favicon32.png",
+    "48": "images/favicon48.png",
+    "128": "images/favicon128.png"
+  }
+}
