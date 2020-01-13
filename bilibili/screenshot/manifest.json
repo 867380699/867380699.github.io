@@ -3,7 +3,7 @@
   "version": "0.01",
   "description": "Easily taking screenshot when watching videos on bilibili.",
   "manifest_version": 2,
-  "permissions": ["declarativeContent", "activeTab"],
+  "permissions": ["declarativeContent", "activeTab", "downloads"],
   "background": {
     "scripts": ["background.js"],
     "persistent": false
