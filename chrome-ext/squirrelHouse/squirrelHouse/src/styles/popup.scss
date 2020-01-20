@@ -1,0 +1,41 @@
+body {
+  width: 450px;
+  font-size: 14px;
+
+  li {
+    list-style: none;
+  }
+}
+
+.search {
+  display: flex;
+  
+  #search-input {
+    width: 100%;
+    padding: 4px;
+    margin: 4px auto;
+    border: 1px solid #888888;
+  
+    &:focus {
+      outline: none;
+      border-color: #3399cc;
+    }
+  }
+}
+
+
+#bookmark-list {
+  margin-top: 8px;
+}
+
+.bookmark-item {
+  padding: 4px 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #eee;
+  }
+}
