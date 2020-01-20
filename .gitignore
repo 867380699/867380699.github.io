@@ -3,3 +3,5 @@ Gemfile.lock
 .jekyll-metadata
 .DS_Store
 *.pem
+**/node_modules/**
+**/dist/**
