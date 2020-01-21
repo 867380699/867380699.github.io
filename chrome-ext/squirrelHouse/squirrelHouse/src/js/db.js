@@ -117,12 +117,16 @@ function saveIcon(url) {
       return resp.blob()
     }).then((img)=>{
       getDB().then(db=>{
-        db.transaction(['favicon'], 'readwrite').objectStore('favicon').put({
-          host:hostname,
-          blob: img
-        });
+        const fileReader = new FileReader();
+        fileReader.onload = function(e){
+          db.transaction(['favicon'], 'readwrite').objectStore('favicon').put({
+            host:hostname,
+            blob: e.target.result
+          });
+        };
+        fileReader.readAsDataURL(img);
+
       })
-      console.log(URL.createObjectURL(img))
     });
 }
 
@@ -159,7 +163,7 @@ function loadAllIcons(bookmarks) {
         if (cursor) {
           const cHost = cursor.value.host;
           if (!iconMap[cHost] && hosts.has(cHost)) {
-            iconMap[cHost] = URL.createObjectURL(cursor.value.blob);
+            iconMap[cHost] = cursor.value.blob;
           }
           cursor.continue();
         } else {
