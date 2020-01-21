@@ -156,7 +156,6 @@ function loadAllIcons(bookmarks) {
       const objectStore = db.transaction('favicon').objectStore('favicon');
       objectStore.openCursor().onsuccess = function (event) {
         const cursor = event.target.result;
-        console.log(cursor);
         if (cursor) {
           const cHost = cursor.value.host;
           if (!iconMap[cHost] && hosts.has(cHost)) {

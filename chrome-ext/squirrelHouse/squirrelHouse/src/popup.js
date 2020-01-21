@@ -1,25 +1,33 @@
 import db from './js/db.js';
 import utils from './js/utils.js';
 
-const bookmarkListEl = document.getElementById('bookmark-list');
+const bookmarkListContainerEl = document.getElementById('bookmark-list-container');
 let iconMap = {};
 
 const bookmarkClickCallback = function(event){
   chrome.runtime.sendMessage(chrome.runtime.id, {type: 'openBookmark', data: event.currentTarget.dataset.url })
 };
 
-function createBookmarkElement(bookmark) {
-  const template = document.createElement('template');
-  template.innerHTML = `<div class="bookmark-item" data-url="${bookmark.url}">
-<img class="favicon">
-<span class="title">${bookmark.title}</span>
-</div>`
+function createBookmarkElement(bookmark) {  
+  const itemEl = document.createElement('div');
+  itemEl.classList.add('bookmark-item')
+  itemEl.dataset.url = bookmark.url;
+
+  const iconEl = document.createElement('img');
+  iconEl.classList.add('favicon');
   const iconSrc = iconMap[new URL(bookmark.url).hostname];
   if (iconSrc) {
-    template.content.querySelector('.favicon').src = iconSrc;
+    iconEl.src = iconSrc;
   }
-  template.content.firstChild.addEventListener('click', bookmarkClickCallback );
-  return template.content.firstChild;
+
+  const titleEl = document.createElement('span');
+  titleEl.classList.add('title');
+  titleEl.textContent = bookmark.title;
+  
+  itemEl.appendChild(iconEl);
+  itemEl.appendChild(titleEl);
+  itemEl.addEventListener('click', bookmarkClickCallback );
+  return itemEl;
 }
 
 function filterBookmark(bookmark, filter) {
@@ -35,16 +43,20 @@ function initBookmarkList(bookmarkList, filter) {
       fragment.appendChild(createBookmarkElement(bookmark));
     }
   })  
-  while (bookmarkListEl.firstChild) {
-    bookmarkListEl.firstChild.remove();
+
+  if (bookmarkListContainerEl.firstChild) {
+    bookmarkListContainerEl.firstChild.remove();
   }
+  const bookmarkListEl = document.createElement('div');
+  bookmarkListEl.classList = ['bookmark-list'];
   bookmarkListEl.appendChild(fragment);
+  bookmarkListContainerEl.appendChild(bookmarkListEl);
 }
 
 db.loadAllBookmark().then((bookmarks)=>{
   initBookmarkList(bookmarks);
   db.loadAllIcons(bookmarks).then((result)=>{
-    console.log('pop-loadAllIcon:', result);
+    // console.log('pop-loadAllIcon:', result);
     iconMap = result;
     initBookmarkList(bookmarks);
   });
@@ -57,13 +69,14 @@ db.loadAllBookmark().then((bookmarks)=>{
 
 document.getElementById('btn-add').addEventListener('click', (event)=>{
   chrome.runtime.sendMessage(chrome.runtime.id, {type: 'saveBookmark'}, {}, function(resp) {
-    console.log('pop-msg-callback:', resp);
+    // console.log('pop-msg-callback:', resp);
     if (resp && resp.data) {
       switch (resp.data.type) {
         case 'create':
-          bookmarkListEl.prepend(createBookmarkElement(resp.data.data));
+          bookmarkListContainerEl.firstChild.prepend(createBookmarkElement(resp.data.data));
           break;
         case 'update':
+          const bookmarkListEl = bookmarkListContainerEl.firstChild;
           bookmarkListEl.insertBefore(bookmarkListEl.querySelector(`[data-url="${resp.data.data.url}"]`) , bookmarkListEl.firstChild);
           break;
       }
