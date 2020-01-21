@@ -43,7 +43,7 @@ function getDB() {
 
 function saveBookmark(title, url) {
   return new Promise((resolve, reject)=>{
-    const data = {title, url, timestamp: utils.currentTimestamp()};
+    const data = {title, url, timestamp: utils.currentTimestamp(), hostname: new URL(url).hostname};
 
     getDB().then(db=>{
       const getRequest = db.transaction(['bookmark']).objectStore('bookmark').get(url);
@@ -63,7 +63,7 @@ function saveBookmark(title, url) {
           const addReq = db.transaction(['bookmark'], 'readwrite').objectStore('bookmark').add(data);
           addReq.onsuccess = function(event) {
             console.log('db-save', event, data);
-            saveIcon(url);
+            saveIcon(data.hostname);
             resolve({type:'create', data});
           }
           addReq.onerror = function (event) {
@@ -110,8 +110,7 @@ function removeBookmarkByUrl(url) {
   });
 }
 
-function saveIcon(url) {
-  const hostname = new URL(url).hostname;
+function saveIcon(hostname) {
   fetch(`${iconApi}?domain=${hostname}`)
     .then((resp)=>{
       return resp.blob()
@@ -155,7 +154,7 @@ function getIcon(url) {
 
 function loadAllIcons(bookmarks) {
   return new Promise((resolve, reject)=>{
-    const hosts = new Set(bookmarks.map(b => new URL(b.url).hostname));
+    const hosts = new Set(bookmarks.map(b => b.hostname));
     getDB().then((db)=>{
       const objectStore = db.transaction('favicon').objectStore('favicon');
       objectStore.openCursor().onsuccess = function (event) {
