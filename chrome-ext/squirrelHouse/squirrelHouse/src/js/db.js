@@ -1,7 +1,9 @@
 import utils from './utils.js';
 
-const dbName = 'db1';
-let dbBookmark;
+const iconApi = 'https://s2.googleusercontent.com/s2/favicons';
+const dbName = 'db_quarrel';
+let dbQuarrel;
+const iconMap = {};
 
 function init () {
   return new Promise((resolve, reject) => {
@@ -19,17 +21,20 @@ function init () {
       if (!db.objectStoreNames.contains('bookmark')) {
         objectStore = db.createObjectStore('bookmark', { keyPath: 'url'  });
       }
+      if (!db.objectStoreNames.contains('favicon')) {
+        objectStore = db.createObjectStore('favicon', { keyPath: 'host' });
+      }
     }  
   })
 }
 
 function getDB() {
   return new Promise((resolve, reject) => {
-    if (dbBookmark) {
-      resolve(dbBookmark);
+    if (dbQuarrel) {
+      resolve(dbQuarrel);
     } else {
       init().then((db)=>{
-        dbBookmark = db;
+        dbQuarrel = db;
         resolve(db);
       });
     }
@@ -58,6 +63,7 @@ function saveBookmark(title, url) {
           const addReq = db.transaction(['bookmark'], 'readwrite').objectStore('bookmark').add(data);
           addReq.onsuccess = function(event) {
             console.log('db-save', event, data);
+            saveIcon(url);
             resolve({type:'create', data});
           }
           addReq.onerror = function (event) {
@@ -69,8 +75,6 @@ function saveBookmark(title, url) {
       getRequest.onerror = function(event) {
         reject(event);
       }
-
-
     })
   })
 };
@@ -106,8 +110,71 @@ function removeBookmarkByUrl(url) {
   });
 }
 
+function saveIcon(url) {
+  const hostname = new URL(url).hostname;
+  fetch(`${iconApi}?domain=${hostname}`)
+    .then((resp)=>{
+      return resp.blob()
+    }).then((img)=>{
+      getDB().then(db=>{
+        db.transaction(['favicon'], 'readwrite').objectStore('favicon').put({
+          host:hostname,
+          blob: img
+        });
+      })
+      console.log(URL.createObjectURL(img))
+    });
+}
+
+function getIcon(url) {
+  return new Promise((resolve, reject)=>{
+    const hostname = new URL(url).hostname;
+    if (iconMap[hostname]) {
+      resolve(iconMap[hostname]);
+    };
+    getDB().then(db=>{
+      request = db.transaction(['favicon']).objectStore('favicon').get(hostname);
+      request.onsuccess((event)=>{
+        if (request.result) {
+          iconMap[hostname] = URL.createObjectURL(response.result.blob);
+          resolve(iconMap[hostname]);
+        } else {
+          reject(event.blob);
+        }
+      });
+      request.onerror((event)=>{
+        reject(event);
+      })
+    })
+  })
+}
+
+function loadAllIcons(bookmarks) {
+  return new Promise((resolve, reject)=>{
+    const hosts = new Set(bookmarks.map(b => new URL(b.url).hostname));
+    getDB().then((db)=>{
+      const objectStore = db.transaction('favicon').objectStore('favicon');
+      objectStore.openCursor().onsuccess = function (event) {
+        const cursor = event.target.result;
+        console.log(cursor);
+        if (cursor) {
+          const cHost = cursor.value.host;
+          if (!iconMap[cHost] && hosts.has(cHost)) {
+            iconMap[cHost] = URL.createObjectURL(cursor.value.blob);
+          }
+          cursor.continue();
+        } else {
+          resolve(iconMap);
+        }
+      }
+    });
+  });
+}
+
+
 export default {
   loadAllBookmark,
   saveBookmark,
-  removeBookmarkByUrl
+  removeBookmarkByUrl,
+  loadAllIcons
 }

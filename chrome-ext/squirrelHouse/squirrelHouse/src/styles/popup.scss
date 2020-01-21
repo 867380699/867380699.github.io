@@ -1,7 +1,7 @@
 body {
   width: 450px;
   font-size: 14px;
-
+  padding: 0px 4px 0px 0px;
   li {
     list-style: none;
   }
@@ -9,7 +9,7 @@ body {
 
 .search {
   display: flex;
-  
+
   #search-input {
     width: 100%;
     padding: 4px;
@@ -25,17 +25,32 @@ body {
 
 
 #bookmark-list {
-  margin-top: 8px;
+  margin-top: 4px;
 }
 
 .bookmark-item {
-  padding: 4px 8px;
+  display: flex;
+  align-items: center;
+  padding: 4px 4px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   cursor: pointer;
-
+  transition: all 150ms ease-in-out;
   &:hover {
     background-color: #eee;
+  }
+
+  .favicon {
+    width: 16px;
+    height: 16px;
+    margin-right: 4px;
+  }
+  .title {
+    flex: 1;
+    line-height: 16px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }

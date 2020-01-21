@@ -14,6 +14,13 @@ function currentTimestamp() {
   return new Date().getTime()
 }
 
+const dominRegex = /^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)/img;
+
+function extraDomin(url) {
+  const match = dominRegex.exec(url);
+  return match && match[1];
+}
+
 export default {
   debounce,
   currentTimestamp

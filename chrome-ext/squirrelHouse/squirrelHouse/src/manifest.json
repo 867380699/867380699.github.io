@@ -3,7 +3,7 @@
   "version": "0.1",
   "description": "Squirrel House",
   "manifest_version": 2,
-  "permissions": ["tabs"],
+  "permissions": ["tabs", "https://s2.googleusercontent.com/s2/favicons"],
   "browser_action": {
     "default_popup": "popup.html",
     "default_icon": {

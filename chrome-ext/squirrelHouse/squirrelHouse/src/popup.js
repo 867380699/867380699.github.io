@@ -2,16 +2,22 @@ import db from './js/db.js';
 import utils from './js/utils.js';
 
 const bookmarkListEl = document.getElementById('bookmark-list');
+let iconMap = {};
 
 const bookmarkClickCallback = function(event){
-  chrome.runtime.sendMessage(chrome.runtime.id, {type: 'openBookmark', data: event.target.dataset.url })
+  chrome.runtime.sendMessage(chrome.runtime.id, {type: 'openBookmark', data: event.currentTarget.dataset.url })
 };
 
 function createBookmarkElement(bookmark) {
   const template = document.createElement('template');
-  template.innerHTML = `<div class="bookmark-item">
-<span class="title" data-url="${bookmark.url}">${bookmark.title}</span>
+  template.innerHTML = `<div class="bookmark-item" data-url="${bookmark.url}">
+<img class="favicon">
+<span class="title">${bookmark.title}</span>
 </div>`
+  const iconSrc = iconMap[new URL(bookmark.url).hostname];
+  if (iconSrc) {
+    template.content.querySelector('.favicon').src = iconSrc;
+  }
   template.content.firstChild.addEventListener('click', bookmarkClickCallback );
   return template.content.firstChild;
 }
@@ -36,8 +42,12 @@ function initBookmarkList(bookmarkList, filter) {
 }
 
 db.loadAllBookmark().then((bookmarks)=>{
-  console.log(bookmarks);
   initBookmarkList(bookmarks);
+  db.loadAllIcons(bookmarks).then((result)=>{
+    console.log('pop-loadAllIcon:', result);
+    iconMap = result;
+    initBookmarkList(bookmarks);
+  });
   document.querySelector('#search-input').addEventListener('input', utils.debounce(function(event){
     db.loadAllBookmark().then((bookmarks)=>{
       initBookmarkList(bookmarks, event.srcElement.value);
@@ -54,7 +64,7 @@ document.getElementById('btn-add').addEventListener('click', (event)=>{
           bookmarkListEl.prepend(createBookmarkElement(resp.data.data));
           break;
         case 'update':
-          bookmarkListEl.insertBefore(bookmarkListEl.querySelector(`[data-url="${resp.data.data.url}"]`).parentElement , bookmarkListEl.firstChild);
+          bookmarkListEl.insertBefore(bookmarkListEl.querySelector(`[data-url="${resp.data.data.url}"]`) , bookmarkListEl.firstChild);
           break;
       }
     }
