@@ -422,6 +422,14 @@ var x = i || 0;
 getComputedStyle($0).position
 ```
 
+**下载文件**
+```js
+var link = document.createElement("a");
+link.download = getFileName();
+link.href = dataURI;
+link.click();
+  ```
+
 # ES6
 `let` - 替代 var 可以生成一个块级作用域的变量
 `const` - 声明常量，必须初始化且不可修改
