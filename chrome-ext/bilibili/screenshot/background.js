@@ -1,18 +1,5 @@
 var pluginActive = false;
 
-chrome.runtime.onInstalled.addListener(function() {
-  chrome.declarativeContent.onPageChanged.removeRules(undefined, function() {
-    chrome.declarativeContent.onPageChanged.addRules([{
-      conditions: [new chrome.declarativeContent.PageStateMatcher({
-        pageUrl: {hostEquals: 'www.bilibili.com'},
-      })],
-      actions: [
-        new chrome.declarativeContent.ShowPageAction(),
-      ]
-    }]);
-  });
-});
-
 chrome.runtime.onMessage.addListener(
 function(message, callback) {
   console.log('message', message);
@@ -31,9 +18,9 @@ chrome.tabs.onActivated.addListener(tabActivatedListener);
 function windowFocusChangedListener(windowId) {
   chrome.windows.getCurrent({populate: true}, function (window) {
     var biliTab = window.tabs.find(function(tab){
-      return /bilibili.com/.test(tab.url);
+      return /bilibili.com/.test(tab.url) && tab.active;
     });
-    pluginActive = biliTab && biliTab.active;
+    pluginActive = !!biliTab;
     setPluginEnable();
   });
 };
@@ -70,27 +57,14 @@ chrome.commands.onCommand.addListener(function(command) {
 });
 
 var screenshotCallback = function(result) {
-  if (pluginActive && result && typeof result[0] === 'string' && result[0].startsWith('data:image')) {
-    var filename = getFileName();
-    chrome.downloads.download({url:result[0], filename: filename}, function() {
-      showNotification();
-    });
+  // console.log(result);
+  if (pluginActive && result && result[0] && result[0].filename && result[0].dataURI) {
+    if (typeof result[0].dataURI === 'string' && result[0].dataURI.startsWith('data:image')) {
+      chrome.downloads.download({url: result[0].dataURI, filename: result[0].filename}, function() {
+        showNotification();
+      });
+    }
   }
-}
-
-function getFileName(){
-  var date = new Date();
-  return [
-    date.getFullYear(),
-    date.getDate().toString().padStart(2,0),
-    date.getDay().toString().padStart(2,0),
-    date.getHours().toString().padStart(2,0),
-    date.getMinutes().toString().padStart(2,0),
-    date.getSeconds().toString().padStart(2,0),
-    date.getMilliseconds().toString().padStart(3,0),
-    (Math.random()*1000).toFixed(0).padStart(3,0),
-    '.png'
-  ].join('')
 }
 
 function setPluginEnable() {
