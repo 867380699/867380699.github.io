@@ -6,87 +6,65 @@ date: 2019-05-09
 
 ---
 
-Last update: 9/03/2006
+Last update: 03/02/2020
 
 # Introduction
 
-This documentation contains almost all the specifications of Warcraft III maps files ( `*.w3m` and `*.w3x` ). This was made without any help from Blizzard Entertainement and did not involve **"reverse engineering"** of the Warcraft III engine. The specification of each kind of file depend on its version. I did document here the current version used by Warcraft III Retail (initial version); make sure the file you're looking at or modifying are using the same version/format as describbed. I'm French so please, forgive my English! Finally, use this documentation at your own risks: I take no responsability if you corrupt your maps.
+This documentation contains almost all the specifications of Warcraft III maps files ( `*.w3m` and `*.w3x` ). This was made without any help from Blizzard Entertainement and did not involve **"reverse engineering"** of the Warcraft III engine. The specification of each kind of file depend on its version. I did document here the current version used by Warcraft III Reforged; make sure the file you're looking at or modifying are using the same version/format as describbed. 
 
-# 1) Things you need to know first to mod' a map!
+# Things you need to know first!
 
-## 1.1) Your environment
+## Your environment
 
-You'll need Warcraft III Retail installed let's say in `"C:\Program Files\Warcraft III\"`. I'll talk about files of Warcraft 3 Retail (initial version) here, that's why some files format can vary depending which version you're using; you may have to figure out some differences in the file formats. I'll also describe the new format of in the expansion The Frozen Throne, if the file format got changed. If your Warcraft III installation is clean, you should have these files (of course, there are other files in there but I'll uses these for exemples):
-in your `"C:\Program Files\Warcraft III\"`:
+You'll need Warcraft III Retail installed let's say in `"C:\Program Files\Warcraft III\"`. If your Warcraft III installation is clean, you should have these files in your `"C:\Program Files\Warcraft III\"`:
+
 - `war3.mpq`
-and in your "C:\Program Files\Warcraft III\Maps\":
-- `(4)Lost Temple.w3m`
-(and many other w3m of course...)
+- `Maps\(4)Lost Temple.w3m`
 If you have also installed the expansion The Frozen Throne, you'll have other archives that hold the new files. These are:
 - `war3x.mpq`
 - `war3xlocal.mpq`
-and in your "C:\Program Files\Warcraft III\Maps\FrozenThrone\":
-- `(2)Circumvention.w3x`
-(as an example)
-and in your "C:\Program Files\Warcraft III\Campaigns\":
-- `DemoCampaign.w3n`
+- `Maps\FrozenThrone\(2)Circumvention.w3x`
+- `Campaigns\DemoCampaign.w3n`
 Also by installing updates a new archive will be added that holds the most up-to-date files from the patch, namely
 - `war3patch.mpq`
 
 `"W3M"` and `"W3X"` and also map files as well as `"W3N"` campaign files can be opened with any **MPQ editor** that supports Warcraft 3.
 
-You'll need one. I suggest WinMPQ (ShadowFlare), you can get it here:
-> <http://shadowflare.samods.org/dwnload.html>
-
-Read the documentation and installation notes.
-You can also use Ladik's MPQ Editor which you can get here:
+You'll need one. I suggest Ladik's MPQ Editor, you can get it here:
 > <http://www.zezula.net/en/mpq/download.html>
 
-Place it in a folder and run it.
+If you want to "play" with the map files, you'll also need a hexadecimal editor. My favorite one is **HxD** (<https://mh-nexus.de/en/hxd>).
 
-Another option would be PowerMPQ which is also available in Italian and German:
-> <http://www.wc3campaigns.net/showthread.php?t=58908>
+## Warcraft 3 Files
 
-This one also allows creating executable patches which requires MPQDraft in the same directory.
+### About MPQ Files
 
-If you only see unknown files when opening maps or other archives you will also need up-to-date listfiles.
-You can get the latest listfiles for Warcraft at 
-> <http://www.wc3campaigns.net/tools/weu/stuff.html>
-
-All the above mentioned editors have a settings dialog where you can specify external listfiles that will be looked up for fmissing filenames. Simply add all your listfiles to this list and most unknown files should be identified now.
-
-If you want to "play" with the map files, you'll also need a hexadecimal editor. My favorite one is **HexWorkshop** (<http://www.bpsoft.com/>).
-A freeware alternative is **XVI32** found at <http://www.chmaas.handshake.de/> but it lacks quite a bunch of useful features.
-
-## 1.2) Warcraft 3 Files
-
-### 1.2.1) About  MPQ Files
-
-MPQ are like `"zip"` or `"rar"` files as they contain a directory structure with compressed files.
+MPQ are like `"zip"` files as they contain a directory structure with compressed files.
 I'll not talk about the MPQ format here since Quantam did it already. If you want to know more about it I suggest you go there:
-> <http://www.zezula.net/>
+> <http://www.zezula.net/en/mpq/main.html>
 
-If you want to edit MPQ archives I suggest you get SFmpqapi for your favourite programming language. It's available at
-> <http://shadowflare.samods.org/dwnload.html>
+If you want to edit MPQ archives I suggest you get SFmpqapi for your favourite programming language. It's available at:
+> <https://sfsrealm.hopto.org/downloads/SFmpqapi.html>
 
-for several programming languages including `Delphi`, `C++` and `Visual Basic`. You can also download the source code of WinMPQ there to learn how to use SFmpqapi.
+You can also download the source code of WinMPQ there to learn how to use SFmpqapi.
 
-### 1.2.2) Warcraft III File Structure
+### Warcraft III File Structure
 
 When it's looking for a file, Warcraft III looks first in the "real" directories (the one you see in Windows Explorer) if you set up a specific registery key which is:
-```
+
+```r
 Path: HKEY_CURRENT_USER\Software\Blizzard Entertainment\Warcraft III\
 Key name: "Allow Local Files"
 Key type: dword
 Key value: 1
 ```
 
-If the registery key is not set or the file was not found in the "real" directories, then it looks in your map (w3m file), then in the last patch mpq (War3Patch.mpq) and finally in the main mpq (War3x.mpq or War3xlocal.mpq if the expansion is installed) and lately in War3.mpq.
-It means that you don't need to modify official MPQs (**DON'T modify your War3.mpq!**), you just need to use the same directory/file structure in your "C:\Program Files\Warcraft III\".
-Adding files in a map (.w3m file) works with most of the files but not all. Remember that the WorldEditor reads the local files from the real directories even if "Allow Local Files" is not enabled in the registry.
+If the registery key is not set or the file was not found in the "real" directories, then it looks in your map (`w3m` file), then in the last patch mpq (`War3Patch.mpq`) and finally in the main mpq (`War3x.mpq` or `War3xlocal.mpq` if the expansion is installed) and lately in `War3.mpq`.
+It means that you don't need to modify official MPQs (**DON'T modify your War3.mpq!**), you just need to use the same directory/file structure in your `"C:\Program Files\Warcraft III\"`.
+Adding files in a map (`.w3m` file) works with most of the files but not all. Remember that the WorldEditor reads the local files from the real directories even if "Allow Local Files" is not enabled in the registry.
 
 It Works (for example) for:
-```
+```r
 Units\unitUI.slk
 Units\AbilityData.slk
 UI\MIDISounds.slk
@@ -98,64 +76,67 @@ Units\HumanUpgradeFunc.txt
 Units\HumanUpgradeStrings.txt
 ```
 But it doesn't work very well for:
-```
+```r
 Units\UnitMetaData.slk
 Scripts\Blizzard.j
 ```
 And it doesn't work at all for:
-```
+```r
 TerrainArt\CliffTypes.slk
 Units\MiscData.txt
 ```
 
-If you really need to change a file that has to be loaded outside or before a map is loaded, I recommend you create a executable patch with a embedded MPQ archive using MPQDraft, which you can download at the above-mentioned link. This option is also used by the third party editors such as UMSWE.
+If you really need to change a file that has to be loaded outside or before a map is loaded, I recommend you create a executable patch with a embedded MPQ archive using `MPQDraft`, which you can download at the above-mentioned link. This option is also used by the third party editors such as `UMSWE`.
 
-Example:
-You want to use more than the two default cliff types in a map. By editing the w3e file or by using WE Unlimited or Zepir's Editor you can technically add more cliff types to your map. The problem is that to have them show up correctly in game it will require a modified TerrainArt\CliffTypes.slk file. To make this work you will have to create a new MPQ Archive and import the modified file with the path TerrainArt\CliffTypes.slk. Also take care that a listfile entry is added for this file. Then start MPQDraft and create a new executable patch. Simply select the created archive as source and select Warcraft III as the target application to patch. That's it, the patch will be created for you. Now if you start the created executable it will start Warcraft and the modified file will be used instead of the original one.
+*Example:*
+You want to use more than the two default cliff types in a map. By editing the `w3e` file or by using **WE Unlimited** or **Zepir's Editor** you can technically add more cliff types to your map. The problem is that to have them show up correctly in game it will require a modified `TerrainArt\CliffTypes.slk` file. To make this work you will have to create a new MPQ Archive and import the modified file with the path `TerrainArt\CliffTypes.slk`. Also take care that a listfile entry is added for this file. Then start **MPQDraft** and create a new executable patch. Simply select the created archive as source and select Warcraft III as the target application to patch. That's it, the patch will be created for you. Now if you start the created executable it will start Warcraft and the modified file will be used instead of the original one.
 
-Warning!
-- In some cases, if you play with others, everybody will need to have the same modified files or you'll get an error (like "netsync error").
-- Some files have a "special" format and if you modify them, you could "falsify" this format. In some cases it will work, in some others it won't. Be aware of that 'cause War3 will try to find a "standard file" instead (the ones of the MPQs instead of yours and you'll think it didn't try your stuff).
-- Some files outside both War3.mpq and War3Patch.mpq will not be used by Warcraft 3. These are exceptions.
+>**Warning!**
+- In some cases, if you play with others, everybody will need to have the same modified files or you'll get an error (like `"netsync error"`).
+- Some files have a "special" format and if you modify them, you could "falsify" this format. In some cases it will work, in some others it won't. Be aware of that 'cause War3 will try to find a "standard file" instead *(the ones of the MPQs instead of yours and you'll think it didn't try your stuff)*.
+- Some files outside both `War3.mpq` and `War3Patch.mpq` will not be used by Warcraft 3. These are exceptions.
 
-### 1.2.3) Map files (W3M/W3X Files)
+### Map files (W3M/W3X Files)
 
-To edit a map, you'll have to unpack the files of the "w3m" somewhere, then modify them and finally put them back in a "w3m" file (usually a new one). Since retail, W3M are a little bit different from simple MPQ files: they got a header and a footer. I'll talk more about the W3M format in the ["W3M Files Format"](#2-w3mw3x-files-format) section and the other files inside W3Ms in the following sections.
+To edit a map, you'll have to unpack the files of the `"w3m"` somewhere, then modify them and finally put them back in a `"w3m"` file *(usually a new one)*. Since retail, `W3M` are a little bit different from simple `MPQ` files: they got a header and a footer. I'll talk more about the W3M format in the ["W3M Files Format"](#w3mw3x-files-format) section and the other files inside W3Ms in the following sections.
 
-## 1.3) Warcraft 3 Data Format
+## Warcraft 3 Data Format
 
 Blizzard uses several ways to store data in its files. However they often use generic types.
 
-- `Integers`
-Intergers are stored using 4 bytes in **"Little Endian"** order. It means that the first byte read is the lowest byte.
-They are just like the C++ "int" (signed) type. In some other documentation of this kind you may see them named "long".
-*Size:* 4 bytes
-*Example:* 1234 decimal = `[00 00 04 D2]h` will be stored in this order: `[D2 04 00 00]h`
+### Integers
+Intergers are stored using **4** bytes in **"Little Endian"** order. It means that the first byte read is the lowest byte.
+They are just like the C++ `"int"` *(signed)* type. In some other documentation of this kind you may see them named `"long"`.
+*Size:* **4 bytes**
+*Example:* `1234 decimal` = `[00 00 04 D2]h` will be stored in this order: `[D2 04 00 00]h`
 
-- `Short Integers`
-Short Integers are stored using 2 bytes in **"Little Endian"** order.
+### Short Integers
+Short Integers are stored using **2** bytes in **"Little Endian"** order.
 They are close to the C++ signed short but their range is from `-16384` to `16383`. It means the 2 highest bit are free of use for a flag for example.
-*Size:* 2 bytes
+*Size:* **2 bytes**
 
-- `Floats`
-Floats are using the standard IEEE 32bit float format. They are stored using 4 bytes and the **"Little Endian"** order.
-They are just like the C++ "float" type.
-*Size:* 4 bytes
-*Example:* 7654.32 decimal, this number can't be stored using this format so the system will take the closest value that can be represented using binary digits. The closest one is: 7654.319824 decimal = `[45 EF 32 8F]h` and will be stored as `[8F 32 EF 45]h`
+### Floats
+Floats are using the `standard IEEE 32bit float format`. They are stored using **4** bytes and the **"Little Endian"** order.
+They are just like the C++ `"float"` type.
+*Size:* **4 bytes**
+*Example:* `7654.32 decimal`, this number can't be stored using this format so the system will take the closest value that can be represented using binary digits. The closest one is: `7654.319824 decimal` = `[45 EF 32 8F]h` and will be stored as `[8F 32 EF 45]h`
 
-- `Chars and Array of Chars`
-They are just stored like standard chars (1 char = 1 byte) and array of chars (no null terminating char needed).
-*Size (chars):* 1 byte
-*Size (array of chars):* usually 4 bytes
+### Chars and Array of Chars
+They are just stored like standard chars (1 char = 1 byte) and array of chars *(no null terminating char needed)*.
+*Size (chars):* **1 byte**
+*Size (array of chars):* usually **4 bytes**
 
-- `Trigger Strings and Strings`
-Strings are just arrays of chars terminated with a null char (C++ `'\0'`). However Blizzard sometimes use special control codes to change the displayed color for the string. These codes are like `"|c00BBGGRR"` where "BB", "GG" and "RR" are hexadecimal values (using 2 digits each) for the blue, the green and the red values. If a string starts with `"TRIGSTR_"` (case sensitive), it's considered as a trigger string. A trigger string is kept in memory as is *("TRIGSTR_***")* and is only changed when Warcraft 3 needs to display it. Instead of just writing "TRIGSTR_000" on the user screen, War3 will look in its trigger string table created when the map was loaded and display the corresponding trigger string instead. Trigger strings only work for files inside a w3m (Jass, w3i, ...) except for the WTS which is used to define the trigger string table itself. If the number following "TRIGSTR_" is negative the trigger string will refer to a null (empty) string, if "TRIGSTR_" is followed by text, it'll be considered as trigger string #0 ( = "TRIGSTR_000").
-"TRIGSTR_7", "TRIGSTR_07", "TRIGSTR_007" and "TRIGSTR_7abc" are all representing trigger string #7. "TRIGSTR_ab7", "TRIGSTR_abc" and "TRIGSTR_" refer to trigger string #0. "TRIGSTR_-7" is negative and will not refer to a trigger string; it'll be displayed as "". By convention, "TRIGSTR_" is followed by 3 digits and the null char that ends the string.
-*Example 1:* your got the string *"blah |c000080FFblah"*, War3 will display "blah blah" but the second "blah" will be orange *(blue=00 + green=80 + red=FF ==> orange)*.
-*Example 2:* you got "TRIGSTR_025" and trigger string 25 is defined (in the .wts file) as "blah|c000080FFblah", it'll display the same result as the previous example.
+### Trigger Strings and Strings
+Strings are just arrays of chars terminated with a null char (C++ `'\0'`). However Blizzard sometimes use special control codes to change the displayed color for the string. These codes are like `"|c00BBGGRR"` where `"BB"`, `"GG"` and `"RR"` are hexadecimal values *(using 2 digits each)* for the **blue**, the **green** and the **red** values. If a string starts with `"TRIGSTR_"` *(case sensitive)*, it's considered as a trigger string. A trigger string is kept in memory as is *("TRIGSTR_***")* and is only changed when Warcraft 3 needs to display it. Instead of just writing `"TRIGSTR_000"` on the user screen, War3 will look in its trigger string table created when the map was loaded and display the corresponding trigger string instead. Trigger strings only work for files inside a `w3m` (`Jass`, `w3i`, ...) except for the WTS which is used to define the trigger string table itself. If the number following `"TRIGSTR_"` is negative the trigger string will refer to a null *(empty)* string, if `"TRIGSTR_"` is followed by text, it'll be considered as trigger string `#0` ( = "TRIGSTR_000").
+`"TRIGSTR_7"`, `"TRIGSTR_07"`, `"TRIGSTR_007"` and `"TRIGSTR_7abc"` are all representing trigger string `#7`. `"TRIGSTR_ab7"`, `"TRIGSTR_abc"` and `"TRIGSTR_"` refer to trigger string `#0`. `"TRIGSTR_-7"` is negative and will not refer to a trigger string; it'll be displayed as `""`. By convention, `"TRIGSTR_"` is followed by 3 digits and the null char that ends the string.
+
+- *Example 1:* your got the string *"blah |c000080FFblah"*, War3 will display "blah blah" but the second "blah" will be orange *(blue=00 + green=80 + red=FF ==> orange)*.
+- *Example 2:* you got "TRIGSTR_025" and trigger string 25 is defined (in the .wts file) as "blah|c000080FFblah", it'll display the same result as the previous example.
+
 *Size (string):* vary. String length + 1 (null terminating char)
-*Size (trigger string):* 12 bytes
-For its strings Warcraft uses a unicode format called UTF-8. They do this because the files need to be localized into many different languages. This format uses one byte for the most common characters which is equal to the character's ASCII value. For example A = 65 or 0x41. For the more unusual characters it can take from 2 to 6 bytes per character. For example the German letter   would be represented by 195 and 164 or 0xC3A4. The higher the first byte is, the more bytes are required to represent the character. Simple modulo calculations are enough to convert UTF to common unicode (UCS) and back. To convert UTF to UCS use this pattern:
+*Size (trigger string):* **12 bytes**
+
+For its strings Warcraft uses a unicode format called `UTF-8`. They do this because the files need to be localized into many different languages. This format uses one byte for the most common characters which is equal to the character's ASCII value. For example `A` = `65` or `0x41`. For the more unusual characters it can take from 2 to 6 bytes per character. For example the German letter   would be represented by `195` and `164` or `0xC3A4`. The higher the first byte is, the more bytes are required to represent the character. Simple modulo calculations are enough to convert UTF to common unicode (UCS) and back. To convert UTF to UCS use this pattern:
 ```py
 If FirstByte <= 191 return FirstByte
 If 192 <= FirstByte <= 223 return (FirstByte - 192) * 64 + (SecondByte - 128)
@@ -165,33 +146,54 @@ If 248 <= FirstByte <= 251 return (FirstByte - 248) * 16777216 + (SecondByte - 1
 If 252 <= FirstByte return (FirstByte - 252) * 1073741824 + (SecondByte - 128) * 16777216 + (ThirdByte - 128) * 262144 + (FourthByte - 128) * 4096 + (FifthByte - 128) * 64 + (SixthByte - 128)
 ```
 To convert UCS back to UTF use this:
-```c
-If ASCII <= 127 FirstByte = ASCII
-If 128 <= ASCII <= 2047 FirstByte = 192 + (ASCII \ 64) SecondByte = 128 + (ASCII Mod 64)
-If 2048 <= ASCII <= 65535 FirstByte = 224 + (ASCII \ 4096) SecondByte = 128 + ((ASCII \ 64) Mod 64) ThirdByte = 128 + (ASCII Mod 64)
-If 65536 <= ASCII <= 2097151 FirstByte = 240 + (ASCII \ 262144) SecondByte = 128 + ((ASCII \ 4096) Mod 64) ThirdByte = 128 + ((ASCII \ 64) Mod 64) FourthByte = 128 + (ASCII Mod 64)
-If 2097152 <= ASCII <= 67108863 FirstByte = 248 + (ASCII \ 16777216) SecondByte = 128 + ((ASCII \ 262144) Mod 64) ThirdByte = 128 + ((ASCII \ 4096) Mod 64) FourthByte = 128 + ((ASCII \ 64) Mod 64) FifthByte = 128 + (ASCII Mod 64)
-If 67108864 <= ASCII <= 2147483647 FirstByte = 252 + (ASCII \ 1073741824) SecondByte = 128 + ((ASCII \ 16777216) Mod 64) ThirdByte = 128 + ((ASCII \ 262144) Mod 64) FourthByte = 128 + ((ASCII \ 4096) Mod 64) FifthByte = 128 + ((ASCII \ 64) Mod 64) SixthByte = 128 + (ASCII Mod 64))
+```py
+if ASCII <= 127:
+  FirstByte = ASCII
+if 128 <= ASCII <= 2047:
+  FirstByte = 192 + (ASCII / 64) 
+  SecondByte = 128 + (ASCII Mod 64)
+if 2048 <= ASCII <= 65535:
+  FirstByte = 224 + (ASCII / 4096) 
+  SecondByte = 128 + ((ASCII / 64) Mod 64) 
+  ThirdByte = 128 + (ASCII Mod 64)
+if 65536 <= ASCII <= 2097151:
+  FirstByte = 240 + (ASCII / 262144) 
+  SecondByte = 128 + ((ASCII / 4096) Mod 64) 
+  ThirdByte = 128 + ((ASCII / 64) Mod 64) 
+  FourthByte = 128 + (ASCII Mod 64)
+if 2097152 <= ASCII <= 67108863:
+  FirstByte = 248 + (ASCII / 16777216) 
+  SecondByte = 128 + ((ASCII / 262144) Mod 64) 
+  ThirdByte = 128 + ((ASCII / 4096) Mod 64) 
+  FourthByte = 128 + ((ASCII / 64) Mod 64) 
+  FifthByte = 128 + (ASCII Mod 64)
+if 67108864 <= ASCII <= 2147483647: 
+  FirstByte = 252 + (ASCII / 1073741824) 
+  SecondByte = 128 + ((ASCII / 16777216) Mod 64) 
+  ThirdByte = 128 + ((ASCII / 262144) Mod 64) 
+  FourthByte = 128 + ((ASCII / 4096) Mod 64) 
+  FifthByte = 128 + ((ASCII / 64) Mod 64) 
+  SixthByte = 128 + (ASCII Mod 64))
 ```
 The conversion will only be needed if you want to display text in your application or write user input to files. For all other purposes you can internally treat the UTF-Strings just like ordinary strings.
 
-- `Flags`
+### Flags
 Flags are boolean values *(true or false, 1 or 0)*. They can be stored using 4 bytes. Each bit is a flag *(4 bytes = 32 bit = 32 flags)*. Blizzard uses integers to store its flags.
 *Size:* usually 4 bytes
 
-- `Custom Types`
+### Custom Types
 Sometimes, an integer and one or several flags can share bytes. This is the case in the W3E file format: the water level and 2 flags are using the same group of 4 bytes. How? the 2 highest bit are used for the flags, the rest is reserved for the water level *(the value range is just smaller)*. Sometimes a byte can contain two or more different data.
 
-- `Structures`
+### Structures
 Warcraft 3 also uses structured types of various size.
 
 
-# 2) W3M/W3X Files Format
+# W3M/W3X Files Format
 
-A W3M or W3X file is a Warcraft III Map file (AKA Warcraft III Scenario in the World Editor). It's just a MPQ *(using a "new" compression format)* with a 512 bytes header. Sometimes, for official W3M files, it uses a footer of 260 bytes for authentification purposes.
+A `W3M` or `W3X` file is a Warcraft III Map file *(AKA Warcraft III Scenario in the World Editor)*. It's just a `MPQ` *(using a `"new"` compression format)* with a **512 bytes** header. Sometimes, for official `W3M` files, it uses a footer of 260 bytes for authentification purposes.
 
-Here is the header format (fixed size = 512 bytes):
-```
+Here is the header format (fixed size = **512 bytes**):
+```js
 char[4]: file ID (should be "HM3W")
 int: unknown
 string: map name
@@ -211,10 +213,10 @@ int: map flags (these are exactly the same as the ones in the W3I file)
 0x1000: 1=show water waves on rolling shores
 int: max number of players
 ```
-followed by 00 bytes until the 512 bytes of the header are filled.
+followed by `00` bytes until the **512 bytes** of the header are filled.
 
-Here is the footer format (optional):
-```
+Here is the footer format *(optional)*:
+```js
 char[4]: footer sign ID (should be "NGIS" == 'sign' reversed)
 byte[256]: 256 data bytes for authentification. 
 ```
@@ -259,10 +261,11 @@ war3mapImported\*.*
 
 We'll see now what these files stand for.
 
-# 3) "war3map.j" The JASS2 Script
+# war3map.j
+**The JASS2 Script**
 
 This is the main map script file. It's a text file and you can open it with notepad.
-Sometimes it's renamed to Scripts\war3map.j by map protectors to keep you away from it.
+Sometimes it's renamed to `Scripts\war3map.j` by map protectors to keep you away from it.
 The language used is called JASS2 and has been developed by Blizzard. It's a case sensitive language.
 When you play a map, the jass script is loaded and executed.
 When you select a map in when creating a game Warcraft III will first look up the `"config"` function and execute its code to set up the player slots.
@@ -290,7 +293,7 @@ The language uses several keywords as described here:
 | native | defines a function header of an external built-in function implemented in Game.DLL |
 | array | used to define array variables |
 
-```
+```c#
 if (...) then ...
 elseif (...) then ...
 else ...
@@ -329,7 +332,7 @@ The language knows the following six primitive types:
 These six types are the only native types, the others are declared in `"Scripts\Common.j"` and are all derived objects from the handle type such as **units**, **items**, **destructables**, **timers**, **triggers** and many more. Handle is the only extendable type of the language. All native functions usable in the map script are also defined in the file `"Scripts\Common.j"`, though you can also use functions from `"Scripts\Blizzard.j"`, which are used by the GUI triggers of the World Editor. The language is also used for AI files in warcraft. In AI scripts you can use functions from `"Scripts\Common.j"` and `"Scripts\Common.ai"`.
 Example of a function definition:
 
-```
+```js
 function myfunction takes nothing returns integer
 local string str = "blah blah blah"
 local integer i
@@ -346,13 +349,15 @@ return i
 endfunction 
 ```
 One interesting fact is that all types have the same length of 4 bytes. This allows "type casting" by abusing hole in the syntax checker that only requires the last return statement of a function to conform the declared return type. Therefore we can use so called return bug exploiters such as the following to do amazing things:
-```
+
+```js
 function Int2Handle takes integer I returns handle
 return I
 return null
 endfunction 
 ```
-```
+
+```js
 function Handle2Int takes handle H returns integer
   return H
   return 0
@@ -374,9 +379,10 @@ Most ids such as unit ids, item ids, destructable ids and some more are also int
 
 Find more comprehensive documentation on JASS and a Syntax Checker at <http://jass.sourceforge.net/doc/>
 
-# 4) "war3map.w3e" The environment
+# war3map.w3e
+**The environment**
 
-This is the tileset file. It contains all the data about the tilesets of the map. Let's say the map is divided into squares called "tiles". Each tile has 4 corners. In 3D, we define surfaces using points and in this case tiles are defined by their corners. I call one tile corner a "tilepoint". So if you want a 256x256 map, you'll have 257x257 tilepoints. That's also why a tile texture is defined by each of its four tilepoints. A tile can be half dirt, one quarter grass and one quarter rock for example. The first tilepoint defined in the file stands for the lower left corner of the map when looking from the top, then it goes line by line (horizontal). Tilesets are the group of textures used for the ground. Here is the file format:
+This is the tileset file. It contains all the data about the tilesets of the map. Let's say the map is divided into squares called "tiles". Each tile has 4 corners. In 3D, we define surfaces using points and in this case tiles are defined by their corners. I call one tile corner a "tilepoint". So if you want a `256x256` map, you'll have `257x257` tilepoints. That's also why a tile texture is defined by each of its four tilepoints. A tile can be half dirt, one quarter grass and one quarter rock for example. The first tilepoint defined in the file stands for the lower left corner of the map when looking from the top, then it goes line by line (horizontal). Tilesets are the group of textures used for the ground. Here is the file format:
 
 ```
 Header:
@@ -384,24 +390,24 @@ Header:
 - int: w3e format version [0B 00 00 00]h = version 11
 - char: main tileset [TS]
   Tileset	Meaning
-  A	Ashenvale
-  B 	Barrens
-  C	Felwood
-  D	Dungeon
-  F 	Lordaeron Fall
-  G	Underground
-  L	Lordaeron Summer
-  N	Northrend
-  Q	Village Fall
-  V	Village
-  W	Lordaeron Winter
-  X	Dalaran
-  Y	Cityscape
-  Z	Sunken Ruins
-  I	Icecrown
-  J	Dalaran Ruins
-  O	Outland
-  K	Black Citadel
+  A Ashenvale
+  B Barrens
+  C Felwood
+  D Dungeon
+  F Lordaeron Fall
+  G Underground
+  L Lordaeron Summer
+  N Northrend
+  Q Village Fall
+  V Village
+  W Lordaeron Winter
+  X Dalaran
+  Y Cityscape
+  Z Sunken Ruins
+  I Icecrown
+  J Dalaran Ruins
+  O Outland
+  K Black Citadel
 
 - int: custom tilesets flag (1 = using custom, 0 = not using custom tilesets)
 - int: number a of ground tilesets used (Little Endian) (note: should not be greater than 16 because of tilesets indexing in tilepoints definition)
@@ -483,7 +489,8 @@ where "0x2000" is the "ground zero" level, -89.6 is the water zero level (given 
 ```
 
 In this case, water flag is set and water level is below the ground level so we will not see the water. This is just an example and I don't think you can find such a tilepoint on a map. It was just here for demonstration purpose.
-# 5) "war3map.shd" The Shadow Map File
+# war3map.shd 
+**The Shadow Map File**
 
 This file has no header, only raw data.
 Size of the file = `16*map_width*map_height`
@@ -493,12 +500,15 @@ Size of the file = `16*map_width*map_height`
 Each byte set the shadow status of 1/16 of a tileset.
 It means that each tileset is divided in 16 parts (4*4).
 
-# 6) "war3mapPath.tga" The Image Path file and/or "war3map.wpm" The Path Map File
+# war3mapPath.tga/war3map.wpm
+- `war3mapPath.tga`: The Image Path file
+- `war3map.wpm`: The Path Map File
 
 Only one of these two file is used for pathing. Old War3 beta versions (<=1.21) use the "war3mapPath.tga".
-Since beta 1.30, Warcraft 3 uses a new file format instead: "war3map.wpm".
+Since beta 1.30, Warcraft 3 uses a new file format instead: `"war3map.wpm"`.
 
-## 6.1) "war3mapPath.tga" The Image Path file
+## war3mapPath.tga 
+**The Image Path file**
 
 It's an standard 32bits RGB TGA file with no compression and a black alpha channel. The TGA format is really important because if Warcraft III doesn't recognise the file format, it'll do weird things on the tilesets *(like put blight everywhere)*! Don't forget the alpha channel! Each tile of the map is divided in 16 pixels *(4\*4 like in the shadow file)*, so the TGA width is `4*map_width` and its height is `4*map_height` and each pixel on the TGA affects a particular part of a tileset on the map. The color of a pixel sets the rules for that part. The top left corner of the image is the upper left corner on the map.
 
@@ -553,7 +563,8 @@ Here is the color code:
 To sum up, when red is set it means **"no walk"**, when green is set **"no fly"** and when blue is set **"no build"**.
 The alpha channel is used to set where blight is (black = normal, white = blight).
 
-## 6.2) "war3map.wpm" The Path Map File
+## war3map.wpm 
+**The Path Map File**
 ```
 Header:
 char[4]: file ID = 'MP3W'
@@ -587,101 +598,12 @@ Exmaple:
 | CA | cliff edges, solid parts of doodads (no build and no walk) |
 | CE | edges of the map (boundaries) |
 
-# 7) "war3map.doo" The doodad file for trees
+# war3map.doo 
+**The doodad file for trees**
 
 The file contains the trees definitions and positions.
-Here is the Format:
-```
-Header:
-char[4]: file ID = "W3do"
-int: file version = 7
-int: subversion? (usually set to [09 00 00 00]h, rarely [07 00 00 00]h)
-int: number of trees defined
 
-Data:
-Each tree is defined by a block of 42 bytes organized like this:
-char[4]: Tree ID (can be found in the file "Units\DestructableData.slk")
-int: Variation (little endian)
-float: Tree X coordinate on the map
-float: Tree Y coordinate on the map
-float: Tree Z coordinate on the map
-float: Tree angle (radian angle value)(degree = radian*180/pi)
-float: Tree X scale
-float: Tree Y scale
-float: Tree Z scale
-byte: Tree flags*
-byte: Tree life (integer stored in %, 100% is 0x64, 170% is 0xAA for example)
-int: Tree ID number in the World Editor (little endian) (each tree has a different one)
-```
-*flags:
-```
-0 = invisible and non-solid tree
-1 = visible but non-solid tree
-2 = normal tree (visible and solid)
-```
-
-To sum up how it looks:
-```
-tt tt tt tt vv vv vv vv 
-xx xx xx xx yy yy yy yy 
-zz zz zz zz aa aa aa aa 
-xs xs xs xs ys ys ys ys 
-zs zs zs zs ff ll dd dd dd dd
-```
-
-where:
-
-```
-tt: type
-vv: variation
-xx: x coordinate
-yy: y coordinate
-zz: z coordinates
-aa: rotation angle
-xs: x scale
-ys: y scale
-zs: z scale
-ff: flags
-ll: life
-dd: doodad number in the editor
-```
-
-Example (this is the second tree of Legend):
-```
-4C 54 6C 74 08 00 00 00 
-00 00 74 45 00 00 70 44 
-00 10 24 44 E5 CB 96 40 
-98 85 98 3F 98 85 98 3F 
-98 85 98 3F 02 64 8D 01 00 00
-```
-```
-4C 54 6C 74 --> LTlt (tree type)
-08 00 00 00 --> 00000008 = variation #8 (changes the shape of the tree)
-00 00 74 45 --> X=3904.
-00 00 70 44 --> Y=960.
-00 10 24 44 --> Z=656.25
-E5 CB 96 40 --> Angle (float value=4.7123895, angle=270 )
-98 85 98 3F --> X_Scale=1.191577
-98 85 98 3F --> Y_Scale=1.191577
-98 85 98 3F --> Z_Scale=1.191577
-02 --> tree is solid and selectable
-64 --> life=100% of default tree life
-8D 01 00 00 --> 0000018D=397, tree number 397
-```
-
-After the last tree definition, there we have the special doodads (which can't be edited once they are placed)
-
-```
-int: special doodad format version set to '0'
-int: number "s" of "special" doodads ("special" like cliffs,...)
-Then "s" times a special doodad structure (16 bytes each):
-char[4]: doodad ID
-int: Z? (0)
-int: X? (w3e coordinates)
-int: Y? (w3e coordinates)
-```
-
-NEW "Frozen Throne expansion pack beta" format:
+"Frozen Throne expansion pack" format:
 
 Header:
 
@@ -695,7 +617,7 @@ Data:
 Each tree is defined by a block of (usually) 50 bytes but in this version the length can vary because of the random item sets. The data is organized like this:
 
 ```
-char[4]: Tree ID (can be found in the file "Units\DestructableData.slk")
+char[4]: Tree ID
 int: Variation (little endian)
 float: Tree X coordinate on the map
 float: Tree Y coordinate on the map
@@ -713,6 +635,8 @@ int: number "n" of item sets dropped on death (this can only be greater than 0 i
 then there is n times a item set structure
 int: Tree ID number in the World Editor (little endian) (each tree has a different one)
 ```
+
+Tree ID can be found in the file `"doodads.slk"`.
 
 *flags:
 
@@ -745,8 +669,8 @@ ys: y scale
 zs: z scale
 ff: flags
 ll: life
-bb: unknown
-cc: unknown
+bb: item table pointer
+cc: number of items dropped on death (0)
 dd: doodad number in the editor
 ```
 
@@ -770,109 +694,11 @@ this can also be a random item id (see bottom of war3mapUnits.doo definition)
 int: percentual chance of choice
 ```
 
-# 8) "war3mapUnits.doo" The unit and item file
+# war3mapUnits.doo
+**The unit and item file**
 
 The file contains the definitions and positions of all placed units and items of the map.
 Here is the Format:
-
-Header:
-```
-char[4]: file ID = "W3do"
-int: file version = 7
-int: subversion? (often set to [09 00 00 00]h)
-int: number of units and items defined
-```
-Data:
-Each unit/item is defined by a block of bytes (variable length) organized like this:
-```
-char[4]: type ID (iDNR = random item, uDNR = random unit) (thx PitzerMike)
-int: variation
-float: coordinate X
-float: coordinate Y
-float: coordinate Z
-float: rotation angle
-float: scale X
-float: scale Y
-float: scale Z
-byte: flags*
-int: player number (owner) (player1 = 0, 16=neutral passive)
-byte: unknown (0)
-byte: unknown (0)
-int: hit points (-1 = use default)
-int: mana points (-1 = use default, 0 = unit doesn't have mana)
-int: number "s" of dropped item sets
-  then we have s times a dropped item sets structures (see below)
-int: gold amount (default = 12500)
-float: target acquisition (-1 = normal, -2 = camp)
-int: hero level (set to 1 for non hero units and items)
-int: number "n" of items in the inventory
-  then there is n times a inventory item structure (see below)
-int: number "n" of modified abilities for this unit
-  then there is n times a ability modification structure (see below)
-int: random unit/item flag "r" (for uDNR units and iDNR items)
-  0 = Any neutral passive building/item, in this case we have
-    byte[3]: level of the random unit/item,-1 = any (this is actually interpreted as a 24-bit number)
-    byte: item class of the random item, 0 = any, 1 = permanent ... (this is 0 for units)
-    r is also 0 for non random units/items so we have these 4 bytes anyway (even if the id wasn't uDNR or iDNR)
-  1 = random unit from random group (defined in the w3i), in this case we have
-    int: unit group number (which group from the global table)
-    int: position number (which column of this group)
-    the column should of course have the item flag set (in the w3i) if this is a random item
-  2 = random unit from custom table, in this case we have
-    int: number "n" of different available units
-    then we have n times a random unit structure
-
-int: custom color (-1 = none, 0 = red, 1=blue,...)
-int: Waygate: active destination number (-1 = deactivated, else it's the creation number of the target rect as in war3map.w3r)
-int: creation number
-```
-
-*flags: may be similar to the `war3map.doo` flags
-
-Dropped item set format
-```
-int: number "d" of dropable items
-"d" times dropable items structures:
-char[4]: item ID ([00 00 00 00]h = none)
-this can also be a random item id (see below)
-int: % chance to be dropped
-```
-Inventory item format (thx PitzerMike)
-```
-int: inventory slot (this is the actual slot - 1, so 1 => 0)
-char[4]: item id (as in ItemData.slk) 0x00000000 = none
-this can also be a random item id (see below)
-```
-Ability modification format (thx PitzerMike)
-```
-char[4]: ability id (as in AbilityData.slk)
-int: active for autocast abilities, 0 = no, 1 = active
-int: level for hero abilities
-```
-Random unit format (thx PitzerMike)
-```
-char[4]: unit id (as in UnitUI.slk)
-this can also be a random unit id (see below)
-int: percentual chance of choice
-```
-**Random item ids (thx PitzerMike)**
-random item ids are of the type `char[4]` where the 1st letter is `"Y"` and the 3rd letter is `"I"`
-the 2nd letter narrows it down to items of a certain item types:
-
-- `"Y"` = any type
-- `"i"` to `"o"` = item of this type, the letters are in order of the item types in the dropdown box (`"i"` = charged)
-
-the 4th letter narrows it down to items of a certain level:
-
-- `"/"` = any level *(ASCII 47)*
-- `"0"` ... = specific level *(this is ASCII 48 + level, so level 10 will be ":" and level 15 will be "?" and so on)*
-
-**Random unit ids (thx PitzerMike)**
-random unit ids are of the type `char[4]` where the 1st three letters are `"YYU"`
-the 4th letter narrows it down to units of a certain level:
-
-- `"/"` = any level *(ASCII 47)*
-- `"0"` ... = specific level *(this is ASCII 48 + level, so level 10 will be ":" and level 15 will be "?" and so on)*
 
 NEW "Frozen Throne expansion pack beta" format (thx PitzerMike):
 
@@ -895,6 +721,7 @@ float: rotation angle
 float: scale X
 float: scale Y
 float: scale Z
+char[4]: type ID (exists in new version)
 byte: flags*
 int: player number (owner) (player1 = 0, 16=neutral passive)
 byte: unknown (0)
@@ -934,7 +761,13 @@ int: Waygate: active destination number (-1 = deactivated, else it's the creatio
 int: creation number
 ```
 
-*flags: may be similar to the `war3map.doo` flags
+*flags:
+
+```
+0= invisible and non-solid tree
+1= visible but non-solid tree
+2= normal tree (visible and solid)
+```
 
 Dropped item set format:
 ```
@@ -977,115 +810,10 @@ the 4th letter narrows it down to units of a certain level
 - `"/"` = any level (ASCII 47)
 - `"0"` ... = specific level *(this is ASCII 48 + level, so level 10 will be ":" and level 15 will be "?" and so on)*
 
-# 9) "war3map.w3i" The info file
+# war3map.w3i 
+**The info file**
 
 It contains some of the info displayed when you start a game.
-
-Format:
-```
-int: file format version = 18
-int: number of saves (map version)
-int: editor version (little endian)
-String: map name
-String: map author
-String: map description
-String: players recommended
-float[8]: "Camera Bounds" as defined in the JASS file
-int[4]: camera bounds complements* (see note 1) (ints A, B, C and D)
-int: map playable area width E* (see note 1)
-int: map playable area height F* (see note 1)
-  *note 1:
-  map width = A + E + B
-  map height = C + F + D
-int: flags
-  0x0001: 1=hide minimap in preview screens
-  0x0002: 1=modify ally priorities
-  0x0004: 1=melee map
-  0x0008: 1=playable map size was large and has never been reduced to medium (?)
-  0x0010: 1=masked area are partially visible
-  0x0020: 1=fixed player setting for custom forces
-  0x0040: 1=use custom forces
-  0x0080: 1=use custom techtree
-  0x0100: 1=use custom abilities
-  0x0200: 1=use custom upgrades
-  0x0400: 1=map properties menu opened at least once since map creation (?)
-  0x0800: 1=show water waves on cliff shores
-  0x1000: 1=show water waves on rolling shores
-char: map main ground type
-  Example: 'A'= Ashenvale, 'X' = City Dalaran
-int: Campaign background number (-1 = none)
-String: Map loading screen text
-String: Map loading screen title
-String: Map loading screen subtitle
-int: Map loading screen number (-1 = none)
-String: Prologue screen text
-String: Prologue screen title
-String: Prologue screen subtitle
-int: max number "MAXPL" of players
-array of structures: then, there is MAXPL times a player data like described below.
-int: max number "MAXFC" of forces
-array of structures: then, there is MAXFC times a force data like described below.
-int: number "UCOUNT" of upgrade availability changes
-array of structures: then, there is UCOUNT times a upgrade availability change like described below.
-int: number "TCOUNT" of tech availability changes (units, items, abilities)
-array of structures: then, there is TCOUNT times a tech availability change like described below
-int: number "UTCOUNT" of random unit tables
-array of structures: then, there is UTCOUNT times a unit table like described below
-```
-**Players data format**:
-```
-int: internal player number
-int: player type
-  1=Human, 2=Computer, 3=Neutral, 4=Rescuable
-int: player race
-  1=Human, 2=Orc, 3=Undead, 4=Night Elf
-int: 00000001 = fixed start position
-String: Player name
-float: Starting coordinate X
-float: Starting coordinate Y
-int: ally low priorities flags (bit "x"=1 --> set for player "x")
-int: ally high priorities flags (bit "x"=1 --> set for player "x")
-```
-**Forces data format**: (thx Soar)
-```
-int: Foces Flags
-  0x00000001: allied (force 1)
-  0x00000002: allied victory
-  0x00000004: share vision
-  0x00000010: share unit control
-  0x00000020: share advanced unit control
-int: player masks (bit "x"=1 --> player "x" is in this force)
-String: Force name
-```
-**Upgrade availability change format** (thx PitzerMike)
-```
-int: Player Flags (bit "x"=1 if this change applies for player "x")
-char[4]: upgrade id (as in UpgradeData.slk)
-int: Level of the upgrade for which the availability is changed (this is actually the level - 1, so 1 => 0)
-int Availability (0 = unavailable, 1 = available, 2 = researched)
-```
-**Tech availability change format** (thx PitzerMike)
-```
-int: Player Flags (bit "x"=1 if this change applies for player "x")
-char[4]: tech id (this can be an item, unit or ability)
-there's no need for an availability value, if a tech-id is in this list, it means that it's not available
-```
-**Random unit table format** (thx PitzerMike)
-```
-int: Number "n" of random groups
-then follows n times the following data (for each group)
-int: Group number
-string: Group name
-int: Number "m" of positions
-positions are the table columns where you can enter the unit/item ids, all units in the same line have the same chance, but belong to different "sets" of the random group, called positions here
-int[m]: for each positon is specified if it's a unit table (=0), a building table (=1) or an item table (=2)
-int: Number "i" of units/items, this is the number of lines in the table, each position can have that many or fewer entries
-now there's "i" times the following structure (for each line)
-int: Chance of the unit/item (percentage)
-char[m * 4]: for each position are the unit/item id's for this line specified
-this can also be random unit/item ids (see bottom of war3mapUnits.doo definition)
-a unit/item id of 0x00000000 indicates that no unit/item is created
-```
 
 NEW Frozen Throne expansion pack format:
 ```
@@ -1236,7 +964,8 @@ char[4]: Item id (as in ItemData.slk)
 this can also be a random item id (see bottom of war3mapUnits.doo definition)
 ```
 
-# 10) "war3map.wts" The trigger string data file
+# war3map.wts
+**The trigger string data file**
 
 Open it with notepad and you'll figure out how it works. Each trigger string is defined by a number *(trigger ID)* and a value for this number. When Warcraft meets a `"TRIGSTR_***"` *(where `"***"` is supposed to be a number)*, it will look in the trigger string table to find the corresponding string and replace the trigger string by that value. The value for a specific trigger ID is set only once by the first definition encountered for this ID: if you have two times the trigger string 0 defined, only the first one will count. The number following "STRING " must be positive: any negative number will be ignored. If text follows "STRING ", it'll be considered as number 0.
 
@@ -1255,7 +984,8 @@ Then either in the `.J`, in the `.W3I` or in one of the object editor files, War
 trigger string number 0 and it'll find that the value to use is "Blah blah blah" instead of `"TRIGSTR_000"`. 
 If there are more than 999 strings another the reference simply becomes one character longer.
 
-# 11) "war3mapMap.blp" the minimap image (with the help of BlacKDicK)
+# war3mapMap.blp
+the minimap image (with the help of BlacKDicK)
 
 The BLP file contain the JPEG header and the JPEG raw data separated.
 BLP stands for `"Blip"` file which I guess is a `"BLIzzard Picture"`.
@@ -1295,7 +1025,8 @@ if the picturetype flag is set to 5, the image doesn't have an alpha channel, so
 ```
 More detailed blp specs by Magos: <http://magos.thejefffiles.com/War3ModelEditor/>
 
-# 12) "war3map.mmp" The menu minimap
+# war3map.mmp
+**The menu minimap**
 
 Header:
 ```
@@ -1333,7 +1064,8 @@ Player Colors (BB GG RR AA = blue, green, red, alpha channel):
  FF FF FF FF : none
 ```
 
-# 13) "war3map.w3u" The custom units file
+# war3map.w3u
+**The custom units file**
 
 Most of the W3U File specifications is from BlacKDicK.
 W3U files have a initial long and then comes two tables. Both look the same.
@@ -1467,7 +1199,8 @@ int: contains upgrade data file (1 = yes, 0 = no)
 if yes, then here follows a complete w3q file (see w3q specifications above)
 ```
 
-#14) "war3map.wtg" The triggers names file
+# war3map.wtg
+**The triggers names file**
 
 Header:
 ```
@@ -1598,7 +1331,8 @@ int: begin function: 1
 int: end function (always set to 0)
 ```
 
-# 15) "war3map.w3c" The camera file
+# war3map.w3c
+**The camera file**
 
 Header:
 ```
@@ -1620,7 +1354,8 @@ float: ??? (usually set to 100)
 String: Cinematic name
 ```
 
-# 16) "war3map.w3r" The triggers regions file
+# war3map.w3r
+**The triggers regions file**
 
 Header:
 ```
@@ -1647,7 +1382,8 @@ bytes[3]: region color (used by the World Editor) (BB GG RR)
 byte: end of the structure
 ```
 
-# 17) "war3map.w3s" The sounds definition file
+# war3map.w3s
+**The sounds definition file**
 
 Header:
 ```
@@ -1714,7 +1450,8 @@ Note:
 Floats value can be set or left unset *(default value will be used)*
 When a float is not set, the value `[4F800000]h` = 4.2949673e+009 is used.
 
-# 18) "war3map.wct" The custom text trigger file
+# war3map.wct
+**The custom text trigger file**
 
 (with the help of BlackDick)
 ```
@@ -1748,7 +1485,8 @@ String: custom text trigger string (contains "s chars including the null termina
 ```
  
 
-# 19) "war3map.imp" The imported file list
+# war3map.imp
+**The imported file list**
 
 Header:
 ```
@@ -1764,7 +1502,8 @@ String["n"]: the path inside the w3m of each imported file (like "war3mapImporte
 Note: Any file added in the `W3M` and added in the `.imp` will NOT be removed by the World Editor each time you save your map.
 This file can also be found in Warcraft campaign files with the name `war3campaign.imp` with the only difference that the standard path for imported files is `"war3campaignImported\"`.
 
-# 20) "war3map.wai" The Artificial Intelligence file
+# war3map.wai
+**The Artificial Intelligence file**
 
 File for the Frozen Throne expansion pack only (thanks to Ziutek)
 ```
@@ -1946,7 +1685,8 @@ int: ai difficulty: 0=easy, 1=normal, 2=insane
 string: path to custom ai script
 ```
 
-# 21) "war3mapMisc.txt, war3mapSkin.txt, war3mapExtra.txt" The Global Settings
+# war3mapMisc.txt, war3mapSkin.txt, war3mapExtra.txt
+**The Global Settings**
 
 File for the Frozen Throne expansion pack only (thanks to PitzerMike)
 
@@ -1955,7 +1695,8 @@ The `war3mapMisc` file contains all the data of the gameplay constants screen..
 The `war3mapSkin` file contains all the changes made in the game interface screen.
 The `war3mapExtra` file contains the changes of the last tab in the map properties screen, where external data sources and custom skys are referenced.
 
-# 22) W3N File Format (thanks to PitzerMike)
+# W3N File Format 
+(thanks to PitzerMike)
 
 A `W3N` file is a Warcraft III Campaign file. It has the same 512 byte header as map files and also has a 260 byte footer for authentification purposes. See the `W3M` specification for details on the header and footer. These campaign files are only available in the Forzen Throne expansion pack.
 
@@ -1976,7 +1717,8 @@ war3campaignImported\*.*
 ```
 We'll see now what the war3campaign.w3f file stands for. The other files have already been discussed in the W3M specification.
 
-# 23) war3campaign.w3f (The info file for campaigns) (thanks to PitzerMike)
+# war3campaign.w3f 
+(The info file for campaigns) (thanks to PitzerMike)
 ```
 int: file format version (currently 1)
 int: campaign version (how many times it has been saved)
@@ -2021,32 +1763,37 @@ String: path of the map in the campaign archive
 String: unknown (always empty, might also be a single character)
 String: path of the map in the campaign archive
 ```
-# 24) SLK files (table format for different purposes) (thanks to PitzerMike)
+# SLK files 
 
-SLK files can technically be opened by Microsoft Excel, though if you don't own Excel or a SLK editor, or want to open SLK files with your application, you might be interested in the format, so here it is. SLK files are text files and read line by line. The first two letters of each line can be used to decide what to do with it.
+SLK files can technically be opened by `Microsoft Excel`, though if you don't own Excel or a SLK editor, or want to open SLK files with your application, you might be interested in the format, so here it is. SLK files are text files and read line by line. The first two letters of each line can be used to decide what to do with it.
 
 Format:
 
-`Line["ID"]`: the first line you will have to read is the one starting with ID, this id is usually set to `ID;PWXL;N;E`
-`Line["B;"]`: this line defines the number of columns and lines of the table
-Example: `B;Y837;X61;D0 0 836 60`
-This file has 837 lines and 61 columns, the rest of the line is always set to `;D0 0 Y-1 X-1` so these are probably the internal index bounds
+- Line `["ID"]`: the first line you will have to read is the one starting with ID, this id is usually set to `ID;PWXL;N;E`.
+- Line `["B;"]`: this line defines the number of columns and lines of the table.
+>Example: `B;Y837;X61;D0 0 836 60`
+This file has **837 lines** and **61 columns**, the rest of the line is always set to `;D0 0 Y-1 X-1` so these are probably the internal index bounds
+
 From now on we will only look at lines that start with `"C;"` and are followed by `"Y"` or `"X"`.
-`Line["C;Y"]`: specifies the value for the cell with the specified line and column if the fourth token starts with a `"K"`, otherwise we ignore it, anyway the current line is set to the y value, so the following lines that might be missing the y value refer to this line
-Example: `C;Y1;X1;K"unitBalanceID"`
+
+- Line `["C;Y"]`: specifies the value for the cell with the specified line and column if the fourth token starts with a `"K"`, otherwise we ignore it, anyway the current line is set to the y value, so the following lines that might be missing the y value refer to this line.
+>Example: `C;Y1;X1;K"unitBalanceID"`
 Sets the cell in line 1 and column 1 to "unitBalanceID"
-`Line["C;X"]`: specifies the value for the cell with the specified column and the line previously specified as current line (in a "C;Y" statement) if the fourth token starts with a "K", otherwise we ignore it
-Example: `C;X45;K1.8`
+- Line `["C;X"]`: specifies the value for the cell with the specified column and the line previously specified as current line (in a `"C;Y"` statement) if the fourth token starts with a `"K"`, otherwise we ignore it.
+>Example: `C;X45;K1.8`
 Assigns 1.8 to the cell in current line and column 45
 The x value might also be omitted, so that the x value of the previous line is used.
-All other lines can be ignored, they contain comments and format information. After a "K" there may either be a whole or floating point number or a string within quotes. Empty cells don't have any entries. This should be enough information to successfully parse all of Blizzard's SLK files and files edited
-with Excel or its Open Office equivalent. If you want to read up on the advanced tokens, get the official specs at <http://www.wotsit.org/download.asp?f=sylk>
 
-# 25) BLP files (image format)
+All other lines can be ignored, they contain comments and format information. After a `"K"` there may either be a whole or floating point number or a string within quotes. Empty cells don't have any entries. 
+This should be enough information to successfully parse all of Blizzard's SLK files and files edited with Excel or its Open Office equivalent. If you want to read up on the advanced tokens, get the official specs at <http://www.wotsit.org/download.asp?f=sylk>
+
+# BLP files 
+(image format)
 
 Besides TGA files, Warcraft III uses mainly the BLP format for images. The format supports JPG-compression and paletted images. See the `"war3mapMap.blp"` description for details on the BLP format. The TGA format is wide-spread and known by most graphic tools, anyway the TGA specs can be found at <http://www.wotsit.org/download.asp?f=tga>
 
-# 26) MDX and MDL files (model format)
+# MDX and MDL files 
+(model format)
 
 The Warcraft III models are stored in MDX format.
 To convert an MDX file into readable MDL format and vice versa you can use Yobgul's file converter, which is available at <http://www.wc3sear.ch/files/downloads.php?ID=3&l=6>
@@ -2058,7 +1805,8 @@ There are several spec files on both formats available:
 > <http://www.wc3campaigns.net/tools/specs/NubMdxFormat.txt> - More recent version by Nub
 > <http://magos.thejefffiles.com/War3ModelEditor/> - Latest specifications by Magos
 
-# 27) Packed Files - W3V, W3Z, W3G (gamecache, savegame, replay files) (thanks to PitzerMike)
+# Packed Files - W3V, W3Z, W3G 
+(gamecache, savegame, replay files) (thanks to PitzerMike)
 
 These files are packed using `zlib` compression. They have a common compressed format.
 But after unpacking the files, each type has its own file format. The packed format is as follows:
@@ -2103,7 +1851,8 @@ byte[m - 2] deflate stream, use deflate stream implementation to decompress/comp
 After uncompressing all blocks and appending them to each other, you have the original uncompressed file.
 Depending on the type of file, the replay, gamecache or savegame file specifications will now apply.
 
-# 28) Campaigns.w3v (gamecache file) (thanks to PitzerMike)
+# Campaigns.w3v 
+(gamecache file) (thanks to PitzerMike)
 
 This file is found once for each profile in the save directory of Warcraft III and contains stores variables and units
 carried from one map to another in campaigns. `Campaigns.w3v` files are also embedded in savegame files where they
@@ -2178,7 +1927,8 @@ int: ability id
 int: current level
 ```
 
-# 29) W3Z files (savegames)
+# W3Z files 
+(savegames)
 
 There's not much to say about savegame files. Noone ever tried to track the format of Warcraft III savegames down
 because theyi are huge and the format is pretty complicated. The only information available here can be used to extract
@@ -2187,12 +1937,13 @@ To find the embedded gamecache data you simply have to search for the string tok
 After this token you will find a full `Campaigns.w3v` file as described in the above section. I never tried to reinject
 edited gamecaches into a savegame, but I'm pretty sure there's a hash or checksum that would prevent it from working.
 
-# 30) W3G files (replays) (thanks to Blue, Nagger and Kliegs)
+# W3G files 
+(replays) (thanks to Blue, Nagger and Kliegs)
 
 The replay format has been tracked down by people at ShadowFlare's realm. You can find very good and
 detailed documentation on the format at <http://w3g.deepnode.de/>
 
-# 31) The others files
+# The others files
 
 `war3mapImported\*.*` = files imported by the world editor or by the user using the import manager (these should be listed in the imp file, otherwise they will be deleted when the map is saved), you can now use any path you like and are not limited to `war3mapImported\` any more, this way you can override files in the Warcraft mpq archives by placing files with the same name in your map
 `(signature)`, `(listfile)` and `(attributes)` are rather extensions to the MPQ format than actual map files but they can also be found in map archives
@@ -2232,5 +1983,3 @@ Thanks to Justin Olbrantz (Quantam) for Inside MoPaQ, Andrey Lelikov for LMPQ AP
 Special thanks to BlackDick, DJBnJack, PitzerMike, StonedStoopid, Ziutek and a few others who helped me to find some stuff and work on this documentation.
 Thanks to WC3Campaign Staff and War3Pub Staff who hosted my stuff and let me meet interesting people.
 Thanks to Blizzard Entertainment for making Warcraft III
-
--=Z pir oo
