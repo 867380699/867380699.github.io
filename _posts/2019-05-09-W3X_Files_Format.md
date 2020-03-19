@@ -514,7 +514,7 @@ It's an standard 32bits RGB TGA file with no compression and a black alpha chann
 
 
 Header format (18 bytes):
-```
+```js
 byte: ID Length = 0
 byte: Color Map Type = 0
 byte: Image Type = 2 (uncompressed RGB)
@@ -530,7 +530,7 @@ byte[2]: image height (little endian)
 byte: Pixel depth = 32 (=0x20)
 byte: Image Descriptor = 0x28 (0x20=image starts from top left, 0x08=8bit for alpha chanel)
 ```
-Example (where "XX XX" is a width and "YY YY" a height):
+Example (where `"XX XX" `is a width and `"YY YY"` a height):
 ```
 00 00 02 00 00 00 00 00 00 00 00 00 XX XX YY YY 20 28
 ```
@@ -1064,7 +1064,7 @@ Player Colors (BB GG RR AA = blue, green, red, alpha channel):
  FF FF FF FF : none
 ```
 
-# war3map.w3u
+# war3map.w3u / w3t / w3b / w3d / w3a / w3h / w3q
 **The custom units file**
 
 Most of the W3U File specifications is from BlacKDicK.
