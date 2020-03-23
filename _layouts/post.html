@@ -1,119 +1,121 @@
---- 
-layout: default 
+---
+layout: default
 ---
 
 <div class="toc">
-    {% include toc.html html=content item_class='toc-l%level%' %}
+  {% include toc.html html=content item_class='toc-l%level%' %}
 </div>
 <div class="content-area">
-<div class="main">
+  <div class="main">
     <h1 class="title">{{ page.title }}</h1>
     <p class="meta">
-        <span class="count">字数&nbsp;{{ page.content | number_of_words }}</span>
-        ·
-        <span class="date">{{ page.date | date: "%Y-%m-%d" }}</span>
+      <span class="count">字数&nbsp;{{ page.content | number_of_words }}</span>
+      ·
+      <span class="date">{{ page.date | date: "%Y-%m-%d" }}</span>
     </p>
     <p class="blog-tags">
-        {% for tag in page.tags %}
-            {% capture tag_name %}#{{ tag }}{% endcapture %}
-            <a class="blog-tag" href="/tag/{{ tag_name }}">{{ tag_name }}</a>
-        {% endfor %}
+      {% for tag in page.tags %} {% capture tag_name %}#{{ tag }}{% endcapture
+      %}
+      <a class="blog-tag" href="/tag/{{ tag_name }}">{{ tag_name }}</a>
+      {% endfor %}
     </p>
 
     <div class="post">
-
-        {{ content }}
+      {{ content }}
     </div>
-</div>
+  </div>
 </div>
 
 <script>
-    function toggleTOC() {
-        var x = document.getElementsByClassName("toc");
-        if (x.length > 0){
-            x = x[0];
-            if (x.style.display === "" || x.style.display === 'none'){
-                x.style.display = 'block';
-            }else{
-                x.style.display = 'none';
-            }
-        }
+  function toggleTOC() {
+    var x = document.getElementsByClassName("toc");
+    if (x.length > 0) {
+      x = x[0];
+      if (x.style.display === "" || x.style.display === "none") {
+        x.style.display = "block";
+      } else {
+        x.style.display = "none";
+      }
     }
-    function hideTOC() {
-        var x = document.getElementsByClassName("toc");
-        if (x.length > 0){
-            x = x[0];
-            if (x.style.display !== "none"){
-                x.style.display = 'none';
-            }
-        }
+  }
+  function hideTOC() {
+    var x = document.getElementsByClassName("toc");
+    if (x.length > 0) {
+      x = x[0];
+      if (x.style.display !== "none") {
+        x.style.display = "none";
+      }
     }
-    var menu = document.getElementById('menu');
-    if (menu) {
-        menu.onclick = toggleTOC;
+  }
+  var menu = document.getElementById("menu");
+  if (menu) {
+    menu.onclick = toggleTOC;
+  }
+  window.onhashchange = function($event) {
+    var elMenu = document.getElementById("menu");
+    if (elMenu && getComputedStyle(elMenu).display != "none") {
+      hideTOC();
     }
-    window.onhashchange = function ($event) {
-        var elMenu =document.getElementById('menu');
-        if (elMenu && getComputedStyle(elMenu).display != 'none') {
-            hideTOC();
-        }
-    }
+  };
 </script>
 
 <script>
-    function debounce(fn, delay) {
-        var timer;
-        return function() {
-            var context = this;
-            var args = arguments;
-            clearTimeout(timer);
-            timer = setTimeout(() => {
-                fn.apply(context, args);
-            }, delay);
-        }
-    }
+  function debounce(fn, delay) {
+    var timer;
+    return function() {
+      var context = this;
+      var args = arguments;
+      clearTimeout(timer);
+      timer = setTimeout(() => {
+        fn.apply(context, args);
+      }, delay);
+    };
+  }
 
-    function throttle(fn, delay) {
-        var timer;
-        var isFirst = true;
-        return function() {
-            var context = this;
-            var args = arguments;
-            if (isFirst) {
-                fn.apply(context, args);
-                isFirst = false;
-            }
-            if (timer) {
-                return;
-            }
-            timer = setTimeout(() => {
-                timer = null;
-                fn.apply(context, args);
-            }, delay);
-        }
-    }
+  function throttle(fn, delay) {
+    var timer;
+    var isFirst = true;
+    return function() {
+      var context = this;
+      var args = arguments;
+      if (isFirst) {
+        fn.apply(context, args);
+        isFirst = false;
+      }
+      if (timer) {
+        return;
+      }
+      timer = setTimeout(() => {
+        timer = null;
+        fn.apply(context, args);
+      }, delay);
+    };
+  }
 
-    var contentArea = document.querySelector('.content-area');
-    var headers = document.querySelectorAll('.content-area .post h1,h2,h3,h4,h5,h6');
-    var tocList = document.querySelectorAll('.toc a');
+  var contentArea = document.querySelector(".content-area");
+  var headers = document.querySelectorAll(
+    ".content-area .post h1,h2,h3,h4,h5,h6"
+  );
+  var tocList = document.querySelectorAll(".toc a");
 
-    function highlightActiveToc() {
-        var activeIndex = 0;
-        for (let i=0; i<headers.length; i++) {
-            var offsetContainerTop = headers[i].offsetTop - contentArea.scrollTop >= 0
-            if (offsetContainerTop > 0) {
-                activeIndex = i;
-                break;
-            }
-        }
-        tocList.forEach(function(tocItem){
-            if (tocItem.getAttribute('href').substr(1) === headers[activeIndex].id) {
-                tocItem.classList.add('active');
-            } else {
-                tocItem.classList.remove('active');
-            }
-        })
+  function highlightActiveToc() {
+    var activeIndex = 0;
+    for (let i = 0; i < headers.length; i++) {
+      var offsetContainerTop =
+        headers[i].offsetTop - contentArea.scrollTop >= 0;
+      if (offsetContainerTop > 0) {
+        activeIndex = i;
+        break;
+      }
     }
-    highlightActiveToc();
-    contentArea.onscroll = throttle(highlightActiveToc, 15);
+    tocList.forEach(function(tocItem) {
+      if (tocItem.getAttribute("href").substr(1) === headers[activeIndex].id) {
+        tocItem.classList.add("active");
+      } else {
+        tocItem.classList.remove("active");
+      }
+    });
+  }
+  highlightActiveToc();
+  contentArea.onscroll = throttle(highlightActiveToc, 15);
 </script>
