@@ -37,9 +37,9 @@ repository命名格式为 `<username>.github.io`
 
 ```bash
 # 一些可能没安装的依赖
-sudo apt install zlib1g zlib1g-dev ruby-dev
+sudo apt install build-essential zlib1g zlib1g-dev ruby-dev
 # Install Jekyll and Bundler gems through RubyGems
-gem install jekyll bundler github-pages
+gem install bundler jekyll github-pages
 ```
 接着在根目录新建一个 **Gemfile**, 内容如下
 
