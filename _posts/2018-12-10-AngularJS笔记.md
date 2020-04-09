@@ -248,6 +248,20 @@ myModule.directive('directiveName', function factory(injectables) {
 });
 ```
 
+`post`
+This is the most commonly used for data binding
+
+- Safe to attach event handlers to the DOM element.
+- All children directives are linked, so it's safe to access them.
+- Never set any data required by the child directive here. Because child directive's will be linked already.
+
+`Pre`
+Used rarely. One of the use case is when a child directive requires data from its parent, the parent directive should set it through its pre-link function.
+
+- Set data required for its child directives.
+- Safe to attach event handlers to the DOM element.
+- Not safe to access DOM elements belong to child directives. They're not linked yet.
+
 **`require`**
 **Require another directive and inject its controller as the fourth argument to the linking function.**
 
@@ -378,6 +392,28 @@ $($0).scope()
 $($0).injector().get('serviceName')
 ```
 > [Debugging-AngularJS - ng-book](https://www.ng-book.com/p/Debugging-AngularJS/)
+
+```js
+function getScopeVal($scope, valName) {
+  if (!$scope) return;
+  if ($scope[valName] ) {
+    return $scope[valName];
+  } else {
+    return getScopeVal($scope.$parent, valName);
+  }
+}
+```
+
+**Chrome Plugin**
+ng-inspect for AngularJS
+
+`$s` for scope, `$is` for isolateScope, `$rs` for rootScope, `$el` for jQuery element.
+
+`Services`/`Factories`/`Constants` can be tested/verified using `$get` function.
+
+`$count` function prints number of Scopes, isolateScopes, listeners and watchers. 
+
+> <https://chrome.google.com/webstore/detail/ng-inspect-for-angularjs/cidepfmbgngpdapgncfhpecbdhmnnemf>
 
 # AngularUI
 AngularUI - The companion suite(s) to the AngularJS framework.
