@@ -568,6 +568,10 @@ window.jQuery === window.$    //true
 //多级查找
 $('#test').find('li')
 $('li').addClass('highlight')
+// 迭代
+$('li').each(function(index, el){
+    console.log(el);
+});
 //显示/隐藏
 $('left').show().hide()
 //浏览器宽高
