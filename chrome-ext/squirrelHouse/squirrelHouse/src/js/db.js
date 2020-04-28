@@ -92,6 +92,7 @@ function loadAllBookmark() {
           cursor.continue();
         } else {
           // timestamp DESC
+          chrome.browserAction.setBadgeText({text: bookmarks.length + ''});
           resolve(bookmarks.sort((b1,b2)=>{return b2.timestamp-b1.timestamp}));
         }
       };
