@@ -425,10 +425,24 @@ getComputedStyle($0).position
 **下载文件**
 ```js
 var link = document.createElement("a");
-link.download = getFileName();
+link.download = 'filename';
 link.href = dataURI;
 link.click();
-  ```
+```
+
+**下载JSON**
+
+```js
+function downloadObjectAsJson(exportObj, exportName){
+    var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(exportObj));
+    var downloadAnchorNode = document.createElement('a');
+    downloadAnchorNode.setAttribute("href",     dataStr);
+    downloadAnchorNode.setAttribute("download", exportName + ".json");
+    document.body.appendChild(downloadAnchorNode); // required for firefox
+    downloadAnchorNode.click();
+    downloadAnchorNode.remove();
+}
+```
 
 # ES6
 `let` - 替代 var 可以生成一个块级作用域的变量
@@ -619,3 +633,11 @@ $.fn.method = function(){...;return this;}
 函数式编程库 
 `underscore` 把自己绑定到 `_` 全局变量上了
 map,filter,object,max,min,zip,unzip...
+
+# lodash
+
+## Collection
+
+`sample` - gets a random element from collection
+
+`shuffle` - creates an array of shuffled values
