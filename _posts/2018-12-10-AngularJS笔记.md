@@ -6,6 +6,25 @@ date: 2018-12-10
 
 ---
 
+# Hello world
+
+```html
+<!doctype html>
+<html ng-app>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+  </head>
+  <body>
+    <div>
+      <label>Name:</label>
+      <input type="text" ng-model="yourName" placeholder="Enter a name here">
+      <hr>
+      <h1>Hello {{yourName}}!</h1>
+    </div>
+  </body>
+</html>
+```
+
 # Template
 {% raw %}
 ```html
@@ -28,6 +47,22 @@ date: 2018-12-10
 
 - The `ng-repeat="phone in phones"` attribute in the `<li>` tag is an Angular repeater directive.
 - The expressions wrapped in curly braces `({{phone.name}}` and `{{phone.snippet}})` will be replaced by the value of the expressions.
+
+## Expression
+An expression doesn’t throw errors if it results in a `TypeError` or a `ReferenceError`.
+
+```html
+<h1>Hello {{unknown.a.b.c}}</h1>
+<h1>Hello {{unknown[1][2][3]}}</h1>
+<h1>Hello {{unknownFunc().a[2]}}</h1>
+<!-- etc. -->
+```
+
+Angular evaluates expressions by an internal service (called the `$parse `service).
+
+To manually parse an expression, we can inject the `$parse` service into a controller.
+
+
 
 ## Two-way Data Binding
 ```html
@@ -85,6 +120,7 @@ Search: <input ng-model="query">
 `lowercase`, `uppercase`
 
 `orderBy`, `filter`, `limitTo`
+{% endraw %}
 
 # Directives
 `ngApp` `ngController`
@@ -92,7 +128,10 @@ Search: <input ng-model="query">
 `ngClick` 
 `ngIf` `ngShow` `ngHide` `ngRepeat` `ngSwitch`  `ngInclude`    
 
-{% endraw %}
+## ngApp
+The `ng-app` attribute declares that everything inside of it belongs to this Angular app.
+
+When `Angular` starts to run and generate the view, it will create a binding from the root `ng-app` element to the `$rootScope`. This `$rootScope` is the eventual parent of all $scope objects.
 
 # Controller
 The controller is simply a constructor function that takes a `$scope` parameter:
@@ -114,6 +153,15 @@ phonecatApp.controller('PhoneListCtrl', function ($scope) {
 
 # Scope
 `Scope` is an object that refers to the application model.
+
+## Life Cycle
+
+- Creation
+- Watcher registration
+- Model mutation
+- Mutation observation
+- Destruction
+
 
 # Functions
 
@@ -378,6 +426,13 @@ promise.then(function(greeting) {
 
 > [q - A promise library for JavaScript](https://github.com/kriskowal/q)
 
+# AngularUI
+AngularUI - The companion suite(s) to the AngularJS framework.
+> [angular-ui.github.io](https://angular-ui.github.io/)
+
+## UI-Router
+> <https://github.com/angular-ui/ui-router/wiki>
+
 # Debug
 
 ```js
@@ -415,12 +470,8 @@ ng-inspect for AngularJS
 
 > <https://chrome.google.com/webstore/detail/ng-inspect-for-angularjs/cidepfmbgngpdapgncfhpecbdhmnnemf>
 
-# AngularUI
-AngularUI - The companion suite(s) to the AngularJS framework.
-> [angular-ui.github.io](https://angular-ui.github.io/)
-
-## UI-Router
-> <https://github.com/angular-ui/ui-router/wiki>
+# Under the hood
+Angular will do a dirty check inside its event loop to ensure everything is consistent.
 
 
 # Misc
