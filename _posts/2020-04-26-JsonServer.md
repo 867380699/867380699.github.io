@@ -59,10 +59,42 @@ server.listen(3000, () => {
 
 # Relationship
 
+## `_embed`
+```js
+{
+  commentId: 1,
+  comment: 'A comment',
+  postId: 1,
+  // ...
+}
+```
+
+`/posts/1?_embed=comments`
+
+```js
+{
+  postId: 1,
+  content: 'A post',
+  comments: [/* all comments postId=1 */]
+}
+```
+
+## `_expand`
+```js
+{
+  postId: 1,
+  userId:1
+  // ...
+}
+```
+userId => user
+
+`/posts/1?_embed=user`
+
+
 > <https://github.com/marak/Faker.js/>
 
 > <https://github.com/chimurai/http-proxy-middleware>
 
-HTTPS:
-
+# HTTPS
 > <chrome://flags/#allow-insecure-localhost>
