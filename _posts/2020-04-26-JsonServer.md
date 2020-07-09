@@ -89,12 +89,38 @@ server.listen(3000, () => {
 ```
 userId => user
 
-`/posts/1?_embed=user`
+`/posts/1?_expand=user`
 
+```js
+{
+  postId: 1,
+  userId:1,
+  user: {
+    id: 1,
+    // ...
+  }
+  // ...
+}
+```
+
+# Rewriter
+```js
+const rewrite = jsonServer.rewriter({
+  "/api/*": "/$1",
+  "/mock-api/*": "/$1",
+  "/post/v1/detail?id=([0-9]+):qs": "/post/$1?:qs",
+});
+```
+
+> <https://github.com/kapouer/express-urlrewrite>
+> <https://github.com/pillarjs/path-to-regexp>
+
+# HTTPS
+> <chrome://flags/#allow-insecure-localhost>
+
+
+# Refs
 
 > <https://github.com/marak/Faker.js/>
 
 > <https://github.com/chimurai/http-proxy-middleware>
-
-# HTTPS
-> <chrome://flags/#allow-insecure-localhost>
