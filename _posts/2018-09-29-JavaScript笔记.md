@@ -24,6 +24,12 @@ tags: [ javascript ]
 `document` 对象表示当前页
 `history` 对象保存了浏览器的历史记录
 
+## location
+```js
+// 重新加载页面
+location.reload()
+```
+
 ## navigator
 `userAgent` - Returns the user agent string for the current browser.
 
