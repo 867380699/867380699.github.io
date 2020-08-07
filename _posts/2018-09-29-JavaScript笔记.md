@@ -30,6 +30,17 @@ tags: [ javascript ]
 location.reload()
 ```
 
+```js
+location.href
+location.protocol
+location.host
+location.hostname
+location.port
+location.pathname
+location.search // ?q=a&b=etc
+location.hash
+```
+
 ## navigator
 `userAgent` - Returns the user agent string for the current browser.
 
