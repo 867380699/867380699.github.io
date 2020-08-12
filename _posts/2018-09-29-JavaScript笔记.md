@@ -74,12 +74,17 @@ document.getElementById('su').style.fontSize='100px';
 node = document.createElement('p');
 node.innerText = 'Java';
 document.getElementById('su').appendChild(node);
-parentElement.insertBefore(newElement, referenceElement);
+parentElement.insertBefore(newElement, referenceElement); // referenceElement 为 null 则在末尾插入
 // delete
 parentElement.removeChild(element);
 ```
 
-DOM节点对象的 `style` 属性对应节点的CSS
+### classList
+
+- `contains`
+- `add`
+- `remove`
+- `toggle`
 
 ### 表单操作
 
