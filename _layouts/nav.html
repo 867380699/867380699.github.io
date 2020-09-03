@@ -1,11 +1,16 @@
---- 
-layout: default 
+---
+layout: default
 ---
 
 {{ content }}
 
 <script type="text/javascript">
-    var mNav = document.evaluate("//div[@class='nav']/a[text()='{{page.title}}']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-    mNav.style.background = '#3399cc';
-    mNav.style.color = '#ffffff';
+  var mNav = document.evaluate(
+    "//div[@class='nav']/a[text()='{{page.title}}']",
+    document,
+    null,
+    XPathResult.FIRST_ORDERED_NODE_TYPE,
+    null
+  ).singleNodeValue;
+  mNav.classList.add("active");
 </script>

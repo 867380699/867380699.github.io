@@ -44,13 +44,19 @@ a:hover {
   height: $nav-height;
   display: flex;
   overflow-x: auto;
-}
-
-.nav {
   a {
     float: left;
-    display: block;
+    display: flex;
     padding: 16px;
+    min-width: 80px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease-in-out;
+    &.active {
+      background-color: #3399cc;
+      color: #ffffff;
+    }
   }
   .icon {
     display: none;
