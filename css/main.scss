@@ -24,10 +24,9 @@ body {
 }
 a {
   color: #999;
-}
-
-a:hover {
-  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+  }
 }
 
 .title {
@@ -64,6 +63,11 @@ a:hover {
   }
 }
 
+main {
+  height: calc(100% - #{$nav-height} - #{$footer-height});
+  overflow: auto;
+  position: relative;
+}
 
 ul.posts {
   margin: 0 auto 20px;
@@ -94,7 +98,7 @@ ul.posts {
 .toc {
   width: 20%;
   float: left;
-  height: calc(100% - #{$nav-height} - #{$footer-height});
+  height: 100%;
   overflow: auto;
   padding-bottom: 20px;
   padding-left: 20px;
@@ -140,10 +144,10 @@ ul.posts {
   }
 }
 
-.content-area {
+.article {
   position: relative;
   width: 80%;
-  height: calc(100% - #{$nav-height} - #{$footer-height});
+  height: 100%;
   overflow: scroll;
   box-sizing: border-box;
   min-width: 400px;
@@ -237,7 +241,7 @@ ul.posts {
 .index {
   padding-top: 8px;
   overflow: auto;
-  height: calc(100% - #{$nav-height} - #{$footer-height});
+  height: 100%;
 }
 
 .meta {
@@ -248,7 +252,7 @@ ul.posts {
 @media (max-width:800px) {
 
   .toc,
-  .content-area,
+  .article,
   .footer {
     width: 100%;
     padding-left: 8px;
@@ -257,7 +261,7 @@ ul.posts {
     box-sizing: border-box;
   }
 
-  .content-area {
+  .article {
     left: 0px;
     min-width: 320px;
   }
