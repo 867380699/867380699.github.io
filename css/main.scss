@@ -12,6 +12,9 @@
 
 $nav-height: 50px;
 $footer-height: 30px;
+$max-width: 1360px;
+$toc-max-width: $max-width * 0.2;
+
 
 $primary: #3399cc;
 
@@ -22,6 +25,7 @@ html, body {
 body {
   font-family: 'Noto Sans SC', 'Roboto', -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
+
 a {
   color: #999;
   &:hover {
@@ -35,38 +39,48 @@ a {
   color: #3399cc;
 }
 
-.nav {
-  background-color: #eeeeee;
+header {
   width: 100%;
   top: 0;
   z-index: 9999;
-  height: $nav-height;
-  display: flex;
-  overflow-x: auto;
-  a {
-    float: left;
+  background-color: #eeeeee;
+  
+  .nav {
+    max-width: $max-width;
+    margin: auto;
+    height: $nav-height;
     display: flex;
-    padding: 16px;
-    min-width: 80px;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.2s ease-in-out;
-    &.active {
-      background-color: #3399cc;
-      color: #ffffff;
+    overflow-x: auto;
+    a {
+      float: left;
+      display: flex;
+      padding: 16px;
+      min-width: 80px;
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease-in-out;
+      &.active {
+        background-color: #3399cc;
+        color: #ffffff;
+      }
     }
-  }
-  .icon {
-    display: none;
-    float: left;
-  }
+    .icon {
+      display: none;
+      float: left;
+    }
+  }  
 }
 
 main {
   height: calc(100% - #{$nav-height} - #{$footer-height});
   overflow: auto;
   position: relative;
+
+  .main-container {
+    max-width: $max-width;
+    margin: auto;
+  }
 }
 
 ul.posts {
@@ -96,9 +110,12 @@ ul.posts {
 }
 
 .toc {
+  position: fixed;
+  top: $nav-height;
   width: 20%;
+  max-width: $toc-max-width;
   float: left;
-  height: 100%;
+  height: calc(100% - #{$nav-height} - #{$footer-height});
   overflow: auto;
   padding-bottom: 20px;
   padding-left: 20px;
@@ -146,6 +163,7 @@ ul.posts {
 
 .article {
   position: relative;
+  float: right;
   width: 80%;
   height: 100%;
   overflow: scroll;

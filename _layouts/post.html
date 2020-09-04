@@ -92,7 +92,7 @@ layout: default
     };
   }
 
-  var article = document.querySelector(".article");
+  var contentArea = document.querySelector("main");
   var headers = document.querySelectorAll(
     ".article .post h1,h2,h3,h4,h5,h6"
   );
@@ -102,7 +102,7 @@ layout: default
     var activeIndex = 0;
     for (let i = 0; i < headers.length; i++) {
       var offsetContainerTop =
-        headers[i].offsetTop - article.scrollTop >= 0;
+        headers[i].offsetTop - contentArea.scrollTop >= 0;
       if (offsetContainerTop > 0) {
         activeIndex = i;
         break;
