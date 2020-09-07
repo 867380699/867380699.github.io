@@ -44,7 +44,7 @@ header {
   top: 0;
   z-index: 9999;
   background-color: #eeeeee;
-  
+
   .nav {
     max-width: $max-width;
     margin: auto;
@@ -76,6 +76,7 @@ main {
   height: calc(100% - #{$nav-height} - #{$footer-height});
   overflow: auto;
   position: relative;
+  background-color: #fcfcfc;
 
   .main-container {
     max-width: $max-width;
@@ -169,7 +170,9 @@ ul.posts {
   overflow: scroll;
   box-sizing: border-box;
   min-width: 400px;
+  min-height: calc(100vh - #{$nav-height} - #{$footer-height});
   padding: 0px 20px 20px;
+  background-color: #ffffff;
 }
 
 .main {
