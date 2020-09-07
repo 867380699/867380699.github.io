@@ -152,6 +152,31 @@ evt.initMouseEvent("mouseenter", true, true, window,0, 0, 0, 0, 0, false, false,
 $0.dispatchEvent(evt); 
 ```
 
+```
+Event
+├── UIEvent
+│   ├── MouseEvent
+│   │   ├── DragEvent
+│   │   └── WheelEvent
+│   ├── TouchEvent
+│   ├── KeyboardEvent
+│   ├── InputEvent
+│   └── FocusEvent
+├── ProgressEvent
+├── PopStateEvent
+├── HashChangeEvent
+└── ...
+```
+
+### event types
+
+MouseEvent: click, dblclick, mouseenter, mouseleave, mousedown, mouseup, mousemove, mouseover, mosueout
+TouchEvent: touchstart, touchmove, touchend, touchcancel
+KeyboardEvent: keydown, keypress, keyup
+
+> <https://developer.mozilla.org/en-US/docs/Web/Events>
+
+
 # 内置对象
 
 ## 数据类型
