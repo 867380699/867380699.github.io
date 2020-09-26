@@ -5,7 +5,7 @@ layout: default
 <div class="toc">
   {% include toc.html html=content item_class='toc-l%level%' %}
 </div>
-<div class="content-area">
+<div class="article">
   <div class="main">
     <h1 class="title">{{ page.title }}</h1>
     <p class="meta">
@@ -92,9 +92,9 @@ layout: default
     };
   }
 
-  var contentArea = document.querySelector(".content-area");
+  var contentArea = document.querySelector("main");
   var headers = document.querySelectorAll(
-    ".content-area .post h1,h2,h3,h4,h5,h6"
+    ".article .post h1,h2,h3,h4,h5,h6"
   );
   var tocList = document.querySelectorAll(".toc a");
 

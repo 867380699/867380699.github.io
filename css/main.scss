@@ -12,6 +12,9 @@
 
 $nav-height: 50px;
 $footer-height: 30px;
+$max-width: 1360px;
+$toc-max-width: $max-width * 0.2;
+
 
 $primary: #3399cc;
 
@@ -22,12 +25,12 @@ html, body {
 body {
   font-family: 'Noto Sans SC', 'Roboto', -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
+
 a {
   color: #999;
-}
-
-a:hover {
-  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+  }
 }
 
 .title {
@@ -36,28 +39,50 @@ a:hover {
   color: #3399cc;
 }
 
-.nav {
-  background-color: #eeeeee;
+header {
   width: 100%;
   top: 0;
   z-index: 9999;
-  height: $nav-height;
-  display: flex;
-  overflow-x: auto;
+  background-color: #eeeeee;
+
+  .nav {
+    max-width: $max-width;
+    margin: auto;
+    height: $nav-height;
+    display: flex;
+    overflow-x: auto;
+    a {
+      float: left;
+      display: flex;
+      padding: 16px;
+      min-width: 80px;
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease-in-out;
+      &.active {
+        background-color: #3399cc;
+        color: #ffffff;
+      }
+    }
+    .icon {
+      display: none;
+      float: left;
+    }
+  }  
 }
 
-.nav {
-  a {
-    float: left;
-    display: block;
-    padding: 16px;
-  }
-  .icon {
-    display: none;
-    float: left;
+main {
+  height: calc(100% - #{$nav-height} - #{$footer-height});
+  overflow: auto;
+  position: relative;
+  background-color: #fcfcfc;
+
+  .main-container {
+    max-width: $max-width;
+    margin: auto;
   }
 }
-
 
 ul.posts {
   margin: 0 auto 20px;
@@ -86,7 +111,10 @@ ul.posts {
 }
 
 .toc {
+  position: fixed;
+  top: $nav-height;
   width: 20%;
+  max-width: $toc-max-width;
   float: left;
   height: calc(100% - #{$nav-height} - #{$footer-height});
   overflow: auto;
@@ -134,14 +162,17 @@ ul.posts {
   }
 }
 
-.content-area {
+.article {
   position: relative;
+  float: right;
   width: 80%;
-  height: calc(100% - #{$nav-height} - #{$footer-height});
+  height: 100%;
   overflow: scroll;
   box-sizing: border-box;
   min-width: 400px;
+  min-height: calc(100vh - #{$nav-height} - #{$footer-height});
   padding: 0px 20px 20px;
+  background-color: #ffffff;
 }
 
 .main {
@@ -231,7 +262,7 @@ ul.posts {
 .index {
   padding-top: 8px;
   overflow: auto;
-  height: calc(100% - #{$nav-height} - #{$footer-height});
+  height: 100%;
 }
 
 .meta {
@@ -242,7 +273,7 @@ ul.posts {
 @media (max-width:800px) {
 
   .toc,
-  .content-area,
+  .article,
   .footer {
     width: 100%;
     padding-left: 8px;
@@ -251,7 +282,7 @@ ul.posts {
     box-sizing: border-box;
   }
 
-  .content-area {
+  .article {
     left: 0px;
     min-width: 320px;
   }

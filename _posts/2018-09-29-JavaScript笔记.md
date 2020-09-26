@@ -152,6 +152,31 @@ evt.initMouseEvent("mouseenter", true, true, window,0, 0, 0, 0, 0, false, false,
 $0.dispatchEvent(evt); 
 ```
 
+```
+Event
+├── UIEvent
+│   ├── MouseEvent
+│   │   ├── DragEvent
+│   │   └── WheelEvent
+│   ├── TouchEvent
+│   ├── KeyboardEvent
+│   ├── InputEvent
+│   └── FocusEvent
+├── ProgressEvent
+├── PopStateEvent
+├── HashChangeEvent
+└── ...
+```
+
+### event types
+
+MouseEvent: click, dblclick, mouseenter, mouseleave, mousedown, mouseup, mousemove, mouseover, mosueout
+TouchEvent: touchstart, touchmove, touchend, touchcancel
+KeyboardEvent: keydown, keypress, keyup
+
+> <https://developer.mozilla.org/en-US/docs/Web/Events>
+
+
 # 内置对象
 
 ## 数据类型
@@ -171,6 +196,16 @@ s.replace(/\d/g, function(d){
 ```
 
 ### Object
+```js
+Object.defineProperty(obj, propName, {
+    configurable: false, // true if and only if the type of this property descriptor may be changed and if the property may be deleted from the corresponding object.
+    enumerable: false, // true if and only if this property shows up during enumeration of the properties on the corresponding object.
+    value: undefined, // The value associated with the property. Can be any valid JavaScript value (number, object, function, etc).
+    writable: false, // true if and only if the value associated with the property may be changed with an assignment operator.
+    get: undefined, // A function which serves as a getter for the property,
+    set: undefined, // A function which serves as a setter for the property
+})
+```
 ### Function
 ### NaN
 ## 集合
