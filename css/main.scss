@@ -50,6 +50,7 @@ header {
     margin: auto;
     height: $nav-height;
     display: flex;
+    justify-content: flex-end;
     overflow-x: auto;
     a {
       float: left;
