@@ -18,6 +18,12 @@ $toc-max-width: $max-width * 0.2;
 
 $primary: #3399cc;
 
+@mixin hide-scrollbar {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 html, body {
   height: 100%;
 }
@@ -164,6 +170,7 @@ ul.posts {
 }
 
 .article {
+  @include hide-scrollbar;
   position: relative;
   float: right;
   width: 80%;
