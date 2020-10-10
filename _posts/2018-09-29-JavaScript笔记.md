@@ -626,6 +626,36 @@ A method returning the default iterator for an object. Used by `for...of`.
 
 > [近一万字的ES6语法知识点补充 - juejin.im](https://juejin.im/post/5c6234f16fb9a049a81fcca5)
 
+# 模块化
+
+## CommonJS
+可以在`nodeJS`中使用，浏览器不支持，需要工具转化
+
+```js
+module.exports = {
+    name: 'xxx',
+}
+```
+
+```js
+const m1 = require('m1');
+```
+
+## AMD
+```js
+require(['m1', 'm2'], function(m1, m2) {
+    // ...
+});
+```
+
+## ES6
+```js
+export const name = 'aaa';
+```
+```js
+import { name } from 'm1';
+```
+
 # JQuery
 JQuery可以帮我们干这些事:
 - 消除浏览器差异
