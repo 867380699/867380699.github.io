@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dress Pattern</title>
+    <style>
+      svg {
+        padding: 20px;
+        transform: scale(1.5);
+        transform-origin: 0 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="svg"></div>
+    <script src="./js/raphael.min.js"></script>
+    <script>
+      let scale = 12;
+
+      let height = 160 * scale;
+
+      let h = (90 + 2) * scale;
+      let w = 68 * scale;
+      let dl = 45 * scale;
+      
+      let offset = 0.5 * scale;
+      let sDartOffsetTop = 1 * scale;
+      let sDartWidth = 2 * scale;
+
+      let lDart1Length = 12 * scale;
+      let lDart2Length = 10.5 * scale;
+
+      let rDart1Length = 8.5 * scale;
+      let rDart2Length = 10 * scale;
+
+      let hh = h / 2;
+      let hw = w / 2;
+      let hl = height / 8;
+
+      let s = hh / 2 - offset;
+
+      let totalDart = hh - hw;
+      let sDart = totalDart / 3;
+      let fDart = totalDart / 3 - offset;
+      let bDart = totalDart / 3 + offset;
+
+      let hfDart = fDart / 2 / 2;
+      let hbDart1 = (totalDart / 6 + offset) / 2;
+      let hbDart2 = (totalDart / 6) / 2;
+
+
+      let paper = Raphael(10, 50, hh+100, hh+100);
+      let rectTop = paper.path(`M0 0 L${hh} 0`);
+      let rect = paper.path(`M${hh} 0L${hh} ${dl} L0 ${dl} L0 0`);
+      let hLine = paper.path(`M0 ${hl}L${hh} ${hl}`);
+      let sLine = paper.path(`M${s} 0L${s} ${dl}`);
+      let lSDartLine1 = paper.path(`M${s-sDartWidth} ${-sDartOffsetTop}C${s-sDartWidth - scale} 0 ${s*0.52} 0 ${s/2 - sDartWidth/4} 0L0 0`);
+      let lSDartLine2 = paper.path(`M${s-sDartWidth} ${-sDartOffsetTop}C${s} ${0} ${s} ${hl*0.99} ${s} ${hl}`);
+
+      let rSDartLine1 = paper.path(`M${s+sDartWidth} ${-sDartOffsetTop}C${s+sDartWidth + scale} 0 ${s+(hh-s)/2} 0 ${(hh+s)/2} 0L${hh} 0`);
+      let rSDartLine2 = paper.path(`M${s+sDartWidth} ${-sDartOffsetTop}C${s} ${0} ${s} ${hl*0.99} ${s} ${hl}`);
+
+      let ld1l = lSDartLine1.getTotalLength();
+
+      let ld1p1 = lSDartLine1.getPointAtLength(ld1l*2/3);
+      let ld1p1_1 = lSDartLine1.getPointAtLength(ld1l*2/3 - hbDart1);
+      let ld1p1_2 = lSDartLine1.getPointAtLength(ld1l*2/3 + hbDart1);
+
+      let ld1p2 = lSDartLine1.getPointAtLength(ld1l/3);
+      let ld1p2_1 = lSDartLine1.getPointAtLength(ld1l/3 - hbDart2);
+      let ld1p2_2 = lSDartLine1.getPointAtLength(ld1l/3 + hbDart2);
+
+      let ld1p1sl = paper.path(lSDartLine1.getSubpath(ld1l*2/3 - hbDart1, ld1l*2/3 + hbDart1));
+      let ld1p2sl = paper.path(lSDartLine1.getSubpath(ld1l/3 - hbDart2, ld1l/3 + hbDart2));
+
+      let ld1ep1 = {
+        x: ld1p1.x + lDart1Length * Math.sin(ld1p1.alpha / 180 * Math.PI), 
+        y: ld1p1.y - lDart1Length * Math.cos(ld1p1.alpha / 180 * Math.PI)
+      };
+      let ld1ep2 = {
+        x: ld1p2.x + lDart2Length * Math.sin(ld1p2.alpha / 180 * Math.PI), 
+        y: ld1p2.y - lDart2Length * Math.cos(ld1p2.alpha / 180 * Math.PI)
+      };
+
+      let ld1p1l = paper.path(`M${ld1p1.x} ${ld1p1.y} L${ld1ep1.x} ${ld1ep1.y}`);
+      let ld1p1l_1 = paper.path(`M${ld1p1_1.x} ${ld1p1_1.y} L${ld1ep1.x} ${ld1ep1.y}`);
+      let ld1p1l_2 = paper.path(`M${ld1p1_2.x} ${ld1p1_2.y} L${ld1ep1.x} ${ld1ep1.y}`);
+
+      let ld1p2l = paper.path(`M${ld1p2.x} ${ld1p2.y} L${ld1ep2.x} ${ld1ep2.y}`);
+      let ld1p2l_1 = paper.path(`M${ld1p2_1.x} ${ld1p2_1.y} L${ld1ep2.x} ${ld1ep2.y}`);
+      let ld1p2l_2 = paper.path(`M${ld1p2_2.x} ${ld1p2_2.y} L${ld1ep2.x} ${ld1ep2.y}`);
+
+      let rd1l = rSDartLine1.getTotalLength();
+
+      let rd1p1 = rSDartLine1.getPointAtLength(rd1l/3);
+      let rd1p1_1 = rSDartLine1.getPointAtLength(rd1l/3 - hfDart);
+      let rd1p1_2 = rSDartLine1.getPointAtLength(rd1l/3 + hfDart);
+
+      let rd1p2 = rSDartLine1.getPointAtLength(rd1l*2/3);
+      let rd1p2_1 = rSDartLine1.getPointAtLength(rd1l*2/3 - hfDart);
+      let rd1p2_2 = rSDartLine1.getPointAtLength(rd1l*2/3 + hfDart);
+
+      let rd1p1sl = paper.path(rSDartLine1.getSubpath(rd1l/3 - hfDart, rd1l/3 + hfDart));
+      let rd1p2sl = paper.path(rSDartLine1.getSubpath(rd1l*2/3 - hfDart, rd1l*2/3 + hfDart));
+
+      let rd1ep1 = {
+        x: rd1p1.x - rDart1Length * Math.sin(rd1p1.alpha / 180 * Math.PI), 
+        y: rd1p1.y + rDart1Length * Math.cos(rd1p1.alpha / 180 * Math.PI)
+      };
+      let rd1ep2 = {
+        x: rd1p2.x + rDart2Length * Math.sin(rd1p2.alpha / 180 * Math.PI), 
+        y: rd1p2.y - rDart2Length * Math.cos(rd1p2.alpha / 180 * Math.PI)
+      };
+
+      let rd1p1l = paper.path(`M${rd1p1.x} ${rd1p1.y} L${rd1ep1.x} ${rd1ep1.y}`);
+      let rd1p1l_1 = paper.path(`M${rd1p1_1.x} ${rd1p1_1.y} L${rd1ep1.x} ${rd1ep1.y}`);
+      let rd1p1l_2 = paper.path(`M${rd1p1_2.x} ${rd1p1_2.y} L${rd1ep1.x} ${rd1ep1.y}`);
+
+      let rd1p2l = paper.path(`M${rd1p2.x} ${rd1p2.y} L${rd1ep2.x} ${rd1ep2.y}`);
+      let rd1p2l_1 = paper.path(`M${rd1p2_1.x} ${rd1p2_1.y} L${rd1ep2.x} ${rd1ep2.y}`);
+      let rd1p2l_2 = paper.path(`M${rd1p2_2.x} ${rd1p2_2.y} L${rd1ep2.x} ${rd1ep2.y}`);
+
+      [rectTop, hLine, sLine, ld1p1l, ld1p2l, rd1p1l, rd1p2l, ld1p1sl, ld1p2sl, rd1p1sl, rd1p2sl]
+        .forEach(line=>line.attr('stroke', '#eee'));
+    </script>
+  </body>
+</html>
