@@ -7,6 +7,7 @@ module.exports = {
   entry: {
     popup: ['./src/popup.js', './src/styles/popup.scss'],
     background: './src/background.js',
+    options: './src/options.js',
   },
   optimization: {
     splitChunks: {
@@ -15,9 +16,15 @@ module.exports = {
       minSize: 15000,
     }
   },
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'src')
+    }
+  },
   plugins: [
     new BundleAnalyzerPlugin({
-      analyzerPort: 8899
+      analyzerPort: 8899,
+      analyzerMode: 'disabled'
     }),
     new MiniCssExtractPlugin(),
     new CopyPlugin([
