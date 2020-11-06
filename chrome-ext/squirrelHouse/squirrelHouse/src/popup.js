@@ -4,45 +4,49 @@ import utils from './js/utils.js';
 const bookmarkListContainerEl = document.getElementById('bookmark-list-container');
 let iconMap = {};
 
-const bookmarkClickCallback = function(event){
-  chrome.runtime.sendMessage(chrome.runtime.id, {type: 'openBookmark', data: event.currentTarget.dataset.url })
+const bookmarkClickCallback = function (event) {
+  chrome.runtime.sendMessage(chrome.runtime.id, {type: 'openBookmark', data: event.currentTarget.dataset.url})
 };
 
-function createBookmarkElement(bookmark) {  
+function createBookmarkElement(bookmark) {
   const itemEl = document.createElement('div');
   itemEl.classList.add('bookmark-item')
   itemEl.dataset.url = bookmark.url;
 
   const iconEl = document.createElement('img');
   iconEl.classList.add('favicon');
+  iconEl.src = new URL(bookmark.url).origin + '/favicon.ico';
   const iconSrc = iconMap[new URL(bookmark.url).hostname];
   if (iconSrc) {
-    iconEl.src = iconSrc;
+    iconEl.style.backgroundImage = `url(${iconSrc})`;
+  }
+  iconEl.onload = () => {
+    iconEl.style.backgroundImage = null;
   }
 
   const titleEl = document.createElement('span');
   titleEl.classList.add('title');
   titleEl.textContent = bookmark.title;
-  
+
   itemEl.appendChild(iconEl);
   itemEl.appendChild(titleEl);
-  itemEl.addEventListener('click', bookmarkClickCallback );
+  itemEl.addEventListener('click', bookmarkClickCallback);
   return itemEl;
 }
 
 function filterBookmark(bookmark, filter) {
-  if (! filter) return true;
+  if (!filter) return true;
   return bookmark.title.toLowerCase().indexOf(filter) !== -1;
 }
 
 function initBookmarkList(bookmarkList, filter) {
   let fragment = document.createDocumentFragment();
 
-  bookmarkList.forEach((bookmark)=>{
+  bookmarkList.forEach((bookmark) => {
     if (filterBookmark(bookmark, filter)) {
       fragment.appendChild(createBookmarkElement(bookmark));
     }
-  })  
+  })
 
   if (bookmarkListContainerEl.firstChild) {
     bookmarkListContainerEl.firstChild.remove();
@@ -53,19 +57,19 @@ function initBookmarkList(bookmarkList, filter) {
   bookmarkListContainerEl.appendChild(bookmarkListEl);
 }
 
-db.loadAllBookmark().then((bookmarks)=>{
+db.loadAllBookmark().then((bookmarks) => {
   initBookmarkList(bookmarks);
-  db.loadAllIcons(bookmarks).then((result)=>{
+  db.loadAllIcons(bookmarks).then((result) => {
     // console.log('pop-loadAllIcon:', result);
     iconMap = result;
     initBookmarkList(bookmarks);
   });
-  document.querySelector('#search-input').addEventListener('input', utils.debounce(function(event){
-    db.loadAllBookmark().then((bookmarks)=>{
+  document.querySelector('#search-input').addEventListener('input', utils.debounce(function (event) {
+    db.loadAllBookmark().then((bookmarks) => {
       initBookmarkList(bookmarks, event.srcElement.value);
     });
   }, 50));
-}) 
+})
 
 document.getElementById('btn-add').addEventListener('click', (event)=>{
   chrome.runtime.sendMessage(chrome.runtime.id, {type: 'saveBookmark'}, {}, function(resp) {
@@ -83,3 +87,11 @@ document.getElementById('btn-add').addEventListener('click', (event)=>{
     }
   });
 })
+
+document.getElementById('btn-add-close').addEventListener('click', () => {
+  chrome.runtime.sendMessage(chrome.runtime.id, {type: 'saveBookmark'}, {}, function(resp) {
+    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+      chrome.tabs.remove(tabs[0].id);
+    })
+  })
+});
