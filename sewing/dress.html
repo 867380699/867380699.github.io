@@ -6,6 +6,7 @@
     <title>Dress Pattern</title>
     <style>
       svg {
+        overflow: visible !important;
         padding: 20px;
         transform: scale(1.5);
         transform-origin: 0 0;
@@ -55,11 +56,11 @@
       let rect = paper.path(`M${hh} 0L${hh} ${dl} L0 ${dl} L0 0`);
       let hLine = paper.path(`M0 ${hl}L${hh} ${hl}`);
       let sLine = paper.path(`M${s} 0L${s} ${dl}`);
-      let lSDartLine1 = paper.path(`M${s-sDartWidth} ${-sDartOffsetTop}C${s-sDartWidth - scale} 0 ${s*0.52} 0 ${s/2 - sDartWidth/4} 0L0 0`);
-      let lSDartLine2 = paper.path(`M${s-sDartWidth} ${-sDartOffsetTop}C${s} ${0} ${s} ${hl*0.99} ${s} ${hl}`);
+      let lSDartLine1 = paper.path(`M${s-sDartWidth} ${-sDartOffsetTop}C${s-sDartWidth - 2*scale} 0 ${s*0.52} 0 ${s/2 - sDartWidth/4} 0L0 0`);
+      let lSDartLine2 = paper.path(`M${s-sDartWidth} ${-sDartOffsetTop}C${s} ${scale} ${s} ${hl*0.99} ${s} ${hl}`);
 
-      let rSDartLine1 = paper.path(`M${s+sDartWidth} ${-sDartOffsetTop}C${s+sDartWidth + scale} 0 ${s+(hh-s)/2} 0 ${(hh+s)/2} 0L${hh} 0`);
-      let rSDartLine2 = paper.path(`M${s+sDartWidth} ${-sDartOffsetTop}C${s} ${0} ${s} ${hl*0.99} ${s} ${hl}`);
+      let rSDartLine1 = paper.path(`M${s+sDartWidth} ${-sDartOffsetTop}C${s+sDartWidth + 2*scale} 0 ${s+(hh-s)/2} 0 ${(hh+s)/2} 0L${hh} 0`);
+      let rSDartLine2 = paper.path(`M${s+sDartWidth} ${-sDartOffsetTop}C${s} ${scale} ${s} ${hl*0.99} ${s} ${hl}`);
 
       let ld1l = lSDartLine1.getTotalLength();
 

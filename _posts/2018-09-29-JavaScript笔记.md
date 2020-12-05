@@ -501,6 +501,18 @@ function downloadObjectAsJson(exportObj, exportName){
 }
 ```
 
+---
+
+`new Function`
+
+```js
+let sum = new Function('a', 'b', 'return a + b');
+sum(1, 2) // 3
+```
+
+可以用于动态生成函数，比如从服务端获取代码
+
+
 # ES6
 `let` - 替代 var 可以生成一个块级作用域的变量
 `const` - 声明常量，必须初始化且不可修改
