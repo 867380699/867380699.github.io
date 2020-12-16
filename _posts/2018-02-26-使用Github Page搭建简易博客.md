@@ -141,6 +141,13 @@ Liquid 代码可以分为三类，对象（Object），标签（tags），过滤
 ```liquid
 {{ "adam!" | capitalize | prepend: "Hello " }}
 ```
+### Array
+```liquid
+{% assign fruits = "orange,apple,peach" | split: ',' %}
+{% for fruit in fruits %}
+  {{ fruit }}
+{% endfor %}
+```
 
 {% endraw %}
 
