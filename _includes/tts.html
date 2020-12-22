@@ -1,0 +1,30 @@
+{% assign lang = include.lang %}
+<script>
+  if ('speechSynthesis' in window) {
+    var whiteList = ['ABBR', 'STRONG'];
+    var ttsBlocks = document.querySelectorAll('.tts');
+    if (ttsBlocks.length) {
+      ttsBlocks.forEach(block=>{
+        block.addEventListener('click', function($event){
+          if (whiteList.indexOf($event.target.tagName) !== -1 && (text = $event.target.innerText)) {
+            var voiceList = speechSynthesis.getVoices().filter(voice => /{{ lang }}/.test(voice.lang));
+            // console.log(text);
+            var msg = new SpeechSynthesisUtterance(text);
+            msg.voice = voiceList[0];
+            msg.lang = '{{ lang }}';
+            msg.rate = 0.7;
+            msg.pitch = 1;
+            speechSynthesis.cancel();
+            speechSynthesis.speak(msg);
+          }
+        });
+      })
+    }
+  }
+</script>
+
+<style>
+  .tts strong {
+    cursor: help;
+  }
+</style>
