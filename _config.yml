@@ -14,5 +14,6 @@ kramdown:
   #   line_numbers: false
 permalink: /blog/:year/:month/:day/:title
 exclude:
+  - _scripts/
   - chrome-ext/
   - _search/
