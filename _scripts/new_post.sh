@@ -1,4 +1,4 @@
-#!/usr/bash
+#!/bin/bash
 date=`date +%Y-%m-%d`
 post="./_posts/$date-$1.md"
 touch "$post"

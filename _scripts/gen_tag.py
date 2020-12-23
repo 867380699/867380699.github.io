@@ -12,6 +12,7 @@ No plugins required.
 
 import glob
 import os
+import re
 
 post_dir = '_posts/'
 tag_dir = 'tag/'
@@ -25,7 +26,7 @@ for filename in filenames:
     for line in f:
         if crawl:
             current_tags = line.replace('[','').replace(']','').strip().split()
-            if current_tags and current_tags[0] == 'tags:':
+            if current_tags and re.match(r'tags?:', current_tags[0]):
                 total_tags.extend(current_tags[1:])
                 crawl = False
                 break
