@@ -3,6 +3,7 @@
 layout: post
 title: "ArchLinux"
 date: 2020-10-19
+tag: [linux]
 
 ---
 

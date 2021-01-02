@@ -276,12 +276,13 @@ sin cos ...
 ## RegExp
 ```js
 var re = /\d+/
-re.test('232432')    //true
-re.test('ascddf')    //false
-'a   b   c   de f'.split(/\s+/)    //["a","b","c","de","f"]
+re.test('232432')    // true
+re.test('ascddf')    // false
+'a   b   c   de f'.split(/\s+/)    // ["a","b","c","de","f"]
+'a b c de  f'.split(/(\s+)/)    // ["a", " ", "b", " ", "c", " ", "de", "  ", "f"] 捕获内容会留在结果中
 re = /.*共(\d+)页.*/
 //返回group
-re.exec('balalab共50页balabala')    //["balalab共50页balabala", "50"]
+re.exec('balalab共50页balabala')    // ["balalab共50页balabala", "50"]
 ```
 
 ## Promise
@@ -512,6 +513,18 @@ sum(1, 2) // 3
 
 可以用于动态生成函数，比如从服务端获取代码
 
+---
+
+获取数组中的最大值/最小值
+```js
+var nums = [1, 2, 3]
+Math.min.apply(Math, nums)    // 1
+Math.max.apply(Math, nums)    // 3
+
+// destructuring
+Math.min(...nums)    // 1
+Math.max(...nums)    // 3
+```
 
 # ES6
 `let` - 替代 var 可以生成一个块级作用域的变量

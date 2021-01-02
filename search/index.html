@@ -16,21 +16,121 @@ title: Search
   </div>
 </div>
 
-<script src="js/simple-jekyll-search.js" type="text/javascript"></script>
-
 <script>
-  SimpleJekyllSearch({
-    searchInput: document.getElementById("search-input"),
-    resultsContainer: document.getElementById("results-container"),
-    json: "search.json",
-    searchResultTemplate:
-      '<li class="blog-item"><a href="{url}">{title}&nbsp;<span class="blog-date">{date}</span>&nbsp;<span class="search-tags">{tags}</span></a></li>',
-    excludeKeys: ["url"],
-    limit: 15,
-    templateMiddleware: function(prop, value, template) {
-      return value || "";
+let data;
+const searchInput = document.getElementById("search-input");
+const resultsContainer = document.getElementById("results-container");
+
+async function init() {
+  if (!data) {
+    data = await fetchData();
+  }
+  searchInput.addEventListener("input", function (e) {
+    if (isWhitelistedKey(e.which)) {
+      jekyllSearch(e.target.value);
     }
   });
+}
+init();
+
+function isWhitelistedKey(key) {
+  return [13, 16, 20, 37, 38, 39, 40, 91].indexOf(key) === -1;
+}
+
+function fetchData() {
+  return fetch("/search/search.json").then(function (response) {
+    return response.json();
+  });
+}
+
+function render(url, title, date, tags) {
+  return `<li class="blog-item"><a href="${url}">${title}&nbsp;<span class="blog-date">${date}</span>&nbsp;<span class="search-tags">${tags}</span></a></li>`;
+}
+function renderMatchWord(word, match) {
+  if (match) {
+    return match
+      .map((w) => (w.isMatch ? `<strong>${w.text}</strong>` : w.text))
+      .join('');
+  } else {
+    return word;
+  }
+}
+function jekyllSearch(query) {
+  resultsContainer.innerHTML = "";
+  const result = fuzzySearch(data, query, { keys: ["title", "tags"] });
+  resultsContainer.innerHTML = result
+    .map((r) =>
+      render(
+        r.data.url,
+        renderMatchWord(r.data.title, r.result[0]),
+        r.data.date,
+        renderMatchWord(r.data.tags, r.result[1])
+      )
+    )
+    .join('');
+}
+
+function fuzzySearch(objList, query, options) {
+  if (!query || !objList.length) return [];
+  const keys = options.keys || Object.keys(objList[0]);
+  return []
+    .concat(objList)
+    .map((obj) => {
+      const result = keys.map((k) => matchTerm(obj[k], query));
+      return {
+        data: obj,
+        result: result.map((r) => r && r.result),
+        score: result.reduce(
+          (a, b, i) => a + ((b && b.score / (i + 1)) || 0),
+          0
+        ),
+      };
+    })
+    .filter((m) => m.score)
+    .sort((a, b) => a.score - b.score)
+    .reverse();
+}
+
+function matchTerm(term, query) {
+  if (!term) return;
+  const termArray = term.toLowerCase().split(new RegExp(`([${query}])`));
+  const queryArray = query.toLowerCase().split("");
+
+  const result = [];
+  let score = 0;
+  let tmp_str = "";
+  let matching = false;
+  let matchCount = 0;
+
+  function flushTemp() {
+    if (tmp_str) {
+      result.push({
+        text: tmp_str,
+        isMatch: matching,
+      });
+      if (matching) score += ((1 + tmp_str.length) * tmp_str.length) / 2;
+      tmp_str = "";
+    }
+  }
+  for (let i = 0, s; i < termArray.length; i++) {
+    if ((s = termArray[i])) {
+      if (matching != (s === queryArray[matchCount])) {
+        flushTemp();
+        matching = !matching;
+      }
+      tmp_str += s;
+      if (matching) matchCount++;
+    }
+  }
+  flushTemp();
+
+  if (matchCount === queryArray.length) {
+    return {
+      score,
+      result,
+    };
+  }
+}
 </script>
 <script>
   var container = document.getElementById("search-container");

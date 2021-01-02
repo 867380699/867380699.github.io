@@ -239,6 +239,25 @@ ul.posts {
         box-shadow: inset 1px 1px $primary, inset -1px -1px $primary;
         // border: 1px solid $primary;
       }
+      a {
+        display: inline-block;
+        width: 100%;
+      }
+      a:hover {
+        color: $primary;
+        .search-tags,.blog-date {
+          color: $primary;
+        }
+        strong {
+          color: $primary;
+        }
+      }
+      strong {
+        color: #709baa;
+      }
+      .search-tags strong {
+        color: #b0ccda;
+      }
     }
   }
 }

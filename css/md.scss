@@ -189,6 +189,21 @@
     border: 1px dashed #dedede;
     overflow: auto
   }
+
+  abbr {
+    position: relative;
+    text-decoration: none;
+    &::before{
+      position: absolute;
+      display: inline;
+      white-space: pre;
+      left: 50%;
+      transform: translateX(-50%); 
+      content: attr(title);
+      font-size: 8px;
+      top: -5px;
+    }
+  }
 }
 
 
@@ -230,6 +245,14 @@
     }
     table {
       font-size: 1rem;
+    }
+    pre.highlight {
+      padding: 4px 4px 0px;
+      pre {
+        font-size: 0.8rem;
+        line-height: 1.5;
+        margin-bottom: 8px;
+      }
     }
   }
   img {
