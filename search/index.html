@@ -18,13 +18,29 @@ title: Search
 
 <script>
 let data;
+let dict;
 const searchInput = document.getElementById("search-input");
 const resultsContainer = document.getElementById("results-container");
 
 async function init() {
-  if (!data) {
-    data = await fetchData();
+  if (!dict) {
+    const pinyin_dict_notone = await fetchDict();
+    const notone = {};
+    for(let i in pinyin_dict_notone){
+      const temp = pinyin_dict_notone[i];
+      for(let j=0, len=temp.length; j<len; j++){
+        if(!notone[temp[j]]) notone[temp[j]] = i; // 不考虑多音字
+      }
+    }
+    dict = {notone};
   }
+  if (!data) {
+  const search_data = await fetchData();
+  extract_chinese(search_data, 'title');
+
+  data = search_data;
+  window.search_data = search_data;
+}
   searchInput.addEventListener("input", function (e) {
     if (isWhitelistedKey(e.which)) {
       jekyllSearch(e.target.value);
@@ -33,12 +49,39 @@ async function init() {
 }
 init();
 
+function extract_chinese(data, key) {
+  data.forEach((obj) => {
+    const chinese = [...obj[key].matchAll(/[\u4e00-\u9fa0]+/g)].map((w) => ({
+      text: w[0],
+      index: w.index,
+    })).map(({text, index}) => {
+        const pinyin = getPinyin(text);
+        return {
+          pinyin,
+          first: pinyin.match(/\b[a-z]/g).join(""),
+          index,
+          length: text.length
+        }
+      });
+    if (chinese.length) {
+      obj[`${key}_ch`] = chinese.map(c => c.first).join('');
+      obj[`${key}_ch_idx`] = [].concat(...chinese.map(c => [...Array(c.length)].map((v, i) => c.index + i)));
+    }
+  });
+}
+
 function isWhitelistedKey(key) {
   return [13, 16, 20, 37, 38, 39, 40, 91].indexOf(key) === -1;
 }
 
 function fetchData() {
   return fetch("/search/search.json").then(function (response) {
+    return response.json();
+  });
+}
+
+function fetchDict() {
+  return fetch("/search/dict.json").then(function (response) {
     return response.json();
   });
 }
@@ -55,16 +98,17 @@ function renderMatchWord(word, match) {
     return word;
   }
 }
+
 function jekyllSearch(query) {
   resultsContainer.innerHTML = "";
-  const result = fuzzySearch(data, query, { keys: ["title", "tags"] });
+  const result = fuzzySearch(data, query, { keys: ["title_ch", "title", "tags"] });
   resultsContainer.innerHTML = result
     .map((r) =>
       render(
         r.data.url,
-        renderMatchWord(r.data.title, r.result[0]),
+        renderMatchWord(r.data.title, r.result[1]),
         r.data.date,
-        renderMatchWord(r.data.tags, r.result[1])
+        renderMatchWord(r.data.tags, r.result[2])
       )
     )
     .join('');
@@ -131,6 +175,48 @@ function matchTerm(term, query) {
     };
   }
 }
+
+function getPinyin(chinese, splitter) {
+  if (!chinese || /^ +$/g.test(chinese)) return "";
+  splitter = splitter == undefined ? " " : splitter;
+  var result = [];
+  if (dict.notone) {
+    // 使用没有声调的字典文件
+    var noChinese = "";
+    for (var i = 0, len = chinese.length; i < len; i++) {
+      var temp = chinese.charAt(i),
+        pinyin = dict.notone[temp];
+      if (pinyin) {
+        //插入拼音
+        //空格，把noChinese作为一个词插入
+        noChinese && (result.push(noChinese), (noChinese = ""));
+        result.push(pinyin);
+      } else if (!temp || /^ +$/g.test(temp)) {
+        //空格，插入之前的非中文字符
+        noChinese && (result.push(noChinese), (noChinese = ""));
+      } else {
+        //非空格，关联到noChinese中
+        noChinese += temp;
+      }
+    }
+
+    if (noChinese) {
+      result.push(noChinese);
+      noChinese = "";
+    }
+  }
+  return result.join(splitter);
+}
+/* 获取全部字符范围
+  words = Object.values(pinyin_dict_notone).join("");
+  codes = [];
+  for (let i = 0; i < words.length; i++) {
+    codes.push(words.charCodeAt(i));
+  }
+  min = Math.min.apply(Math, codes).toString(16);
+  max = Math.max.apply(Math, codes).toString(16);
+  console.log(`[\\u${min}-\\u${max}]`);
+*/
 </script>
 <script>
   var container = document.getElementById("search-container");
