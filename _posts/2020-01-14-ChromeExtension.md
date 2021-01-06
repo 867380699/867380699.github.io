@@ -3,6 +3,7 @@
 layout: post
 title: "Chrome 插件"
 date: 2020-01-14
+tags: [web, javascript]
 
 ---
 

@@ -25,7 +25,7 @@ for filename in filenames:
     crawl = False
     for line in f:
         if crawl:
-            current_tags = line.replace('[','').replace(']','').strip().split()
+            current_tags = re.sub(r'[\[\],]', ' ', line).split()
             if current_tags and re.match(r'tags?:', current_tags[0]):
                 total_tags.extend(current_tags[1:])
                 crawl = False

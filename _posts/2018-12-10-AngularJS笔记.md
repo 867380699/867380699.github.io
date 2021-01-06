@@ -3,6 +3,7 @@
 layout: post
 title: "AngularJS笔记"
 date: 2018-12-10
+tags: [javascript]
 
 ---
 

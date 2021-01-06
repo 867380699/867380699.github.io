@@ -3,6 +3,7 @@
 layout: post
 title: "Github Page 简易博客搭建"
 date: 2018-02-26
+tags: [jekyll]
 
 ---
 
@@ -107,6 +108,7 @@ kramdowm 支持 TOC
 
 ## Tag 生成
 > [github-jekyll-tag](http://longqian.me/2017/02/09/github-jekyll-tag/)
+> [tag_generator](https://github.com/qian256/qian256.github.io/blob/master/tag_generator.py)
 
 ## 基础搜索
 > [instant-jekyll-search - blog.webjeda.com](https://blog.webjeda.com/instant-jekyll-search/)
@@ -206,6 +208,8 @@ This is a paragraph that for some reason we want blue.
 {: .blue}
 ```
 
+> 可以结合 Bootstrap 使用
+
 ### Custom IDs
 
 ```
@@ -229,7 +233,9 @@ We can embed anything within `<iframe>` tags, such as **YouTube** and **Vimeo** 
 
 > [markdown-kramdown-tips-and-tricks - gitlab.com](https://about.gitlab.com/2016/07/19/markdown-kramdown-tips-and-tricks/)
 
+## config
 
+`_config.yaml`
 
 # Nginx部署
 Jekyll也可以使用Nginx在自己的服务器上进行部署
