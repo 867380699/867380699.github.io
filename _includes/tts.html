@@ -1,5 +1,8 @@
 {% assign lang = include.lang %}
 <script>
+  document.addEventListener('DOMContentLoaded', initTTS);
+
+function initTTS() {
   if ('speechSynthesis' in window) {
     var whiteList = ['ABBR', 'STRONG'];
     var ttsBlocks = document.querySelectorAll('.tts');
@@ -21,6 +24,7 @@
       })
     }
   }
+}
 </script>
 
 <style>
