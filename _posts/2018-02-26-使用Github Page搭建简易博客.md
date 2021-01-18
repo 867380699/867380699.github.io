@@ -224,6 +224,16 @@ This is a paragraph that for some reason we want blue.
 {: style="margin-top:0"}
 ```
 
+### ALD
+
+```
+{:c1: .tts .color-table}
+
+Paragraph *with emphasis*{:c1}
+second line of paragraph
+{:c1}
+```
+
 ### Styles
 One of the most useful features is the ability to add `<style>` tags to our markdown file too! We can do that for simply styling our web page without affecting the entire site.
 
