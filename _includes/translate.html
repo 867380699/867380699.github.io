@@ -1,0 +1,72 @@
+<link href="/css/fa-solid.css" rel="stylesheet">
+<link href="/css/fontawesome.css" rel="stylesheet">
+<script>
+  class TranslateTooltip extends HTMLElement {
+  constructor() {
+    super();
+  }
+
+  connectedCallback() {
+    console.log('t-t', this.isConnected, '-');
+    const container = document.createElement('div');
+    container.classList.add('translate-tooltip');
+
+    const icon = document.createElement('i');
+    icon.classList.add('fas', 'fa-globe');
+
+    const tooltip = document.createElement('div');
+    tooltip.classList.add('tooltip-content');
+
+    const text = this.getAttribute('t');
+    tooltip.textContent = text;
+
+    icon.addEventListener('mouseover', function(){
+      tooltip.classList.add('show');
+    });
+
+    icon.addEventListener('mouseleave', function(){
+      tooltip.classList.remove('show');
+    });
+
+    container.appendChild(icon);
+    container.appendChild(tooltip);
+
+    this.appendChild(container);
+
+  }
+}
+
+customElements.define('t-tip', TranslateTooltip);
+</script>
+<style>
+
+.translate-tooltip {
+  color: #999;
+  position: relative;
+  display: inline-flex;
+  vertical-align: top;
+  font-size: 8px;
+  padding-top: 6px;
+}
+.translate-tooltip .tooltip-content {
+  position: absolute;
+  width: auto;
+  white-space: nowrap;
+  padding: 0 4px;
+  top: 0;
+  left: 10px;
+  transform-origin: center left;
+  transform: scale(0);
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+  border: 1px solid #eee;
+  background: white;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  z-index: 10;
+}
+.translate-tooltip .tooltip-content.show{
+  transform: scale(1);
+  opacity: 1;
+}
+</style>
