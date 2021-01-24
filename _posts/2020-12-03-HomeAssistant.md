@@ -15,8 +15,16 @@ pip install wheel pillow sqlalchemy aiohttp_cors asn1crypto
 pip install homeassistant
 apk add --no-cache py-cryptography
 
-rm -rf .pyenv/versions/3.8.6/lib/python3.8/site-packages/
+rm -rf .pyenv/versions/3.8.6/lib/python3.8/site-packages/cryptography
 ln -s /usr/lib/python3.7/site-packages/cryptography .pyenv/versions/3.8.6/lib/python3.8/site-packages
+```
+
+```
+hass --daemon
+```
+
+```
+localhost:8123
 ```
 
 ```
