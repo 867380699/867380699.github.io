@@ -4,9 +4,27 @@
   class TranslateTooltip extends HTMLElement {
   constructor() {
     super();
+    const node = this;
+    const config = { attributes: false, childList: true };
+    const callback = function(mutationsList, observer) {
+      let innerHTML;
+      for(let mutation of mutationsList) {
+        if (mutation.type === 'childList') {
+          innerHTML = node.innerHTML
+          observer.disconnect();
+          break;
+        }
+      }
+      if (innerHTML) {
+        node.innerHTML = '';
+        node.appendChild(node.createTooltip(innerHTML));
+      }
+    };
+    const observer = new MutationObserver(callback);
+    observer.observe(this, config);
   }
 
-  connectedCallback() {
+  createTooltip(innerHTML) {
     const container = document.createElement('div');
     container.classList.add('translate-tooltip');
 
@@ -16,8 +34,7 @@
     const tooltip = document.createElement('div');
     tooltip.classList.add('tooltip-content');
 
-    const text = this.getAttribute('t');
-    tooltip.textContent = text;
+    tooltip.innerHTML = innerHTML;
 
     icon.addEventListener('mouseover', function(){
       tooltip.classList.add('show');
@@ -30,8 +47,7 @@
     container.appendChild(icon);
     container.appendChild(tooltip);
 
-    this.appendChild(container);
-
+    return container;
   }
 }
 
