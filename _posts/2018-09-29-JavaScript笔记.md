@@ -526,6 +526,37 @@ Math.min(...nums)    // 1
 Math.max(...nums)    // 3
 ```
 
+---
+
+always show scroll bar:
+
+```css
+.frame {
+    overflow-y: auto;
+    border: 1px solid black;
+    height: 3em;
+    width: 10em;
+}
+
+.frame::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+.frame::-webkit-scrollbar:vertical {
+    width: 11px;
+}
+
+.frame::-webkit-scrollbar:horizontal {
+    height: 11px;
+}
+
+.frame::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    border: 2px solid white; /* should match background, can't be transparent */
+    background-color: rgba(0, 0, 0, .5);
+}
+```
+
 # ES6
 `let` - 替代 var 可以生成一个块级作用域的变量
 `const` - 声明常量，必须初始化且不可修改
@@ -753,3 +784,24 @@ map,filter,object,max,min,zip,unzip...
 `sample` - gets a random element from collection
 
 `shuffle` - creates an array of shuffled values
+
+# 笔记
+
+`JavaScript` is a scripting language. Unlike a program that does everything itself, the JavaScript language simply tells the web browser what to do. 
+
+```js
+document.images //  all of the images contained in the current document
+document.forms
+```
+
+DOM Level 1 - October 1998
+
+The W3C defines the DOM as “A platform- and language-neutral interface that will allow programs and scripts to dynamically access and update the content, structure, and style of documents.”
+
+> WebKit (<http://webkit.org>) is the open source web browser engine use in Safari and Chrome.
+
+> Gecko (used in Firefox, <https://developer.mozilla.org/en/Gecko>)
+> Trident (used in Internet Explorer)
+
+`HTML5` gives us vastly improved semantics, control over rich media with the `<audio>` and `<video>` elements, the capability of drawing with the `<canvas>` element, local browser storage for more than just `cookies`, built-in drag-and-drop support, and a lot more.
+
