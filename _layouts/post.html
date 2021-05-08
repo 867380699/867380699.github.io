@@ -111,6 +111,7 @@ layout: default
     tocList.forEach(function(tocItem) {
       if (tocItem.getAttribute("href").substr(1) === headers[activeIndex].id) {
         tocItem.classList.add("active");
+        tocItem.scrollIntoViewIfNeeded();
       } else {
         tocItem.classList.remove("active");
       }
