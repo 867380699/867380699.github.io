@@ -34,6 +34,39 @@ repository命名格式为 `<username>.github.io`
 > 参考链接   
 > [https://pages.github.com/](https://pages.github.com/)
 
+## 默认启用的插件
+
+- [jekyll-coffeescript](https://github.com/jekyll/jekyll-coffeescript)
+- [jekyll-default-layout](https://github.com/benbalter/jekyll-default-layout)
+- [jekyll-gist](https://github.com/jekyll/jekyll-gist)
+- [jekyll-github-metadata](https://github.com/jekyll/github-metadata)
+- [jekyll-optional-front-matter](https://github.com/benbalter/jekyll-optional-front-matter)
+- [jekyll-paginate](https://github.com/jekyll/jekyll-paginate)
+- [jekyll-readme-index](https://github.com/benbalter/jekyll-readme-index)
+- [jekyll-titles-from-headings](https://github.com/benbalter/jekyll-titles-from-headings)
+- [jekyll-relative-links](https://github.com/benbalter/jekyll-relative-links)
+
+> https://docs.github.com/cn/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll#plugins
+
+## 插件白名单
+
+- [jemoji](https://github.com/jekyll/jemoji)
+- [jekyll-avatar](https://rubygems.org/gems/jekyll-avatar)
+- [jekyll-feed](https://rubygems.org/gems/jekyll-feed)
+- [jekyll-remote-theme](https://github.com/benbalter/jekyll-remote-theme)
+- [jekyll-seo-tag](https://github.com/jekyll/jekyll-seo-tag)
+- [jekyll-sitemap](https://github.com/jekyll/jekyll-sitemap/)
+
+
+- *themes* 
+  -  *minima, swiss, architect, cayman, dinky, hacker, leap-day, merlot, midnight, minimal, modernist, primer, slate, tactile, time-machine*
+- *jekyll-mentions*
+- *jekyll-redirect-from*
+- *github-pages-health-check*
+
+
+> <https://pages.github.com/versions/>
+
 # Jekyll部分
 
 ```bash
