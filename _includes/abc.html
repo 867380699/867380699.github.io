@@ -1,0 +1,61 @@
+<script type="text/javascript" src="/js/abcjs-basic-min.js"></script>
+<script>
+  window.addEventListener("load", (event) => {
+    document.querySelectorAll(".language-abc").forEach(function (node) {
+      var visual = document.createElement("div");
+      var abc = node.textContent;
+      visual.classList.add("visual");
+      var visualObj = ABCJS.renderAbc(visual, abc, {
+        afterParsing() {
+          node.innerHTML = "";
+          node.append(visual);
+          node.classList.add("show");
+        },
+        add_classes: true,
+        oneSvgPerLine: true,
+        minPadding: 5,
+        format: {
+          titlefont: "Noto Sans SC 20",
+          gchordfont: "Noto Sans SC 12",
+        },
+      })[0];
+      if (ABCJS.synth.supportsAudio()) {
+        var audio = document.createElement("div");
+        audio.classList.add("audio");
+        var synthControl = new ABCJS.synth.SynthController();
+        synthControl.load(audio, undefined, {
+          displayLoop: true,
+          displayRestart: true,
+          displayPlay: true,
+          displayProgress: true,
+          displayWarp: false,
+        });
+        var midi = ABCJS.synth.getMidiFile(abc, { fileName: "abc.midi" });
+        var midiBuffer = new ABCJS.synth.CreateSynth();
+        midiBuffer
+          .init({
+            visualObj: visualObj,
+            options: {},
+          })
+          .then(function (response) {
+            if (synthControl) {
+              synthControl
+                .setTune(visualObj)
+                .then(function (response) {
+                  console.log("Audio successfully loaded.");
+                })
+                .catch(function (error) {
+                  console.warn("Audio problem:", error);
+                });
+            }
+          })
+          .catch(function (error) {
+            console.warn("Audio problem:", error);
+          });
+        node.append(audio);
+      }
+    });
+  });
+</script>
+<link rel="stylesheet" type="text/css" href="/css/abc.css" />
+<link rel="stylesheet" type="text/css" href="/css/abcjs-audio.css" />

@@ -1,0 +1,18 @@
+---
+---
+.language-abc {
+    opacity: 0;
+    transition: all 0.2s;
+    color: #4d4c43;
+    &.show {
+        opacity: 1;
+    }
+    & > div {
+        margin-bottom: 10px;
+    }
+    .abcjs-lyric {
+        color: #8c8c8c;
+        font-size: 15px;
+        font-family: 'Noto Sans SC';
+    }
+}
