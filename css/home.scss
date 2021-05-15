@@ -1,0 +1,115 @@
+---
+---
+
+ul.posts {
+  margin: 0 auto 20px;
+  font-size: 1.5em;
+  padding: 0 8px;
+  line-height: 1;
+  position: relative;
+  padding-inline-start: 0;
+
+  ul {
+    padding-inline-start: 0;
+  }
+
+  li {
+    list-style: none;
+  }
+
+  .dot {
+    font-weight: 700;
+    margin-right: 4px;
+  }
+
+  .month,.year {
+    position: sticky;
+    padding: 4px 0;
+    background-color: #fcfcfc;
+    margin: 0;
+    width: 80px;
+    text-align: right;
+    float: left;
+    clear: both;
+    color: #e0e0e0;
+  }
+
+  .year {
+    top: 0;
+    z-index: 2;
+  }
+
+  .month {
+    top: 32px;
+  }
+
+  .timeline {
+    position: absolute;
+    width: 1px;
+    height: 100%;
+    border-left: 1px dashed #e0e0e0;
+    left: 56px;
+  }
+
+  .post-item {
+    border-radius: 8px;
+    box-shadow: inset 1px 1px 2px 1px rgba(0, 0, 0, 5%);
+    background-color: #fafafa;
+    padding: 8px 16px;
+    margin-left: 92px;
+    width: calc(100% - 100px);
+    transition: all 0.2s;
+
+    &:hover {
+      box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 5%);
+      background: #fcfcfc;
+      a {
+        color: #666;
+      }
+    }
+    .date, .tags {
+      color: #ccc;
+      font-size: 0.6em;
+    }
+    & + .post-item {
+      margin-top: 16px;
+    }
+  }
+
+  > ul.archive-year {
+    > ul {
+      &::after {
+        content: '';
+        display: block;
+        height: 16px;
+      }
+    }
+  }
+
+  > ul:first-of-type ul:first-of-type {
+    &::before {
+      content: '';
+      display: block;
+      height: 16px;
+    }
+  }
+}
+
+@media (max-width:800px) {
+  ul.posts {
+    margin: 0px;
+    .month,.year {
+      width: 72px;
+    }
+    .year {
+      font-size: 1.25rem;
+    }
+    .month {
+      font-size: 1.4rem;
+    }
+    .post-item {
+      margin-left: 84px;
+      width: calc(100% - 92px);
+    }
+  }
+}

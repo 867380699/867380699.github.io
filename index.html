@@ -40,3 +40,12 @@ title: Home
     </ul>
   </ul>
 </div>
+<link rel="stylesheet" href="/css/home.css">
+<script>
+    document.querySelectorAll('.post-item').forEach(element => {
+        element.addEventListener('click', function(){
+            var link = element.querySelector('a')
+            link && link.click();
+        });
+    })
+</script>
