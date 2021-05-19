@@ -2,6 +2,16 @@
 layout: nav
 title: Home
 ---
+<link rel="stylesheet" href="/css/home.css">
+<link href="/css/fa-solid.css" rel="stylesheet">
+<link href="/css/fontawesome.css" rel="stylesheet">
+
+<div class="tool-bar">
+  <div class="search-bar">
+    <i class="fa fa-search"></i>
+    <input type="text" id="search">
+  </div>
+</div>
 <div class="index">
   <ul class="posts">
     <div class="timeline"></div>
@@ -40,7 +50,6 @@ title: Home
     </ul>
   </ul>
 </div>
-<link rel="stylesheet" href="/css/home.css">
 <script>
     document.querySelectorAll('.post-item').forEach(element => {
         element.addEventListener('click', function(){
@@ -48,4 +57,58 @@ title: Home
             link && link.click();
         });
     })
+</script>
+<script>
+    const searchInput = document.querySelector('#search');
+    const postListEl = document.querySelector('.posts');
+    const searchData = [...postListEl.querySelectorAll('.post-item')].map(element => ({
+        element: element,
+        title: element.querySelector('.blog-link').textContent,
+        tags: element.querySelector('.tags') ? element.querySelector('.tags').textContent.substring(1) : '',
+        date: element.querySelector('.date').textContent,
+    }));
+
+    function isPostMatch(postData, query) {
+      if (query) {
+        const matchTitle = postData.title.match(new RegExp(`${query}`, 'i'));
+        return matchTitle;
+      } else {
+        return true;
+      }
+    }
+
+    function toggleMonth() {
+      postListEl.querySelectorAll('.archive-month').forEach(el => {
+        const postShowing = [...el.querySelectorAll('.post-item')].filter(postItem => !postItem.classList.contains('hide'));
+        if (!postShowing.length) {
+          el.classList.add('hide');
+        } else {
+          el.classList.remove('hide');
+        }
+      })
+    }
+
+    function toggleYear() {
+      postListEl.querySelectorAll('.archive-year').forEach(el => {
+        const monthShowing = [...el.querySelectorAll('.archive-month')].filter(monthItem => !monthItem.classList.contains('hide'));
+        if (!monthShowing.length) {
+          el.classList.add('hide');
+        } else {
+          el.classList.remove('hide');
+        }
+      })
+    }
+
+    searchInput.addEventListener('input', function($event){
+      const query = $event.target.value;
+      searchData.forEach(data => {
+        if (isPostMatch(data, query)) {
+          data.element.classList.remove('hide');
+        } else {
+          data.element.classList.add('hide');
+        }
+      });
+      toggleMonth();
+      toggleYear();
+    });
 </script>

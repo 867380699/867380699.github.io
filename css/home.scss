@@ -1,5 +1,39 @@
 ---
 ---
+.post-item,
+.archive-month,
+.archive-year{
+  &.hide {
+    display: none;
+  }
+}
+
+.tool-bar {
+  padding: 8px 16px;
+  .search-bar {
+    height: 36px;
+    padding: 4px 8px;
+    display: flex;
+    align-items: center;
+    border: 1px solid #f0f0f0;
+    border-radius: 8px;
+
+    .fa-search {
+      margin-right: 8px;
+      color: #e0e0e0;
+    }
+  
+    #search {
+      flex: 1;
+      border: none;
+      outline: none;
+    }
+  }
+}
+
+.index {
+  height: calc(100% - 52px);
+}
 
 ul.posts {
   margin: 0 auto 20px;
