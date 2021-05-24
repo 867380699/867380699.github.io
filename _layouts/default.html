@@ -29,5 +29,17 @@
             {{ content }}
         </div>
     </main>
+    <script type="text/javascript">
+        var mNav = document.evaluate(
+            "//nav[@class='nav']/a[text()='{{page.title}}']",
+            document,
+            null,
+            XPathResult.FIRST_ORDERED_NODE_TYPE,
+            null
+        ).singleNodeValue;
+        if (mNav) {
+            mNav.classList.add("active");
+        }
+    </script>
 </body>
 </html>
