@@ -1,7 +1,7 @@
 ---
 
 layout: post
-title: "emoji-cheat-sheet"
+title: "Emoji Cheat Sheet"
 date: 2021-05-25
 
 ---
@@ -11,7 +11,7 @@ date: 2021-05-25
 ## Face Smiling
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
+| :-: | - | :-: | - |
 | :grinning: | `:grinning:` | :smiley: | `:smiley:` |
 | :smile: | `:smile:` | :grin: | `:grin:` |
 | :laughing: | `:laughing:` <br /> `:satisfied:` | :sweat_smile: | `:sweat_smile:` |
@@ -23,7 +23,7 @@ date: 2021-05-25
 ## Face Affection
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
+| :-: | - | :-: | - |
 | :heart_eyes: | `:heart_eyes:` | :kissing_heart: | `:kissing_heart:` |
 | :kissing: | `:kissing:` | :relaxed: | `:relaxed:` |
 | :kissing_closed_eyes: | `:kissing_closed_eyes:` | :kissing_smiling_eyes: | `:kissing_smiling_eyes:` |
@@ -31,7 +31,7 @@ date: 2021-05-25
 ## Face Tongue
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
+| :-: | - | :-: | - |
 | :yum: | `:yum:` | :stuck_out_tongue: | `:stuck_out_tongue:` |
 | :stuck_out_tongue_winking_eye: | `:stuck_out_tongue_winking_eye:` | | |
 | :stuck_out_tongue_closed_eyes: | `:stuck_out_tongue_closed_eyes:` | :money_mouth_face: | `:money_mouth_face:` |
@@ -39,23 +39,23 @@ date: 2021-05-25
 ## Face Hand
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
+| :-: | - | :-: | - |
 | :hugs: | `:hugs:` | :thinking: | `:thinking:` |
 
 ## Face Neutral Skeptical
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
-| :zipper_mouth_face: | `:zipper_mouth_face:` |  |  |
+| :-: | - | :-: | - |
+| :zipper_mouth_face: | `:zipper_mouth_face:` | :lying_face: | `:lying_face:` |
 | :neutral_face: | `:neutral_face:` | :expressionless: | `:expressionless:` |
 | :no_mouth: | `:no_mouth:` | :smirk: | `:smirk:` |
 | :unamused: | `:unamused:` | :roll_eyes: | `:roll_eyes:` |
-| :grimacing: | `:grimacing:` | :lying_face: | `:lying_face:` |
+| :grimacing: | `:grimacing:` |  |  |
 
 ## Face Sleepy
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
+| :-: | - | :-: | - |
 | :relieved: | `:relieved:` | :pensive: | `:pensive:` |
 | :sleepy: | `:sleepy:` | :drooling_face: | `:drooling_face:` |
 | :sleeping: | `:sleeping:` | |
@@ -63,27 +63,27 @@ date: 2021-05-25
 ## Face Unwell
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
+| :-: | - | :-: | - |
 | :mask: | `:mask:` | :face_with_thermometer: | `:face_with_thermometer:` |
 | :face_with_head_bandage: | `:face_with_head_bandage:` | :nauseated_face: | `:nauseated_face:` |
 | :sneezing_face: | `:sneezing_face:` | :dizzy_face: | `:dizzy_face:` |
 
 ## Face Hat
 
-| ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
-| :cowboy_hat_face: | `:cowboy_hat_face:` |  |  |
+| ico | shortcode |
+| :-: | - |
+| :cowboy_hat_face: | `:cowboy_hat_face:` |
 
 ## Face Glasses
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
+| :-: | - | :-: | - |
 | :sunglasses: | `:sunglasses:` | :nerd_face: | `:nerd_face:` |
 
 ## Face Concerned
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
+| :-: | - | :-: | - |
 | :confused: | `:confused:` | :worried: | `:worried:` |
 | :slightly_frowning_face: | `:slightly_frowning_face:` | :frowning_face: | `:frowning_face:` |
 | :open_mouth: | `:open_mouth:` | :hushed: | `:hushed:` |
@@ -99,7 +99,7 @@ date: 2021-05-25
 ## Face Negative
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
+| :-: | - | :-: | - |
 | :triumph: | `:triumph:` | :pout: | `:pout:` <br /> `:rage:` |
 | :angry: | `:angry:` |  |  |
 | :smiling_imp: | `:smiling_imp:` | :imp: | `:imp:` |
@@ -108,7 +108,7 @@ date: 2021-05-25
 ## Face Costume
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
+| :-: | - | :-: | - |
 | :hankey: | `:hankey:` <br /> `:poop:` <br /> `:shit:` | :clown_face: | `:clown_face:` |
 | :japanese_ogre: | `:japanese_ogre:` | :japanese_goblin: | `:japanese_goblin:` |
 | :ghost: | `:ghost:` | :alien: | `:alien:` |
@@ -117,7 +117,7 @@ date: 2021-05-25
 ## Cat Face
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
+| :-: | - | :-: | - |
 | :smiley_cat: | `:smiley_cat:` | :smile_cat: | `:smile_cat:` |
 | :joy_cat: | `:joy_cat:` | :heart_eyes_cat: | `:heart_eyes_cat:` |
 | :smirk_cat: | `:smirk_cat:` | :kissing_cat: | `:kissing_cat:` |
@@ -127,14 +127,14 @@ date: 2021-05-25
 ## Monkey Face
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
+| :-: | - | :-: | - |
 | :see_no_evil: | `:see_no_evil:` | :hear_no_evil: | `:hear_no_evil:` |
 | :speak_no_evil: | `:speak_no_evil:` | |
 
 ## Emotion
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
+| :-: | - | :-: | - |
 | :kiss: | `:kiss:` | :love_letter: | `:love_letter:` |
 | :cupid: | `:cupid:` | :gift_heart: | `:gift_heart:` |
 | :sparkling_heart: | `:sparkling_heart:` | :heartpulse: | `:heartpulse:` |
@@ -157,7 +157,7 @@ date: 2021-05-25
 ## Hand Fingers Open
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
+| :-: | - | :-: | - |
 | :wave: | `:wave:` | :raised_back_of_hand: | `:raised_back_of_hand:` |
 | :raised_hand_with_fingers_splayed: | `:raised_hand_with_fingers_splayed:` | :hand: | `:hand:` <br /> `:raised_hand:` |
 | :vulcan_salute: | `:vulcan_salute:` | |
@@ -165,7 +165,7 @@ date: 2021-05-25
 ## Hand Fingers Partial
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
+| :-: | - | :-: | - |
 | :ok_hand: | `:ok_hand:` | :metal: | `:metal:` |
 | :v: | `:v:` | :crossed_fingers: | `:crossed_fingers:` |
 | :call_me_hand: | `:call_me_hand:` | |
@@ -173,7 +173,7 @@ date: 2021-05-25
 ## Hand Single Finger
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
+| :-: | - | :-: | - |
 | :point_left: | `:point_left:` | :point_right: | `:point_right:` |
 | :point_up_2: | `:point_up_2:` | :fu: | `:fu:` <br /> `:middle_finger:` |
 | :point_down: | `:point_down:` | :point_up: | `:point_up:` |
@@ -181,7 +181,7 @@ date: 2021-05-25
 ## Hand Fingers Closed
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
+| :-: | - | :-: | - |
 | :+1: | `:+1:` <br /> `:thumbsup:` | :-1: | `:-1:` <br /> `:thumbsdown:` |
 | :fist: | `:fist:` <br /> `:fist_raised:` | :facepunch: | `:facepunch:` <br /> `:fist_oncoming:` <br /> `:punch:` |
 | :fist_left: | `:fist_left:` | :fist_right: | `:fist_right:` |
@@ -189,22 +189,22 @@ date: 2021-05-25
 ## Hands
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
+| :-: | - | :-: | - |
 | :clap: | `:clap:` | :raised_hands: | `:raised_hands:` |
-| :open_hands: | `:open_hands:` |  |  |
-| :handshake: | `:handshake:` | :pray: | `:pray:` |
+| :open_hands: | `:open_hands:` | :handshake: | `:handshake:` |
+| :pray: | `:pray:` |
 
 ## Hand Prop
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
+| :-: | - | :-: | - |
 | :writing_hand: | `:writing_hand:` | :nail_care: | `:nail_care:` |
 | :selfie: | `:selfie:` | |
 
 ## Body Parts
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
+| :-: | - | :-: | - |
 | :muscle: | `:muscle:` | :ear: | `:ear:` |
 | :eyes: | `:eyes:` | :nose: | `:nose:` |
 | :eye: | `:eye:` | :tongue: | `:tongue:` |
@@ -213,7 +213,7 @@ date: 2021-05-25
 ## Person
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
+| :-: | - | :-: | - |
 | :baby: | `:baby:` |  |  |
 | :boy: | `:boy:` | :girl: | `:girl:` |
 | :man: | `:man:` | :woman: | `:woman:` |
@@ -222,23 +222,21 @@ date: 2021-05-25
 ## Person Gesture
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
+| :-: | - | :-: | - |
 | :frowning_man: | `:frowning_man:` | :frowning_woman: | `:frowning_woman:` |
 | :pouting_man: | `:pouting_man:` | :pouting_woman: | `:pouting_woman:` |
-| :no_good: | `:no_good:` <br /> `:ng_woman:` <br /> `:no_good_woman:`| :ng_man: | `:ng_man:` <br /> `:no_good_man:` |
+| :ng_man: | `:ng_man:` <br /> `:no_good_man:` | :no_good: | `:no_good:` <br /> `:ng_woman:` <br /> `:no_good_woman:`|
 | :ok_man: | `:ok_man:` | :ok_woman: | `:ok_woman:` |
-| :information_desk_person: | `:information_desk_person:` <br /> `:tipping_hand_person:` | :sassy_man: | `:sassy_man:` <br /> `:tipping_hand_man:` |
-| :sassy_woman: | `:sassy_woman:` <br /> `:tipping_hand_woman:` | :raising_hand: | `:raising_hand:` |
-| :raising_hand_man: | `:raising_hand_man:` | :raising_hand_woman: | `:raising_hand_woman:` |
-|  |  | :bow: | `:bow:` |
-| :bowing_man: | `:bowing_man:` | :bowing_woman: | `:bowing_woman:` |
+| :sassy_man: | `:sassy_man:` <br /> `:tipping_hand_man:` | :sassy_woman: | `:sassy_woman:` <br /> `:tipping_hand_woman:` <br /> `:information_desk_person:` <br /> `:tipping_hand_person:` |
+| :raising_hand_man: | `:raising_hand_man:` | :raising_hand: | `:raising_hand:` <br /> `:raising_hand_woman:` |
+| :bow: | `:bow:` <br /> `:bowing_man:` | :bowing_woman: | `:bowing_woman:` |
 | :man_facepalming: | `:man_facepalming:` | :woman_facepalming: | `:woman_facepalming:` |
 | :man_shrugging: | `:man_shrugging:` | :woman_shrugging: | `:woman_shrugging:` |
 
 ## Person Role
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
+| :-: | - | :-: | - |
 | :man_health_worker: | `:man_health_worker:` | :woman_health_worker: | `:woman_health_worker:` |
 | :man_student: | `:man_student:` | :woman_student: | `:woman_student:` |
 | :man_teacher: | `:man_teacher:` | :woman_teacher: | `:woman_teacher:` |
@@ -259,8 +257,7 @@ date: 2021-05-25
 | :policewoman: | `:policewoman:` | :detective: | `:detective:` |
 | :male_detective: | `:male_detective:` | :female_detective: | `:female_detective:` |
 | :guardsman: | `:guardsman:` | :guardswoman: | `:guardswoman:` |
-| :construction_worker: | `:construction_worker:` | :construction_worker_man: | `:construction_worker_man:` |
-| :construction_worker_woman: | `:construction_worker_woman:` |
+| :construction_worker: | `:construction_worker:` <br /> `:construction_worker_man:` | :construction_worker_man: | :construction_worker_woman: | `:construction_worker_woman:` |
 | :prince: | `:prince:` | :princess: | `:princess:` |
 | :man_with_turban: | `:man_with_turban:` | :woman_with_turban: | `:woman_with_turban:` |
 | :man_with_gua_pi_mao: | `:man_with_gua_pi_mao:` | :man_in_tuxedo: | `:man_in_tuxedo:` |
@@ -269,66 +266,57 @@ date: 2021-05-25
 ## Person Fantasy
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
+| :-: | - | :-: | - |
 | :angel: | `:angel:` | :santa: | `:santa:` |
 | :mrs_claus: | `:mrs_claus:` |  |  |
 
 ## Person Activity
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
+| :-: | - | :-: | - |
 | :massage: | `:massage:` | :massage_man: | `:massage_man:` |
 | :massage_woman: | `:massage_woman:` | :haircut: | `:haircut:` |
 | :haircut_man: | `:haircut_man:` | :haircut_woman: | `:haircut_woman:` |
-| :walking: | `:walking:` | :walking_man: | `:walking_man:` |
-| :walking_woman: | `:walking_woman:` |  |  |
+| :walking: | `:walking:` <br /> `:walking_man:`| :walking_woman: | `:walking_woman:` |  |  |
 | :runner: | `:runner:` <br /> `:running:` | :running_man: | `:running_man:` |
 | :running_woman: | `:running_woman:` | :dancer: | `:dancer:` <br /> `:woman_dancing:` |
 | :man_dancing: | `:man_dancing:` | :business_suit_levitating: | `:business_suit_levitating:` |
-| :dancers: | `:dancers:` | :dancing_men: | `:dancing_men:` |
-| :dancing_women: | `:dancing_women:` |  |  |
+| :dancers: | `:dancers:` <br /> `:dancing_women:` | :dancing_men: | `:dancing_men:` |
 
 ## Person Sport
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
+| :-: | - | :-: | - |
 | :person_fencing: | `:person_fencing:` | :horse_racing: | `:horse_racing:` |
 | :skier: | `:skier:` | :snowboarder: | `:snowboarder:` |
-|  |  | :golfing_man: | `:golfing_man:` |
-| :golfing_woman: | `:golfing_woman:` | :surfer: | `:surfer:` |
-| :surfing_man: | `:surfing_man:` | :surfing_woman: | `:surfing_woman:` |
+| :golfing_man: | `:golfing_man:` | :golfing_woman: | `:golfing_woman:` |
+| :surfer: | `:surfer:` <br /> `:surfing_man:` | :surfing_woman: | `:surfing_woman:` |
 | :rowboat: | `:rowboat:` | :rowing_man: | `:rowing_man:` |
 | :rowing_woman: | `:rowing_woman:` | :swimmer: | `:swimmer:` |
 | :swimming_man: | `:swimming_man:` | :swimming_woman: | `:swimming_woman:` |
-|  |  | :basketball_man: | `:basketball_man:` <br /> `:bouncing_ball_man:` |
-| :basketball_woman: | `:basketball_woman:` <br /> `:bouncing_ball_woman:` |  |  |
+| :basketball_man: | `:basketball_man:` <br /> `:bouncing_ball_man:` | :basketball_woman: | `:basketball_woman:` <br /> `:bouncing_ball_woman:` |
 | :weight_lifting_man: | `:weight_lifting_man:` | :weight_lifting_woman: | `:weight_lifting_woman:` |
 | :bicyclist: | `:bicyclist:` | :biking_man: | `:biking_man:` |
 | :biking_woman: | `:biking_woman:` | :mountain_bicyclist: | `:mountain_bicyclist:` |
 | :mountain_biking_man: | `:mountain_biking_man:` | :mountain_biking_woman: | `:mountain_biking_woman:` |
-|  |  | :man_cartwheeling: | `:man_cartwheeling:` |
-| :woman_cartwheeling: | `:woman_cartwheeling:` |  |  |
+| :man_cartwheeling: | `:man_cartwheeling:` | :woman_cartwheeling: | `:woman_cartwheeling:` |
 | :men_wrestling: | `:men_wrestling:` | :women_wrestling: | `:women_wrestling:` |
-|  |  | :man_playing_water_polo: | `:man_playing_water_polo:` |
-| :woman_playing_water_polo: | `:woman_playing_water_polo:` |  |  |
+| :man_playing_water_polo: | `:man_playing_water_polo:` | :woman_playing_water_polo: | `:woman_playing_water_polo:` |
 | :man_playing_handball: | `:man_playing_handball:` | :woman_playing_handball: | `:woman_playing_handball:` |
-|  |  | :man_juggling: | `:man_juggling:` |
-| :woman_juggling: | `:woman_juggling:` | |
+| :man_juggling: | `:man_juggling:` | :woman_juggling: | `:woman_juggling:` |
 
 ## Person Resting
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
-|  |  | :bath: | `:bath:` |
-| :sleeping_bed: | `:sleeping_bed:` | |
+| :-: | - | :-: | - |
+| :bath: | `:bath:` | :sleeping_bed: | `:sleeping_bed:` |
 
 ## Family
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
-|  |  | :two_women_holding_hands: | `:two_women_holding_hands:` |
-| :couple: | `:couple:` | :two_men_holding_hands: | `:two_men_holding_hands:` |
-|  |  | :couplekiss_man_woman: | `:couplekiss_man_woman:` |
+| :-: | - | :-: | - |
+| :two_women_holding_hands: | `:two_women_holding_hands:` | :two_men_holding_hands: | `:two_men_holding_hands:` |
+| :couple: | `:couple:` | :couplekiss_man_woman: | `:couplekiss_man_woman:` |
 | :couplekiss_man_man: | `:couplekiss_man_man:` | :couplekiss_woman_woman: | `:couplekiss_woman_woman:` |
 | :couple_with_heart: | `:couple_with_heart:` | :couple_with_heart_woman_man: | `:couple_with_heart_woman_man:` |
 | :couple_with_heart_man_man: | `:couple_with_heart_man_man:` | :couple_with_heart_woman_woman: | `:couple_with_heart_woman_woman:` |
@@ -349,7 +337,7 @@ date: 2021-05-25
 ## Person Symbol
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
+| :-: | - | :-: | - |
 | :speaking_head: | `:speaking_head:` | :bust_in_silhouette: | `:bust_in_silhouette:` |
 | :busts_in_silhouette: | `:busts_in_silhouette:` | :footprints: | `:footprints:` |
 
@@ -358,12 +346,11 @@ date: 2021-05-25
 ## Animal Mammal
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
+| :-: | - | :-: | - |
 | :monkey_face: | `:monkey_face:` | :monkey: | `:monkey:` |
-| :gorilla: | `:gorilla:` |  |  |
-| :dog: | `:dog:` | :dog2: | `:dog2:` |
-| :poodle: | `:poodle:` | :wolf: | `:wolf:` |
-| :fox_face: | `:fox_face:` |  |  |
+| :gorilla: | `:gorilla:` | :dog: | `:dog:` |
+| :dog2: | `:dog2:` | :poodle: | `:poodle:` |
+| :wolf: | `:wolf:` | :fox_face: | `:fox_face:` |
 | :cat: | `:cat:` | :cat2: | `:cat2:` |
 | :lion: | `:lion:` | :tiger: | `:tiger:` |
 | :tiger2: | `:tiger2:` | :leopard: | `:leopard:` |
@@ -377,19 +364,17 @@ date: 2021-05-25
 | :sheep: | `:sheep:` | :goat: | `:goat:` |
 | :dromedary_camel: | `:dromedary_camel:` | :camel: | `:camel:` |
 | :elephant: | `:elephant:` | :rhinoceros: | `:rhinoceros:` |
-|  |  | :mouse: | `:mouse:` |
+| :bat: | `:bat:` | :mouse: | `:mouse:` |
 | :mouse2: | `:mouse2:` | :rat: | `:rat:` |
 | :hamster: | `:hamster:` | :rabbit: | `:rabbit:` |
 | :rabbit2: | `:rabbit2:` | :chipmunk: | `:chipmunk:` |
-|  |  | :bat: | `:bat:` |
 | :bear: | `:bear:` | :koala: | `:koala:` |
-| :panda_face: | `:panda_face:` |  |  |
-| :feet: | `:feet:` <br /> `:paw_prints:` | |
+| :panda_face: | `:panda_face:` | :feet: | `:feet:` <br /> `:paw_prints:` |
 
 ## Animal Bird
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
+| :-: | - | :-: | - |
 | :turkey: | `:turkey:` | :chicken: | `:chicken:` |
 | :rooster: | `:rooster:` | :hatching_chick: | `:hatching_chick:` |
 | :baby_chick: | `:baby_chick:` | :hatched_chick: | `:hatched_chick:` |
@@ -406,7 +391,7 @@ date: 2021-05-25
 ## Animal Reptile
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
+| :-: | - | :-: | - |
 | :crocodile: | `:crocodile:` | :turtle: | `:turtle:` |
 | :lizard: | `:lizard:` | :snake: | `:snake:` |
 | :dragon_face: | `:dragon_face:` | :dragon: | `:dragon:` |
@@ -414,7 +399,7 @@ date: 2021-05-25
 ## Animal Marine
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
+| :-: | - | :-: | - |
 | :whale: | `:whale:` | :whale2: | `:whale2:` |
 | :dolphin: | `:dolphin:` <br /> `:flipper:` | :fish: | `:fish:` |
 | :tropical_fish: | `:tropical_fish:` | :blowfish: | `:blowfish:` |
@@ -424,7 +409,7 @@ date: 2021-05-25
 ## Animal Bug
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
+| :-: | - | :-: | - |
 | :snail: | `:snail:` | :butterfly: | `:butterfly:` |
 | :bug: | `:bug:` | :ant: | `:ant:` |
 | :bee: | `:bee:` <br /> `:honeybee:` | :beetle: | `:beetle:` |
@@ -434,7 +419,7 @@ date: 2021-05-25
 ## Plant Flower
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
+| :-: | - | :-: | - |
 | :bouquet: | `:bouquet:` | :cherry_blossom: | `:cherry_blossom:` |
 | :white_flower: | `:white_flower:` | :rosette: | `:rosette:` |
 | :rose: | `:rose:` | :wilted_flower: | `:wilted_flower:` |
@@ -444,7 +429,7 @@ date: 2021-05-25
 ## Plant Other
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
+| :-: | - | :-: | - |
 | :seedling: | `:seedling:` | :evergreen_tree: | `:evergreen_tree:` |
 | :deciduous_tree: | `:deciduous_tree:` | :palm_tree: | `:palm_tree:` |
 | :cactus: | `:cactus:` | :ear_of_rice: | `:ear_of_rice:` |
@@ -457,7 +442,7 @@ date: 2021-05-25
 ## Food Fruit
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
+| :-: | - | :-: | - |
 | :grapes: | `:grapes:` | :melon: | `:melon:` |
 | :watermelon: | `:watermelon:` | :mandarin: | `:mandarin:` <br /> `:orange:` <br /> `:tangerine:` |
 | :lemon: | `:lemon:` | :banana: | `:banana:` |
@@ -470,7 +455,7 @@ date: 2021-05-25
 ## Food Vegetable
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
+| :-: | - | :-: | - |
 | :avocado: | `:avocado:` | :eggplant: | `:eggplant:` |
 | :potato: | `:potato:` | :carrot: | `:carrot:` |
 | :corn: | `:corn:` | :hot_pepper: | `:hot_pepper:` |
@@ -480,44 +465,42 @@ date: 2021-05-25
 ## Food Prepared
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
+| :-: | - | :-: | - |
 | :bread: | `:bread:` | :croissant: | `:croissant:` |
 | :baguette_bread: | `:baguette_bread:` | :pancakes: | `:pancakes:` |
-|  |  | :cheese: | `:cheese:` |
+| :bacon: | `:bacon:` | :cheese: | `:cheese:` |
 | :meat_on_bone: | `:meat_on_bone:` | :poultry_leg: | `:poultry_leg:` |
-|  |  | :bacon: | `:bacon:` |
 | :hamburger: | `:hamburger:` | :fries: | `:fries:` |
 | :pizza: | `:pizza:` | :hotdog: | `:hotdog:` |
-|  |  | :taco: | `:taco:` |
+| :egg: | `:egg:` | :taco: | `:taco:` |
 | :burrito: | `:burrito:` | :stuffed_flatbread: | `:stuffed_flatbread:` |
-|  |  | :egg: | `:egg:` |
 | :fried_egg: | `:fried_egg:` | :shallow_pan_of_food: | `:shallow_pan_of_food:` |
-| :stew: | `:stew:` |  |  |
 | :green_salad: | `:green_salad:` | :popcorn: | `:popcorn:` |
+| :stew: | `:stew:` |  |  |
 
 ## Food Asian
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
+| :-: | - | :-: | - |
 | :bento: | `:bento:` | :rice_cracker: | `:rice_cracker:` |
 | :rice_ball: | `:rice_ball:` | :rice: | `:rice:` |
 | :curry: | `:curry:` | :ramen: | `:ramen:` |
 | :spaghetti: | `:spaghetti:` | :sweet_potato: | `:sweet_potato:` |
 | :oden: | `:oden:` | :sushi: | `:sushi:` |
 | :fried_shrimp: | `:fried_shrimp:` | :fish_cake: | `:fish_cake:` |
-|  |  | :dango: | `:dango:` |
+| :dango: | `:dango:` | |
 
 ## Food Marine
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
-| :crab: | `:crab:` |  |  |
-| :shrimp: | `:shrimp:` | :squid: | `:squid:` |
+| :-: | - | :-: | - |
+| :crab: | `:crab:` | :shrimp: | `:shrimp:` |
+| :squid: | `:squid:` |  |
 
 ## Food Sweet
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
+| :-: | - | :-: | - |
 | :icecream: | `:icecream:` | :shaved_ice: | `:shaved_ice:` |
 | :ice_cream: | `:ice_cream:` | :doughnut: | `:doughnut:` |
 | :cookie: | `:cookie:` | :birthday: | `:birthday:` |
@@ -528,7 +511,7 @@ date: 2021-05-25
 ## Drink
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
+| :-: | - | :-: | - |
 | :baby_bottle: | `:baby_bottle:` | :milk_glass: | `:milk_glass:` |
 | :coffee: | `:coffee:` | :tea: | `:tea:` |
 | :sake: | `:sake:` | :champagne: | `:champagne:` |
@@ -540,17 +523,17 @@ date: 2021-05-25
 ## Dishware
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
-|  |  | :plate_with_cutlery: | `:plate_with_cutlery:` |
+| :-: | - | :-: | - |
+| :hocho: | `:hocho:` <br /> `:knife:` | :plate_with_cutlery: | `:plate_with_cutlery:` |
 | :fork_and_knife: | `:fork_and_knife:` | :spoon: | `:spoon:` |
-| :hocho: | `:hocho:` <br /> `:knife:` | :amphora: | `:amphora:` |
+| :amphora: | `:amphora:` |
 
 # Travel & Places
 
 ## Place Map
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
+| :-: | - | :-: | - |
 | :earth_africa: | `:earth_africa:` | :earth_americas: | `:earth_americas:` |
 | :earth_asia: | `:earth_asia:` | :globe_with_meridians: | `:globe_with_meridians:` |
 | :world_map: | `:world_map:` | :japan: | `:japan:` |
@@ -558,7 +541,7 @@ date: 2021-05-25
 ## Place Geographic
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
+| :-: | - | :-: | - |
 | :mountain_snow: | `:mountain_snow:` | :mountain: | `:mountain:` |
 | :volcano: | `:volcano:` | :mount_fuji: | `:mount_fuji:` |
 | :camping: | `:camping:` | :beach_umbrella: | `:beach_umbrella:` |
@@ -568,9 +551,8 @@ date: 2021-05-25
 ## Place Building
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
+| :-: | - | :-: | - |
 | :stadium: | `:stadium:` | :classical_building: | `:classical_building:` |
-| :building_construction: | `:building_construction:` |  |  |
 | :houses: | `:houses:` | :derelict_house: | `:derelict_house:` |
 | :house: | `:house:` | :house_with_garden: | `:house_with_garden:` |
 | :office: | `:office:` | :post_office: | `:post_office:` |
@@ -581,19 +563,20 @@ date: 2021-05-25
 | :factory: | `:factory:` | :japanese_castle: | `:japanese_castle:` |
 | :european_castle: | `:european_castle:` | :wedding: | `:wedding:` |
 | :tokyo_tower: | `:tokyo_tower:` | :statue_of_liberty: | `:statue_of_liberty:` |
+| :building_construction: | `:building_construction:` |  |  |
 
 ## Place Religious
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
+| :-: | - | :-: | - |
 | :church: | `:church:` | :mosque: | `:mosque:` |
-|  |  | :synagogue: | `:synagogue:` |
 | :shinto_shrine: | `:shinto_shrine:` | :kaaba: | `:kaaba:` |
+| :synagogue: | `:synagogue:` | |
 
 ## Place Other
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
+| :-: | - | :-: | - |
 | :fountain: | `:fountain:` | :tent: | `:tent:` |
 | :foggy: | `:foggy:` | :night_with_stars: | `:night_with_stars:` |
 | :cityscape: | `:cityscape:` | :sunrise_over_mountains: | `:sunrise_over_mountains:` |
@@ -606,7 +589,7 @@ date: 2021-05-25
 ## Transport Ground
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
+| :-: | - | :-: | - |
 | :steam_locomotive: | `:steam_locomotive:` | :railway_car: | `:railway_car:` |
 | :bullettrain_side: | `:bullettrain_side:` | :bullettrain_front: | `:bullettrain_front:` |
 | :train2: | `:train2:` | :metro: | `:metro:` |
@@ -622,9 +605,8 @@ date: 2021-05-25
 | :blue_car: | `:blue_car:` | :truck: | `:truck:` |
 | :articulated_lorry: | `:articulated_lorry:` | :tractor: | `:tractor:` |
 | :racing_car: | `:racing_car:` | :motorcycle: | `:motorcycle:` |
-| :motor_scooter: | `:motor_scooter:` |  |  |
-| :bike: | `:bike:` | :kick_scooter: | `:kick_scooter:` |
-|  |  | :busstop: | `:busstop:` |
+| :motor_scooter: | `:motor_scooter:` | :bike: | `:bike:` |
+| :kick_scooter: | `:kick_scooter:` | :busstop: | `:busstop:` |
 | :motorway: | `:motorway:` | :railway_track: | `:railway_track:` |
 | :oil_drum: | `:oil_drum:` | :fuelpump: | `:fuelpump:` |
 | :rotating_light: | `:rotating_light:` | :traffic_light: | `:traffic_light:` |
@@ -634,7 +616,7 @@ date: 2021-05-25
 ## Transport Water
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
+| :-: | - | :-: | - |
 | :anchor: | `:anchor:` | :boat: | `:boat:` <br /> `:sailboat:` |
 | :canoe: | `:canoe:` | :speedboat: | `:speedboat:` |
 | :passenger_ship: | `:passenger_ship:` | :ferry: | `:ferry:` |
@@ -643,24 +625,24 @@ date: 2021-05-25
 ## Transport Air
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
+| :-: | - | :-: | - |
 | :airplane: | `:airplane:` | :small_airplane: | `:small_airplane:` |
 | :flight_departure: | `:flight_departure:` | :flight_arrival: | `:flight_arrival:` |
-|  |  | :seat: | `:seat:` |
 | :helicopter: | `:helicopter:` | :suspension_railway: | `:suspension_railway:` |
 | :mountain_cableway: | `:mountain_cableway:` | :aerial_tramway: | `:aerial_tramway:` |
 | :artificial_satellite: | `:artificial_satellite:` | :rocket: | `:rocket:` |
+| :seat: | `:seat:` | |
 
 ## Hotel
 
-| ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
-| :bellhop_bell: | `:bellhop_bell:` |  |  |
+| ico | shortcode |
+| :-: | - |
+| :bellhop_bell: | `:bellhop_bell:` |
 
 ## Time
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
+| :-: | - | :-: | - |
 | :hourglass: | `:hourglass:` | :hourglass_flowing_sand: | `:hourglass_flowing_sand:` |
 | :watch: | `:watch:` | :alarm_clock: | `:alarm_clock:` |
 | :stopwatch: | `:stopwatch:` | :timer_clock: | `:timer_clock:` |
@@ -681,7 +663,7 @@ date: 2021-05-25
 ## Sky & Weather
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
+| :-: | - | :-: | - |
 | :new_moon: | `:new_moon:` | :waxing_crescent_moon: | `:waxing_crescent_moon:` |
 | :first_quarter_moon: | `:first_quarter_moon:` | :moon: | `:moon:` <br /> `:waxing_gibbous_moon:` |
 | :full_moon: | `:full_moon:` | :waning_gibbous_moon: | `:waning_gibbous_moon:` |
@@ -690,9 +672,9 @@ date: 2021-05-25
 | :first_quarter_moon_with_face: | `:first_quarter_moon_with_face:` | :last_quarter_moon_with_face: | `:last_quarter_moon_with_face:` |
 | :thermometer: | `:thermometer:` | :sunny: | `:sunny:` |
 | :full_moon_with_face: | `:full_moon_with_face:` | :sun_with_face: | `:sun_with_face:` |
-|  |  | :star: | `:star:` |
-| :star2: | `:star2:` | :stars: | `:stars:` |
-| :milky_way: | `:milky_way:` | :cloud: | `:cloud:` |
+| :star: | `:star:` | :star2: | `:star2:` |
+| :stars: | `:stars:` | :milky_way: | `:milky_way:` |
+| :cloud: | `:cloud:` |
 | :partly_sunny: | `:partly_sunny:` | :cloud_with_lightning_and_rain: | `:cloud_with_lightning_and_rain:` |
 | :sun_behind_small_cloud: | `:sun_behind_small_cloud:` | :sun_behind_large_cloud: | `:sun_behind_large_cloud:` |
 | :sun_behind_rain_cloud: | `:sun_behind_rain_cloud:` | :cloud_with_rain: | `:cloud_with_rain:` |
@@ -712,23 +694,22 @@ date: 2021-05-25
 ## Event
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
+| :-: | - | :-: | - |
 | :jack_o_lantern: | `:jack_o_lantern:` | :christmas_tree: | `:christmas_tree:` |
 | :fireworks: | `:fireworks:` | :sparkler: | `:sparkler:` |
-|  |  | :sparkles: | `:sparkles:` |
 | :balloon: | `:balloon:` | :tada: | `:tada:` |
 | :confetti_ball: | `:confetti_ball:` | :tanabata_tree: | `:tanabata_tree:` |
 | :bamboo: | `:bamboo:` | :dolls: | `:dolls:` |
 | :flags: | `:flags:` | :wind_chime: | `:wind_chime:` |
-| :rice_scene: | `:rice_scene:` |  |  |
 | :ribbon: | `:ribbon:` | :gift: | `:gift:` |
 | :reminder_ribbon: | `:reminder_ribbon:` | :tickets: | `:tickets:` |
-| :ticket: | `:ticket:` | |
+| :ticket: | `:ticket:` | :sparkles: | `:sparkles:` |
+| :rice_scene: | `:rice_scene:` |  |  |
 
 ## Award Medal
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
+| :-: | - | :-: | - |
 | :medal_military: | `:medal_military:` | :trophy: | `:trophy:` |
 | :medal_sports: | `:medal_sports:` | :1st_place_medal: | `:1st_place_medal:` |
 | :2nd_place_medal: | `:2nd_place_medal:` | :3rd_place_medal: | `:3rd_place_medal:` |
@@ -736,38 +717,34 @@ date: 2021-05-25
 ## Sport
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
+| :-: | - | :-: | - |
 | :soccer: | `:soccer:` | :baseball: | `:baseball:` |
-|  |  | :basketball: | `:basketball:` |
-| :volleyball: | `:volleyball:` | :football: | `:football:` |
-| :rugby_football: | `:rugby_football:` | :tennis: | `:tennis:` |
-|  |  | :bowling: | `:bowling:` |
-|  |  | :field_hockey: | `:field_hockey:` |
-| :ice_hockey: | `:ice_hockey:` |  |  |
+| :basketball: | `:basketball:` | :volleyball: | `:volleyball:` |
+| :football: | `:football:` | :rugby_football: | `:rugby_football:` |
+| :tennis: | `:tennis:` | :bowling: | `:bowling:` |
+| :field_hockey: | `:field_hockey:` | :ice_hockey: | `:ice_hockey:` |
 | :ping_pong: | `:ping_pong:` | :badminton: | `:badminton:` |
 | :boxing_glove: | `:boxing_glove:` | :martial_arts_uniform: | `:martial_arts_uniform:` |
 | :goal_net: | `:goal_net:` | :golf: | `:golf:` |
 | :ice_skate: | `:ice_skate:` | :fishing_pole_and_fish: | `:fishing_pole_and_fish:` |
-|  |  | :running_shirt_with_sash: | `:running_shirt_with_sash:` |
-| :ski: | `:ski:` |  |  |
+| :ski: | `:ski:` | :running_shirt_with_sash: | `:running_shirt_with_sash:` |
 
 ## Game
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
+| :-: | - | :-: | - |
 | :dart: | `:dart:` | :8ball: | `:8ball:` |
-| :crystal_ball: | `:crystal_ball:` |  |  |
+| :crystal_ball: | `:crystal_ball:` | :mahjong: | `:mahjong:` |
 | :video_game: | `:video_game:` | :joystick: | `:joystick:` |
 | :slot_machine: | `:slot_machine:` | :game_die: | `:game_die:` |
 | :spades: | `:spades:` | :hearts: | `:hearts:` |
 | :diamonds: | `:diamonds:` | :clubs: | `:clubs:` |
-|  |  | :black_joker: | `:black_joker:` |
-| :mahjong: | `:mahjong:` | :flower_playing_cards: | `:flower_playing_cards:` |
+| :flower_playing_cards: | `:flower_playing_cards:` | :black_joker: | `:black_joker:` |
 
 ## Arts & Crafts
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
+| :-: | - | :-: | - |
 | :performing_arts: | `:performing_arts:` | :framed_picture: | `:framed_picture:` |
 | :art: | `:art:` |  |  |
 
@@ -776,7 +753,7 @@ date: 2021-05-25
 ## Clothing
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
+| :-: | - | :-: | - |
 | :eyeglasses: | `:eyeglasses:` | :dark_sunglasses: | `:dark_sunglasses:` |
 |  |  | :necktie: | `:necktie:` |
 | :shirt: | `:shirt:` <br /> `:tshirt:` | :jeans: | `:jeans:` |
@@ -786,18 +763,17 @@ date: 2021-05-25
 | :pouch: | `:pouch:` | :shopping: | `:shopping:` |
 | :school_satchel: | `:school_satchel:` | :mans_shoe: | `:mans_shoe:` <br /> `:shoe:` |
 | :athletic_shoe: | `:athletic_shoe:` | :high_heel: | `:high_heel:` |
-| :sandal: | `:sandal:` |  |  |
-| :boot: | `:boot:` | :crown: | `:crown:` |
+| :sandal: | `:sandal:` | :boot: | `:boot:` |
+| :gem: | `:gem:` | :crown: | `:crown:` |
 | :womans_hat: | `:womans_hat:` | :tophat: | `:tophat:` |
 | :mortar_board: | `:mortar_board:` |  |  |
 | :rescue_worker_helmet: | `:rescue_worker_helmet:` | :prayer_beads: | `:prayer_beads:` |
 | :lipstick: | `:lipstick:` | :ring: | `:ring:` |
-| :gem: | `:gem:` | |
 
 ## Sound
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
+| :-: | - | :-: | - |
 | :mute: | `:mute:` | :speaker: | `:speaker:` |
 | :sound: | `:sound:` | :loud_sound: | `:loud_sound:` |
 | :loudspeaker: | `:loudspeaker:` | :mega: | `:mega:` |
@@ -807,7 +783,7 @@ date: 2021-05-25
 ## Music
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
+| :-: | - | :-: | - |
 | :musical_score: | `:musical_score:` | :musical_note: | `:musical_note:` |
 | :notes: | `:notes:` | :studio_microphone: | `:studio_microphone:` |
 | :level_slider: | `:level_slider:` | :control_knobs: | `:control_knobs:` |
@@ -817,7 +793,7 @@ date: 2021-05-25
 ## Musical Instrument
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
+| :-: | - | :-: | - |
 | :saxophone: | `:saxophone:` | :guitar: | `:guitar:` |
 | :musical_keyboard: | `:musical_keyboard:` | :trumpet: | `:trumpet:` |
 | :violin: | `:violin:` |  |  |
@@ -826,7 +802,7 @@ date: 2021-05-25
 ## Phone
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
+| :-: | - | :-: | - |
 | :iphone: | `:iphone:` | :calling: | `:calling:` |
 | :phone: | `:phone:` <br /> `:telephone:` | :telephone_receiver: | `:telephone_receiver:` |
 | :pager: | `:pager:` | :fax: | `:fax:` |
@@ -834,7 +810,7 @@ date: 2021-05-25
 ## Computer
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
+| :-: | - | :-: | - |
 | :battery: | `:battery:` | :electric_plug: | `:electric_plug:` |
 | :computer: | `:computer:` | :desktop_computer: | `:desktop_computer:` |
 | :printer: | `:printer:` | :keyboard: | `:keyboard:` |
@@ -845,7 +821,7 @@ date: 2021-05-25
 ## Light & Video
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
+| :-: | - | :-: | - |
 | :movie_camera: | `:movie_camera:` | :film_strip: | `:film_strip:` |
 | :film_projector: | `:film_projector:` | :clapper: | `:clapper:` |
 | :tv: | `:tv:` | :camera: | `:camera:` |
@@ -858,7 +834,7 @@ date: 2021-05-25
 ## Book Paper
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
+| :-: | - | :-: | - |
 | :notebook_with_decorative_cover: | `:notebook_with_decorative_cover:` | :closed_book: | `:closed_book:` |
 | :book: | `:book:` <br /> `:open_book:` | :green_book: | `:green_book:` |
 | :blue_book: | `:blue_book:` | :orange_book: | `:orange_book:` |
@@ -872,17 +848,16 @@ date: 2021-05-25
 ## Money
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
+| :-: | - | :-: | - |
 | :moneybag: | `:moneybag:` | :yen: | `:yen:` |
 | :dollar: | `:dollar:` | :euro: | `:euro:` |
 | :pound: | `:pound:` | :money_with_wings: | `:money_with_wings:` |
-| :credit_card: | `:credit_card:` |  |  |
-| :chart: | `:chart:` | |
+| :credit_card: | `:credit_card:` | :chart: | `:chart:` |
 
 ## Mail
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
+| :-: | - | :-: | - |
 | :email: | `:email:` <br /> `:envelope:` | :e-mail: | `:e-mail:` |
 | :incoming_envelope: | `:incoming_envelope:` | :envelope_with_arrow: | `:envelope_with_arrow:` |
 | :outbox_tray: | `:outbox_tray:` | :inbox_tray: | `:inbox_tray:` |
@@ -894,7 +869,7 @@ date: 2021-05-25
 ## Writing
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
+| :-: | - | :-: | - |
 | :pencil2: | `:pencil2:` | :black_nib: | `:black_nib:` |
 | :fountain_pen: | `:fountain_pen:` | :pen: | `:pen:` |
 | :paintbrush: | `:paintbrush:` | :crayon: | `:crayon:` |
@@ -903,7 +878,7 @@ date: 2021-05-25
 ## Office
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
+| :-: | - | :-: | - |
 | :briefcase: | `:briefcase:` | :file_folder: | `:file_folder:` |
 | :open_file_folder: | `:open_file_folder:` | :card_index_dividers: | `:card_index_dividers:` |
 | :date: | `:date:` | :calendar: | `:calendar:` |
@@ -920,7 +895,7 @@ date: 2021-05-25
 ## Lock
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
+| :-: | - | :-: | - |
 | :lock: | `:lock:` | :unlock: | `:unlock:` |
 | :lock_with_ink_pen: | `:lock_with_ink_pen:` | :closed_lock_with_key: | `:closed_lock_with_key:` |
 | :key: | `:key:` | :old_key: | `:old_key:` |
@@ -928,46 +903,42 @@ date: 2021-05-25
 ## Tool
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
-| :hammer: | `:hammer:` |  |  |
+| :-: | - | :-: | - |
+| :hammer: | `:hammer:` | :link: | `:link:` |
 | :pick: | `:pick:` | :hammer_and_pick: | `:hammer_and_pick:` |
 | :hammer_and_wrench: | `:hammer_and_wrench:` | :dagger: | `:dagger:` |
 | :crossed_swords: | `:crossed_swords:` | :gun: | `:gun:` |
 | :bow_and_arrow: | `:bow_and_arrow:` | :shield: | `:shield:` |
 | :wrench: | `:wrench:` | :nut_and_bolt: | `:nut_and_bolt:` |
 | :gear: | `:gear:` | :clamp: | `:clamp:` |
-| :balance_scale: | `:balance_scale:` |  |  |
-| :link: | `:link:` | :chains: | `:chains:` |
+| :balance_scale: | `:balance_scale:` | :chains: | `:chains:` |
 
 ## Science
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
-| :alembic: | `:alembic:` |  |  |
+| :-: | - | :-: | - |
+| :alembic: | `:alembic:` | :satellite: | `:satellite:` |
 | :microscope: | `:microscope:` | :telescope: | `:telescope:` |
-| :satellite: | `:satellite:` | |
 
 ## Medical
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
-| :syringe: | `:syringe:` |  |  |
-| :pill: | `:pill:` |  |  |
+| :-: | - | :-: | - |
+| :syringe: | `:syringe:` | :pill: | `:pill:` |
 
 ## Household
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
+| :-: | - | :-: | - |
 | :door: | `:door:` | :bed: | `:bed:` |
-| :couch_and_lamp: | `:couch_and_lamp:` |  |  |
+| :couch_and_lamp: | `:couch_and_lamp:` | :bathtub: | `:bathtub:` |
 | :toilet: | `:toilet:` | :shower: | `:shower:` |
-| :bathtub: | `:bathtub:` |  |  |
 | :shopping_cart: | `:shopping_cart:` | |
 
 ## Other Object
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
+| :-: | - | :-: | - |
 | :smoking: | `:smoking:` | :coffin: | `:coffin:` |
 | :funeral_urn: | `:funeral_urn:` | :moyai: | `:moyai:` |
 
@@ -976,7 +947,7 @@ date: 2021-05-25
 ## Transport Sign
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
+| :-: | - | :-: | - |
 | :atm: | `:atm:` | :put_litter_in_its_place: | `:put_litter_in_its_place:` |
 | :potable_water: | `:potable_water:` | :wheelchair: | `:wheelchair:` |
 | :mens: | `:mens:` | :womens: | `:womens:` |
@@ -988,7 +959,7 @@ date: 2021-05-25
 ## Warning
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
+| :-: | - | :-: | - |
 | :warning: | `:warning:` | :children_crossing: | `:children_crossing:` |
 | :no_entry: | `:no_entry:` | :no_entry_sign: | `:no_entry_sign:` |
 | :no_bicycles: | `:no_bicycles:` | :no_smoking: | `:no_smoking:` |
@@ -1000,7 +971,7 @@ date: 2021-05-25
 ## Arrow
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
+| :-: | - | :-: | - |
 | :arrow_up: | `:arrow_up:` | :arrow_upper_right: | `:arrow_upper_right:` |
 | :arrow_right: | `:arrow_right:` | :arrow_lower_right: | `:arrow_lower_right:` |
 | :arrow_down: | `:arrow_down:` | :arrow_lower_left: | `:arrow_lower_left:` |
@@ -1016,7 +987,7 @@ date: 2021-05-25
 ## Religion
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
+| :-: | - | :-: | - |
 | :place_of_worship: | `:place_of_worship:` | :atom_symbol: | `:atom_symbol:` |
 | :om: | `:om:` | :star_of_david: | `:star_of_david:` |
 | :wheel_of_dharma: | `:wheel_of_dharma:` | :yin_yang: | `:yin_yang:` |
@@ -1027,7 +998,7 @@ date: 2021-05-25
 ## Zodiac
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
+| :-: | - | :-: | - |
 | :aries: | `:aries:` | :taurus: | `:taurus:` |
 | :gemini: | `:gemini:` | :cancer: | `:cancer:` |
 | :leo: | `:leo:` | :virgo: | `:virgo:` |
@@ -1039,7 +1010,7 @@ date: 2021-05-25
 ## Av Symbol
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
+| :-: | - | :-: | - |
 | :twisted_rightwards_arrows: | `:twisted_rightwards_arrows:` | :repeat: | `:repeat:` |
 | :repeat_one: | `:repeat_one:` | :arrow_forward: | `:arrow_forward:` |
 | :fast_forward: | `:fast_forward:` | :next_track_button: | `:next_track_button:` |
@@ -1056,14 +1027,14 @@ date: 2021-05-25
 ## Math
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
+| :-: | - | :-: | - |
 | :heavy_multiplication_x: | `:heavy_multiplication_x:` | :heavy_plus_sign: | `:heavy_plus_sign:` |
 | :heavy_minus_sign: | `:heavy_minus_sign:` | :heavy_division_sign: | `:heavy_division_sign:` |
 
 ## Punctuation
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
+| :-: | - | :-: | - |
 | :bangbang: | `:bangbang:` | :interrobang: | `:interrobang:` |
 | :question: | `:question:` | :grey_question: | `:grey_question:` |
 | :grey_exclamation: | `:grey_exclamation:` | :exclamation: | `:exclamation:` <br /> `:heavy_exclamation_mark:` |
@@ -1072,14 +1043,14 @@ date: 2021-05-25
 ## Currency
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
+| :-: | - | :-: | - |
 | :currency_exchange: | `:currency_exchange:` | :heavy_dollar_sign: | `:heavy_dollar_sign:` |
 
 ## Other Symbol
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
-|  |  | :recycle: | `:recycle:` |
+| :-: | - | :-: | - |
+| :tm: | `:tm:` | :recycle: | `:recycle:` |
 | :fleur_de_lis: | `:fleur_de_lis:` | :trident: | `:trident:` |
 | :name_badge: | `:name_badge:` | :beginner: | `:beginner:` |
 | :o: | `:o:` | :white_check_mark: | `:white_check_mark:` |
@@ -1089,12 +1060,11 @@ date: 2021-05-25
 | :part_alternation_mark: | `:part_alternation_mark:` | :eight_spoked_asterisk: | `:eight_spoked_asterisk:` |
 | :eight_pointed_black_star: | `:eight_pointed_black_star:` | :sparkle: | `:sparkle:` |
 | :copyright: | `:copyright:` | :registered: | `:registered:` |
-| :tm: | `:tm:` | |
 
 ## Keycap
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
+| :-: | - | :-: | - |
 | :hash: | `:hash:` | :asterisk: | `:asterisk:` |
 | :zero: | `:zero:` | :one: | `:one:` |
 | :two: | `:two:` | :three: | `:three:` |
@@ -1106,7 +1076,7 @@ date: 2021-05-25
 ## Alphanum
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
+| :-: | - | :-: | - |
 | :capital_abcd: | `:capital_abcd:` | :abcd: | `:abcd:` |
 | :1234: | `:1234:` | :symbols: | `:symbols:` |
 | :abc: | `:abc:` | :a: | `:a:` |
@@ -1131,10 +1101,9 @@ date: 2021-05-25
 ## Geometric
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
-| :red_circle: | `:red_circle:` |  |  |
+| :-: | - | :-: | - |
+| :red_circle: | `:red_circle:` | :white_circle: | `:white_circle:` |
 | :large_blue_circle: | `:large_blue_circle:` | :black_circle: | `:black_circle:` |
-| :white_circle: | `:white_circle:` |  |  |
 | :black_large_square: | `:black_large_square:` | :white_large_square: | `:white_large_square:` |
 | :black_medium_square: | `:black_medium_square:` | :white_medium_square: | `:white_medium_square:` |
 | :black_medium_small_square: | `:black_medium_small_square:` | :white_medium_small_square: | `:white_medium_small_square:` |
@@ -1150,7 +1119,7 @@ date: 2021-05-25
 ## Flag
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
+| :-: | - | :-: | - |
 | :checkered_flag: | `:checkered_flag:` | :triangular_flag_on_post: | `:triangular_flag_on_post:` |
 | :crossed_flags: | `:crossed_flags:` | :black_flag: | `:black_flag:` |
 | :white_flag: | `:white_flag:` | :rainbow_flag: | `:rainbow_flag:` |
@@ -1158,8 +1127,8 @@ date: 2021-05-25
 ## Country Flag
 
 | ico | shortcode | ico | shortcode |
-| - | :-: | - | :-: | - | - |
-|  |  | :andorra: | `:andorra:` |
+| :-: | - | :-: | - |
+| :botswana: | `:botswana:` | :andorra: | `:andorra:` |
 | :united_arab_emirates: | `:united_arab_emirates:` | :afghanistan: | `:afghanistan:` |
 | :antigua_barbuda: | `:antigua_barbuda:` | :anguilla: | `:anguilla:` |
 | :albania: | `:albania:` | :armenia: | `:armenia:` |
@@ -1176,7 +1145,6 @@ date: 2021-05-25
 | :brunei: | `:brunei:` | :bolivia: | `:bolivia:` |
 | :caribbean_netherlands: | `:caribbean_netherlands:` | :brazil: | `:brazil:` |
 | :bahamas: | `:bahamas:` | :bhutan: | `:bhutan:` |
-|  |  | :botswana: | `:botswana:` |
 | :belarus: | `:belarus:` | :belize: | `:belize:` |
 | :canada: | `:canada:` | :cocos_islands: | `:cocos_islands:` |
 | :congo_kinshasa: | `:congo_kinshasa:` | :central_african_republic: | `:central_african_republic:` |
@@ -1184,14 +1152,13 @@ date: 2021-05-25
 | :cote_divoire: | `:cote_divoire:` | :cook_islands: | `:cook_islands:` |
 | :chile: | `:chile:` | :cameroon: | `:cameroon:` |
 | :cn: | `:cn:` | :colombia: | `:colombia:` |
-|  |  | :costa_rica: | `:costa_rica:` |
+| :de: | `:de:` | :costa_rica: | `:costa_rica:` |
 | :cuba: | `:cuba:` | :cape_verde: | `:cape_verde:` |
 | :curacao: | `:curacao:` | :christmas_island: | `:christmas_island:` |
 | :cyprus: | `:cyprus:` | :czech_republic: | `:czech_republic:` |
-| :de: | `:de:` |  |  |
 | :djibouti: | `:djibouti:` | :denmark: | `:denmark:` |
 | :dominica: | `:dominica:` | :dominican_republic: | `:dominican_republic:` |
-| :algeria: | `:algeria:` |  |  |
+| :algeria: | `:algeria:` | :honduras: | `:honduras:` |
 | :ecuador: | `:ecuador:` | :estonia: | `:estonia:` |
 | :egypt: | `:egypt:` | :western_sahara: | `:western_sahara:` |
 | :eritrea: | `:eritrea:` | :es: | `:es:` |
@@ -1209,7 +1176,6 @@ date: 2021-05-25
 | :south_georgia_south_sandwich_islands: | `:south_georgia_south_sandwich_islands:` | :guatemala: | `:guatemala:` |
 | :guam: | `:guam:` | :guinea_bissau: | `:guinea_bissau:` |
 | :guyana: | `:guyana:` | :hong_kong: | `:hong_kong:` |
-|  |  | :honduras: | `:honduras:` |
 | :croatia: | `:croatia:` | :haiti: | `:haiti:` |
 | :hungary: | `:hungary:` | :canary_islands: | `:canary_islands:` |
 | :indonesia: | `:indonesia:` | :ireland: | `:ireland:` |
@@ -1232,7 +1198,7 @@ date: 2021-05-25
 | :latvia: | `:latvia:` | :libya: | `:libya:` |
 | :morocco: | `:morocco:` | :monaco: | `:monaco:` |
 | :moldova: | `:moldova:` | :montenegro: | `:montenegro:` |
-|  |  | :madagascar: | `:madagascar:` |
+| :slovakia: | `:slovakia:` | :madagascar: | `:madagascar:` |
 | :marshall_islands: | `:marshall_islands:` | :macedonia: | `:macedonia:` |
 | :mali: | `:mali:` | :myanmar: | `:myanmar:` |
 | :mongolia: | `:mongolia:` | :macau: | `:macau:` |
@@ -1262,13 +1228,11 @@ date: 2021-05-25
 | :seychelles: | `:seychelles:` | :sudan: | `:sudan:` |
 | :sweden: | `:sweden:` | :singapore: | `:singapore:` |
 | :st_helena: | `:st_helena:` | :slovenia: | `:slovenia:` |
-|  |  | :slovakia: | `:slovakia:` |
 | :sierra_leone: | `:sierra_leone:` | :san_marino: | `:san_marino:` |
 | :senegal: | `:senegal:` | :somalia: | `:somalia:` |
 | :suriname: | `:suriname:` | :south_sudan: | `:south_sudan:` |
 | :sao_tome_principe: | `:sao_tome_principe:` | :el_salvador: | `:el_salvador:` |
 | :sint_maarten: | `:sint_maarten:` | :syria: | `:syria:` |
-| :swaziland: | `:swaziland:` |  |  |
 | :turks_caicos_islands: | `:turks_caicos_islands:` | :chad: | `:chad:` |
 | :french_southern_territories: | `:french_southern_territories:` | :togo: | `:togo:` |
 | :thailand: | `:thailand:` | :tajikistan: | `:tajikistan:` |
@@ -1287,3 +1251,4 @@ date: 2021-05-25
 | :kosovo: | `:kosovo:` | :yemen: | `:yemen:` |
 | :mayotte: | `:mayotte:` | :south_africa: | `:south_africa:` |
 | :zambia: | `:zambia:` | :zimbabwe: | `:zimbabwe:` |
+| :swaziland: | `:swaziland:` |  |  |
