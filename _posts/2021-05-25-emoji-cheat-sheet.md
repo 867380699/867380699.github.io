@@ -257,7 +257,7 @@ date: 2021-05-25
 | :policewoman: | `:policewoman:` | :detective: | `:detective:` |
 | :male_detective: | `:male_detective:` | :female_detective: | `:female_detective:` |
 | :guardsman: | `:guardsman:` | :guardswoman: | `:guardswoman:` |
-| :construction_worker: | `:construction_worker:` <br /> `:construction_worker_man:` | :construction_worker_man: | :construction_worker_woman: | `:construction_worker_woman:` |
+| :construction_worker: | `:construction_worker:` <br /> `:construction_worker_man:` | :construction_worker_woman: | `:construction_worker_woman:` |
 | :prince: | `:prince:` | :princess: | `:princess:` |
 | :man_with_turban: | `:man_with_turban:` | :woman_with_turban: | `:woman_with_turban:` |
 | :man_with_gua_pi_mao: | `:man_with_gua_pi_mao:` | :man_in_tuxedo: | `:man_in_tuxedo:` |
@@ -277,7 +277,7 @@ date: 2021-05-25
 | :massage: | `:massage:` | :massage_man: | `:massage_man:` |
 | :massage_woman: | `:massage_woman:` | :haircut: | `:haircut:` |
 | :haircut_man: | `:haircut_man:` | :haircut_woman: | `:haircut_woman:` |
-| :walking: | `:walking:` <br /> `:walking_man:`| :walking_woman: | `:walking_woman:` |  |  |
+| :walking: | `:walking:` <br /> `:walking_man:`| :walking_woman: | `:walking_woman:` |
 | :runner: | `:runner:` <br /> `:running:` | :running_man: | `:running_man:` |
 | :running_woman: | `:running_woman:` | :dancer: | `:dancer:` <br /> `:woman_dancing:` |
 | :man_dancing: | `:man_dancing:` | :business_suit_levitating: | `:business_suit_levitating:` |
@@ -796,8 +796,7 @@ date: 2021-05-25
 | :-: | - | :-: | - |
 | :saxophone: | `:saxophone:` | :guitar: | `:guitar:` |
 | :musical_keyboard: | `:musical_keyboard:` | :trumpet: | `:trumpet:` |
-| :violin: | `:violin:` |  |  |
-| :drum: | `:drum:` | |
+| :violin: | `:violin:` | :drum: | `:drum:` |
 
 ## Phone
 
@@ -1173,7 +1172,7 @@ date: 2021-05-25
 | :greenland: | `:greenland:` | :gambia: | `:gambia:` |
 | :guinea: | `:guinea:` | :guadeloupe: | `:guadeloupe:` |
 | :equatorial_guinea: | `:equatorial_guinea:` | :greece: | `:greece:` |
-| :south_georgia_south_sandwich_islands: | `:south_georgia_south_sandwich_islands:` | :guatemala: | `:guatemala:` |
+| :guatemala: | `:guatemala:` | :south_georgia_south_sandwich_islands: | `:south_georgia_south_sandwich_islands:` |
 | :guam: | `:guam:` | :guinea_bissau: | `:guinea_bissau:` |
 | :guyana: | `:guyana:` | :hong_kong: | `:hong_kong:` |
 | :croatia: | `:croatia:` | :haiti: | `:haiti:` |
@@ -1202,7 +1201,7 @@ date: 2021-05-25
 | :marshall_islands: | `:marshall_islands:` | :macedonia: | `:macedonia:` |
 | :mali: | `:mali:` | :myanmar: | `:myanmar:` |
 | :mongolia: | `:mongolia:` | :macau: | `:macau:` |
-| :northern_mariana_islands: | `:northern_mariana_islands:` | :martinique: | `:martinique:` |
+| :martinique: | `:martinique:` | :northern_mariana_islands: | `:northern_mariana_islands:` |
 | :mauritania: | `:mauritania:` | :montserrat: | `:montserrat:` |
 | :malta: | `:malta:` | :mauritius: | `:mauritius:` |
 | :maldives: | `:maldives:` | :malawi: | `:malawi:` |
@@ -1219,7 +1218,7 @@ date: 2021-05-25
 | :philippines: | `:philippines:` | :pakistan: | `:pakistan:` |
 | :poland: | `:poland:` | :st_pierre_miquelon: | `:st_pierre_miquelon:` |
 | :pitcairn_islands: | `:pitcairn_islands:` | :puerto_rico: | `:puerto_rico:` |
-| :palestinian_territories: | `:palestinian_territories:` | :portugal: | `:portugal:` |
+| :portugal: | `:portugal:` | :palestinian_territories: | `:palestinian_territories:` |
 | :palau: | `:palau:` | :paraguay: | `:paraguay:` |
 | :qatar: | `:qatar:` | :reunion: | `:reunion:` |
 | :romania: | `:romania:` | :serbia: | `:serbia:` |
@@ -1234,7 +1233,7 @@ date: 2021-05-25
 | :sao_tome_principe: | `:sao_tome_principe:` | :el_salvador: | `:el_salvador:` |
 | :sint_maarten: | `:sint_maarten:` | :syria: | `:syria:` |
 | :turks_caicos_islands: | `:turks_caicos_islands:` | :chad: | `:chad:` |
-| :french_southern_territories: | `:french_southern_territories:` | :togo: | `:togo:` |
+| :togo: | `:togo:` | :french_southern_territories: | `:french_southern_territories:` |
 | :thailand: | `:thailand:` | :tajikistan: | `:tajikistan:` |
 | :tokelau: | `:tokelau:` | :timor_leste: | `:timor_leste:` |
 | :turkmenistan: | `:turkmenistan:` | :tunisia: | `:tunisia:` |
