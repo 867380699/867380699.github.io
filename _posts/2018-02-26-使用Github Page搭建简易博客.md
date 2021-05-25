@@ -46,7 +46,7 @@ repository命名格式为 `<username>.github.io`
 - [jekyll-titles-from-headings](https://github.com/benbalter/jekyll-titles-from-headings)
 - [jekyll-relative-links](https://github.com/benbalter/jekyll-relative-links)
 
-> https://docs.github.com/cn/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll#plugins
+> <https://docs.github.com/cn/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll#plugins>
 
 ## 插件白名单
 
@@ -57,6 +57,24 @@ repository命名格式为 `<username>.github.io`
 - [jekyll-seo-tag](https://github.com/jekyll/jekyll-seo-tag)
 - [jekyll-sitemap](https://github.com/jekyll/jekyll-sitemap/)
 
+## emoji
+`Gemfile`:
+```rb
+gem 'jemoji'
+```
+`_config.yml`:
+```yaml
+plugins:
+  - jemoji
+emoji:
+  src: "https://github.githubassets.com/images/icons/"
+```
+
+重启 :smiley:! *效果不是很理想*:pensive:
+
+> [emoji-cheat-sheet](https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md#subdivision-flag)
+> [emojipedia](https://emojipedia.org/)
+> [twemoji preview](https://twemoji.maxcdn.com/2/test/preview.html)
 
 - *themes* 
   -  *minima, swiss, architect, cayman, dinky, hacker, leap-day, merlot, midnight, minimal, modernist, primer, slate, tactile, time-machine*
@@ -146,6 +164,9 @@ kramdowm 支持 TOC
 ## 基础搜索
 > [instant-jekyll-search - blog.webjeda.com](https://blog.webjeda.com/instant-jekyll-search/)
 > [Simple-Jekyll-Search - github.com](https://github.com/christian-fei/Simple-Jekyll-Search)
+
+## Archive
+> <https://www.mitsake.net/2012/04/archives-in-jekyll/>
 
 ## Liquid
 {% raw %}

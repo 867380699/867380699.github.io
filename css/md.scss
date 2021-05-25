@@ -255,7 +255,7 @@
       }
     }
   }
-  img {
+  img:not(.emoji) {
     width: 100%;
   }
 }
