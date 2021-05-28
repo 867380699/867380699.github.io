@@ -1,4 +1,4 @@
-const storeName = 'io-store-v3';
+const storeName = 'io-store-v4';
 const cacheRegexp = new RegExp(`${location.host}/(js|css|assets)/.+`);
 
 const fetchWithCacahe = async (request) => {

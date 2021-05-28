@@ -6,12 +6,6 @@ title: Home
 <link href="/css/fa-solid.css" rel="stylesheet">
 <link href="/css/fontawesome.css" rel="stylesheet">
 
-<div class="tool-bar">
-  <div class="search-bar">
-    <i class="fa fa-search"></i>
-    <input type="text" id="search">
-  </div>
-</div>
 <div class="index">
   <ul class="posts">
     <div class="timeline"></div>
@@ -59,7 +53,22 @@ title: Home
     })
 </script>
 <script>
-    const searchInput = document.querySelector('#search');
+    const searchBar = document.createElement('div');
+    searchBar.classList.add('search-bar');
+
+    const searchIcon = document.createElement('i');
+    searchIcon.classList.add('fa', 'fa-search');
+
+    const searchInput = document.createElement('input');
+    searchInput.setAttribute("type", "text");
+    searchInput.setAttribute("size", "4");
+    searchInput.id = 'search';
+
+    searchBar.appendChild(searchIcon);
+    searchBar.appendChild(searchInput);
+
+    document.querySelector('.tool-bar').prepend(searchBar);
+
     const postListEl = document.querySelector('.posts');
     const searchData = [...postListEl.querySelectorAll('.post-item')].map(element => ({
         element: element,

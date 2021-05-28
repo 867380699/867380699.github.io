@@ -14,14 +14,21 @@
 <body>
     <header >
         <nav class="nav">
-            <a href="javascript:void(0);" style="font-size:15px;" class="icon" id="menu">☰</a>
-            <a href="javascript:void(0);" style="font-size:30px; margin-right: auto;" class="home-icon">©</a>
-            <a href="/">Home</a>
-            <!-- <a href="/blog">Blog</a> -->
-            <!-- <a href="/about">About</a> -->
-            <a href="/tag">Tag</a>
-            <a href="/search">Search</a>
-            <a href="/startpage/">StartPage</a>
+            <div class="tool-bar">
+                <a href="javascript:void(0);" style="font-size:15px;" class="icon nav-main-toggle" id="menu">☰</a>
+            </div>
+            <div class="nav-main-container">
+                <div class="nav-main">
+                    <div class="nav-menu">
+                        <a href="/">Home</a>
+                        <!-- <a href="/blog">Blog</a> -->
+                        <!-- <a href="/about">About</a> -->
+                        <a href="/tag">Tag</a>
+                        <a href="/search">Search</a>
+                        <a href="/startpage/">StartPage</a>
+                    </div>
+                </div>
+            </div>
         </nav>
     </header>
     <main>
@@ -31,7 +38,7 @@
     </main>
     <script type="text/javascript">
         var mNav = document.evaluate(
-            "//nav[@class='nav']/a[text()='{{page.title}}']",
+            "//nav[@class='nav']/div[@class='nav-main-container']/div[@class='nav-main']/div[@class='nav-menu']/a[text()='{{page.title}}']",
             document,
             null,
             XPathResult.FIRST_ORDERED_NODE_TYPE,
@@ -40,6 +47,21 @@
         if (mNav) {
             mNav.classList.add("active");
         }
+    </script>
+    <script>
+        const navToggle = document.querySelector('.nav-main-toggle');
+        const navMainContainer = document.querySelector('.nav-main-container');
+        const navMain = navMainContainer.querySelector('.nav-main');
+
+        navToggle.addEventListener('click', function(){
+            navMainContainer.classList.toggle('active');
+        });
+        navMainContainer.addEventListener('click', function(){
+            navMainContainer.classList.remove('active');
+        });
+        navMain.addEventListener('click', function(e){
+            e.stopPropagation()
+        });
     </script>
 </body>
 </html>

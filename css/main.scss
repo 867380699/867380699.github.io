@@ -55,12 +55,12 @@ header {
     margin: auto;
     height: $nav-height;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     overflow-x: auto;
-    a {
+    .nav-menu a {
       float: left;
       display: flex;
-      padding: 16px;
+      padding: 13px 16px;
       min-width: 80px;
       text-align: center;
       align-items: center;
@@ -71,9 +71,19 @@ header {
         color: #ffffff;
       }
     }
-    .icon {
+    .tool-bar {
+      display: flex;
+      flex: 1;
+      align-items: center;
+    }
+
+    .nav-main-toggle {
       display: none;
-      float: left;
+      margin-left: auto;
+      height: 50px;
+      width: 50px;
+      text-align: center;
+      line-height: 50px;
     }
   }  
 }
@@ -267,7 +277,6 @@ main {
     }
   }
 
-  .toc,
   .article {
     width: 100%;
     padding-left: 8px;
@@ -281,28 +290,71 @@ main {
     min-width: 320px;
   }
 
-  .nav .icon {
-    display: block;
-    float: left;
-  }
+  header .nav {
+    display: flex;
+    align-items: center;
+    .nav-main-toggle {
+      display: block;
+    }
+    .nav-main-container {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      right: -160px;
+      height: 100%;
+      z-index: 99;
+      visibility: hidden;
+      transition: 0.2s all ease;
+
+      .nav-main {
+        float: right;
+        width: 160px;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        background-color: white;
+        .nav-menu {
+          flex: 0 0 auto;
+          overflow: auto;
+          > a {
+            width: 100%;
+          }
+        }
+      }
+
+      &.active {
+        visibility: visible;
+        right: 0;
+        .nav-main {
+          box-shadow: -1px 0 5px 2px rgba(0,0,0, 0.1);
+        }
+      }
+    }
+  } 
 
   .toc {
-    right: 0px;
-    width: 60%;
-    position: fixed;
-    background: #000000;
-    opacity: 0.8;
-    display: none;
-    
+    width: 100%;
+    position: static;
+    border-top: 1px solid #fafafa;
+    padding: 8px 4px;
+    font-size: 0.8rem;
+    ul {
+      padding-inline-start: 8px;
+      padding-left: 8px;
+      list-style-type: none;
+    }
+    li>ul {
+      padding-left: 8px;
+    }
     .toc-l1 {
-      color: #eee;
+      color: #bbb;
       a {
-        color: #eee;
+        color: #bbb;
       }
       .toc-l2 {
-        color: #ccc;
+        color: #ddd;
         a {
-          color: #ccc;
+          color: #ddd;
         }
       }
     }

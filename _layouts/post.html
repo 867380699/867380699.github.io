@@ -30,36 +30,42 @@ layout: default
 </div>
 
 <script>
+  const postNavMain = document.querySelector('.nav-main');
+  const toc = document.querySelector('.toc');
+  const tocParent = toc.parentElement;
+  let tocToggled = false;
+
   function toggleTOC() {
-    var x = document.getElementsByClassName("toc");
-    if (x.length > 0) {
-      x = x[0];
-      if (x.style.display === "" || x.style.display === "none") {
-        x.style.display = "block";
+    const matchMedia = window.matchMedia("(max-width: 800px)").matches;
+    if (matchMedia != tocToggled) {
+      if (matchMedia) {
+        postNavMain.appendChild(toc);
       } else {
-        x.style.display = "none";
+        tocParent.appendChild(toc);
       }
+      tocToggled = matchMedia;
     }
   }
-  function hideTOC() {
-    var x = document.getElementsByClassName("toc");
-    if (x.length > 0) {
-      x = x[0];
-      if (x.style.display !== "none") {
-        x.style.display = "none";
-      }
-    }
-  }
-  var menu = document.getElementById("menu");
-  if (menu) {
-    menu.onclick = toggleTOC;
-  }
-  window.onhashchange = function($event) {
-    var elMenu = document.getElementById("menu");
-    if (elMenu && getComputedStyle(elMenu).display != "none") {
-      hideTOC();
-    }
+
+  function initEvent(type, name, obj) {
+      obj = obj || window;
+      var running = false;
+      var func = function() {
+          if (running) { return; }
+          running = true;
+            requestAnimationFrame(function() {
+              obj.dispatchEvent(new CustomEvent(name));
+              running = false;
+          });
+      };
+      obj.addEventListener(type, func);
   };
+
+  initEvent("resize", "optimizedResize");
+
+  window.addEventListener("optimizedResize", toggleTOC);
+
+  toggleTOC();
 </script>
 
 <script>
