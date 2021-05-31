@@ -57,6 +57,15 @@ repository命名格式为 `<username>.github.io`
 - [jekyll-seo-tag](https://github.com/jekyll/jekyll-seo-tag)
 - [jekyll-sitemap](https://github.com/jekyll/jekyll-sitemap/)
 
+- *themes* 
+  -  *minima, swiss, architect, cayman, dinky, hacker, leap-day, merlot, midnight, minimal, modernist, primer, slate, tactile, time-machine*
+- *jekyll-mentions*
+- *jekyll-redirect-from*
+- *github-pages-health-check*
+
+
+> <https://pages.github.com/versions/>
+
 ## emoji
 `Gemfile`:
 ```rb
@@ -75,15 +84,6 @@ emoji:
 > [emoji-cheat-sheet](https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md#subdivision-flag)
 > [emojipedia](https://emojipedia.org/)
 > [twemoji preview](https://twemoji.maxcdn.com/2/test/preview.html)
-
-- *themes* 
-  -  *minima, swiss, architect, cayman, dinky, hacker, leap-day, merlot, midnight, minimal, modernist, primer, slate, tactile, time-machine*
-- *jekyll-mentions*
-- *jekyll-redirect-from*
-- *github-pages-health-check*
-
-
-> <https://pages.github.com/versions/>
 
 # Jekyll部分
 
@@ -124,6 +124,8 @@ Jekyll大概是默认支持代码高亮的。
 
 
 ## 数学公式支持
+
+### MathJax
 使用MathJax可以很方便的在页面上显示数学公式。
 在页面上添加如下代码即可。
 ```html
@@ -143,6 +145,11 @@ MathJax默认不开启单个 `$` 的行内公式，在页面中添加下面的�
 ```
 
 > [Getting Started - docs.mathjax.org](http://docs.mathjax.org/en/latest/start.html)
+
+### katex
+
+> [Katex Mathjax Comparison](https://www.intmath.com/cg5/katex-mathjax-comparison.php)
+> [Supported Function](https://katex.org/docs/supported.html)
 
 ## TOC生成
 
