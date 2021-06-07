@@ -152,6 +152,10 @@ evt.initMouseEvent("mouseenter", true, true, window,0, 0, 0, 0, 0, false, false,
 $0.dispatchEvent(evt); 
 ```
 
+```js
+$0.dispatchEvent(new MouseEvent('mouseenter'))
+```
+
 ```
 Event
 ├── UIEvent
