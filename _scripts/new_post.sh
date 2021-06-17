@@ -7,5 +7,5 @@ layout: post
 title: \"$1\"
 date: $date\n
 ---">$post
-echo "$1"
-echo "$post"
+# echo "$1"
+echo "new post created: $post"
