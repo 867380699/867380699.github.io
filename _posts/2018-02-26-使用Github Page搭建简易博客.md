@@ -308,6 +308,52 @@ We can embed anything within `<iframe>` tags, such as **YouTube** and **Vimeo** 
 
 `_config.yaml`
 
+## jekyll 4.x
+
+`Gemfile`
+```
+# gem 'github-pages', group: :jekyll_plugins
+```
+
+```bash
+bundle update jekyll
+```
+
+```
+mkdir -p .github/workflows
+touch .github/workflows/gh-pages.yml
+```
+
+{% raw %}
+```yaml
+name: Build and deploy Jekyll site to GitHub Pages
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  github-pages:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: helaili/jekyll-action@2.0.1
+        with:
+          token: ${{ secrets.IO }}
+```
+{% endraw %}
+
+Config `TOKEN`
+
+<https://jekyllrb.com/docs/continuous-integration/github-actions/#providing-permissions>
+
+`.gitignore`
+```
+.jekyll-cache/**
+```
+
+
 # Nginx部署
 Jekyll也可以使用Nginx在自己的服务器上进行部署
 
