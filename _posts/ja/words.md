@@ -1,20 +1,22 @@
+{:tts-table: .tts .word-table}
+
 | 日 | 夢 | 綱 | 何 | 君 | 嘘 | 力 | 歌 | 人 | 女 | 子 | 男 | 姫 |
 | 服 | 今 | 耳 | 駅 | 話 | 年 | 本 | 絵 | 階 | 円 | 道 | 鋏 | 笹 <t-tip>bamboo</t-tip> |
 | 風 | 雲 | 雨 | 雪 | 電 | 星 | 花 | 氷 | 海 | 鏡 | 見 | 竜 | 鮫 |
 | 蝦 | 犬 | 牛 | 馬 | 蝶 | 豚 | 魚 |
 | 春 | 夏 | 秋 | 冬 |
 | 上 | 下 | 外 | 中 | 前 | 後ろ | 隣 |
-{:.tts .color-table}
+{:tts-table}
 
 | 戻り<t-tip>返回</t-tip> | 現実 | 出来 | 時間 | 翌日 | 少女 | 双子 | 心配 | 一度<t-tip>一次</t-tip> |
 | 一緒 | 大丈夫 | 彼女 | 初級 | 魔術 | 来年 | 同じ | 雪花 | 静か |
 | 暮らす<t-tip>生活</t-tip> | 季節 | 感じ<t-tip>感觉</t-tip> | 上手<t-tip>good at</t-tip> | 下手<t-tip>bad at</t-tip> | 願い<t-tip>wish</t-tip> | 年明け<t-tip>新年</t-tip> | 受付<t-tip>接待处</t-tip> | 子供<t-tip>孩子</t-tip> |
 | 風邪<t-tip>着凉</t-tip> | 周辺 | 先輩 | 後輩 | 夫婦 | 病院<t-tip>医院</t-tip> | 自分<t-tip>自己</t-tip> | 帰る<t-tip>回家</t-tip> | 無題 |
 | 誕生日<t-tip>生日</t-tip> | 幼馴染<t-tip>青梅竹马</t-tip> | 妖精<t-tip>fairy</t-tip> | 天使 | 悪魔 | 女王様<t-tip>女王</t-tip> | 水晶 | 神話 | 術師 |
-| 抹茶 | 若返る<t-tip>rejuvenate</t-tip> | 仕事<t-tip>工作</t-tip> | 映画<t-tip>movie</t-tip> | 日刊<t-tip>daily</t-tip> | 物語<t-tip>story</t-tip> | 一番<t-tip>number one</t-tip> |
+| 抹茶 | 若返る<t-tip>rejuvenate</t-tip> | 仕事<t-tip>工作</t-tip> | 映画<t-tip>movie</t-tip> | 日刊<t-tip>daily</t-tip> | 物語<t-tip>story</t-tip> | 一番<t-tip>number one</t-tip> | 残業<t-tip>overtime work</t-tip> |
 | 良い | 悪い<t-tip>bad</t-tip> | 強い | 熱い | 寒い |
 | **やめ**<t-tip>stop</t-tip> | **びっくり**<t-tip>惊讶</t-tip> | **みんな**<t-tip>大家</t-tip> | **だから**<t-tip>所以</t-tip> | 
-{:.tts .color-table}
+{:tts-table}
 
 *[花]: はな
 *[日]: ひ
@@ -120,6 +122,7 @@
 *[日刊]: にっかん ⓪
 *[物語]: ものがたり ③
 *[一番]: いちばん
+*[残業]]: ざんぎょう ⓪
 *[妖精]: ようせい
 *[天使]: てんし ①
 *[悪魔]: あくま ①
