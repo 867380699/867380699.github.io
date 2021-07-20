@@ -422,8 +422,15 @@ var worker = new Person('smith', 21);
 **尽量使用strict模式,使用`var`申明变量**
 `\x##` 16进制表示
 `\u####` unicode字符
+
 \`...\` 多行字符串(ES6)
-\` ...${name}\` 模板字符串(ES6)
+
+模板字符串*(ES6)*
+```js
+let name = 'Larry';
+console.log(`Hello $(name)`)
+```
+
 特别注意,字符串是不可变的
 所以诸如`toUpperCase`,`substring`这类方法都是返回一个新字符串
 **JS数组越界不会报错!**
