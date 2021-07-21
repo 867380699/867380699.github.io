@@ -222,9 +222,12 @@
       word-break: break-all;
     }
     .highlight {
-      padding: 4px;
+      padding: 2px;
       font-size: 0.8rem;
       width: 100%;
+      pre.highlight {
+        padding: 4px;
+      }
     }
   
     p code {
