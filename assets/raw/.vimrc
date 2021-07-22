@@ -2,6 +2,7 @@ set number
 set expandtab
 set tabstop=2
 set softtabstop=2
+set shiftwidth=2
 syntax on
 set hlsearch
 let mapleader = "," 
@@ -22,6 +23,7 @@ Plug 'tomasiser/vim-code-dark'
 Plug 'ryanoasis/vim-devicons'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
+Plug 'sheerun/vim-polyglot'
 
 call plug#end()
 
@@ -38,16 +40,20 @@ let NERDTreeMinimalUI=1
 let g:Lf_StlSeparator = { 'left': '', 'right': '' }
 let g:Lf_ReverseOrder = 1
 
+" vim-code-dark
+colorscheme codedark
+let g:airline_theme = 'codedark'
+
 " gitgutter
+let g:gitgutter_override_sign_column_highlight = 0
 highlight clear SignColumn
 highlight GitGutterAdd ctermfg=2
 highlight GitGutterChange ctermfg=3
 highlight GitGutterDelete ctermfg=1
 highlight GitGutterChangeDelete ctermfg=4
 
-" vim-code-dark
-colorscheme codedark
-let g:airline_theme = 'codedark'
+" delimitMate
+let delimitMate_expand_cr = 1
 
 " vim-markdown
 let g:vim_markdown_folding_disabled = 1
