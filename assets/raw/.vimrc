@@ -39,6 +39,13 @@ let NERDTreeMinimalUI=1
 " LeaderF
 let g:Lf_StlSeparator = { 'left': '', 'right': '' }
 let g:Lf_ReverseOrder = 1
+let g:Lf_ShortcutF = '<leader>p'
+
+let g:Lf_RgConfig = [
+    \"--max-columns=150",
+    \"--max-columns-preview",
+    \"--glob=!*[.-]min.js",
+\]
 
 " vim-code-dark
 colorscheme codedark
@@ -54,6 +61,7 @@ highlight GitGutterChangeDelete ctermfg=4
 
 " delimitMate
 let delimitMate_expand_cr = 1
+let delimitMate_expand_space = 1
 
 " vim-markdown
 let g:vim_markdown_folding_disabled = 1
@@ -61,11 +69,6 @@ let g:vim_markdown_toc_autofit = 1
 let g:vim_markdown_math = 1
 let g:vim_markdown_frontmatter = 1
 let g:vim_markdown_fenced_languages = ['css', 'rb=ruby', 'javascript', 'js=javascript', 'typescript', 'ts=typescript', 'json=javascript', 'ruby', 'sass', 'xml']
-
-" keybinding
-:nnoremap <leader>h :noh<CR>
-:nnoremap <leader>n :NERDTreeToggle<CR>
-:nnoremap <leader>g :G<CR><C-w>100+
 
 " nvim Terminal
 :nnoremap <leader>t :call ToggleTerm("iTerm", 1)<CR>i
@@ -115,4 +118,9 @@ endfunction
 
 command TocToggle call s:TocToggle()
 
+" keybinding
+:nnoremap <leader>h :noh<CR>
+:nnoremap <leader>n :NERDTreeToggle<CR>
+:nnoremap <leader>f :Leaderf rg<CR>
+:nnoremap <leader>g :G<CR><C-w>20+
 :nnoremap <leader>1 :TocToggle<CR>
