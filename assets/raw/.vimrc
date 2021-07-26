@@ -5,6 +5,9 @@ set softtabstop=2
 set shiftwidth=2
 syntax on
 set hlsearch
+set cursorline
+set clipboard+=unnamedplus " +y +p
+set signcolumn=yes
 let mapleader = "," 
 
 call plug#begin('~/.vim/plugged')
@@ -18,12 +21,15 @@ Plug 'Yggdroot/LeaderF'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'Raimondi/delimitMate'
+Plug 'preservim/nerdcommenter'
 Plug 'tpope/vim-surround'
 Plug 'tomasiser/vim-code-dark'
 Plug 'ryanoasis/vim-devicons'
+Plug 'Yggdroot/indentLine'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'sheerun/vim-polyglot'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 
@@ -51,6 +57,12 @@ let g:Lf_RgConfig = [
 colorscheme codedark
 let g:airline_theme = 'codedark'
 
+" devIcons
+let g:DevIconsEnableFoldersOpenClose = 1
+
+" indentLine
+let g:indentLine_char = '▏'
+
 " gitgutter
 let g:gitgutter_override_sign_column_highlight = 0
 highlight clear SignColumn
@@ -63,12 +75,41 @@ highlight GitGutterChangeDelete ctermfg=4
 let delimitMate_expand_cr = 1
 let delimitMate_expand_space = 1
 
+" nerdCommenter
+let g:NERDSpaceDelims = 1
+
 " vim-markdown
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_toc_autofit = 1
 let g:vim_markdown_math = 1
 let g:vim_markdown_frontmatter = 1
 let g:vim_markdown_fenced_languages = ['css', 'rb=ruby', 'javascript', 'js=javascript', 'typescript', 'ts=typescript', 'json=javascript', 'ruby', 'sass', 'xml']
+:hi mkdHeading ctermfg=117 cterm=bold
+:hi Title ctermfg=117 cterm=bold
+:hi mkdBold ctermfg=75 cterm=bold
+:hi htmlBold ctermfg=75 cterm=bold
+:hi mkdItalic ctermfg=240 cterm=italic,bold
+:hi htmlItalic ctermfg=240 cterm=italic,bold
+
+" Coc
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+    \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
 " nvim Terminal
 :nnoremap <leader>t :call ToggleTerm("iTerm", 1)<CR>i
@@ -119,7 +160,7 @@ endfunction
 command TocToggle call s:TocToggle()
 
 " keybinding
-:nnoremap <leader>h :noh<CR>
+:nnoremap <silent> <leader>h :noh<CR>
 :nnoremap <leader>n :NERDTreeToggle<CR>
 :nnoremap <leader>f :Leaderf rg<CR>
 :nnoremap <leader>g :G<CR><C-w>20+
