@@ -7,7 +7,7 @@ syntax on
 set hlsearch
 set cursorline
 set clipboard+=unnamedplus " +y +p
-set signcolumn=yes
+set signcolumn=number
 let mapleader = "," 
 
 call plug#begin('~/.vim/plugged')
@@ -159,9 +159,21 @@ endfunction
 
 command TocToggle call s:TocToggle()
 
+" SignColumn Toggle
+function! ToggleSignColumn()
+    if !exists("b:signcolumn_on") || b:signcolumn_on
+        set signcolumn=no
+        let b:signcolumn_on=0
+    else
+        set signcolumn=number
+        let b:signcolumn_on=1
+    endif
+endfunction
+
 " keybinding
-:nnoremap <silent> <leader>h :noh<CR>
-:nnoremap <leader>n :NERDTreeToggle<CR>
-:nnoremap <leader>f :Leaderf rg<CR>
-:nnoremap <leader>g :G<CR><C-w>20+
-:nnoremap <leader>1 :TocToggle<CR>
+nnoremap <silent> <leader>h :noh<CR>
+nnoremap <leader>n :NERDTreeToggle<CR>
+nnoremap <leader>f :Leaderf rg<CR>
+nnoremap <leader>g :G<CR><C-w>20+
+nnoremap <leader>1 :TocToggle<CR>
+nnoremap <Leader>l :call ToggleSignColumn()<CR>
