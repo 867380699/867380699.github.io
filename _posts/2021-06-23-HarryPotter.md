@@ -26,17 +26,18 @@ date: 2021-06-23
 ## Teachers
 
 | --- | --- | --- |
-| History | **Binns** | 宾斯 |
-| Charms | **Filtwick** | 弗立维 |
-| Dark Arts | **Quirrell** | 奇洛 |
-| Flying | **Hooch** | 霍琦 |
-| Transfiguration | **McGonagall** | 麦格 |
-| Potions | **Snape** | 斯内普 |
+| **Binns** | 宾斯 | History |
+| **Flitwick** | 弗立维 | Charms |
+| **Quirrell** | 奇洛 | Dark Arts |
+| **Hooch** | 霍琦 | Flying |
+| **McGonagall** | 麦格 | Transfiguration |
+| **Snape** | 斯内普 | Potions |
 
 ## Elf
 
 | --- | --- |
 | **Griphook** | 拉环 |
+| **Dobby** | 多比 |
 
 
 # 地点
@@ -76,6 +77,7 @@ date: 2021-06-23
 | **javelin** | 标枪 |
 | **gown** | 睡袍 |
 | door posts | 门柱 |
+| **kettle** | 水壶 |
 {:.tts}
 
 | --- | --- |
@@ -86,9 +88,6 @@ date: 2021-06-23
 {:.tts}
 
 | --- | --- | --- |
-| **gasp** | 倒抽气 |
-| **pant** | 喘气 |
-| **wheeze** | 喘息 | to breathe with difficulty |
 | **prod** | [用手指]戳 |
 | **hiss** | 1. 嘘 2. 发出嘶嘶声 |
 | **lurk** | 潜伏 |
@@ -102,6 +101,8 @@ date: 2021-06-23
 | **hurtle** | [巨大物体]飞速移动 | moves or falls very fast |
 | **tug** | 拉 `syn`: pull | tug-of-war - 拔河 |
 | **flit** | 闪过，掠过 | a spasm of fear flitted across Quirrell's face. |
+| **nag** | 纠缠 | to keep asking for something in a annoying way |
+| **longing** | 渴望 | a strong feeling of wanting something or someone |
 {:.tts}
 
 
@@ -118,7 +119,69 @@ date: 2021-06-23
   + alternativery called the tower, marquess, rector
   + The term castle is considered to be informal, incorrect, or old-fashioned
 
+## Car
+
+| --- | --- | --- |
+| **windshield** | 挡风玻璃 | a windscreen |
+**headlight** | 前灯 | one of the large lights at the front of a vehicle |
+| **rear light** | 尾灯 | a red light at the rear of a vehicle |
+| **bonnet** | 引擎盖 | *[British]* the metal lid over the front of a car |
+| **windscreen wiper** | 雨刮器 |  |
+| **glove compartment** | 手套箱 | a small cupboard in front of the passenger seat |
+| **boot** | 后备箱 | *[British]* an enclused space at the back of a car |
+{:.tts}
+
+- compartment - a smaller enclosed space inside something larger
+
 # 句子
 
 They edged along the walls. *- 贴着墙走*
 
+To beat about the bush. *- 拐弯抹角*
+
+# Theasurus
+
+## breathe
+
+| --- | --- | --- |
+| **gasp** | *[因呼吸困难]* 喘气 | to breathe very quickly and deeply and with difficulty |
+| **pant** | *[因吃力]* 喘气 | to breathe quickly and noisily because you have been using a lot of effort |
+| **wheeze** | *[因病]* 喘气 | to breathe with difficulty because you are ill |
+{:.tts}
+
+## hit
+
+| --- | --- | --- |
+| **whack** | 重击 | to hit something very hard |
+| **beat** | 打 | to hit someone deliberately many times |
+{:.tts}
+
+- beat
+  + pummel - to hit someone or something many times quickly
+
+## walk
+
+| --- | --- | --- |
+| **amble** | 漫步 | to walk slowly in a relaxed way |
+| **stroll** | 闲逛 | to walk somewhere in a slow relaxed way |
+| **strut** | *[趾高气扬地]*走 | to walk proudly with your head high |
+{:.tts}
+
+## shout
+
+| --- | --- | --- |
+| **roar** | 咆哮 | *[written]* to shout in a loud deep voice |
+| **bellow** | *[希望许多人听到]*大喊 | *[written]* to shout in a loud deep voice, especially when you want a lot of people to hear you |
+{:.tts}
+
+## run
+
+| --- | --- | --- |
+| **gallop** | *[马]*飞跑 | if a horse gallops, it runs very quickly |
+{:.tts}
+
+## laugh
+
+| --- | --- | --- |
+| **giggle** | *[紧张/尴尬]*傻笑 | to laugh quickly in a high voice, especially in a slightly silly way, or because you are nervous or embarrassed |
+{:.tts}
