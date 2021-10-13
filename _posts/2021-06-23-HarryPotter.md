@@ -46,6 +46,8 @@ date: 2021-06-23
 | **Diagon Alley** | 对角巷 |
 | **Leaky Cauldron** | 破釜酒吧 |
 | **Gringotts** | 古灵阁 |
+| **Flourish and Blotts** | 丽痕书店 |
+| **Knockturn Alley** | 翻倒巷 |
 {:.tts}
 
 # 咒语
@@ -53,6 +55,16 @@ date: 2021-06-23
 | --- | --- | --- |
 | **Alohomora** | Opens locks | 阿拉霍洞开 |
 | **Wingardium Leviosa** |  |  |
+{:.tts}
+
+# Items
+
+| --- | --- |
+| **Floo powder** | 飞路粉 |
+
+# Creature
+| --- | --- |
+| **ghoul** | 食尸鬼 |
 {:.tts}
 
 # 单词
@@ -76,8 +88,15 @@ date: 2021-06-23
 | **jumper** | 套头毛衣 `syn` sweater |
 | **javelin** | 标枪 |
 | **gown** | 睡袍 |
-| door posts | 门柱 |
+| **door posts** | 门柱 |
+| **furnace** | 火炉 |
+| **grate** | 壁炉 |
+| **mantelpiece** | 壁炉架 |
+| **windowsill** | 窗台 |
 | **kettle** | 水壶 |
+| **hairpin** | 发卡 |
+| **peanut** | 花生 |
+| **lullaby** | 摇篮曲 |
 {:.tts}
 
 | --- | --- |
@@ -85,6 +104,7 @@ date: 2021-06-23
 | **throat** | 喉咙 |
 | **jaw** | 下颌 |
 | **pig snout** | 猪鼻子 |
+| **bruise** | 淤青 |
 {:.tts}
 
 | --- | --- | --- |
@@ -103,6 +123,13 @@ date: 2021-06-23
 | **flit** | 闪过，掠过 | a spasm of fear flitted across Quirrell's face. |
 | **nag** | 纠缠 | to keep asking for something in a annoying way |
 | **longing** | 渴望 | a strong feeling of wanting something or someone |
+| **bewitch** | 蛊惑 | to make someone feel so interested or attracted that they cannnot think clearly |
+| **reckon** | 猜想；估计；认为 | to think or suppose something |
+| **brandish** | 挥舞 | to wave something around in a dangerous way,especially a weapon |
+| **protest** | 抗议 |
+| **gloat** | 洋洋得意；幸灾乐祸 | to show in a annoying way that you are proud of your own success or happy about someone else's failure |
+| **perch** | 栖息；栖息处 |
+
 {:.tts}
 
 
@@ -137,7 +164,24 @@ date: 2021-06-23
 
 They edged along the walls. *- 贴着墙走*
 
+Naville was raising straight up like a crok shot out of a bottle.
+
 To beat about the bush. *- 拐弯抹角*
+
+Pick a lock. *- 撬锁*
+
+Grinning from ear to ear. *- 笑得合不拢嘴*
+
+Hands on hips. *- 双手叉腰*
+
+Take a leaf out of someone's book. *-（从某人的书中取出一页）意思就是以某人为榜样*
+
+Be at the end of your tether *- 忍无可忍*
+
+I dunno. *- I don't know.*
+
+public/private sphere - 公域/私域
+
 
 # Theasurus
 
