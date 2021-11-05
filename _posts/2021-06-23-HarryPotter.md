@@ -81,6 +81,7 @@ date: 2021-06-23
 | **centaur** | 半人马 |
 | **cauldron** | 大坩埚 |
 | **tapestry** | 挂毯 |
+| **jinx** | 厄运 |
 | **binocular** | 双筒望远镜 |
 | **flute** | 长笛 |
 | **twig** | 细枝 |
@@ -89,6 +90,7 @@ date: 2021-06-23
 | **javelin** | 标枪 |
 | **gown** | 睡袍 |
 | **door posts** | 门柱 |
+| **chest of drawers** | 五斗柜 |
 | **furnace** | 火炉 |
 | **grate** | 壁炉 |
 | **mantelpiece** | 壁炉架 |
@@ -97,6 +99,10 @@ date: 2021-06-23
 | **hairpin** | 发卡 |
 | **peanut** | 花生 |
 | **lullaby** | 摇篮曲 |
+| **pub** | 酒馆 |
+| **fortnight** | 两周 |
+| **manor** | 庄园 |
+| **attic** | 阁楼 |
 {:.tts}
 
 | --- | --- |
@@ -129,13 +135,18 @@ date: 2021-06-23
 | **protest** | 抗议 |
 | **gloat** | 洋洋得意；幸灾乐祸 | to show in a annoying way that you are proud of your own success or happy about someone else's failure |
 | **perch** | 栖息；栖息处 |
-
+| **foul** | 犯规 |
+| **raid** | 突袭 |
+| **waft** | 飘荡 |
 {:.tts}
 
 
 | --- | --- |
 | **toffee** | 太妃糖 |
 {:.tts}
+
+- snarl
+  + `[diff]` snore
 
 ## Chess
 
@@ -215,7 +226,7 @@ public/private sphere - 公域/私域
 
 | --- | --- | --- |
 | **roar** | 咆哮 | *[written]* to shout in a loud deep voice |
-| **bellow** | *[希望许多人听到]*大喊 | *[written]* to shout in a loud deep voice, especially when you want a lot of people to hear you |
+| **bellow** | *[希望许多人听到]*大喊 | *[written]* to shout in a loud deep voice, especially when you want a lot of people to hear you `[syn]` - yell |
 {:.tts}
 
 ## run
@@ -228,4 +239,12 @@ public/private sphere - 公域/私域
 
 | --- | --- | --- |
 | **giggle** | *[紧张/尴尬]*傻笑 | to laugh quickly in a high voice, especially in a slightly silly way, or because you are nervous or embarrassed |
+{:.tts}
+
+## smile
+
+| --- | --- | --- |
+| **grin** | 露齿笑 | to smile widely |
+| **beam** | 眉开眼笑 | to give a big happy smile for a long time, because you are very pleased or proud |
+| **smirk** | 幸灾乐祸的笑；得意的笑 | to smile in an unpleasant way |
 {:.tts}
