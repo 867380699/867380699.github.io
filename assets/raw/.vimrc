@@ -30,6 +30,7 @@ Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'sheerun/vim-polyglot'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'liuchengxu/vista.vim'
 
 call plug#end()
 
@@ -62,6 +63,8 @@ let g:DevIconsEnableFoldersOpenClose = 1
 
 " indentLine
 let g:indentLine_char = '▏'
+let g:indentLine_setConceal=2
+let g:indentLine_concealcursor = 'nc'
 
 " gitgutter
 let g:gitgutter_override_sign_column_highlight = 0
@@ -79,8 +82,8 @@ let delimitMate_expand_space = 1
 let g:NERDSpaceDelims = 1
 
 " vim-markdown
-let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_toc_autofit = 1
+let g:vim_markdown_new_list_item_indent = 2
 let g:vim_markdown_math = 1
 let g:vim_markdown_frontmatter = 1
 let g:vim_markdown_fenced_languages = ['css', 'rb=ruby', 'javascript', 'js=javascript', 'typescript', 'ts=typescript', 'json=javascript', 'ruby', 'sass', 'xml']
@@ -115,6 +118,9 @@ nmap <silent> gr <Plug>(coc-references)
 :nnoremap <leader>t :call ToggleTerm("iTerm", 1)<CR>i
 :tnoremap <ESC><ESC> <C-\><C-n><C-w>:call ToggleTerm("iTerm", 1)<CR>
 :nnoremap <ESC><ESC> <C-\><C-n><C-w>:call ToggleTerm("iTerm", 1)<CR>i
+
+" Vista
+let g:vista_default_executive="coc"
 
 function! ToggleTerm(termname, slider)
     let pane = bufwinnr(a:termname)
@@ -177,3 +183,4 @@ nnoremap <leader>f :Leaderf rg<CR>
 nnoremap <leader>g :G<CR><C-w>20+
 nnoremap <leader>1 :TocToggle<CR>
 nnoremap <Leader>l :call ToggleSignColumn()<CR>
+nnoremap <Leader>v :Vista!!<CR>
