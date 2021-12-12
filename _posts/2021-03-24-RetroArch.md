@@ -30,21 +30,23 @@ date: 2021-03-24
   + KOF 2000
   + KOF 2002UM
   + KOF 98 AE 2016
+- 街霸
+  + sfiii4n
+- 侍魂
+  + samsho3
+  + samsho4sp
+  + samsho5
+- 饿狼传说
+  + rbffspec
+
 - 合金弹头
   + MSLUG X
   + MSLUG 3
   + MSLUG 4
   + MSLUG 5
-- 侍魂
-  + samsho3
-  + samsho4sp
-  + samsho5
-- 打击者1945
-  + s1945p
-- 街霸
-  + sfiii4n
-- 战国传承
-  + sengoku3
+- 突击骑兵
+  + shocktr2
+
 - 三国战记
   + kovplus - v1-119
   + kovytzy - v1 一统中原
@@ -56,6 +58,26 @@ date: 2021-03-24
   + oldsplus
 - 圆桌骑士
   + nights
+- 恐龙快打
+  + dinoa
+- 三国志
+  + wofchdx
+- 战国传承
+  + sengoku3
+- 铁钩船长
+  + hook
+- 光明使者
+  + dungeonm
+- 龙与地下城
+  + ddtod - Tower Of Doom
+  + ddsom - Shadow Over Mystara
+
+- 打击者1945
+  + s1945p
+- 雷电
+  + raiden2hk
+- 武装飞鸟
+  + gunbird2
 
 > *拳皇 2003 是 Neo Geo 平台的最后一作*
 
@@ -68,12 +90,44 @@ date: 2021-03-24
 - `ae` - anniversary edition
 - `a` - NGA - Neo Geo Arcade
 - `h` - NGH - Neo Geo Home
+- `u` - USA
+- `e` - Euro
+- `j` - Japan
 
 # GBA
 
+## Cores
+
+- mGBA
+
 ## Games
 
-- 恶魔城-白夜协奏曲
+- 恶魔城 - 白夜协奏曲
+- 恶魔城 - 晓月圆舞曲
+
+# Wii
+
+## Cores
+
+- Dolphin
+
+## Configs
+
+- Quick Menu
+  + Options
+    * EFB Scale
+    * Wiimote IR Mode
+    * CPU Clock Rate
+  + Controls
+    * Port1 Controls
+      - Device Type
+        + WiiMote + Classic Controller
+        + WillMote (sideaways)
+
+## Games
+
+- 胧村正
+- 异度之刃
 
 # History
 
