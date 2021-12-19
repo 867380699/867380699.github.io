@@ -1,0 +1,18 @@
+---
+---
+.unicodes {
+  display: flex;
+  flex-wrap: wrap;
+  font-family: 'Everson Mono', 'Symbola', 'Unifont', 'Last Resort High-Efficiency', sans-serif;
+  i {
+    font-size: 60px;
+    font-weight: 500;
+    padding: 30px;
+    transition: transform 0.2s;
+    cursor: pointer;
+    font-style: normal;
+    &:hover {
+      transform: scale(2)
+    }
+  }
+}
