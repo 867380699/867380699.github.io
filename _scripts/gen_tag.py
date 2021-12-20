@@ -55,7 +55,7 @@ tag: %s
 {%% include tag_page.html %%}"""
 
 for tag in total_tags:
-    tag_filename = tag_dir + tag + '.html'
+    tag_filename = tag_dir + tag + '.md'
     f = open(tag_filename, 'w')
     write_str = template % (tag, tag)
     f.write(write_str)
