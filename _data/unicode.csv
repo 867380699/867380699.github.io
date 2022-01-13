@@ -1,0 +1,307 @@
+begin,end,title,points,assigned
+0000,007F,Basic Latin[g],128,128
+0080,00FF,Latin-1 Supplement[h],128,128
+0100,017F,Latin Extended-A,128,128
+0180,024F,Latin Extended-B,208,208
+0250,02AF,IPA Extensions,96,96
+02B0,02FF,Spacing Modifier Letters,80,80
+0300,036F,Combining Diacritical Marks,112,112
+0370,03FF,Greek and Coptic,144,135
+0400,04FF,Cyrillic,256,256
+0500,052F,Cyrillic Supplement,48,48
+0530,058F,Armenian,96,91
+0590,05FF,Hebrew,112,88
+0600,06FF,Arabic,256,256
+0700,074F,Syriac,80,77
+0750,077F,Arabic Supplement,48,48
+0780,07BF,Thaana,64,50
+07C0,07FF,NKo,64,62
+0800,083F,Samaritan,64,61
+0840,085F,Mandaic,32,29
+0860,086F,Syriac Supplement,16,11
+0870,089F,Arabic Extended-B,48,41
+08A0,08FF,Arabic Extended-A,96,96
+0900,097F,Devanagari,128,128
+0980,09FF,Bengali,128,96
+0A00,0A7F,Gurmukhi,128,80
+0A80,0AFF,Gujarati,128,91
+0B00,0B7F,Oriya,128,91
+0B80,0BFF,Tamil,128,72
+0C00,0C7F,Telugu,128,100
+0C80,0CFF,Kannada,128,90
+0D00,0D7F,Malayalam,128,118
+0D80,0DFF,Sinhala,128,91
+0E00,0E7F,Thai,128,87
+0E80,0EFF,Lao,128,82
+0F00,0FFF,Tibetan,256,211
+1000,109F,Myanmar,160,160
+10A0,10FF,Georgian,96,88
+1100,11FF,Hangul Jamo,256,256
+1200,137F,Ethiopic,384,358
+1380,139F,Ethiopic Supplement,32,26
+13A0,13FF,Cherokee,96,92
+1400,167F,Unified Canadian Aboriginal Syllabics,640,640
+1680,169F,Ogham,32,29
+16A0,16FF,Runic,96,89
+1700,171F,Tagalog,32,23
+1720,173F,Hanunoo,32,23
+1740,175F,Buhid,32,20
+1760,177F,Tagbanwa,32,18
+1780,17FF,Khmer,128,114
+1800,18AF,Mongolian,176,158
+18B0,18FF,Unified Canadian Aboriginal Syllabics Extended,80,70
+1900,194F,Limbu,80,68
+1950,197F,Tai Le,48,35
+1980,19DF,New Tai Lue,96,83
+19E0,19FF,Khmer Symbols,32,32
+1A00,1A1F,Buginese,32,30
+1A20,1AAF,Tai Tham,144,127
+1AB0,1AFF,Combining Diacritical Marks Extended,80,31
+1B00,1B7F,Balinese,128,124
+1B80,1BBF,Sundanese,64,64
+1BC0,1BFF,Batak,64,56
+1C00,1C4F,Lepcha,80,74
+1C50,1C7F,Ol Chiki,48,48
+1C80,1C8F,Cyrillic Extended-C,16,9
+1C90,1CBF,Georgian Extended,48,46
+1CC0,1CCF,Sundanese Supplement,16,8
+1CD0,1CFF,Vedic Extensions,48,43
+1D00,1D7F,Phonetic Extensions,128,128
+1D80,1DBF,Phonetic Extensions Supplement,64,64
+1DC0,1DFF,Combining Diacritical Marks Supplement,64,64
+1E00,1EFF,Latin Extended Additional,256,256
+1F00,1FFF,Greek Extended,256,233
+2000,206F,General Punctuation,112,111
+2070,209F,Superscripts and Subscripts,48,42
+20A0,20CF,Currency Symbols,48,33
+20D0,20FF,Combining Diacritical Marks for Symbols,48,33
+2100,214F,Letterlike Symbols,80,80
+2150,218F,Number Forms,64,60
+2190,21FF,Arrows,112,112
+2200,22FF,Mathematical Operators,256,256
+2300,23FF,Miscellaneous Technical,256,256
+2400,243F,Control Pictures,64,39
+2440,245F,Optical Character Recognition,32,11
+2460,24FF,Enclosed Alphanumerics,160,160
+2500,257F,Box Drawing,128,128
+2580,259F,Block Elements,32,32
+25A0,25FF,Geometric Shapes,96,96
+2600,26FF,Miscellaneous Symbols,256,256
+2700,27BF,Dingbats,192,192
+27C0,27EF,Miscellaneous Mathematical Symbols-A,48,48
+27F0,27FF,Supplemental Arrows-A,16,16
+2800,28FF,Braille Patterns,256,256
+2900,297F,Supplemental Arrows-B,128,128
+2980,29FF,Miscellaneous Mathematical Symbols-B,128,128
+2A00,2AFF,Supplemental Mathematical Operators,256,256
+2B00,2BFF,Miscellaneous Symbols and Arrows,256,253
+2C00,2C5F,Glagolitic,96,96
+2C60,2C7F,Latin Extended-C,32,32
+2C80,2CFF,Coptic,128,123
+2D00,2D2F,Georgian Supplement,48,40
+2D30,2D7F,Tifinagh,80,59
+2D80,2DDF,Ethiopic Extended,96,79
+2DE0,2DFF,Cyrillic Extended-A,32,32
+2E00,2E7F,Supplemental Punctuation,128,94
+2E80,2EFF,CJK Radicals Supplement,128,115
+2F00,2FDF,Kangxi Radicals,224,214
+2FF0,2FFF,Ideographic Description Characters,16,12
+3000,303F,CJK Symbols and Punctuation,64,64
+3040,309F,Hiragana,96,93
+30A0,30FF,Katakana,96,96
+3100,312F,Bopomofo,48,43
+3130,318F,Hangul Compatibility Jamo,96,94
+3190,319F,Kanbun,16,16
+31A0,31BF,Bopomofo Extended,32,32
+31C0,31EF,CJK Strokes,48,36
+31F0,31FF,Katakana Phonetic Extensions,16,16
+3200,32FF,Enclosed CJK Letters and Months,256,255
+3300,33FF,CJK Compatibility,256,256
+3400,4DBF,CJK Unified Ideographs Extension A,6592,6592
+4DC0,4DFF,Yijing Hexagram Symbols,64,64
+4E00,9FFF,CJK Unified Ideographs,20992,20992
+A000,A48F,Yi Syllables,1168,1165
+A490,A4CF,Yi Radicals,64,55
+A4D0,A4FF,Lisu,48,48
+A500,A63F,Vai,320,300
+A640,A69F,Cyrillic Extended-B,96,96
+A6A0,A6FF,Bamum,96,88
+A700,A71F,Modifier Tone Letters,32,32
+A720,A7FF,Latin Extended-D,224,193
+A800,A82F,Syloti Nagri,48,45
+A830,A83F,Common Indic Number Forms,16,10
+A840,A87F,Phags-pa,64,56
+A880,A8DF,Saurashtra,96,82
+A8E0,A8FF,Devanagari Extended,32,32
+A900,A92F,Kayah Li,48,48
+A930,A95F,Rejang,48,37
+A960,A97F,Hangul Jamo Extended-A,32,29
+A980,A9DF,Javanese,96,91
+A9E0,A9FF,Myanmar Extended-B,32,31
+AA00,AA5F,Cham,96,83
+AA60,AA7F,Myanmar Extended-A,32,32
+AA80,AADF,Tai Viet,96,72
+AAE0,AAFF,Meetei Mayek Extensions,32,23
+AB00,AB2F,Ethiopic Extended-A,48,32
+AB30,AB6F,Latin Extended-E,64,60
+AB70,ABBF,Cherokee Supplement,80,80
+ABC0,ABFF,Meetei Mayek,64,56
+AC00,D7AF,Hangul Syllables,11184,11172
+D7B0,D7FF,Hangul Jamo Extended-B,80,72
+E000,F8FF,Private Use Area,6400,6400
+F900,FAFF,CJK Compatibility Ideographs,512,472
+FB00,FB4F,Alphabetic Presentation Forms,80,58
+FB50,FDFF,Arabic Presentation Forms-A,688,631
+FE00,FE0F,Variation Selectors,16,16
+FE10,FE1F,Vertical Forms,16,10
+FE20,FE2F,Combining Half Marks,16,16
+FE30,FE4F,CJK Compatibility Forms,32,32
+FE50,FE6F,Small Form Variants,32,26
+FE70,FEFF,Arabic Presentation Forms-B,144,141
+FF00,FFEF,Halfwidth and Fullwidth Forms,240,225
+FFF0,FFFF,Specials,16,5
+10000,1007F,Linear B Syllabary,128,88
+10080,100FF,Linear B Ideograms,128,123
+10100,1013F,Aegean Numbers,64,57
+10140,1018F,Ancient Greek Numbers,80,79
+10190,101CF,Ancient Symbols,64,14
+101D0,101FF,Phaistos Disc,48,46
+10280,1029F,Lycian,32,29
+102A0,102DF,Carian,64,49
+102E0,102FF,Coptic Epact Numbers,32,28
+10300,1032F,Old Italic,48,39
+10330,1034F,Gothic,32,27
+10350,1037F,Old Permic,48,43
+10380,1039F,Ugaritic,32,31
+103A0,103DF,Old Persian,64,50
+10400,1044F,Deseret,80,80
+10450,1047F,Shavian,48,48
+10480,104AF,Osmanya,48,40
+104B0,104FF,Osage,80,72
+10500,1052F,Elbasan,48,40
+10530,1056F,Caucasian Albanian,64,53
+10570,105BF,Vithkuqi,80,70
+10600,1077F,Linear A,384,341
+10780,107BF,Latin Extended-F,64,57
+10800,1083F,Cypriot Syllabary,64,55
+10840,1085F,Imperial Aramaic,32,31
+10860,1087F,Palmyrene,32,32
+10880,108AF,Nabataean,48,40
+108E0,108FF,Hatran,32,26
+10900,1091F,Phoenician,32,29
+10920,1093F,Lydian,32,27
+10980,1099F,Meroitic Hieroglyphs,32,32
+109A0,109FF,Meroitic Cursive,96,90
+10A00,10A5F,Kharoshthi,96,68
+10A60,10A7F,Old South Arabian,32,32
+10A80,10A9F,Old North Arabian,32,32
+10AC0,10AFF,Manichaean,64,51
+10B00,10B3F,Avestan,64,61
+10B40,10B5F,Inscriptional Parthian,32,30
+10B60,10B7F,Inscriptional Pahlavi,32,27
+10B80,10BAF,Psalter Pahlavi,48,29
+10C00,10C4F,Old Turkic,80,73
+10C80,10CFF,Old Hungarian,128,108
+10D00,10D3F,Hanifi Rohingya,64,50
+10E60,10E7F,Rumi Numeral Symbols,32,31
+10E80,10EBF,Yezidi,64,47
+10F00,10F2F,Old Sogdian,48,40
+10F30,10F6F,Sogdian,64,42
+10F70,10FAF,Old Uyghur,64,26
+10FB0,10FDF,Chorasmian,48,28
+10FE0,10FFF,Elymaic,32,23
+11000,1107F,Brahmi,128,115
+11080,110CF,Kaithi,80,68
+110D0,110FF,Sora Sompeng,48,35
+11100,1114F,Chakma,80,71
+11150,1117F,Mahajani,48,39
+11180,111DF,Sharada,96,96
+111E0,111FF,Sinhala Archaic Numbers,32,20
+11200,1124F,Khojki,80,62
+11280,112AF,Multani,48,38
+112B0,112FF,Khudawadi,80,69
+11300,1137F,Grantha,128,86
+11400,1147F,Newa,128,97
+11480,114DF,Tirhuta,96,82
+11580,115FF,Siddham,128,92
+11600,1165F,Modi,96,79
+11660,1167F,Mongolian Supplement,32,13
+11680,116CF,Takri,80,68
+11700,1174F,Ahom,80,65
+11800,1184F,Dogra,80,60
+118A0,118FF,Warang Citi,96,84
+11900,1195F,Dives Akuru,96,72
+119A0,119FF,Nandinagari,96,65
+11A00,11A4F,Zanabazar Square,80,72
+11A50,11AAF,Soyombo,96,83
+11AB0,11ABF,Unified Canadian Aboriginal Syllabics Extended-A,16,16
+11AC0,11AFF,Pau Cin Hau,64,57
+11C00,11C6F,Bhaiksuki,112,97
+11C70,11CBF,Marchen,80,68
+11D00,11D5F,Masaram Gondi,96,75
+11D60,11DAF,Gunjala Gondi,80,63
+11EE0,11EFF,Makasar,32,25
+11FB0,11FBF,Lisu Supplement,16,1
+11FC0,11FFF,Tamil Supplement,64,51
+12000,123FF,Cuneiform,1024,922
+12400,1247F,Cuneiform Numbers and Punctuation,128,116
+12480,1254F,Early Dynastic Cuneiform,208,196
+12F90,12FFF,Cypro-Minoan,112,99
+13000,1342F,Egyptian Hieroglyphs,1072,1071
+13430,1343F,Egyptian Hieroglyph Format Controls,16,9
+14400,1467F,Anatolian Hieroglyphs,640,583
+16800,16A3F,Bamum Supplement,576,569
+16A40,16A6F,Mro,48,43
+16A70,16ACF,Tangsa,96,89
+16AD0,16AFF,Bassa Vah,48,36
+16B00,16B8F,Pahawh Hmong,144,127
+16E40,16E9F,Medefaidrin,96,91
+16F00,16F9F,Miao,160,149
+16FE0,16FFF,Ideographic Symbols and Punctuation,32,7
+17000,187FF,Tangut,6144,6136
+18800,18AFF,Tangut Components,768,768
+18B00,18CFF,Khitan Small Script,512,470
+18D00,18D7F,Tangut Supplement,128,9
+1AFF0,1AFFF,Kana Extended-B,16,13
+1B000,1B0FF,Kana Supplement,256,256
+1B100,1B12F,Kana Extended-A,48,35
+1B130,1B16F,Small Kana Extension,64,7
+1B170,1B2FF,Nushu,400,396
+1BC00,1BC9F,Duployan,160,143
+1BCA0,1BCAF,Shorthand Format Controls,16,4
+1CF00,1CFCF,Znamenny Musical Notation,208,185
+1D000,1D0FF,Byzantine Musical Symbols,256,246
+1D100,1D1FF,Musical Symbols,256,233
+1D200,1D24F,Ancient Greek Musical Notation,80,70
+1D2E0,1D2FF,Mayan Numerals,32,20
+1D300,1D35F,Tai Xuan Jing Symbols,96,87
+1D360,1D37F,Counting Rod Numerals,32,25
+1D400,1D7FF,Mathematical Alphanumeric Symbols,1024,996
+1D800,1DAAF,Sutton SignWriting,688,672
+1DF00,1DFFF,Latin Extended-G,256,31
+1E000,1E02F,Glagolitic Supplement,48,38
+1E100,1E14F,Nyiakeng Puachue Hmong,80,71
+1E290,1E2BF,Toto,48,31
+1E2C0,1E2FF,Wancho,64,59
+1E7E0,1E7FF,Ethiopic Extended-B,32,28
+1E800,1E8DF,Mende Kikakui,224,213
+1E900,1E95F,Adlam,96,88
+1EC70,1ECBF,Indic Siyaq Numbers,80,68
+1ED00,1ED4F,Ottoman Siyaq Numbers,80,61
+1EE00,1EEFF,Arabic Mathematical Alphabetic Symbols,256,143
+1F000,1F02F,Mahjong Tiles,48,44
+1F030,1F09F,Domino Tiles,112,100
+1F0A0,1F0FF,Playing Cards,96,82
+1F100,1F1FF,Enclosed Alphanumeric Supplement,256,200
+1F200,1F2FF,Enclosed Ideographic Supplement,256,64
+1F300,1F5FF,Miscellaneous Symbols and Pictographs,768,768
+1F600,1F64F,Emoticons,80,80
+1F650,1F67F,Ornamental Dingbats,48,48
+1F680,1F6FF,Transport and Map Symbols,128,117
+1F700,1F77F,Alchemical Symbols,128,116
+1F780,1F7FF,Geometric Shapes Extended,128,102
+1F800,1F8FF,Supplemental Arrows-C,256,150
+1F900,1F9FF,Supplemental Symbols and Pictographs,256,256
+1FA00,1FA6F,Chess Symbols,112,98
+1FA70,1FAFF,Symbols and Pictographs Extended-A,144,88
+1FB00,1FBFF,Symbols for Legacy Computing,256,212
