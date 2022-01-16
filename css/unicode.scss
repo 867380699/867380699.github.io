@@ -1,5 +1,24 @@
 ---
 ---
+.main-container > h1.title {
+  display: none;
+}
+
+.toc {
+  width: 434px;
+  max-width: 434px;
+  padding: 6px 4px 6px 8px;
+  ul {
+    padding-inline-start: 0;
+    li {
+      font-size: 14px;
+      list-style-type: none;
+    }
+  }
+}
+.article {
+  width: calc(100% - 434px);
+}
 .unicodes {
   display: flex;
   flex-wrap: wrap;
@@ -13,6 +32,22 @@
     font-style: normal;
     &:hover {
       transform: scale(2)
+    }
+  }
+}
+@media (max-width: 800px) {
+  .article {
+    width: 100%;
+  }
+  .toc {
+    span.block {
+      display: none;
+    }
+  }
+  .unicodes {
+    i {
+      font-size: 40px;
+      padding: 20px;
     }
   }
 }
