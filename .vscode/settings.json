@@ -1,0 +1,16 @@
+{
+  "files.associations": {
+    "ostream": "cpp",
+    "iostream": "cpp"
+  },
+  "search.exclude": {
+    "**/node_modules": true,
+    "__site": true,
+    "three.js/js": true,
+    "rfc": true,
+    "**-min.js": true,
+    "**.min.js": true,
+    "**.css.map": true,
+    "**.min.css": true
+  }
+}
