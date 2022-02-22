@@ -89,6 +89,21 @@ else {
 }
 ```
 
+## Utility Types
+
+### Partial
+
+Constructs a type with all properties of `Type` set to optional.
+
+### Readonly
+
+### Record
+
+### ReturnType
+
+```ts
+updateTimeout: ReturnType<typeof setTimeout>
+```
 
 # tsconfig.json
 The presence of a `tsconfig.json` file in a directory indicates that the directory is the root of a TypeScript project.
