@@ -1,0 +1,77 @@
+<script>
+  window.addEventListener('load', function(){
+    var tables = document.querySelectorAll('table.sortable');
+    [...tables].forEach(function(table) {
+      var header = table.querySelector('thead');
+      var body = table.querySelector('tbody');
+      header.addEventListener('click', function($event) {
+        var el = $event.target;
+        if (el.tagName === 'TH') {
+          if (el.classList.contains('sort-key')) {
+            if (el.classList.contains('reverse')) {
+              el.classList.remove('reverse');
+            } else {
+              el.classList.add('reverse');
+            }
+            
+          } else {
+            [...header.querySelectorAll('th')].forEach(th => th.classList.remove('sort-key', 'reverse'));
+            el.classList.add('sort-key');
+          }
+          var sortIndex = Array.prototype.indexOf.call(el.parentElement.children, el);
+          var sortFunction  = function(r1, r2) {
+            verList1 = r1.children[sortIndex].innerText.split(/(\d+)/);
+            verList2 = r2.children[sortIndex].innerText.split(/(\d+)/);
+            var i = 0;
+            do {
+              var s1 = verList1[i];
+              var s2 = verList2[i];
+              var n1 = parseInt(s1);
+              var n2 = parseInt(s2);
+              if (s1 === s2) {
+                  i++;
+              } else if (isNaN(n1 + n2)) {
+                return s1 > s2 ? 1 : -1;
+              } else {
+                return n1 - n2;
+              }
+            } while ( i < verList1.length && i < verList2.length );
+            return verList1.length - verList2.length;
+          };
+          var sortedChildren = [...body.children].sort(sortFunction);
+          if (el.classList.contains('reverse')) {
+            sortedChildren.reverse();
+          }
+          body.innerText = '';
+          body.append(...sortedChildren);
+        }
+      });
+    });
+  });
+  </script>
+  
+  <style>
+  .sortable thead{
+    background-color: #f6feff;
+  }
+  .sortable thead th{
+    padding-right: 15px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .sortable thead .sort-key {
+    color: #3399cc;
+    position: relative;
+  }
+  .sortable thead .sort-key::after{
+    content: '\25B2';
+    font-size: 8px;
+    line-height: 1;
+    position: absolute;
+    right: 4px;
+    top: calc(50% - 4px);
+  }
+  .sortable thead .sort-key.reverse::after{
+    content: '\25BC';
+  }
+  </style>
