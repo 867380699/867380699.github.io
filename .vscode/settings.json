@@ -11,6 +11,8 @@
     "**-min.js": true,
     "**.min.js": true,
     "**.css.map": true,
-    "**.min.css": true
+    "**.min.css": true,
+    "**.lock": true,
+    "**.svg": true,
   }
 }
