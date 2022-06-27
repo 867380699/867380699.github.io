@@ -132,6 +132,10 @@ If `--lib` is not specified a default list of libraries are injected. The defaul
 }
 ```
 
+# Cheat Sheet
+
+![Types Cheat Sheet](/assets/TypeScript Types.png)
+
 # Refs
 
 > <https://github.com/microsoft/TypeScript>
