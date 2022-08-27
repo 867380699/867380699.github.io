@@ -822,3 +822,11 @@ The W3C defines the DOM as “A platform- and language-neutral interface that wi
 
 `HTML5` gives us vastly improved semantics, control over rich media with the `<audio>` and `<video>` elements, the capability of drawing with the `<canvas>` element, local browser storage for more than just `cookies`, built-in drag-and-drop support, and a lot more.
 
+# Ecmas规范
+
+> <https://www.ecma-international.org/publications-and-standards/standards/ecma-262/>
+> <https://github.com/tc39/ecma262>
+
+## ES11 (2020)
+
+`BigInt`

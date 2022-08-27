@@ -139,3 +139,14 @@ If `--lib` is not specified a default list of libraries are injected. The defaul
 # Refs
 
 > <https://github.com/microsoft/TypeScript>
+
+# Misc
+
+`enum` 不能保证 value 唯一，可使用 ESlint 解决
+
+```ts
+enum Color {
+  RED = 1,
+  BLUE = 1, // is ok ?!
+}
+```
