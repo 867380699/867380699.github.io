@@ -129,6 +129,18 @@ date: 2021-03-24
 - 胧村正
 - 异度之刃
 
+# DOS
+
+## Cores
+
+- DOSBox Pure
+
+## Games
+
+- The Magic Candle
+
+# Shaders
+
 # History
 
 ## Nintendo
