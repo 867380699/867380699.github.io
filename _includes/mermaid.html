@@ -1,0 +1,26 @@
+<script>
+  window.addEventListener('load', function(){
+    document.querySelectorAll("pre>code.language-mermaid").forEach($el => {
+    // if the second selector got a hit, reference the parent <pre>
+    if ($el.tagName === "CODE")
+      $el = $el.parentElement
+    // put the Mermaid contents in the expected <div class="mermaid">
+    // plus keep the original contents in a nice <details>
+    $el.outerHTML = `
+      <div class="mermaid">${$el.textContent}</div>
+    `
+  })
+})
+</script>
+<script src="/js/mermaid.min.js"></script>
+<script>
+mermaid.initialize({
+    'securityLevel': 'loose', 'theme': 'base'
+});
+</script>
+<style>
+div.mermaid g.cluster > rect {
+  stroke-dasharray: 4;
+  rx: 8px
+}
+</style>
