@@ -830,3 +830,9 @@ The W3C defines the DOM as “A platform- and language-neutral interface that wi
 ## ES11 (2020)
 
 `BigInt`
+
+# CSSOM
+
+```js
+document.styleSheets[0].cssRules
+```
