@@ -1,0 +1,27 @@
+---
+---
+
+t-playground {
+  .tabs {
+    display: flex;
+    .tab {
+      padding: 2px 8px;
+      background-color: #bcd;
+      min-width: 60px;
+      text-align: center;
+      cursor: pointer;
+
+      &.active {
+        background: #cdf;
+      }
+      & + .tab {
+        margin-left: 2px;
+      }
+    }
+  }
+  .editor {
+    .hide {
+      display: none;
+    }
+  }
+}

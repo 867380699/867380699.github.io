@@ -1,0 +1,71 @@
+<link rel="stylesheet" type="text/css" href="/css/playground.css">
+<script>
+class Playground extends HTMLElement {
+  constructor() {
+    super();
+  }
+  connectedCallback() {
+    setTimeout(() => {
+      this.createPlayground();
+    });
+  }
+
+  createPlayground() {
+    this.languageNodes = this.querySelectorAll('div[class^="language"]');
+    const editor = document.createElement('div');
+    editor.setAttribute('class', 'editor')
+    const tabs = [];
+    this.languageNodes.forEach((languageNode, index) => {
+      if (index){ languageNode.classList.add('hide')};
+      const langClass = Array.prototype.find.call(languageNode.classList, (c)=>c.startsWith('language-'));
+      tabs.push(langClass.replace('language-', ''))
+      editor.appendChild(languageNode);
+    });
+    this.innerHTML = '';
+    this.append(this.createTabs(tabs));
+    this.append(editor);
+    this.createPreview();
+  }
+
+  createTabs(tabs) {
+    const node = this;
+    const tabsEl = document.createElement('div');
+    tabsEl.setAttribute('class', 'tabs')
+    tabs.forEach((tab, index) => {
+      const el = document.createElement('div');
+      el.setAttribute('class', 'tab');
+      if (!index) el.classList.add('active');
+      el.textContent = tab;
+      tabsEl.appendChild(el); 
+    })
+    tabsEl.addEventListener('click', function($event) {
+      const index = Array.prototype.findIndex.call(tabsEl.children, el => el === $event.target);
+      if (index !== -1) {
+        Array.prototype.forEach.call(tabsEl.children, e => e.classList.remove('active'));
+        tabsEl.children[index].classList.add('active');
+        node.languageNodes.forEach(n => n.classList.add('hide'));
+        node.languageNodes[index].classList.remove('hide');
+      }
+    })
+    return tabsEl;
+  }
+
+  createPreview() {
+    const preview = document.createElement('div');
+    preview.classList.add('preview');
+    const iframe = document.createElement('iframe');
+    this.prepend(iframe)
+
+    const extractText = (lang) => (this.querySelector(`.language-${lang} .rouge-code`)||{}).textContent||'';
+    const wrapTag = (str, tag) => `<${tag}>${str}</${tag}>`;
+    const html = extractText('html');
+    const css = extractText('css');
+    const js = extractText('js');
+    iframe.contentWindow.document.open();
+    iframe.contentWindow.document.writeln(`${html}${wrapTag(css, 'style')}${wrapTag(js, 'script')}`);
+    iframe.contentWindow.document.close();
+  }
+}
+
+customElements.define('t-playground', Playground);
+</script>
