@@ -132,6 +132,9 @@ If `--lib` is not specified a default list of libraries are injected. The defaul
 }
 ```
 
+## extends
+
+
 # Cheat Sheet
 
 ![Types Cheat Sheet](/assets/TypeScript Types.png)
