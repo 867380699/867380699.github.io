@@ -566,6 +566,7 @@ layout: post
 - Site (A)
   + [C 语言教程](https://wangdoc.com/clang/index.html)
   + 简洁
+  + | HTML | JavaScript | ES6 | Web API | C 语言 | Bash | SSH |
 - Tips
   + `iframe` 有一个属性 `allowfullscreen`
   + ```js
@@ -720,3 +721,379 @@ layout: post
   + [What is the difference between ˍˍˍ and ˍˍˍ in the front-end development?](https://thisthat.dev/)
   + [Manage HTML DOM with vanilla JavaScript](https://htmldom.dev/)
   + [Favorite JavaScript utilities in single line of code! No more!](https://1loc.dev/)
+- Blog
+  + [iecho](https://iecho.cc/)
+  + | PT | Cloudflare |
+- Blog
+  + [测试岛](https://ceshidao.com/)
+  + 电子产品评测
+- YouTube
+  + [账户未命名](https://www.youtube.com/c/%E8%B4%A6%E6%88%B7%E6%9C%AA%E5%91%BD%E5%90%8D)
+  + | 家庭服务器 | Linux | 路由器 | Windows | NAS |
+- YouTube
+  + [JackHerrington](https://www.youtube.com/c/JackHerrington)
+  + | React | Solid | Svelte | GraphQL | Chakra | Tailwind |
+- App
+  + [nas-tools](https://github.com/jxxghp/nas-tools)
+  + NAS媒体库资源归集、整理自动化工具
+- App
+  + [Komga](https://komga.org/)
+  + Free and open source comics/mangas media server
+- App
+  + [ubooquity](https://vaemendis.net/ubooquity/)
+  + Free home server for your comics and ebooks library
+- App
+  + [Calibre](https://calibre-ebook.com/)
+  + One Stop solution to all your e-books needs.
+- App
+  + [Budibase](https://github.com/Budibase/budibase)
+  + Low code platform for creating internal apps, workflows, and admin panels in minutes.
+- Site
+  + [我不是矿神](https://imnks.com/play/)
+  + | NAS | 群晖套件中心 |
+- Site
+  + [Trends.vc - Markets and Ideas](https://trends.vc/archives/)
+- Tutorial
+  + [Open Source Tools & Data for Music Source Separation](https://source-separation.github.io/tutorial/landing.html)
+- Site
+  + [M30 - Explore, discover and consume public APIs as simpler building blocks](https://m3o.com)
+- App
+  + [ImHex - A Hex Editor for Reverse Engineers, Programmers and people who value their retinas when working at 3 AM.](https://github.com/WerWolv/ImHex)
+- Tutorial
+  + [手撕 Vben](https://www.kuxiaoxin.com/categories/handtearvben)
+  + 目前有 81 章
+- Site
+  + [樱花动漫](http://www.yinghuacd.com)
+- Site
+  + [报告查一查](https://report.seedsufe.com/index)
+- Site
+  + [Maze Generator](https://www.mazegenerator.net)
+- Repo
+  + [Rome - designed to replace Babel, ESLint, webpack, Prettier, Jest, and others.](https://github.com/rome/tools)
+  + | rust |
+- Repo
+  + [记录各个包管理器代理设置坑点](https://github.com/comwrg/package-manager-proxy-settings)
+  + [整理记录各个包管理器，系统镜像，以及常用软件的好用镜像](https://github.com/eryajf/Thanks-Mirror)
+- Blog
+  + [腾讯技术](https://www.zhihu.com/column/tencent-TEG)
+- Site
+  + [leaderboard-for-product-hunt](https://pesto.app/leaderboard-for-product-hunt/)
+- Site
+  + [FILMGRAB - 电影截图](https://film-grab.com)
+- Repo
+  + [Copy/paste detector for programming source code.](https://github.com/kucherenko/jscpd)
+- Docker
+  + [wallabag - a self hostable application for saving web pages](https://hub.docker.com/r/wallabag/wallabag/)
+- Tutorial
+  + [追剧全流程自动化](https://zhuanlan.zhihu.com/p/118162657)
+- Tutorial
+  + [Open-Source Tools & Data for Music Source Separation](https://source-separation.github.io/tutorial/intro/tutorial_structure.html)
+- Site
+  + [Light Pillar Support](https://lightpillar.zendesk.com/hc/en-us)
+    * Spotless - Keep your Mac Spotless by organising your files automatically
+    * Mosaic - Window Management solution for macOS
+    * Desktop Tidy - Keep your desktop clear of clutter with this handy macOS app
+    * Window Tidy - Our original Window Management solution, superseded by Mosaic
+- Blog
+  + [刘焕勇](https://liuhuanyong.github.io)
+  + | 知识图谱 | 自然语言处理 |
+- Page
+  + [Maslow's pyramid of code review](https://www.dein.fr/posts/2015-02-18-maslows-pyramid-of-code-review)
+  + Correct -> Secure -> Readable -> Elegant -> Altruist
+- App
+  + [SLK_img2pixel - a tool for converting images to pixel art](https://captain4lk.itch.io/slk-img2pixel)
+- Lang
+  + [Cooklang – Recipe Markup Language](https://cooklang.org)
+- Article
+  + [用树莓派打造一个超薄魔镜的简单教程](https://onevcat.com/2021/04/magicmirror/)
+- App
+  + [Syncthing - a continuous file synchronization program](https://syncthing.net)
+  + <https://github.com/syncthing/syncthing>
+- Page
+  + [core-algorithms-deployed](https://cstheory.stackexchange.com/questions/19759/core-algorithms-deployed)
+  + A list of examples where core algorithms have been deployed in commercial, governmental, or widely-used software/hardware.
+- Page
+  + [Sha256 algorithm explained online step by step visually](https://sha256algorithm.com)
+- Repo
+  + [Linux Command - 搜集了 570 多个 Linux 命令](https://github.com/jaywcjlove/linux-command)
+- Repo
+  + [实现最简 vue3 模型，用于深入学习 vue3， 让你更轻松的理解 vue3 的核心逻辑](https://github.com/cuixiaorui/mini-vue)
+- 
+- Repo
+  + [A simple and elegant open-source markdown editor](https://github.com/marktext/marktext)
+- Repo
+  + [Pixelorama - pixelate your dreams!](https://github.com/Orama-Interactive/Pixelorama)
+- Rust
+  + [choose - a human-friendly and fast alternative to cut](https://github.com/theryangeary/choose)
+- Cli
+  + [Disk Usage/Free Utility](https://github.com/muesli/duf)
+- Rust
+  + [dog is a command-line DNS client, like dig](https://github.com/ogham/dog)
+- Repo
+  + [Penpot is the first Open Source design and prototyping platform](https://github.com/penpot/penpot)
+- Tutorial
+  + [Functional Programming in Scala](https://purrgramming.life/cs/programming/fp/)
+- Reddit
+  + [Termux Startup](https://www.reddit.com/r/termux/comments/qwkd28/can_you_automatically_create_a_session_when/)
+  + ```sh
+      am startservice --user 0 -n com.termux/com.termux.app.RunCommandService \
+      -a com.termux.RUN_COMMAND \
+      --es com.termux.RUN_COMMAND_PATH '/data/data/com.termux/files/usr/bin/login' \
+      --ez com.termux.RUN_COMMAND_BACKGROUND 'false' 
+    ```
+  + <https://github.com/termux/termux-app/wiki/RUN_COMMAND-Intent>
+- App
+  + [All-in-one project management tool](https://height.app/product#visualizations)
+- Tutorial
+  + [Go by Example](https://gobyexample-cn.github.io)
+- Repo
+  + [feapder - 一款上手简单，功能强大的Python爬虫框架](https://github.com/Boris-code/feapder)
+  + | 监控面板 | 报警 |
+- Site
+  + [蜜柑计划：新一代的动漫下载站](https://mikanani.me)
+  + 自 2010 年起，353000+ 种子
+- Site
+  + [英语台词社—54000电影，110000集美剧完整台词](https://www.taicishe.com)
+- App
+  + [Pixelator - Turn any image into fancy pixel-art](http://pixelatorapp.com)
+- Service
+  + [Azure 语音服务](https://azure.microsoft.com/zh-cn/pricing/details/cognitive-services/speech-services/)
+  + 文本转语音 每月 0.5 million 个字符免费
+- Site
+  + [日文單字 | 日本見聞錄](http://www.zipangguide.net/japanese/word/index.html)
+- Site
+  + [湾区日报](https://wanqu.co/issues/)
+- Article (S)
+  + [How to start making pixel art](https://medium.com/pixel-grimoire/how-to-start-making-pixel-art-2d1e31a5ceab)
+- Blog
+  + [云风的 BLOG](https://blog.codingnow.com)
+  + | 游戏开发 | ECS | lua | 虚拟机 |
+- Repo
+  + [BGmi is - cli tool with Web UI for subscribed bangumi](https://github.com/BGmi/BGmi)
+- Blog
+  + [超能小紫](https://www.mokeyjay.com)
+- Repo
+  + [Zinc is a search engine that does full text indexing](https://github.com/zinclabs/zinc)
+  + a lightweight alternative to `Elasticsearch`
+- Repo
+  + [AI拟声: 5秒内克隆您的声音并生成任意语音内容](https://github.com/babysor/MockingBird)
+- Tutorial
+  + [Beginner Dart Language Tutorial for JavaScript Developers](https://blog.risingstack.com/learn-dart-language-beginner-tutorial/)
+- Article
+  + [Dart vs JavaScript vs TypeScript](https://tecky.io/zh_Hant/blog/Dart_vs_JavaScript_vs_TypeScript/)
+- Article
+  + [Rollup vs. Parcel vs. webpack](https://betterprogramming.pub/the-battle-of-bundlers-6333a4e3eda9)
+  + `Parcel` doesn’t require a config file at all.
+  + `Rollup` has node polyfills for `import`/`export`, but `webpack` doesn’t.
+  + `Parcel` supports tree shaking for both ES6 and CommonJS modules.
+  + Building a basic app and want to get it up and running quickly? Use `Parcel`.
+  + Building a library with minimal third-party imports? Use Rollup.
+  + Building a complex app with lots of third-party integrations? Need good code splitting, use of static assets, and CommonJs dependencies? Use `webpack`.
+- Article (A)
+  + <https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs>
+  + ```html
+      <link rel="icon" href="/favicon.ico" sizes="any"><!-- 32×32 -->
+      <link rel="icon" href="/icon.svg" type="image/svg+xml">
+      <link rel="apple-touch-icon" href="/apple-touch-icon.png"><!-- 180×180 -->
+      <link rel="manifest" href="/manifest.webmanifest">
+    ```
+  + ```js
+      // manifest.webmanifest
+      {
+        "icons": [
+          { "src": "/icon-192.png", "type": "image/png", "sizes": "192x192" },
+          { "src": "/icon-512.png", "type": "image/png", "sizes": "512x512" }
+        ]
+      }
+    ```
+- Lib
+  + [web-vitals - Essential metrics for a healthy site.](https://github.com/GoogleChrome/web-vitals)
+- Site (A)
+  + [MikuTools - 数十款有趣的小功能](https://tools.miku.ac)
+  + | 数据换算 | 图片处理 | 文字处理 | 编程开发 |
+  + | XML 转 JSON | 正则大全 |
+  + | 微博信息反查 | 显卡天梯 | CPU 天梯 |
+  + | 视频转 GIF | GIF 分解 | EXIF 查询 | 无损放大 |
+  + [新闻聚合](https://tools.miku.ac/news/)
+- App
+  + [Inkarnate - Create Fantasy Maps Online](https://inkarnate.com)
+- Article
+  + [一人公司方法论](https://github.com/easychen/one-person-businesses-methodology)
+- Repo
+  + [awesome-cli-apps](https://github.com/agarrharr/awesome-cli-apps#entertainment)
+- Article
+  + [Learn Math for Data Science, The Self-Starter Way](https://elitedatascience.com/learn-math-for-data-science)
+  + [Learn Machine Learning, The Self-Starter Way](https://elitedatascience.com/learn-machine-learning)
+- Tutorial (S)
+  + [FFmpeg libav tutorial](https://github.com/leandromoreira/ffmpeg-libav-tutorial/blob/master/README-cn.md)
+- Article
+  + [花 10 年写一本编程语言实现的书](https://catcoding.me/2022/01/12/a-book-on-programming-language.html)
+    * <http://gameprogrammingpatterns.com>
+    * <http://craftinginterpreters.com>
+    * 「成书是我见过的质量最高的技术书籍」
+- Site
+  + [隔离食用手册](https://cook.yunyoujun.cn)
+- Article
+  + [一个 老 的赚钱思路的合集](https://github.com/CrossLee/Old-ideas-store)
+- Repo
+  + [MarkDoc - A powerful, flexible, Markdown-based authoring framework.](https://github.com/markdoc/markdoc)
+- Article
+  + [用户行为分析模型实践（一）—— 路径分析模型](https://mp.weixin.qq.com/s/7fqsvD_Y2dFp3ptFkkFegg)
+- Repo
+  + [独立开发变现周刊](https://github.com/ljinkai/weekly)
+- Repo
+  + [terser - JavaScript parser, mangler and compressor toolkit for ES6+](https://github.com/terser/terser)
+  + terser is a fork of uglify-es
+- Article (S)
+  + [Proxy and Reflect](https://javascript.info/proxy)
+- Blog
+  + [research!rsc](https://research.swtch.com)
+  + | Go | Memory Models |
+- Site
+  + [State of CSS 2021](https://2021.stateofcss.com/zh-Hans/)
+- Blog (A)
+  + [Sukka's Blog](https://blog.skk.moe/archives/)
+    * | React | 博客 CLS 优化 | 优化博客白屏时间 |
+    * [我的博客有多快？](https://blog.skk.moe/post/how-fast-is-my-blog/)
+    * [zsh 和 oh my zsh 冷启动速度优化](https://blog.skk.moe/post/make-oh-my-zsh-fly/)
+- Site
+  + [wikiHow](https://www.wikihow.com/)
+    * [Dress-Well-on-a-Budget](https://www.wikihow.com/Dress-Well-on-a-Budget)
+- Repo
+  + [todo.txt format](https://github.com/todotxt/todo.txt)
+  + `x A 2011-03-02 2011-03-01 Review Tim's pull request +TodoTxtTouch @github due:2011-03-03`
+  + `+` - project tag
+- Repo
+  + [List of awesome reverse engineering resources](https://github.com/wtsxDev/reverse-engineering)
+- CLI
+  + [htmlq - Like jq, but for HTML.](https://github.com/mgdm/htmlq)
+  + #Rust#
+  + `$ curl --silent example.com | htmlq 'body' | bat --language html`
+- CLI
+  + [HTTPie: human-friendly CLI HTTP client for the API era](https://github.com/httpie/httpie)
+  + `http PUT pie.dev/put X-API-Token:123 name=John`
+- Site
+  + [极简插件 - Chrome扩展插件商店](https://chrome.zzzmh.cn/#/index)
+- Blog
+  + [B站中日双语字幕动漫汇总](https://zhuanlan.zhihu.com/p/209032803)
+- Tutorial
+  + [How to Draw S-Curved Arrows Between Boxes / Rectangles](https://dragonman225.js.org/curved-arrows.html)
+- Repo
+  + [ailab - Anime Image Super Resolution](https://github.com/bilibili/ailab)
+- Book
+  + [前端内参](https://coffe1891.gitbook.io/frontend-hard-mode-interview/)
+- VS code Plugin
+  + [CodeMetrics](https://marketplace.visualstudio.com/items?itemName=kisstkondoros.vscode-codemetrics)
+  + Computes complexity in TypeScript / JavaScript / Lua files.
+- App
+  + [HTTP TOOLKIT - Intercept & view all your HTTP(S)](https://httptoolkit.tech)
+- Site (S)
+  + [Web.dev](https://web.dev/)
+  + Course: Responsive Design, Forms, PWA, CSS
+  + <https://web.dev/blog/>
+  + <https://web.dev/blog/>
++ Blog
+  + [程序员的喵](https://catcoding.me)
++ Repo
+  + [The-Complete-FAANG-Preparation](https://github.com/AkashSingh3031/The-Complete-FAANG-Preparation#2-dsa)
++ Site
+  + [Houdini.how - The community-driven resource library of CSS Houdini worklets.](https://houdini.how)
++ Blog
+  + [Josh W Comeau](https://www.joshwcomeau.com)
+  + | React | Animation | CSS | Career | Gatsby | Next.js | Performance |
++ Lib
+  + [D3.js](https://d3js.org)
++ Blog
+  + [前端食堂](https://hungryturbo.zhubai.love)
++ Repo
+  + [Lotion - An open-source Notion UI built with Vue 3](https://github.com/Dashibase/lotion)
++ App
+  + [Squoosh - Squoosh is the ultimate image optimizer that allows you to compress and compare images with different codecs in your browser.](https://squoosh.app)
+  + [squoosh](https://github.com/GoogleChromeLabs/squoosh)
++ Repo
+  + [Pipenv - Python Development Workflow for Humans](https://github.com/pypa/pipenv)
++ Wiki
+  + [Twelve-Factor App methodology](https://en.wikipedia.org/wiki/Twelve-Factor_App_methodology)
++ List
+  + [经典技术书籍](https://awesome-programming-books.github.io/)
+  + | JavaScript | Node.js | Golang | Clean code | Others |
++ App
+  + [Lima - Linux virtual machines on macOS](https://github.com/lima-vm/lima#getting-started)
++ App
+  + [hapi - The Simple, Secure Framework Developers Trust](https://github.com/hapijs/hapi)
++ Wiki
+  + [IP知识百科 - HTTP/2](https://info.support.huawei.com/info-finder/encyclopedia/zh/HTTP--2.html)
++ Repo
+  + [STF - Smartphone Test Farm](https://github.com/DeviceFarmer/stf)
++ Repo
+  + [Fabric.js - a powerful and simple Javascript HTML5 canvas library](http://fabricjs.com/)
++ Repo
+  + [Konva.js - HTML5 2d canvas js library for desktop and mobile applications](https://konvajs.org/)
++ Repo
+  + [headscale - An open source, self-hosted implementation of the Tailscale.](https://github.com/juanfont/headscale)
++ Framework
+  + [astro - Build faster websites.](https://astro.build/)
++ Framework
+  + [Lit - Simple.Fast. Web Components.](https://lit.dev/)
++ Lib
+  + [vanilla-extract - Zero-runtime Stylesheets in TypeScript.](https://vanilla-extract.style/)
++ Blog
+  + [Robust - 唐霜](https://www.tangshuang.net/)
++ App
+  + [minikube quickly sets up a local Kubernetes cluster on macOS, Linux, and Windows.](https://minikube.sigs.k8s.io/docs/)
++ site (A)
+  + [Vim cheatsheet](https://devhints.io/vim)
+  + <https://devhints.io/>
+  + | bash | es6 | go | react | sass | vim | xpath |
++ page
+  + [Vim Cheat Sheet](https://vim.rtorr.com/)
++ Article
+  + [A Complete Guide to Dark Mode on the Web](https://css-tricks.com/a-complete-guide-to-dark-mode-on-the-web/)
++ Site
+  + [A List of Static Site Generators for Jamstack Sites](https://jamstack.org/generators/)
++ Article
+  + <https://krasimirtsonev.com/blog/article/build-your-own-interactive-javascript-playground>
++ Lib
+  + [CodeMirror](https://codemirror.net/)
++ Tutorial
+  + [Let's Build a Simple Database](https://github.com/cstack/db_tutorial)
+  + <https://cstack.github.io/db_tutorial/>
++ Repo
+  + [MangaTextDetection](https://github.com/johnoneil/MangaTextDetection)
+  + Experiments in text localization and detection in raw manga scans. Mostly using OpenCV python API.
++ Blog
+  + [8 年 Android 开发者的成长感悟](https://github.com/Skykai521/AndroidDeveloperAdvancedManual)
++ Site
+  + [公曆與農曆日期對照表 - 香港天文台](https://www.hko.gov.hk/tc/gts/time/conversion1_text.htm#)
+- Article
+  + [文件目录大纲](https://www.wolai.com/oyps/rd9hebowuVcKtTjGqR4pmF)
+  + | 视频 | 图片 | 文档 | 音乐 | 软件 | 其他 |
+- Site
+  + [Zapier | Automation that moves you forward](https://zapier.com)
+- Site
+  + [n8n - Automate without limits](https://n8n.io/)
+- Repo
+  + [ramjet - Morph DOM elements from one state to another with smooth animations and transitions](https://github.com/Rich-Harris/ramjet)
+- Podcast
+  + [syntax.fm](https://syntax.fm/show/426/monorepos-workspaces-pnpm-turborepo-more)
+- Tool
+  + [SWC - Rust-based platform for the Web](https://swc.rs/)
+  + SWC is 20x faster than Babel on a single thread and 70x faster on four cores.
+- Lib
+  + [SWR - React Hooks library for data fetching.](https://github.com/vercel/swr)
+- Article
+  + [My VS Code Playground](https://pawelcislo.com/2021/11/14/my-vs-code-playground/#ftoc-heading-10)
+- Site
+  + [houdini.how](https://houdini.how/resources/)
+- Site
+  + [Gamma](https://gamma.app)
+  + <https://www.craft.do/s/MPQKApT5Sdyxei>
+- App
+  + [Tiny Tiny RSS](https://tt-rss.org/)
+- Lib
+  + [⌘K](https://github.com/pacocoursey/cmdk)
+- Article
+  + [CSS Tips](https://markodenic.com/css-tips/)
+  + CSS Scroll Snap | Tooltips | Modal | Anything resizable
+- Repo
+  + [remesh - A CQRS-based DDD framework](https://github.com/remesh-js/remesh)
