@@ -1104,3 +1104,9 @@ layout: post
   + <https://www.youtube.com/@codingtudou/videos>
 - Blog (A)
   + [custom video player](https://freshman.tech/custom-html5-video/)
+- OS
+  + [Pop!_OS](https://pop.system76.com/)
+  + Tiling Windows, App Launcher, Windows Switcher, Touchpad Gestures, Dock, Dark Mode
+- Browser
+  + [Vivaldi](https://vivaldi.com/)
+  + 
