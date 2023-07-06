@@ -1097,3 +1097,10 @@ layout: post
   + CSS Scroll Snap | Tooltips | Modal | Anything resizable
 - Repo
   + [remesh - A CQRS-based DDD framework](https://github.com/remesh-js/remesh)
+- Site
+  + [1MB Club - a growing collection of performance-focused web pages weighing less than 1 megabyte.](https://1mb.club/)
+- Lib
+  + <https://github.com/vimwiki/vimwiki>
+  + <https://www.youtube.com/@codingtudou/videos>
+- Blog (A)
+  + [custom video player](https://freshman.tech/custom-html5-video/)
