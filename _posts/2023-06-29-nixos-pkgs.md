@@ -99,6 +99,12 @@ date: 2023-06-29
 
 ### WayDroid
 
+```sh
+waydroid prop set persist.waydroid.height 1036
+waydroid prop set persist.waydroid.width 640
+adb shell wm size 640x1036
+waydroid session stop
+```
 
 # Browser
 
@@ -142,6 +148,14 @@ i18n.inputMethod = {
 
 > <https://github.com/catppuccin/catppuccin>
 
+## Icons
+
+icon path: `<home-path>/share/icons`
+
+## Cursors
+
+> <https://www.gnome-look.org/browse?cat=107>
+
 # Cloudflare
 
 ## WARP
@@ -157,7 +171,9 @@ warp-cli status
 # WiFi
 
 - nmtui
-
+- nmtui-connect
+- nmcli
+  + nmcli dev wifi list
 # AppImage
 
 ```sh
